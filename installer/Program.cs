@@ -444,7 +444,16 @@ namespace LotmRussianPatcher
                     string binDir = Path.Combine(gamePath, "Binaries", "Win64", "lua", "Launch", "Base");
                     if (!Directory.Exists(binDir)) Directory.CreateDirectory(binDir);
                     string cpddLua = Path.Combine(binDir, "CPDDTranslation.lua");
-                    string expectedHook = "local f=io.open([[" + modsDir.Replace("\\", "/") + "/bootstrap.lua]],\"rb\") if f then f:close() dofile([[" + modsDir.Replace("\\", "/") + "/bootstrap.lua]]) end";
+                    string expectedHook = "local original = require(\"Launch.Base.LaunchStringExt\")\n\n"
+                        + "local File = import(\"LuaFunctionLibrary\")\n"
+                        + "local path = File.GetFilePath(import(\"BlueprintPathsLibrary\").ProjectSavedDir()) .. \"/Mods/bootstrap.lua\"\n"
+                        + "local source = File.LoadFile(path)\n"
+                        + "LaunchLog.Info(\"[LOMModLoader] bootstrap path=\" .. path .. \" bytes=\" .. tostring(source and #source or 0))\n"
+                        + "if source and source ~= \"\" then\n"
+                        + "    local chunk, message = load(source, \"@\" .. path)\n"
+                        + "    if chunk then xpcall(chunk, LaunchLog.Error) else LaunchLog.Error(message) end\n"
+                        + "end\n\n"
+                        + "return original\n";
                     File.WriteAllText(cpddLua, expectedHook, System.Text.Encoding.UTF8);
                     Log("Хук загрузчика успешно прописан в CPDDTranslation.lua");
 
