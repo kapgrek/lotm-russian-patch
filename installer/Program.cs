@@ -35,7 +35,7 @@ namespace LotmRussianPatcher
 
         private void InitializeComponent()
         {
-            this.Text = "Lord of the Mysteries — Установщик Русификатора v1.1";
+            this.Text = "Lord of the Mysteries — Установщик Русификатора v1.2";
             this.Size = new Size(680, 520);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -389,7 +389,27 @@ namespace LotmRussianPatcher
                                     wc.DownloadFile(downloadUrl, tempZip);
 
                                     Log("Распаковка обновления...");
-                                    ZipFile.ExtractToDirectory(tempZip, modsDir);
+                                    using (ZipArchive archive = ZipFile.OpenRead(tempZip))
+                                    {
+                                        foreach (ZipArchiveEntry entry in archive.Entries)
+                                        {
+                                            string fullPath = Path.Combine(gamePath, entry.FullName);
+                                            if (string.IsNullOrEmpty(entry.Name))
+                                            {
+                                                Directory.CreateDirectory(fullPath);
+                                            }
+                                            else
+                                            {
+                                                string parentDir = Path.GetDirectoryName(fullPath);
+                                                if (!Directory.Exists(parentDir)) Directory.CreateDirectory(parentDir);
+                                                using (Stream entryStream = entry.Open())
+                                                using (FileStream fs = new FileStream(fullPath, FileMode.Create, FileAccess.Write, FileShare.None))
+                                                {
+                                                    entryStream.CopyTo(fs);
+                                                }
+                                            }
+                                        }
+                                    }
                                     File.Delete(tempZip);
                                     downloadedFromGitHub = true;
                                     Log("Файлы успешно загружены и распакованы с GitHub!");
