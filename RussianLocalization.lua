@@ -274,9 +274,21 @@ Russian.englishToRussian = {
     ["marionette"] = "Марионетки",
     ["Training Dummy"] = "Манекен",
     ["Single Target"] = "Одиночная цель",
+    ["Area Target"] = "По области",
+    ["Area of Effect"] = "По области",
+    ["AOE"] = "По области",
     ["Super Armor"] = "Суперброня",
+    ["Strengthening"] = "Усиление",
+    ["Receive Blue Card"] = "Синяя карта",
+    ["Receive Yellow Card"] = "Жёлтая карта",
+    ["Self"] = "На себя",
     ["Card Energy"] = "Энергия карт",
     ["10Second"] = "10 сек.",
+    ["25Second"] = "25 сек.",
+    ["Praise the Fool, increasing the user's damage for 10 seconds, and obtain a Spirituality Blue Card and one point of Card Energy (used to unlock Finisher Skills).\n\nThe Fool that doesn't belong to this era; the mysterious ruler above the gray fog; the King of Yellow and Black who wields good luck. Praise the Fool!"] = "Восславьте Шута: увеличивает урон персонажа на 10 сек., дарует Синюю карту духовности и 1 очко Энергии карт (необходимо для открытия добивающих навыков).\n\nНе принадлежащий этой эпохе Шут; таинственный правитель над серым туманом; Владыка Жёлтого и Чёрного, повелевающий удачей. Восславь Шута!",
+    ["Praise the Fool, increasing the user's damage for 10 seconds, and obtain a Spirituality Blue Card and one point of Card Energy (used to unlock Finisher Skills).\n\nThe Fool that doesn't belong to this era; the mysterious ruler above the gray fog; the King of Yellow and Black who wields good luck. Praise the Fool!\n"] = "Восславьте Шута: увеличивает урон персонажа на 10 сек., дарует Синюю карту духовности и 1 очко Энергии карт (необходимо для открытия добивающих навыков).\n\nНе принадлежащий этой эпохе Шут; таинственный правитель над серым туманом; Владыка Жёлтого и Чёрного, повелевающий удачей. Восславь Шута!",
+    ["Praise the Fool, increasing the user's damage for 10 seconds, and obtain a Spirituality Blue Card and one point of Card Energy (used to unlock Finisher Skills)."] = "Восславьте Шута: увеличивает урон персонажа на 10 сек., дарует Синюю карту духовности и 1 очко Энергии карт (необходимо для открытия добивающих навыков).",
+    ["The Fool that doesn't belong to this era; the mysterious ruler above the gray fog; the King of Yellow and Black who wields good luck. Praise the Fool!"] = "Не принадлежащий этой эпохе Шут; таинственный правитель над серым туманом; Владыка Жёлтого и Чёрного, повелевающий удачей. Восславь Шута!",
     ["Air Bullet"] = "Воздушная пуля",
     ["Air Bullets"] = "Воздушные пули",
     ["Tarot Array"] = "Таро-расклад",
@@ -743,23 +755,29 @@ function Russian.lookupRussianText(text)
         if found ~= nil then return found end
     end
 
-    -- 4. Контекстный перевод динамических описаний навыков
-    if #text > 20 and (text:find("Air Bullet", 1, true) or text:find("Super Armor", 1, true) or text:find("Card Energy", 1, true) or text:find("skills level up together", 1, true) or text:find("Путь skills", 1, true)) then
+    -- 4. Автоматическая обработка тегов времени (%d+Second)
+    local sec = text:match("^(%d+)Second$")
+    if sec ~= nil then
+        return sec .. " сек."
+    end
+
+    -- 5. Контекстный перевод динамических описаний навыков и подсказок
+    if #text > 20 then
         local m = text
-        m = m:gsub("All Путь skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
-        m = m:gsub("Путь skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+        -- Благословение Шута
+        m = m:gsub("Praise the Fool, increasing the user's damage for (%d+) seconds, and obtain a Spirituality Blue Card and one point of Card Energy %(used to unlock Finisher Skills%)%.", "Восславьте Шута: увеличивает урон персонажа на %1 сек., дарует Синюю карту духовности и 1 очко Энергии карт (необходимо для открытия добивания).")
+        m = m:gsub("The Fool that doesn't belong to this era; the mysterious ruler above the gray fog; the King of Yellow and Black who wields good luck%. Praise the Fool!", "Не принадлежащий этой эпохе Шут; таинственный правитель над серым туманом; Владыка Жёлтого и Чёрного, повелевающий удачей. Восславь Шута!")
+
+        -- Воздушная пуля
         m = m:gsub("Continuously fire Air Bullets at the locked target for ([%d%.]+) seconds, dealing (%d+) physical damage (%d+) times and interrupting enemy monsters; you can move while casting and gain ([%d%.]+) seconds of Super Armor and (%d+)%% Acceleration upon activation%. After casting, gain one point of Card Energy and one Spirituality Blue Card%.", "Непрерывно выпускайте Воздушные пули в цель в течение %1 сек., нанося %2 физ. урона 5 раз и прерывая врагов; во время каста можно двигаться и получить %4 сек. Суперброни и %5%% ускорения. После каста дает 1 очко Энергии карт и одну Синюю карту духовности.")
         m = m:gsub("Fooling of Fate Yellow Card/Spirituality Blue Card: When three Fooling of Fate Yellow Cards/Spirituality Blue Cards are collected, consume all cards to switch the Finisher Skill Shuffle to Fooling of Fate/Spirituality Burst%.", "Жёлтая карта одурачивания / Синяя карта духовности: При сборе 3 карт они расходуются, переключая Добивание: Тасование на Одурачивание судьбы / Всплеск духовности.")
         m = m:gsub("Card Energy: Can hold up to 5 points%. When reaching 5 points, the Finisher Skill switches and locks to Shuffle Cards", "Энергия карт: Вмещает до 5 очков. При 5 очках Добивающий навык переключается и фиксируется на Тасование карт")
-        m = m:gsub("Air Bullets", "Воздушные пули")
-        m = m:gsub("Air Bullet", "Воздушная пуля")
-        m = m:gsub("Super Armor", "Суперброня")
-        m = m:gsub("Card Energy", "Энергия карт")
-        m = m:gsub("Fooling of Fate", "Одурачивание судьбы")
-        m = m:gsub("Spirituality Burst", "Всплеск духовности")
-        m = m:gsub("Shuffle Cards", "Тасование карт")
-        m = m:gsub("Single Target", "Одиночная цель")
-        m = m:gsub("10Second", "10 сек.")
+
+        -- Строка улучшения внизу экрана
+        m = m:gsub("All Путь skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+        m = m:gsub("Путь skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+        m = m:gsub("All Path skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+
         if m ~= text then
             return m
         end
