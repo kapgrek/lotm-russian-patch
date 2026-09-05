@@ -4003,6 +4003,12 @@ Loader.AfterLoad("Gameplay.LogicSystem.SkillCustomizer.SkillBuffDescUtils", func
     end
 
     function utils:AssembleDescString(inString, values, rtbOverWrite, id, level, descType, originalType, descContext)
+        if type(inString) == "string" and RussianMod and RussianMod.lookupRussianText then
+            local ruIn = RussianMod.lookupRussianText(inString)
+            if ruIn ~= nil then
+                inString = ruIn
+            end
+        end
         local original = originalAssembleDescString(
             self, inString, values, rtbOverWrite, id, level,
             descType, originalType, descContext
@@ -4030,25 +4036,38 @@ Loader.AfterLoad("Gameplay.LogicSystem.SkillCustomizer.DescFormulaHelper", funct
         return value
     end
     local originalGenerateTipsDesc = helper.GenerateTipsDesc
-    if type(originalGenerateTipsDesc) ~= "function" then
-        return value
+    if type(originalGenerateTipsDesc) == "function" then
+        helper.GenerateTipsDesc = function(tipsString, markTag)
+            local original = originalGenerateTipsDesc(tipsString, markTag)
+            if type(original) ~= "string" then
+                return original
+            end
+            local translated = repairLiveString(
+                "DescFormulaHelper", "GenerateTipsDesc",
+                "GenerateTipsDesc.return", original
+            )
+            runtimeMetrics.CaptureTranslationAssignment(
+                nil, "DescFormulaHelper", "DescFormulaHelper",
+                "TipsDescription", original, translated
+            )
+            return translated
+        end
     end
 
-    helper.GenerateTipsDesc = function(tipsString, markTag)
-        local original = originalGenerateTipsDesc(tipsString, markTag)
-        if type(original) ~= "string" then
-            return original
+    local originalGenerateDesc = helper.GenerateDesc
+    if type(originalGenerateDesc) == "function" then
+        helper.GenerateDesc = function(...)
+            local original = originalGenerateDesc(...)
+            if type(original) ~= "string" then
+                return original
+            end
+            return repairLiveString(
+                "DescFormulaHelper", select(1, ...),
+                "GenerateDesc.return", original
+            )
         end
-        local translated = repairLiveString(
-            "DescFormulaHelper", "GenerateTipsDesc",
-            "GenerateTipsDesc.return", original
-        )
-        runtimeMetrics.CaptureTranslationAssignment(
-            nil, "DescFormulaHelper", "DescFormulaHelper",
-            "TipsDescription", original, translated
-        )
-        return translated
     end
+
     helper.__cpddGeneratedTipsRepair = VERSION
     report("installed shared generated equipment-tip translation")
     return value
@@ -4061,11 +4080,22 @@ local function installSkillDescriptionRepair(value, environment)
     end
 
     local wrapped = 0
-    for _, methodName in ipairs({
+    local targetMethods = {
+        "GenerateSkillDesc",
         "GenerateSkillDescNoRichText",
         "GenerateSkillBriefDesc",
         "GenerateSkillDecoText",
-    }) do
+        "GenerateSkillDetailDesc",
+        "GenerateSkillNextDesc",
+        "GetSkillDesc",
+        "GetSkillBriefDesc",
+        "GetSkillDetailDesc",
+        "GenerateNextLevelDesc",
+        "GetNextLevelDesc",
+    }
+    local seen = {}
+    for _, methodName in ipairs(targetMethods) do
+        seen[methodName] = true
         local original = skillSystem[methodName]
         if type(original) == "function" then
             skillSystem[methodName] = function(self, ...)
@@ -4079,9 +4109,25 @@ local function installSkillDescriptionRepair(value, environment)
         end
     end
 
+    for k, v in pairs(skillSystem) do
+        if not seen[k] and type(k) == "string" and type(v) == "function" and (
+            k:find("SkillDesc") or k:find("SkillBrief") or k:find("SkillDeco") or k:find("SkillDetail") or k:find("Desc")
+        ) then
+            local original = v
+            skillSystem[k] = function(self, ...)
+                local results = { original(self, ...) }
+                if type(results[1]) == "string" then
+                    results[1] = repairLiveString("SkillCustomSystem", select(1, ...), k, results[1])
+                end
+                return unpack(results)
+            end
+            wrapped = wrapped + 1
+        end
+    end
+
     skillSystem.__cpddGeneratedTextRepair = VERSION
     if wrapped > 0 then
-        report("installed generated skill-description repair")
+        report("installed generated skill-description repair (wrapped " .. wrapped .. " methods)")
     end
     return wrapped > 0
 end
