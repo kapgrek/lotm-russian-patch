@@ -261,6 +261,51 @@ Russian.englishToRussian = {
     ["Leaderboard"] = "Таблица лидеров",
     ["Skills"] = "Навыки",
     ["Skill"] = "Навыки",
+    ["Normal Skill"] = "Обычные навыки",
+    ["Special Skill (No Equipment Required)"] = "Особые навыки (без экипировки)",
+    ["Roleplay Skill"] = "Навыки роли",
+    ["One-Click Upgrade"] = "Быстрое улучшение",
+    ["One-click Upgrade"] = "Быстрое улучшение",
+    ["One-click upgrade"] = "Быстрое улучшение",
+    ["Equip Skill"] = "Экипировать навык",
+    ["Next-Level Effect"] = "Эффект след. уровня",
+    ["Simple"] = "Кратко",
+    ["Connections"] = "Связи",
+    ["marionette"] = "Марионетки",
+    ["Training Dummy"] = "Манекен",
+    ["Single Target"] = "Одиночная цель",
+    ["Super Armor"] = "Суперброня",
+    ["Card Energy"] = "Энергия карт",
+    ["10Second"] = "10 сек.",
+    ["Air Bullet"] = "Воздушная пуля",
+    ["Air Bullets"] = "Воздушные пули",
+    ["Tarot Array"] = "Таро-расклад",
+    ["Miracle Card Rain"] = "Дождь карт чудес",
+    ["Fool's Blessing"] = "Благословение Шута",
+    ["Card Flying Dagger"] = "Карточный кинжал",
+    ["Flame Jump"] = "Перемещение по пламени",
+    ["Card Master"] = "Мастер карт",
+    ["Realm of Mysteries"] = "Царство Тайн",
+    ["Reveal Card"] = "Раскрытие карты",
+    ["Paper Figurine Substitute"] = "Бумажный человечек",
+    ["Fooling of Fate"] = "Одурачивание судьбы",
+    ["Spirituality Burst"] = "Всплеск духовности",
+    ["Shuffle Cards"] = "Тасование карт",
+    ["Cut Cards"] = "Снятие карт",
+    ["Open Door"] = "Открытие двери",
+    ["Secret Words"] = "Тайные слова",
+    ["Pendulum Divination"] = "Гадание на маятнике",
+    ["Earthquake Slam"] = "Сотрясение земли",
+    ["Praise the Sun"] = "Восславь Солнце",
+    ["Emotional Spectrum"] = "Эмоциональный спектр",
+    ["Poised to Strike"] = "Готовность к удару",
+    ["Listen to Heart's Voice"] = "Глас сердца",
+    ["Smiling Clown"] = "Улыбающийся клоун",
+    ["War Soul Afterimage"] = "Остаточный образ души войны",
+    ["Illusion Trick"] = "Иллюзорный фокус",
+    ["Holy Light Favor"] = "Благосклонность Святого Света",
+    ["Astrological Revelation"] = "Астрологическое откровение",
+    ["Mental Comfort"] = "Психологическое утешение",
     ["Talent"] = "Таланты",
     ["Talents"] = "Таланты",
     ["Path"] = "Путь",
@@ -603,6 +648,42 @@ Russian.chineseToRussian = {
     ["亚当"] = "Адам",
     ["安提哥努斯"] = "Антигон",
     ["查拉图"] = "Заратул",
+    ["普通技能"] = "Обычные навыки",
+    ["特殊技能（无需装配）"] = "Особые навыки (без экипировки)",
+    ["特殊技能(无需装配)"] = "Особые навыки (без экипировки)",
+    ["扮演技能"] = "Навыки роли",
+    ["一键升级"] = "Быстрое улучшение",
+    ["装配技能"] = "Экипировать навык",
+    ["下级效果"] = "Эффект след. уровня",
+    ["空气子弹"] = "Воздушная пуля",
+    ["空气弹"] = "Воздушная пуля",
+    ["纸牌飞刀"] = "Карточный кинжал",
+    ["塔罗牌阵"] = "Таро-расклад",
+    ["奇迹牌雨"] = "Дождь карт чудес",
+    ["火焰跳跃"] = "Перемещение по пламени",
+    ["愚者祝福"] = "Благословение Шута",
+    ["卡牌大师"] = "Мастер карт",
+    ["诡秘领域"] = "Царство Тайн",
+    ["开牌"] = "Раскрытие карты",
+    ["纸人替身"] = "Бумажный человечек",
+    ["命运愚弄"] = "Одурачивание судьбы",
+    ["灵性爆发"] = "Всплеск духовности",
+    ["洗牌"] = "Тасование карт",
+    ["切牌"] = "Снятие карт",
+    ["开门"] = "Открытие двери",
+    ["秘语"] = "Тайные слова",
+    ["灵摆占卜"] = "Гадание на маятнике",
+    ["地震重击"] = "Сотрясение земли",
+    ["赞美太阳"] = "Восславь Солнце",
+    ["情绪光谱"] = "Эмоциональный спектр",
+    ["蓄势待发"] = "Готовность к удару",
+    ["倾听心声"] = "Глас сердца",
+    ["微笑小丑"] = "Улыбающийся клоун",
+    ["战魂残影"] = "Остаточный образ души войны",
+    ["戏法假象"] = "Иллюзорный фокус",
+    ["圣光眷顾"] = "Благосклонность Святого Света",
+    ["占星启示"] = "Астрологическое откровение",
+    ["心灵抚慰"] = "Психологическое утешение",
 }
 
 -- Подмена фрагментов текста внутри фраз
@@ -660,6 +741,28 @@ function Russian.lookupRussianText(text)
     if russianRuntimeMap then
         local found = russianRuntimeMap[text]
         if found ~= nil then return found end
+    end
+
+    -- 4. Контекстный перевод динамических описаний навыков
+    if #text > 20 and (text:find("Air Bullet", 1, true) or text:find("Super Armor", 1, true) or text:find("Card Energy", 1, true) or text:find("skills level up together", 1, true) or text:find("Путь skills", 1, true)) then
+        local m = text
+        m = m:gsub("All Путь skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+        m = m:gsub("Путь skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+        m = m:gsub("Continuously fire Air Bullets at the locked target for ([%d%.]+) seconds, dealing (%d+) physical damage (%d+) times and interrupting enemy monsters; you can move while casting and gain ([%d%.]+) seconds of Super Armor and (%d+)%% Acceleration upon activation%. After casting, gain one point of Card Energy and one Spirituality Blue Card%.", "Непрерывно выпускайте Воздушные пули в цель в течение %1 сек., нанося %2 физ. урона 5 раз и прерывая врагов; во время каста можно двигаться и получить %4 сек. Суперброни и %5%% ускорения. После каста дает 1 очко Энергии карт и одну Синюю карту духовности.")
+        m = m:gsub("Fooling of Fate Yellow Card/Spirituality Blue Card: When three Fooling of Fate Yellow Cards/Spirituality Blue Cards are collected, consume all cards to switch the Finisher Skill Shuffle to Fooling of Fate/Spirituality Burst%.", "Жёлтая карта одурачивания / Синяя карта духовности: При сборе 3 карт они расходуются, переключая Добивание: Тасование на Одурачивание судьбы / Всплеск духовности.")
+        m = m:gsub("Card Energy: Can hold up to 5 points%. When reaching 5 points, the Finisher Skill switches and locks to Shuffle Cards", "Энергия карт: Вмещает до 5 очков. При 5 очках Добивающий навык переключается и фиксируется на Тасование карт")
+        m = m:gsub("Air Bullets", "Воздушные пули")
+        m = m:gsub("Air Bullet", "Воздушная пуля")
+        m = m:gsub("Super Armor", "Суперброня")
+        m = m:gsub("Card Energy", "Энергия карт")
+        m = m:gsub("Fooling of Fate", "Одурачивание судьбы")
+        m = m:gsub("Spirituality Burst", "Всплеск духовности")
+        m = m:gsub("Shuffle Cards", "Тасование карт")
+        m = m:gsub("Single Target", "Одиночная цель")
+        m = m:gsub("10Second", "10 сек.")
+        if m ~= text then
+            return m
+        end
     end
 
     return nil

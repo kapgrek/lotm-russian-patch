@@ -2205,6 +2205,12 @@ local function returnLiveRepairResult(tableName, rowKey, fieldPath, original, re
 end
 
 repairLiveString = function(tableName, rowKey, fieldPath, value)
+    if RussianMod and RussianMod.lookupRussianText then
+        local ru = RussianMod.lookupRussianText(value)
+        if ru ~= nil then
+            return ru
+        end
+    end
     local enterWorldShortened = shortenEnterWorldLabel(value)
     if enterWorldShortened ~= value then
         return enterWorldShortened
