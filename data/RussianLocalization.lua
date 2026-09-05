@@ -81,7 +81,7 @@ Russian.stringConstOverrides = {
     ONE_CLICK_IN_USE = "Используется",
     ONE_CLICK_RECOMMEND_PLAN = "Рекомендованная сборка",
     ONE_CLICK_SHARE_RECOMMEND_PLAN = "Рекомендованные сборки",
-    ONE_CLICK_TITLE = "Помощник в один клик",
+    ONE_CLICK_TITLE = "Помощник",
     ONE_CLICK_USE = "Использовать",
     TRAINTRADE_ITEM_DISCOUNT_CHINESE = "Скидка %d0%%",
     MAP_PVP_LAST_HUNT_DRAGON_BOSS_BELONG_FORMAT = "Принадлежность команде: <Green>%s</>",
@@ -129,6 +129,19 @@ Russian.stringConstOverrides = {
 
 -- Прямой словарь Английский -> Русский (для текстов, уже переведенных патчем в English)
 Russian.englishToRussian = {
+    ["Puppets"] = "Куклы",
+    ["Puppet"] = "Куклы",
+    ["Passive"] = "Пассивный",
+    ["Normal"] = "Обычный",
+    ["Roleplay"] = "Роль",
+    ["Special"] = "Особый",
+    ["Displacement"] = "Перемещение",
+    ["Survival"] = "Выживание",
+    ["Control Break"] = "Снятие контроля",
+    ["Hard Crowd Control"] = "Жёсткий контроль",
+    ["Soft Crowd Control"] = "Мягкий контроль",
+    ["Group"] = "Группа",
+    ["One-click Assist"] = "Помощник",
     -- Главный экран, логин и сервер
     ["Start Game"] = "Начать игру",
     ["Start"] = "Начать",
@@ -218,7 +231,7 @@ Russian.englishToRussian = {
     ["Easy Wins"] = "Легкие победы",
     ["Deduction Check"] = "Проверка дедукции",
     ["Comments"] = "Комментарии",
-    ["One-Click Assist"] = "Помощник в один клик",
+    ["One-Click Assist"] = "Помощник",
     ["Auto-Dismantle Confirmation"] = "Подтверждение авто-распыления",
     ["Auto-Dismantle Settings"] = "Настройки авто-распыления",
     ["Appearance"] = "Внешний вид",
@@ -264,14 +277,14 @@ Russian.englishToRussian = {
     ["Normal Skill"] = "Обычные навыки",
     ["Special Skill (No Equipment Required)"] = "Особые навыки (без экипировки)",
     ["Roleplay Skill"] = "Навыки роли",
-    ["One-Click Upgrade"] = "Быстрое улучшение",
-    ["One-click Upgrade"] = "Быстрое улучшение",
-    ["One-click upgrade"] = "Быстрое улучшение",
-    ["Equip Skill"] = "Экипировать навык",
+    ["One-Click Upgrade"] = "Прокачать",
+    ["One-click Upgrade"] = "Прокачать",
+    ["One-click upgrade"] = "Прокачать",
+    ["Equip Skill"] = "Экипировать",
     ["Next-Level Effect"] = "Эффект след. уровня",
     ["Simple"] = "Кратко",
     ["Connections"] = "Связи",
-    ["marionette"] = "Марионетки",
+    ["marionette"] = "Куклы",
     ["Training Dummy"] = "Манекен",
     ["Single Target"] = "Одиночная цель",
     ["Area Target"] = "По области",
@@ -311,35 +324,35 @@ Russian.englishToRussian = {
     ["Using Flame Jump also grants 3 fate cards and one point of Card Energy."] = "Использование Прыжка пламени также дает 3 карты судьбы и 1 очко Энергии карт.",
     ["Obtaining a fate card also grants one point of Card Energy."] = "Получение карты судьбы также дает 1 очко Энергии карт.",
     ["Praise the Fool, increasing the user's damage for 10 seconds, and obtain a Spirituality Blue Card and one point of Card Energy (used to unlock Finisher Skills)."] = "Восславьте Шута: увеличивает урон заклинателя на 10 сек., дарует одну Синюю карту духовности и 1 очко Энергии карт (необходимо для открытия добивающих навыков).",
-    ["Air Bullet"] = "Воздушная пуля",
-    ["Air Bullets"] = "Воздушные пули",
-    ["Tarot Array"] = "Таро-расклад",
-    ["Miracle Card Rain"] = "Дождь карт чудес",
-    ["Fool's Blessing"] = "Благословение Шута",
-    ["Card Flying Dagger"] = "Карточный кинжал",
-    ["Flame Jump"] = "Перемещение по пламени",
-    ["Card Master"] = "Мастер карт",
-    ["Realm of Mysteries"] = "Царство Тайн",
-    ["Reveal Card"] = "Раскрытие карты",
-    ["Paper Figurine Substitute"] = "Бумажный человечек",
-    ["Fooling of Fate"] = "Одурачивание судьбы",
-    ["Spirituality Burst"] = "Всплеск духовности",
-    ["Shuffle Cards"] = "Тасование карт",
-    ["Cut Cards"] = "Снятие карт",
-    ["Open Door"] = "Открытие двери",
-    ["Secret Words"] = "Тайные слова",
-    ["Pendulum Divination"] = "Гадание на маятнике",
-    ["Earthquake Slam"] = "Сотрясение земли",
-    ["Praise the Sun"] = "Восславь Солнце",
-    ["Emotional Spectrum"] = "Эмоциональный спектр",
-    ["Poised to Strike"] = "Готовность к удару",
-    ["Listen to Heart's Voice"] = "Глас сердца",
-    ["Smiling Clown"] = "Улыбающийся клоун",
-    ["War Soul Afterimage"] = "Остаточный образ души войны",
-    ["Illusion Trick"] = "Иллюзорный фокус",
-    ["Holy Light Favor"] = "Благосклонность Святого Света",
-    ["Astrological Revelation"] = "Астрологическое откровение",
-    ["Mental Comfort"] = "Психологическое утешение",
+    ["Air Bullet"] = "Воздушная\nпуля",
+    ["Air Bullets"] = "Воздушные\nпули",
+    ["Tarot Array"] = "Таро-\nрасклад",
+    ["Miracle Card Rain"] = "Дождь\nкарт чудес",
+    ["Fool's Blessing"] = "Благословение\nШута",
+    ["Card Flying Dagger"] = "Карточный\nкинжал",
+    ["Flame Jump"] = "Прыжок\nпламени",
+    ["Card Master"] = "Мастер\nкарт",
+    ["Realm of Mysteries"] = "Царство\nТайн",
+    ["Reveal Card"] = "Раскрытие\nкарт",
+    ["Paper Figurine Substitute"] = "Бумажный\nчеловечек",
+    ["Fooling of Fate"] = "Одурачивание\nсудьбы",
+    ["Spirituality Burst"] = "Всплеск\nдуховности",
+    ["Shuffle Cards"] = "Тасование\nкарт",
+    ["Cut Cards"] = "Снятие\nкарт",
+    ["Open Door"] = "Открытие\nдвери",
+    ["Secret Words"] = "Тайные\nслова",
+    ["Pendulum Divination"] = "Гадание на\nмаятнике",
+    ["Earthquake Slam"] = "Сотрясение\nземли",
+    ["Praise the Sun"] = "Восславь\nСолнце",
+    ["Emotional Spectrum"] = "Эмоциональный\nспектр",
+    ["Poised to Strike"] = "Готовность\nк удару",
+    ["Listen to Heart's Voice"] = "Глас\nсердца",
+    ["Smiling Clown"] = "Улыбающийся\nклоун",
+    ["War Soul Afterimage"] = "Остаточный\nобраз",
+    ["Illusion Trick"] = "Иллюзорный\nфокус",
+    ["Holy Light Favor"] = "Святой\nСвет",
+    ["Astrological Revelation"] = "Откровение\nзвёзд",
+    ["Mental Comfort"] = "Утешение\nразума",
     ["Talent"] = "Таланты",
     ["Talents"] = "Таланты",
     ["Path"] = "Путь",
@@ -349,10 +362,10 @@ Russian.englishToRussian = {
     ["Sealed"] = "Реликвии",
     ["Sealed Artifact"] = "Запечатанный артефакт",
     ["Sealed Artifacts"] = "Запечатанные артефакты",
-    ["Secret Partner"] = "Марионетки",
-    ["SecretPartner"] = "Марионетки",
-    ["Marionette"] = "Марионетка",
-    ["Marionettes"] = "Марионетки",
+    ["Secret Partner"] = "Куклы",
+    ["SecretPartner"] = "Куклы",
+    ["Marionette"] = "Куклы",
+    ["Marionettes"] = "Куклы",
     ["Fellow"] = "Союзники",
     ["Ally"] = "Союзник",
     ["Allies"] = "Союзники",
@@ -578,6 +591,20 @@ Russian.englishToRussian = {
 
 -- Китайский -> Русский (точные переопределения интерфейса и текста)
 Russian.chineseToRussian = {
+    ["诡秘之境"] = "Царство\nТайн",
+    ["扮演"] = "Роль",
+    ["特殊"] = "Особый",
+    ["位移"] = "Перемещение",
+    ["生存"] = "Выживание",
+    ["爆发"] = "Взрывной урон",
+    ["范围"] = "По области",
+    ["单体"] = "Одиночная цель",
+    ["解控"] = "Снятие контроля",
+    ["硬控"] = "Жёсткий контроль",
+    ["软控"] = "Мягкий контроль",
+    ["群体"] = "Группа",
+    ["群攻"] = "Группа",
+    ["一键辅助"] = "Помощник",
     ["全部"] = "Все",
     ["道具"] = "Все",
     ["非凡材料"] = "Ресурсы",
@@ -632,7 +659,7 @@ Russian.chineseToRussian = {
     ["途径"] = "Путь",
     ["序列"] = "Последовательность",
     ["封印物"] = "Запечатанный артефакт",
-    ["秘偶"] = "Марионетка",
+    ["秘偶"] = "Куклы",
     ["副本"] = "Подземелье",
     ["竞技场"] = "Арена",
     ["邮件"] = "Почта",
@@ -686,38 +713,38 @@ Russian.chineseToRussian = {
     ["特殊技能（无需装配）"] = "Особые навыки (без экипировки)",
     ["特殊技能(无需装配)"] = "Особые навыки (без экипировки)",
     ["扮演技能"] = "Навыки роли",
-    ["一键升级"] = "Быстрое улучшение",
-    ["装配技能"] = "Экипировать навык",
+    ["一键升级"] = "Прокачать",
+    ["装配技能"] = "Экипировать",
     ["下级效果"] = "Эффект след. уровня",
-    ["空气子弹"] = "Воздушная пуля",
-    ["空气弹"] = "Воздушная пуля",
-    ["纸牌飞刀"] = "Карточный кинжал",
-    ["塔罗牌阵"] = "Таро-расклад",
-    ["奇迹牌雨"] = "Дождь карт чудес",
-    ["火焰跳跃"] = "Перемещение по пламени",
-    ["愚者祝福"] = "Благословение Шута",
-    ["卡牌大师"] = "Мастер карт",
-    ["诡秘领域"] = "Царство Тайн",
-    ["开牌"] = "Раскрытие карты",
-    ["纸人替身"] = "Бумажный человечек",
-    ["命运愚弄"] = "Одурачивание судьбы",
-    ["灵性爆发"] = "Всплеск духовности",
-    ["洗牌"] = "Тасование карт",
-    ["切牌"] = "Снятие карт",
-    ["开门"] = "Открытие двери",
-    ["秘语"] = "Тайные слова",
-    ["灵摆占卜"] = "Гадание на маятнике",
-    ["地震重击"] = "Сотрясение земли",
-    ["赞美太阳"] = "Восславь Солнце",
-    ["情绪光谱"] = "Эмоциональный спектр",
-    ["蓄势待发"] = "Готовность к удару",
-    ["倾听心声"] = "Глас сердца",
-    ["微笑小丑"] = "Улыбающийся клоун",
-    ["战魂残影"] = "Остаточный образ души войны",
-    ["戏法假象"] = "Иллюзорный фокус",
-    ["圣光眷顾"] = "Благосклонность Святого Света",
-    ["占星启示"] = "Астрологическое откровение",
-    ["心灵抚慰"] = "Психологическое утешение",
+    ["空气子弹"] = "Воздушная\nпуля",
+    ["空气弹"] = "Воздушная\nпуля",
+    ["纸牌飞刀"] = "Карточный\nкинжал",
+    ["塔罗牌阵"] = "Таро-\nрасклад",
+    ["奇迹牌雨"] = "Дождь\nкарт чудес",
+    ["火焰跳跃"] = "Прыжок\nпламени",
+    ["愚者祝福"] = "Благословение\nШута",
+    ["卡牌大师"] = "Мастер\nкарт",
+    ["诡秘领域"] = "Царство\nТайн",
+    ["开牌"] = "Раскрытие\nкарт",
+    ["纸人替身"] = "Бумажный\nчеловечек",
+    ["命运愚弄"] = "Одурачивание\nсудьбы",
+    ["灵性爆发"] = "Всплеск\nдуховности",
+    ["洗牌"] = "Тасование\nкарт",
+    ["切牌"] = "Снятие\nкарт",
+    ["开门"] = "Открытие\nдвери",
+    ["秘语"] = "Тайные\nслова",
+    ["灵摆占卜"] = "Гадание на\nмаятнике",
+    ["地震重击"] = "Сотрясение\nземли",
+    ["赞美太阳"] = "Восславь\nСолнце",
+    ["情绪光谱"] = "Эмоциональный\nспектр",
+    ["蓄势待发"] = "Готовность\nк удару",
+    ["倾听心声"] = "Глас\nсердца",
+    ["微笑小丑"] = "Улыбающийся\nклоун",
+    ["战魂残影"] = "Остаточный\nобраз",
+    ["戏法假象"] = "Иллюзорный\nфокус",
+    ["圣光眷顾"] = "Святой\nСвет",
+    ["占星启示"] = "Откровение\nзвёзд",
+    ["心灵抚慰"] = "Утешение\nразума",
 }
 
 -- Подмена фрагментов текста внутри фраз
@@ -784,13 +811,37 @@ function Russian.lookupRussianText(text)
     end
 
     -- 5. Контекстный перевод динамических описаний навыков и подсказок
-    if #text > 20 then
+    if #text > 15 then
         local m = text
 
         -- Благословение Шута (Подробнее / Next-level effect)
         m = m:gsub("Increase your Physical Damage Boost by ([%d%.]+)%% and Pierce by (%d+) points%., lasts for (%d+) seconds, simultaneously gaining (%d+) point of Card Energy and one Spirituality Blue Card%.", "Повышает ваш физ. урон на %1%% и пробивание на %2 ед., длится %3 сек., одновременно даруя %4 очко Энергии карт и одну Синюю карту духовности.")
         m = m:gsub("Increase your Physical Damage Boost by ([%d%.]+)%% and Pierce by (%d+) points%., lasts for (%d+) seconds, simultaneously gaining (%d+) point of <HighLight>Card Energy</> and one <HighLight>Spirituality Blue Card</>%.", "Повышает ваш физ. урон на %1%% и пробивание на %2 ед., длится %3 сек., одновременно даруя %4 очко <HighLight>Энергии карт</> и одну <HighLight>Синюю карту духовности</>.")
         m = m:gsub("Increase your Physical Damage Boost by ([%d%.]+)%% and Pierce by (%d+) points%., lasts for (%d+) seconds, simultaneously gaining (%d+) point of <HighLight>Card Energy</HighLight> and one <HighLight>Spirituality Blue Card</HighLight>%.", "Повышает ваш физ. урон на %1%% и пробивание на %2 ед., длится %3 сек., одновременно даруя %4 очко <HighLight>Энергии карт</HighLight> и одну <HighLight>Синюю карту духовности</HighLight>.")
+
+        -- Царство Тайн (Подробнее / Next-level effect)
+        m = m:gsub("Manipulate the target's spirit body threads to apply (.-), while deploying a Realm of Mysteries around the target, causing enemies in range to suffer (.-) for ([%d%.]+) seconds, dealing (.-) physical damage 6 times; then, a final strike deals (.-) physical damage%. If the target is a monster, (.-) the target; if the target is a player, (.-) the target for ([%d%.]+) seconds%. Upon casting, gain one (.-); if the last card obtained was a (.-), gain a (.-) instead%.", function(slow, stag, t1, dmg1, dmg2, launch, stun, t2, c1, c2, c3)
+            slow = slow:gsub("Slow", "Замедление")
+            stag = stag:gsub("Stagnation", "Тягучесть")
+            launch = launch:gsub("launch", "подбрасывает")
+            stun = stun:gsub("Stun", "оглушает")
+            return string.format("Управляет нитями духовного тела цели, накладывая %s, и разворачивает вокруг цели Царство тайн, накладывая на врагов в области %s на %s сек. и нанося %s физ. урона 6 раз. Затем финальный удар наносит %s физ. урона. Если цель — монстр, %s цель; если цель — игрок, %s цель на %s сек. При применении дает одну %s; если последней полученной картой была %s, дает вместо этого %s.",
+                slow, stag, t1, dmg1, dmg2, launch, stun, t2, c1, c2, c3)
+        end)
+        m = m:gsub("Manipulate the target's spirit body threads to apply (.-), while deploying a Realm of Mysteries around the target, causing enemies in range to suffer (.-) for ([%d%.]+) seconds, dealing (.-) physical damage 6 times; then, a final strike deals (.-) physical damage%.", function(slow, stag, t1, dmg1, dmg2)
+            slow = slow:gsub("Slow", "Замедление")
+            stag = stag:gsub("Stagnation", "Тягучесть")
+            return string.format("Управляет нитями духовного тела цели, накладывая %s, и разворачивает вокруг цели Царство тайн, накладывая на врагов в области %s на %s сек. и нанося %s физ. урона 6 раз. Затем финальный удар наносит %s физ. урона.",
+                slow, stag, t1, dmg1, dmg2)
+        end)
+        m = m:gsub("If the target is a monster, (.-) the target; if the target is a player, (.-) the target for ([%d%.]+) seconds%.", function(launch, stun, t)
+            launch = launch:gsub("launch", "подбрасывает")
+            stun = stun:gsub("Stun", "оглушает")
+            return string.format("Если цель — монстр, %s цель; если цель — игрок, %s цель на %s сек.", launch, stun, t)
+        end)
+        m = m:gsub("Upon casting, gain one (.-); if the last card obtained was a (.-), gain a (.-) instead%.", "При применении дает одну %1; если последней полученной картой была %2, дает вместо этого %3.")
+        m = m:gsub("Upon casting, gain one (.-) and apply one stack of (.-) to enemies hit; if the last card obtained was a (.-), gain a (.-) instead and gain one point of (.-)%.", "При применении дает одну %1 и накладывает один уровень %2 на пораженных врагов; если последней полученной картой была %3, дает вместо этого %4 и 1 очко %5.")
+        m = m:gsub("Upon casting, gain one (.-) and apply one stack of (.-) to enemies hit by the explosion; if the last card obtained was a (.-), gain a (.-) instead and gain one point of (.-) upon the explosion hit%.", "При применении дает одну %1 и накладывает один уровень %2 на врагов, пораженных взрывом; если последней полученной картой была %3, дает вместо этого %4 и 1 очко %5 при попадании взрыва.")
 
         -- Блок механики карт Шута
         m = m:gsub("Fate Yellow Card/Spirituality Blue Card: When (%d+) Fate Yellow Cards/Spirituality Blue Cards are obtained, consume all cards to cause the Finisher Skill Shuffle Cards to switch to Fooling of Fate/Spirituality Burst%.", "Жёлтая карта судьбы / Синяя карта духовности: При сборе %1 Жёлтых карт судьбы / Синих карт духовности они расходуются, переключая Добивание: Тасование карт на Одурачивание судьбы / Всплеск духовности.")
@@ -858,6 +909,13 @@ function Russian.lookupRussianText(text)
         m = m:gsub("<FaintYellow>Vulnerability</>: Damage taken from the caster is increased by (%d+)%%%.?", "<FaintYellow>Уязвимость</>: Получаемый от заклинателя урон увеличен на %1%%.")
         m = m:gsub("Vulnerability: Damage taken from the caster is increased by (%d+)%%%.?", "Уязвимость: Получаемый от заклинателя урон увеличен на %1%%.")
 
+        -- Строка улучшения внизу экрана
+        m = m:gsub("All .-skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+        m = m:gsub("All .-Skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+        m = m:gsub(".-skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+        m = m:gsub(".-Skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+        m = m:gsub("Gain extra Skill Points through %[Sequence Advancement%]%.", "Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+
         -- Специфические фразы механик Шута и Провидца
         m = m:gsub("Increase your Physical Damage Boost by ([%d%.]+)%% and Pierce by (%d+) points%., lasts for (%d+) seconds", "Повышает ваш физ. урон на %1%% и пробивание на %2 ед., длится %3 сек.")
         m = m:gsub("Increase your Physical Damage Boost by ([%d%.]+)%% and Pierce by (%d+) points", "Повышает ваш физ. урон на %1%% и пробивание на %2 ед.")
@@ -887,16 +945,14 @@ function Russian.lookupRussianText(text)
         m = m:gsub("Fooling of Fate", "Одурачивание судьбы")
         m = m:gsub("Shuffle Cards", "Тасование карт")
         m = m:gsub("Super Armor", "Суперброня")
-        m = m:gsub("Air Bullet", "Воздушная пуля")
-        m = m:gsub("Air Bullets", "Воздушные пули")
-        m = m:gsub("Tarot Array", "Таро-расклад")
-        m = m:gsub("Reveal Card", "Раскрытие карты")
-        m = m:gsub("Miracle Card Rain", "Дождь карт чудес")
-        m = m:gsub("Flame Jump", "Прыжок пламени")
-        m = m:gsub("Paper Figurine Substitute", "Замена бумажного человечка")
-        m = m:gsub("All Путь skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
-        m = m:gsub("Путь skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
-        m = m:gsub("All Path skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+        m = m:gsub("Slow ([%d%.]+)%%", "Замедление %1%%")
+        m = m:gsub("Stagnation", "Тягучесть")
+        m = m:gsub("launch the target", "подбрасывает цель")
+        m = m:gsub("Stun the target for ([%d%.]+) seconds", "оглушает цель на %1 сек.")
+        m = m:gsub("Soft Crowd Control", "Мягкий контроль")
+        m = m:gsub("Hard Crowd Control", "Жёсткий контроль")
+        m = m:gsub("Single Target", "Одиночная цель")
+        m = m:gsub("Area Target", "По области")
 
         if m ~= text then
             return m

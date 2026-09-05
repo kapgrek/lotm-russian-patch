@@ -4867,13 +4867,14 @@ runtimeFixes.repairSkillCommonLabels = function(self)
     pcall(function()
         oneClickPage = view.WBP_Skill_OneClick_Page
     end)
-    runtimeFixes.setNamedWidgetText(oneClickPage, "Text_Content", "One-Click Assist")
+    runtimeFixes.setNamedWidgetText(oneClickPage, "Text_Content", "Помощник")
 
     -- BP_SetType on the embedded header can refresh all three captions after
     -- its Lua component returns. Repair the nested UserWidget from the parent
     -- as the final owner as well as through the component hook.
     runtimeFixes.repairEmbeddedSkillHeaderLabels(self)
     runtimeFixes.repairSkillHeaderLabels(self and self.WBP_Skill_BeStrong_BtnCom)
+    translateViewTextWidgets(view, self.userWidget or self.widget)
 end
 
 runtimeFixes.repairTalentLabels = function(self)
