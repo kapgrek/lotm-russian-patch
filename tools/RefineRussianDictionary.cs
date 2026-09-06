@@ -111,6 +111,26 @@ class RefineRussianDictionary
             val = Regex.Replace(val, @"\bмаг\. урона (\*d|\*f)\b", "$1 маг. урона", RegexOptions.IgnoreCase);
             val = Regex.Replace(val, @"\bфиз\. урона (\*d|\*f)\b", "$1 физ. урона", RegexOptions.IgnoreCase);
 
+            // 4. Канонизация имен и валюты
+            val = Regex.Replace(val, @"Кляйн([а-яА-ЯёЁ]*)", "Клейн$1");
+            val = Regex.Replace(val, @"кляйн([а-яА-ЯёЁ]*)", "клейн$1");
+
+            val = Regex.Replace(val, @"\bСтарый Нил\b", "Старина Нил");
+            val = Regex.Replace(val, @"\bстарый Нил\b", "старина Нил");
+            val = Regex.Replace(val, @"\bстарику Нилу\b", "старине Нилу");
+            val = Regex.Replace(val, @"\bстарика Нила\b", "старины Нила");
+
+            val = Regex.Replace(val, @"\b(\d+)\s*(солей|соля|соли)\b", "$1 суле", RegexOptions.IgnoreCase);
+
+            val = Regex.Replace(val, @"\b(Потусторонняя характеристика|потусторонняя характеристика|потусторонней характеристики|потустороннюю характеристику|потусторонней характеристике)\b", "Потустороннее свойство", RegexOptions.IgnoreCase);
+            val = Regex.Replace(val, @"\b(Потусторонние характеристики|потусторонние характеристики|потусторонних характеристик)\b", "Потусторонние свойства", RegexOptions.IgnoreCase);
+
+            val = Regex.Replace(val, @"\b(Черный чертополох|Черный Терновник|Черный терновник|Блэкторн)\b", "Чёрный Чертополох", RegexOptions.IgnoreCase);
+            val = Regex.Replace(val, @"\b(семьи Антигонуса|семья Антигонуса|род Антигонуса|рода Антигонуса|Антигонуса|Антигонус)\b", "Антигона", RegexOptions.IgnoreCase);
+            val = Regex.Replace(val, @"\b(Райел Бибер|Рейл Бибер|Риэль Бибер)\b", "Райэль Бибер", RegexOptions.IgnoreCase);
+
+            val = val.Replace("\\п", "\\n").Replace("\\т", "\\t").Replace("\\р", "\\r");
+
             if (val != originalVal)
             {
                 entries[key] = val;
