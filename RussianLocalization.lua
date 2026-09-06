@@ -1405,6 +1405,29 @@ function Russian.lookupRussianText(text)
         m = m:gsub("Skill Block", "Блок навыков")
         m = m:gsub("Pierce", "Пробивание")
 
+        -- Дополнительные боевые термины способностей
+        m = m:gsub("Induction Mark", "Метка внушения")
+        m = m:gsub("Hypnosis", "Гипноз")
+        m = m:gsub("Mind Fire", "Пламя разума")
+        m = m:gsub("Psychotherapy", "Психотерапия")
+        m = m:gsub("Consciousness Shock", "Удар сознания")
+        m = m:gsub("Dream Weaving", "Плетение снов")
+        m = m:gsub("Dream Analysis", "Анализ снов")
+        m = m:gsub("Mind Control", "Контроль сознания")
+        m = m:gsub("Mental Suggestion", "Ментальное внушение")
+        m = m:gsub("Psychological Suggestion", "Ментальное внушение")
+        m = m:gsub("Dream Return", "Возврат сна")
+        m = m:gsub("Rebirth", "Перерождение")
+        m = m:gsub("Intimidation", "Устрашение")
+        m = m:gsub("Invisibility", "Незримость")
+        m = m:gsub("Insight", "Прозрение")
+        m = m:gsub("Frenzy", "Бешенство")
+        m = m:gsub("Spirit Body Threads", "Нити духовного тела")
+        m = m:gsub("Spirit Body Thread", "Нить духовного тела")
+        m = m:gsub("Historical Projection", "Историческая проекция")
+        m = m:gsub("Paper Figurine Substitute", "Замена бумажным человечком")
+        m = m:gsub("Flame Controlling", "Управление пламенем")
+
         if m ~= text then
             return m
         end
