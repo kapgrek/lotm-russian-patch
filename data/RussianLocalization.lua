@@ -210,6 +210,30 @@ Russian.skillTags = {
     ["One-click Assist"] = "Помощник",
     ["One-Click Assist"] = "Помощник",
     ["一键辅助"] = "Помощник",
+    ["Weaken"] = "Ослаб.",
+    ["Weakening"] = "Ослабление",
+    ["削弱"] = "Ослаб.",
+    ["Debuff"] = "Дебафф",
+    ["Buff"] = "Бафф",
+    ["Stun"] = "Оглуш.",
+    ["Silence"] = "Безмолв.",
+    ["Slow"] = "Замедл.",
+    ["Knockdown"] = "Сбивание",
+    ["Airborne"] = "Подброс",
+    ["Taunt"] = "Провок.",
+    ["Stealth"] = "Скрытн.",
+    ["Invisibility"] = "Незрим.",
+    ["Immunity"] = "Иммунитет",
+    ["Invincibility"] = "Неуязвим.",
+    ["Bleed"] = "Кровотеч.",
+    ["Bleeding"] = "Кровотеч.",
+    ["Burn"] = "Горение",
+    ["Ignite"] = "Горение",
+    ["Freeze"] = "Заморозка",
+    ["Frozen"] = "Заморозка",
+    ["Poison"] = "Отравление",
+    ["Vulnerability"] = "Уязвим.",
+    ["易伤"] = "Уязвим.",
 }
 
 Russian.englishToRussian = {
@@ -1151,6 +1175,46 @@ function Russian.lookupRussianText(text)
     if russianRuntimeMap then
         local found = russianRuntimeMap[text]
         if found ~= nil then return found end
+    end
+
+    -- 3.5. Поддержка составных многострочных описаний навыков (краткое описание + худ. текст через \n)
+    if text:find("\n", 1, true) then
+        local parts = {}
+        local anyFound = false
+        local startIdx = 1
+        while startIdx <= #text do
+            local nlStart, nlEnd = text:find("\r?\n+", startIdx)
+            local chunk, sep
+            if nlStart then
+                chunk = text:sub(startIdx, nlStart - 1)
+                sep = text:sub(nlStart, nlEnd)
+                startIdx = nlEnd + 1
+            else
+                chunk = text:sub(startIdx)
+                sep = ""
+                startIdx = #text + 1
+            end
+
+            local trimmedChunk = chunk:match("^%s*(.-)%s*$")
+            local trChunk = nil
+            if trimmedChunk and trimmedChunk ~= "" then
+                trChunk = Russian.englishToRussian[chunk] or Russian.chineseToRussian[chunk]
+                    or Russian.englishToRussian[trimmedChunk] or Russian.chineseToRussian[trimmedChunk]
+                if not trChunk and russianRuntimeMap then
+                    trChunk = russianRuntimeMap[chunk] or russianRuntimeMap[trimmedChunk]
+                end
+            end
+
+            if trChunk then
+                parts[#parts + 1] = trChunk .. sep
+                anyFound = true
+            else
+                parts[#parts + 1] = chunk .. sep
+            end
+        end
+        if anyFound then
+            return table.concat(parts)
+        end
     end
 
     -- 4. Автоматическая обработка тегов времени (%d+Second)

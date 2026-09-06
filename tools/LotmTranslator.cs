@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +20,7 @@ namespace LotmTranslator
         static string RepoDataRuPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\data\RuntimeTextRussian.lua"));
         static string LocalRuPath = @"D:\gameDev\translate lotm\RuntimeTextRussian.lua";
         static string LocalDataRuPath = @"D:\gameDev\translate lotm\data\RuntimeTextRussian.lua";
+        static string LsiDir = @"D:\Games\GMZZLauncher\Game\C7\Saved\Mods\lua\mods\cpdd_runtime_fixes";
 
         static readonly Dictionary<string, string> CanonMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
@@ -56,6 +57,8 @@ namespace LotmTranslator
             { "Sealed Artifacts", "Запечатанные артефакты" },
             { "Air Bullet", "Воздушная пуля" },
             { "Air Bullets", "Воздушные пули" },
+            { "Air Missile", "Воздушная ракета" },
+            { "Air Cannon", "Воздушная пушка" },
             { "Paper Figurine Substitutes", "Замена бумажным человечком" },
             { "Paper Figurine Substitute", "Замена бумажным человечком" },
             { "Paper Figurine", "Бумажный человечек" },
@@ -78,6 +81,7 @@ namespace LotmTranslator
             { "Cleanse", "Снятие контроля" },
             { "Crowd-Control Break", "Снятие контроля" },
             { "Crowd-Control", "Контроль" },
+            { "Crowd Control", "Контроль" },
             { "Cooldown Reduction", "Сокращение перезарядки" },
             { "Cooldown", "Перезарядка" },
             { "Basic Attack", "Базовая атака" },
@@ -93,6 +97,7 @@ namespace LotmTranslator
             { "Spirituality", "Духовность" },
             { "Sanity", "Рассудок" },
             { "Madness", "Безумие" },
+            { "Loss of Control", "Потеря контроля" },
             { "Corruption", "Искажение" },
             { "Sequence", "Последовательность" },
             { "Spectator", "Зритель" },
@@ -118,14 +123,34 @@ namespace LotmTranslator
             { "Magic ATK", "Маг. атака" },
             { "Attack Speed", "Скорость атаки" },
             { "Movement Speed", "Скорость бега" },
-            { "Move Speed", "Скорость бега" }
+            { "Move Speed", "Скорость бега" },
+            { "Vulnerability", "Уязвимость" },
+            { "Stagnation", "Тягучесть" },
+            { "Knocking Down", "Сбивание с ног" },
+            { "Knockdown", "Сбивание с ног" },
+            { "Imprisonment", "Заточение" },
+            { "Healing Reduction", "Снижение лечения" },
+            { "Armor Break", "Пробивание брони" },
+            { "Single Target", "Одиночная цель" }
         };
+
+        public static string SourceKey(string value)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(value);
+            uint hash = 2166136261u;
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                hash ^= bytes[i];
+                hash = unchecked(hash + (hash << 1) + (hash << 4) + (hash << 7) + (hash << 8) + (hash << 24));
+            }
+            return bytes.Length + ":" + hash.ToString("x8");
+        }
 
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            int count = 500;
-            string mode = "skills"; // "skills", "ui", "all"
+            int count = 2000;
+            string mode = "skills";
 
             for (int i = 0; i < args.Length; i++)
             {
@@ -140,9 +165,10 @@ namespace LotmTranslator
 
             // 1. Загрузка существующих переводов
             var existingRu = new Dictionary<string, string>(StringComparer.Ordinal);
-            if (File.Exists(RussianPath))
+            string readPath = File.Exists(LocalRuPath) ? LocalRuPath : RussianPath;
+            if (File.Exists(readPath))
             {
-                foreach (var line in File.ReadAllLines(RussianPath, Encoding.UTF8))
+                foreach (var line in File.ReadAllLines(readPath, Encoding.UTF8))
                 {
                     string t = line.Trim();
                     if (t.StartsWith("[\"") && (t.EndsWith("\",") || t.EndsWith("\"")))
@@ -164,8 +190,35 @@ namespace LotmTranslator
             }
             Console.WriteLine("Текущий размер словаря: " + existingRu.Count + " записей");
 
-            // 2. Отбор кандидатов
+            // 2. Сбор ключей навыков из LanguageSourceIndex
+            var lsiSkillKeys = new HashSet<string>();
+            if (Directory.Exists(LsiDir))
+            {
+                foreach (var file in Directory.GetFiles(LsiDir, "LanguageSourceIndex_*.lua"))
+                {
+                    foreach (var line in File.ReadAllLines(file, Encoding.UTF8))
+                    {
+                        if (line.Contains("\"skill") || line.Contains("\"buffdata") || Regex.IsMatch(line, @"=\s*""?28\d{13}"))
+                        {
+                            int start = line.IndexOf("[\"");
+                            if (start >= 0)
+                            {
+                                int end = line.IndexOf("\"]", start + 2);
+                                if (end > start)
+                                {
+                                    lsiSkillKeys.Add(line.Substring(start + 2, end - start - 2));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("Ключей навыков и декоров в LSI: " + lsiSkillKeys.Count);
+
+            // 3. Отбор кандидатов
             var candidates = new List<Tuple<string, string>>();
+            var skillDescPattern = new Regex(@"(magic damage|physical damage|damage to enemies|recovers.*Health|restores.*Health|Only available in.*Stance|switches to.*in.*Stance|spellfielddisc|bulletdisc|buffdisc|Vulnerability|Super Armor|Stagnation|Crowd Control|Knocking Down|launch.*target|Stun the target)", RegexOptions.IgnoreCase);
+
             using (var reader = new StreamReader(GeminiPath, Encoding.UTF8))
             {
                 string line;
@@ -183,12 +236,13 @@ namespace LotmTranslator
                             if (valEnd >= valStart)
                             {
                                 string enVal = t.Substring(valStart, valEnd - valStart);
-                                if (!existingRu.ContainsKey(cnKey) && !existingRu.ContainsKey(enVal) && enVal.Length > 1)
+                                if (!existingRu.ContainsKey(cnKey) || !existingRu.ContainsKey(enVal))
                                 {
                                     bool accept = false;
                                     if (mode == "skills")
                                     {
-                                        accept = IsSkillText(enVal, cnKey);
+                                        string sk = SourceKey(cnKey);
+                                        accept = lsiSkillKeys.Contains(sk) || (skillDescPattern.IsMatch(enVal) && enVal.Length > 15);
                                     }
                                     else if (mode == "ui")
                                     {
@@ -217,11 +271,11 @@ namespace LotmTranslator
                 return;
             }
 
-            // 3. Параллельный перевод с ограничением параллелизма (6 потоков)
+            // 4. Параллельный перевод с ограничением параллелизма (8 потоков)
             var translatedResults = new ConcurrentDictionary<string, string>();
             int processed = 0;
 
-            Parallel.ForEach(candidates, new ParallelOptions { MaxDegreeOfParallelism = 6 }, item =>
+            Parallel.ForEach(candidates, new ParallelOptions { MaxDegreeOfParallelism = 8 }, item =>
             {
                 string cn = item.Item1;
                 string en = item.Item2;
@@ -232,7 +286,7 @@ namespace LotmTranslator
                     // Применяем каноничные термины
                     foreach (var pair in CanonMap)
                     {
-                        ru = Regex.Replace(ru, Regex.Escape(pair.Key), pair.Value, RegexOptions.IgnoreCase);
+                        ru = Regex.Replace(ru, @"\b" + Regex.Escape(pair.Key) + @"\b", pair.Value, RegexOptions.IgnoreCase);
                     }
 
                     translatedResults[cn] = ru;
@@ -244,35 +298,28 @@ namespace LotmTranslator
                 {
                     Console.Write("\rПрогресс перевода: " + p + " / " + candidates.Count);
                 }
-                Thread.Sleep(80);
+                Thread.Sleep(60);
             });
 
             Console.WriteLine("\nПеревод завершен. Успешно получено: " + translatedResults.Count + " записей.");
 
-            // 4. Слияние со словарем
+            // 5. Слияние со словарем
             foreach (var kvp in translatedResults)
             {
                 existingRu[kvp.Key] = kvp.Value;
             }
 
-            // 5. Запись и валидация
-            SaveAndValidate(RussianPath, existingRu);
-
-            // 6. Синхронизация с репозиторием
-            if (File.Exists(RepoRuPath)) File.Copy(RussianPath, RepoRuPath, true);
-            if (File.Exists(RepoDataRuPath)) File.Copy(RussianPath, RepoDataRuPath, true);
-            if (File.Exists(LocalRuPath)) File.Copy(RussianPath, LocalRuPath, true);
-            if (File.Exists(LocalDataRuPath)) File.Copy(RussianPath, LocalDataRuPath, true);
-            Console.WriteLine("Словарь успешно синхронизирован с репозиторием!");
-        }
-
-        static bool IsSkillText(string en, string cn)
-        {
-            if (Regex.IsMatch(en, @"(Cooldown|Damage|Spell|Health|Physical|Magic|Energy|Cast|Charge|Passive|Active Skill|Combat Skill|Deals \*|reduces cooldown|trigger|Crowd-Control|Stun|Bleed|Poison|Shield|Heal|Super Armor|Skill Enhancement|Combat skill|Invincibility|Skill Block|Skill Name|Talent|Combo|Ultimate|Buff|Debuff|Crit|Parry|Dodge|Spirituality|Sanity|Corruption|Resist|Penetration|Vampiric|Lifesteal|Bleeding|Ignite|Freeze|Shock|Silence|Disarm|Knockdown|Airborne|Stagger|Break|Sealed Artifact|Beyonder|Air Bullet|Paper Figurine|Flame Controlling|Spirit Body)", RegexOptions.IgnoreCase))
-                return true;
-            if (Regex.IsMatch(cn, @"(技能|冷却|伤害|被动|主动|攻击|防御|治疗|护盾|霸体|解控|法术|绝技|天赋|连击|终结|奥义|连招|增益|减益|暴击|闪避|格挡|招架|灵性|理智|疯狂|侵蚀|序列|秘偶|占卜|塔罗|符咒|魔药|仪式|领域|光环|怒气|抗性|穿透|吸血|流血|点燃|冰冻|感电|沉默|缴械|击倒|击飞|硬直|破防|破甲|破霸|封印物|非凡|空气子弹|纸人替身|操纵火焰|灵体)"))
-                return true;
-            return false;
+            // 6. Запись и валидация
+            SaveAndValidate(LocalRuPath, existingRu);
+            if (File.Exists(RussianPath) || Directory.Exists(Path.GetDirectoryName(RussianPath)))
+            {
+                try { File.Copy(LocalRuPath, RussianPath, true); } catch { }
+            }
+            if (Directory.Exists(Path.GetDirectoryName(LocalDataRuPath)))
+            {
+                try { File.Copy(LocalRuPath, LocalDataRuPath, true); } catch { }
+            }
+            Console.WriteLine("Словарь успешно синхронизирован с репозиторием и игрой!");
         }
 
         static bool IsUiText(string en, string cn)
@@ -288,10 +335,10 @@ namespace LotmTranslator
         {
             if (string.IsNullOrWhiteSpace(text)) return text;
 
-            // Защита тегов Slate, токенов формата и {SendAnswer:...}
+            // Защита тегов Slate, токенов формата, формул и \n
             var tagMap = new Dictionary<string, string>();
             int tagIdx = 0;
-            string protectedText = Regex.Replace(text, @"<[^>]+>|\{[^{}]+\}|\*d\*\*|\*d|\*f\*\*|\*f|mul\([^)]+\)|spellfielddisc\([^)]+\)|CheckStar\([^)]+\)", m =>
+            string protectedText = Regex.Replace(text, @"<[^>]+>|\{[^{}]+\}|\\n|\*d\*\*|\*d|\*f\*\*|\*f|mul\([^)]+\)|spellfielddisc\([^)]+\)|buffdisc\([^)]+\)|bulletdisc\([^)]+\)|buffappear\([^)]+\)|CheckStar\([^)]+\)", m =>
             {
                 string ph = "XTAG" + (tagIdx++) + "X";
                 tagMap[ph] = m.Value;
@@ -307,7 +354,6 @@ namespace LotmTranslator
                     byte[] data = wc.DownloadData(url);
                     string json = Encoding.UTF8.GetString(data);
 
-                    // Парсинг ответа Google Translate
                     int endFirstBlock = json.IndexOf("],null,");
                     if (endFirstBlock < 0) endFirstBlock = json.IndexOf("]],");
                     string sentencesPart = endFirstBlock > 0 ? json.Substring(0, endFirstBlock) : json;
@@ -345,7 +391,9 @@ namespace LotmTranslator
         static string CleanLua(string s)
         {
             if (string.IsNullOrEmpty(s)) return "";
-            string r = Regex.Replace(s, @"(\\+)\""", "\"");
+            // Превращаем любые физические переносы строк в \n
+            string r = s.Replace("\r\n", "\\n").Replace("\n", "\\n").Replace("\r", "");
+            r = Regex.Replace(r, @"(\\+)\""", "\"");
             r = r.Replace("\"", "\\\"");
             return r;
         }
