@@ -429,7 +429,48 @@ namespace LotmRussianPatcher
                         Log("Используем локальные файлы русификатора...");
                     }
 
-                    // 2. Если GitHub пока пуст или автономный запуск, копируем локальные файлы мода
+                    // 2. Проверка локального архива пакета данных (если запуск без интернета)
+                    if (!downloadedFromGitHub)
+                    {
+                        string localZip = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "lom-russian-patch-data.zip");
+                        if (File.Exists(localZip))
+                        {
+                            try
+                            {
+                                Log("Найден локальный архив пакета данных: " + localZip);
+                                Log("Распаковка локального пакета...");
+                                using (ZipArchive archive = ZipFile.OpenRead(localZip))
+                                {
+                                    foreach (ZipArchiveEntry entry in archive.Entries)
+                                    {
+                                        string fullPath = Path.Combine(gamePath, entry.FullName);
+                                        if (string.IsNullOrEmpty(entry.Name))
+                                        {
+                                            Directory.CreateDirectory(fullPath);
+                                        }
+                                        else
+                                        {
+                                            string parentDir = Path.GetDirectoryName(fullPath);
+                                            if (!Directory.Exists(parentDir)) Directory.CreateDirectory(parentDir);
+                                            using (Stream entryStream = entry.Open())
+                                            using (FileStream fs = new FileStream(fullPath, FileMode.Create, FileAccess.Write, FileShare.None))
+                                            {
+                                                entryStream.CopyTo(fs);
+                                            }
+                                        }
+                                    }
+                                }
+                                downloadedFromGitHub = true;
+                                Log("Локальный пакет данных успешно распакован!");
+                            }
+                            catch (Exception ex)
+                            {
+                                Log("Ошибка распаковки локального архива: " + ex.Message);
+                            }
+                        }
+                    }
+
+                    // 3. Если архив не найден, копируем отдельные локальные файлы мода
                     if (!downloadedFromGitHub)
                     {
                         string localSource = AppDomain.CurrentDomain.BaseDirectory;
@@ -452,6 +493,18 @@ namespace LotmRussianPatcher
                                 File.Copy(src, dest, true);
                                 Log("Скопирован локальный файл: " + f);
                             }
+                        }
+
+                        // Если рядом есть папка shards, копируем все 1024 шарда
+                        string localShards = Path.Combine(localSource, "shards");
+                        if (Directory.Exists(localShards))
+                        {
+                            foreach (var shardFile in Directory.GetFiles(localShards, "RuntimeTextGemini_*.lua"))
+                            {
+                                string dest = Path.Combine(luaFixesDir, Path.GetFileName(shardFile));
+                                File.Copy(shardFile, dest, true);
+                            }
+                            Log("Скопированы локальные шарды базы перевода.");
                         }
                     }
 

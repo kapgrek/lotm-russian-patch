@@ -1,0 +1,187 @@
+﻿stringConstOverrides	PVP_LAST_HUNT_MONSTER_CANCEL_BUTTON_NAME	Cancel
+stringConstOverrides	PVP_LAST_HUNT_MONSTER_DROP_REWARD_TEXT	Chance to drop from defeated <HyperLink stylename=\"Clickable\" u=\"\">minor monsters</>
+stringConstOverrides	PVP_LAST_HUNT_MONSTER_DROP_REWARD_UNDERLINE_TEXT	Chance to drop from defeated <HyperLink stylename=\"Underline\" u=\"\">minor monsters</>
+stringConstOverrides	PVP_LAST_HUNT_MONSTER_RECOMMEND_GROUP	Group Recommended
+stringConstOverrides	PVP_LAST_HUNT_MONSTER_RECOMMEND_TEAM	Party Recommended
+stringConstOverrides	PVP_LAST_HUNT_MONSTER_SUMMON_BUTTON_NAME	Go to Summon
+stringConstOverrides	PVP_LAST_HUNT_MONSTER_SUMMON_LEFT_COUNT_FORMAT	Summons remaining this week: %d
+stringConstOverrides	PVP_LAST_HUNT_NOT_OPENED_BUTTON_TEXT	Available when the event begins
+stringConstOverrides	PVP_LAST_HUNT_RANK_TAB_GUILD_NAME	Club
+stringConstOverrides	PVP_LAST_HUNT_RANK_TAB_PERSONAL_NAME	Personal
+stringConstOverrides	PVP_LAST_HUNT_RESURGENCE_TIPS	Select a respawn point, then click Go
+stringConstOverrides	PVP_LAST_HUNT_RESURGENCE_TITLE	Select Respawn Point
+stringConstOverrides	PVP_LAST_HUNT_REVIVE_BUTTON_NAME	Go to Respawn
+stringConstOverrides	PVP_LAST_HUNT_REWARD_PREVIEW_TITLE	Quest Reward Preview
+stringConstOverrides	PVP_LAST_HUNT_SCORE_TITLE	Rank Points
+stringConstOverrides	PVP_LAST_HUNT_SEND_BUTTON_TITLE	Send Horn
+stringConstOverrides	PVP_LAST_HUNT_SEND_CHAT_DEFAULT_TEXT	Brothers, come help me
+stringConstOverrides	PVP_LAST_HUNT_SEND_DEFAULT_TIP_TEXT	Summon up to %d players
+stringConstOverrides	PVP_LAST_HUNT_SEND_PANEL_TIPS	Summon up to 14 players
+stringConstOverrides	PVP_LAST_HUNT_SEND_PANEL_TITLE	Send Horn
+stringConstOverrides	PVP_LAST_HUNT_SETTLE_MENT_ASSIST_NUM_TITLE	Assists
+stringConstOverrides	PVP_LAST_HUNT_SETTLE_MENT_CANCEL	Cancel
+stringConstOverrides	PVP_LAST_HUNT_SETTLE_MENT_KILL_NUM_TITLE	Kills
+stringConstOverrides	PVP_LAST_HUNT_SETTLE_MENT_LEAVE	Teleport Away
+stringConstOverrides	PVP_LAST_HUNT_SETTLE_MENT_PROGRESS_NUM_TITLE	Hunt Settlement
+stringConstOverrides	PVP_LAST_HUNT_SETTLE_MENT_SCORE_NUM_TITLE	Rank Points
+stringConstOverrides	PVP_LAST_HUNT_SETTLE_MENT_TITLE	Hunt Settlement
+stringConstOverrides	PVP_LAST_HUNT_SUBMIT_CONTENT	Submit Scarlet Relic materials in exchange for Hunt Vouchers
+stringConstOverrides	PVP_LAST_HUNT_SUBMIT_REFRESH_DESC	The Hunting Butler changes position on the map every 30 minutes. More Butlers appear when combat is intense.
+stringConstOverrides	PVP_LAST_HUNT_SUBMIT_REFRESH_TITLE	Refresh Rules
+stringConstOverrides	PVP_LAST_HUNT_SUBMIT_TITLE	Hunting Butler
+stringConstOverrides	PVP_LAST_HUNT_SUMMON_AUTHOER_FORMAT	(Summoned by: %s)
+stringConstOverrides	PVP_LAST_HUNT_SUMMON_MONSTER_GET_NUM	Attempts Obtained
+stringConstOverrides	PVP_LAST_HUNT_SUMMON_MONSTER_LACK_NUM	No attempts remain this week. Earn Hunt Vouchers to obtain more.
+stringConstOverrides	PVP_LAST_HUNT_TASK_BUFF_NAME	Power of Sighs
+stringConstOverrides	PVP_LAST_HUNT_TASK_COMMIT_TEXT	Go to Submit
+stringConstOverrides	PVP_LAST_HUNT_TASK_FINISH_TITLE_TEXT	Ended
+stringConstOverrides	PVP_LAST_HUNT_TASK_FRAGMENT_NAME	Prey Fragment
+stringConstOverrides	PVP_LAST_HUNT_TASK_NOT_ACTIVE_CONTENT_TEXT	Use a Seed of Sighs, defeat monsters or plunder players to obtain Prey Fragments, then submit them to the Earl of Order for rewards.
+stringConstOverrides	PVP_LAST_HUNT_TASK_NOT_ACTIVE_FINISH_TEXT	The quest has ended. Find the Earl of Order to submit your fragments for rewards.
+stringConstOverrides	PVP_LAST_HUNT_TASK_NOT_ACTIVE_TEXT	Inactive
+stringConstOverrides	PVP_LAST_HUNT_TASK_PROGRESS_TEXT	Hunt Progress
+stringConstOverrides	PVP_LAST_HUNT_TASK_PROP_TEXT	Seed of Sighs
+stringConstOverrides	PVP_LAST_HUNT_TASK_QUICK_TEAM	Quick Party
+stringConstOverrides	PVP_LAST_HUNT_TASK_TITLE_NAME	Final Hunt
+stringConstOverrides	PVP_LAST_HUNT_TITLE_DETAIL_NAME	Details
+stringConstOverrides	PVP_LAST_HUNT_TITLE_FOLD_NAME	Collapse
+stringConstOverrides	PVP_LAST_HUNT_USE_ITEM_NOT_ACTIVITY_OPEN_FORMAT	Cannot be used outside event hours. Event time: <highlight>%s-%s</>
+stringConstOverrides	PVP_LAST_HUNT_USE_ITEM_PROP_DESC	Using Seed of Sighs...
+stringConstOverrides	PVP_LAST_HUNT_USE_TASK_TEXT_NAME	Go to Accept Quest
+stringConstOverrides	RED_PACKET_ALREADY_RECEIVED	Claimed
+stringConstOverrides	SECRET_PARTNER_BTN_ALREADY_CHANGE_ACTOR_NAME	Shifting
+stringConstOverrides	SECRET_PARTNER_BTN_CHANGE_ACTOR_NAME	Shift
+stringConstOverrides	SECRET_PARTNER_CANCEL_CHANGE_ACTOR	Cancel Shift
+stringConstOverrides	SECRET_PARTNER_CHANGE_ACTOR_TITLE	Shift Target
+stringConstOverrides	SECRET_PARTNER_SKILL_TEXT	Marionette Skill
+stringConstOverrides	SECRET_PARTNER_STAR_UP_TEXT_FORMAT	Sequence %d
+stringConstOverrides	SKILL_PRESET_TAB_1	Recommended Builds
+stringConstOverrides	TASK_TRACE_DISTANCE	m
+stringConstOverrides	TRINITY_ALL_TREASURE_HAVE_CLAIMED	All Rewards Claimed
+stringConstOverrides	TEAM_INVITE_SECRET_PARTNER_TITLE	Illusion Application
+stringConstOverrides	UIAPPEARANCE_USE	Use
+stringConstOverrides	UIAPPEARANCE_USING	In Use
+visibleTextExactOverrides	两位先生离开了，不知何时才能看到这充满风采的照片……	["两位先生离开了，不知何时才能看到这充满风采的照片……"] =
+visibleTextExactOverrides	Win by Lying Down	["Win by Lying Down"] = "Easy Wins",
+visibleTextExactOverrides	在<h>【附近】/【世界】</>聊天栏中打字输入“<HyperLink stylename=\"h\">风暴比烈酒更烈</>”	["在<h>【附近】/【世界】</>聊天栏中打字输入“<HyperLink stylename=\"h\">风暴比烈酒更烈</>”"] =
+visibleTextExactOverrides	所向披靡，无往不利！{{player.name}}在<Chat_Highlight>{{gameMode.name}}</>中获得<Chat_Highlight>{{eventMessageParams.curWinStreak}}连胜</>，战场之上，新的神话已在书写！	["所向披靡，无往不利！{{player.name}}在<Chat_Highlight>{{gameMode.name}}</>中获得<Chat_Highlight>{{eventMessageParams.curWinStreak}}连胜</>，战场之上，新的神话已在书写！"] =
+visibleTextExactOverrides	Invincible and unstoppable! {{player.name}} has achieved a <Chat_Highlight>{{eventMessageParams.curWinStreak}} win streak in <Chat_Highlight>{{gameMode.name}}</>! On the battlefield, a new legend is being written!</>	["Invincible and unstoppable! {{player.name}} has achieved a <Chat_Highlight>{{eventMessageParams.curWinStreak}} win streak in <Chat_Highlight>{{gameMode.name}}</>! On the battlefield, a new legend is being written!</>"] =
+visibleTextExactOverrides	推理检定	["推理检定"] = "Deduction Check",
+visibleTextExactOverrides	发现它变成了一份地图，还标注了奇迹降临的位置……	["发现它变成了一份地图，还标注了奇迹降临的位置……"] =
+visibleTextExactOverrides	沙利亚特	["沙利亚特"] = "Sariat",
+visibleTextExactOverrides	迪尼特	["迪尼特"] = "Dinit",
+visibleTextExactOverrides	罗、罗茜！你今天过得好吗？	["罗、罗茜！你今天过得好吗？"] = "R-Rosie! How are you today?",
+visibleTextExactOverrides	罗、罗茜！你今天过得好吗?	["罗、罗茜！你今天过得好吗?"] = "R-Rosie! How are you today?",
+visibleTextExactOverrides	啊，弗雷泽！我很好，这束花是……	["啊，弗雷泽！我很好，这束花是……"] =
+visibleTextExactOverrides	啊，弗雷泽！我很好，这束花是......	["啊，弗雷泽！我很好，这束花是......"] =
+visibleTextExactOverrides	啊，弗雷泽！我很好，这束花是...	["啊，弗雷泽！我很好，这束花是..."] =
+visibleTextExactOverrides	我想把它送给你，其实，我对你……	["我想把它送给你，其实，我对你……"] =
+visibleTextExactOverrides	我想把它送给你，其实，我对你......	["我想把它送给你，其实，我对你......"] =
+visibleTextExactOverrides	我想把它送给你，其实，我对你...	["我想把它送给你，其实，我对你..."] =
+visibleTextExactOverrides	再战·一号信徒	["再战·一号信徒"] = "Rematch: Believer Number One",
+visibleTextExactOverrides	黎明降临	["黎明降临"] = "Dawn Arrival",
+visibleTextExactOverrides	仲裁烙印	["仲裁烙印"] = "Arbitration Brand",
+visibleTextExactOverrides	窥秘凝视	["窥秘凝视"] = "Mystery Pry Gaze",
+visibleTextExactOverrides	晨曦守护	["晨曦守护"] = "Morning Light Protection",
+visibleTextExactOverrides	骑士誓约	["骑士誓约"] = "Knight's Oath",
+visibleTextExactOverrides	蝶灵附身	["蝶灵附身"] = "Butterfly Spirit Possession",
+visibleTextExactOverrides	丧钟回响	["丧钟回响"] = "Death Knell Echo",
+visibleTextExactOverrides	头狼连爪	["头狼连爪"] = "Alpha Wolf Claw Combo",
+visibleTextExactOverrides	钻头守护	["钻头守护"] = "Drill Protection",
+visibleTextExactOverrides	要变强	["要变强"] = "Improve",
+visibleTextExactOverrides	今日已领取	["今日已领取"] = "Claimed Today",
+visibleTextExactOverrides	奖励已领取	["奖励已领取"] = "Reward Claimed",
+visibleTextExactOverrides	已领取全部奖励	["已领取全部奖励"] = "All Rewards Claimed",
+visibleTextExactOverrides	使用中	["使用中"] = "In Use",
+visibleTextExactOverrides	图鉴	["图鉴"] = "Codex",
+visibleTextExactOverrides	跟随卡萝，来到了工厂区。	["跟随卡萝，来到了工厂区。"] = "Follow Carol to the Factory District.",
+visibleTextExactOverrides	全部重置	["全部重置"] = "Reset All",
+visibleTextExactOverrides	装备方案	["装备方案"] = "Equipment Builds",
+visibleTextExactOverrides	自动分解	["自动分解"] = "Auto-Dismantle",
+visibleTextExactOverrides	获得方式	["获得方式"] = "How to Obtain",
+visibleTextExactOverrides	下一级效果	["下一级效果"] = "Next-Level Effect",
+visibleTextExactOverrides	在目标位置召唤窥秘之眼，对目标造成持续伤害和减速。	["在目标位置召唤窥秘之眼，对目标造成持续伤害和减速。"] =
+visibleTextExactOverrides	感知灵界，观测星空，通过灵性物品启示的命运变化，解读其映射的现实空间异动、事态发展走向与潜在未知危险。	["感知灵界，观测星空，通过灵性物品启示的命运变化，解读其映射的现实空间异动、事态发展走向与潜在未知危险。"] =
+visibleTextExactOverrides	占星启示期间，周围的玩家可以获得临时技能来获取占星指引。	["占星启示期间，周围的玩家可以获得临时技能来获取占星指引。"] =
+visibleTextExactOverrides	使自身获得武力加4，直觉加2。使用临时技能获取占星指引的玩家也可以获得武力加4，直觉加2。	["使自身获得武力加4，直觉加2。使用临时技能获取占星指引的玩家也可以获得武力加4，直觉加2。"] =
+visibleTextExactOverrides	木桩训练	["木桩训练"] = "Training Dummy",
+visibleTextExactOverrides	家族任务	["家族任务"] = "Family Quests",
+visibleTextExactOverrides	你尚未加入任何家族	["你尚未加入任何家族"] = "You haven't joined a Family.",
+visibleTextExactOverrides	[队伍]	["[队伍]"] = "[Team]",
+visibleTextExactOverrides	【附身能力】	["【附身能力】"] = "[Possession Ability]",
+visibleTextExactOverrides	请选择要使用【灵体之线】的对象	["请选择要使用【灵体之线】的对象"] = "Select a target for [Spirit Body Threads]",
+visibleTextExactOverrides	附身剩余时间	["附身剩余时间"] = "Possession Time Remaining",
+visibleTextExactOverrides	秘偶属性生效总览	["秘偶属性生效总览"] = "Marionette Attribute Effects Overview",
+visibleTextExactOverrides	本频道可用传音发言	["本频道可用传音发言"] = "Broadcasts can be sent in this channel",
+visibleTextExactOverrides	本频道无法发言	["本频道无法发言"] = "You cannot speak in this channel",
+visibleTextExactOverrides	但我们的数据——	["但我们的数据——"] = "But our data—",
+visibleTextExactOverrides	哼唧！哼唧……	["哼唧！哼唧……"] = "Oink! Oink...",
+visibleTextExactOverrides	嗯……都行。	["嗯……都行。"] = "Hmm... anything's fine.",
+visibleTextExactOverrides	坏了，我可能把<P_Yellow>生物催长剂</>当成椰蓉洒在蛋糕上了！	["坏了，我可能把<P_Yellow>生物催长剂</>当成椰蓉洒在蛋糕上了！"] =
+visibleTextExactOverrides	培根……你真是救我于水火啊……	["培根……你真是救我于水火啊……"] = "Bacon... you really saved me...",
+visibleTextExactOverrides	培根……培根怎么回事？？	["培根……培根怎么回事？？"] = "Bacon... what's wrong with Bacon??",
+visibleTextExactOverrides	太好了！拿到数据了！	["太好了！拿到数据了！"] = "Great! We got the data!",
+visibleTextExactOverrides	好了。下次再来！	["好了。下次再来！"] = "There you go. Come again!",
+visibleTextExactOverrides	情况有点失控了！跑啊！	["情况有点失控了！跑啊！"] = "This is getting out of control! Run!",
+visibleTextExactOverrides	第一次来吗？要什么口味？	["第一次来吗？要什么口味？"] = "First time here? What flavor would you like?",
+visibleTextExactOverrides	等下我就买一大堆小蛋糕给你！	["等下我就买一大堆小蛋糕给你！"] = "I'll buy you a whole bunch of cupcakes later!",
+visibleTextExactOverrides	那就给你最经典的那种吧。	["那就给你最经典的那种吧。"] = "Then I'll give you the classic one.",
+visibleTextExactOverrides	霍伊大学赛艇队招新！	["霍伊大学赛艇队招新！"] = "Hoy University Rowing Team is recruiting!",
+visibleTextExactOverrides	成员列表	["成员列表"] = "Member List",
+visibleTextExactOverrides	俱乐部会长	["俱乐部会长"] = "Club President",
+visibleTextExactOverrides	正式成员	["正式成员"] = "Full Member",
+visibleTextExactOverrides	候补成员	["候补成员"] = "Reserve Member",
+visibleTextExactOverrides	可预存	["可预存"] = "Can Pre-store",
+visibleTextExactOverrides	已预存	["已预存"] = "Pre-stored",
+visibleTextExactOverrides	新手	["新手"] = "Beginner",
+visibleTextExactOverrides	赛季剧情	["赛季剧情"] = "Season Story",
+visibleTextExactOverrides	提交可获得猎杀进度	["提交可获得猎杀进度"] = "Submit to earn Hunt Progress",
+visibleTextExactOverrides	可获得猎杀进度	["可获得猎杀进度"] = "Earn Hunt Progress",
+visibleTextExactOverrides	当前进度：	["当前进度："] = "Current Progress:",
+visibleTextExactOverrides	当前进度:	["当前进度:"] = "Current Progress:",
+visibleTextExactOverrides	击杀	["击杀"] = "Kills",
+visibleTextExactOverrides	助攻	["助攻"] = "Assists",
+visibleTextExactOverrides	技能名称	["技能名称"] = "Skill Name",
+visibleTextExactOverrides	次数	["次数"] = "Count",
+visibleTextExactOverrides	伤害量	["伤害量"] = "Damage",
+visibleTextExactOverrides	伤害来源	["伤害来源"] = "Damage Source",
+visibleTextExactOverrides	寄售	["寄售"] = "Consignment",
+visibleTextExactOverrides	终末猎杀	["终末猎杀"] = "Final Hunt",
+visibleTextExactOverrides	主宰争锋	["主宰争锋"] = "Dominator's Clash",
+visibleTextExactOverrides	主宰之战	["主宰之战"] = "Dominator's Clash",
+visibleTextExactOverrides	秩序世界	["秩序世界"] = "World of Order",
+visibleTextExactOverrides	本周获取上限	["本周获取上限"] = "Weekly Limit",
+visibleTextExactOverrides	城市暗面	["城市暗面"] = "Dark City",
+visibleTextExactOverrides	新	["新"] = "New",
+visibleTextExactOverrides	同家族/俱乐部队员达到3人及以上	["同家族/俱乐部队员达到3人及以上"] = "3+ Party Members From the Same Family/Club",
+visibleTextExactOverrides	对比	["对比"] = "Compare",
+visibleTextExactOverrides	进攻模式·PVP	["进攻模式·PVP"] = "Offensive Mode · PvP",
+visibleTextExactOverrides	随机获得2-4个词条	["随机获得2-4个词条"] = "Grants 2-4 Random Affixes",
+visibleTextExactOverrides	神圣之杖	["神圣之杖"] = "Holy Staff",
+visibleTextExactOverrides	线索	["线索"] = "Clue",
+visibleTextExactOverrides	组队跟随中...	["组队跟随中..."] = "Following Party...",
+visibleTextExactOverrides	组队跟随中…	["组队跟随中…"] = "Following Party...",
+visibleTextExactOverrides	你在廷根的集体意识中失去了形态，意识正在退回现实...	["你在廷根的集体意识中失去了形态，意识正在退回现实..."] =
+visibleTextExactOverrides	界面返回	["界面返回"] = "Back",
+visibleTextExactOverrides	灵体之线玩法	["灵体之线玩法"] = "Spirit Body Threads",
+visibleTextExactOverrides	廷根第一市民	["廷根第一市民"] = "Tingen's First Citizen",
+visibleTextExactOverrides	[封]	["[封]"] = "[Sealed]",
+visibleTextExactOverrides	狂袭式	["狂袭式"] = "Frenzied Assault",
+visibleTextExactOverrides	廷根守墓人	["廷根守墓人"] = "Tingen Gravekeeper",
+visibleTextExactOverrides	机器加工厂坊	["机器加工厂坊"] = "Machine Processing Workshop",
+visibleTextExactOverrides	非凡材料每有1条词条格挡 +200	["非凡材料每有1条词条格挡 +200"] = "Each Beyonder Material affix grants Block +200",
+visibleTextExactOverrides	总探索度	["总探索度"] = "Total Exploration",
+visibleTextExactOverrides	上限可累计至下周	["上限可累计至下周"] = "Unused Limit Carries Over to Next Week",
+visibleTextExactOverrides	安迪哥努斯笔记	["安迪哥努斯笔记"] = "Antigonus Notebook",
+visibleTextExactOverrides	首通队伍	["首通队伍"] = "First-Clear Team",
+visibleTextExactOverrides	男子：（癫狂）万物的“母亲”，赐予我们新生！	["男子：（癫狂）万物的“母亲”，赐予我们新生！"] =
+visibleTextExactOverrides	“愚者”：拿上这个。	["“愚者”：拿上这个。"] = "\"The Fool\": Take this.",
+visibleTextExactOverrides	丑人：（有效期十四年？为什么要签这么久的合同……）	["丑人：（有效期十四年？为什么要签这么久的合同……）"] =
+visibleTextExactOverrides	没有太大危险了，不用特别在意。	["没有太大危险了，不用特别在意。"] =
+visibleTextExactOverrides	罗珊小姐，这个铃铛是用来做什么的？	["罗珊小姐，这个铃铛是用来做什么的？"] =
+visibleTextExactOverrides	三律之背反	["三律之背反"] = "Antinomy of the Three Laws",
+visibleTextExactOverrides	镜像之自我	["镜像之自我"] = "Mirrored Self",
+visibleTextExactOverrides	技能增强提高<Mark>30</>。	["技能增强提高<Mark>30</>。"] = "Skill Enhancement increased by <Mark>30</>.",
+visibleTextExactOverrides	技能增强提高<Mark>30</>。\n激活套装<Mark>灵与知回响</>时不生效。	["技能增强提高<Mark>30</>。\n激活套装<Mark>灵与知回响</>时不生效。"] =
+visibleTextExactOverrides	<CostRed>{1,2,（烙印已失效）}</>技能增强提高<Mark>30</>。\n激活套装<Mark>灵与知回响</>时不生效。	["<CostRed>{1,2,（烙印已失效）}</>技能增强提高<Mark>30</>。\n激活套装<Mark>灵与知回响</>时不生效。"] =
+visibleTextExactOverrides	技能增强提高30。\n激活套装灵与知回响时不生效。	["技能增强提高30。\n激活套装灵与知回响时不生效。"] =

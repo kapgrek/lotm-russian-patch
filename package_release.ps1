@@ -40,6 +40,10 @@ if (Test-Path "$projectRoot\data\EnglishToRussian.lua") {
 if (Test-Path "$projectRoot\data\CPDDTranslation.lua") {
     Copy-Item "$projectRoot\data\CPDDTranslation.lua" "$staging\Binaries\Win64\lua\Launch\Base\CPDDTranslation.lua" -Force
 }
+if (Test-Path "$projectRoot\data\shards") {
+    Write-Host "Copying Russian translation shards (1,024 shards)..." -ForegroundColor Green
+    Copy-Item "$projectRoot\data\shards\RuntimeTextGemini_*.lua" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\" -Force
+}
 
 $zipPath = "$buildDir\lom-russian-patch-data.zip"
 Write-Host "Creating archive $zipPath..."

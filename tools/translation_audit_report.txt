@@ -1,0 +1,22 @@
+﻿=== LOTM TRANSLATION AUDIT REPORT ===
+Date: 2026-09-07 02:40:00
+Total strings in Gemini base: 126617
+Found by CN key in Russian dict: 126617
+Found by EN key in Russian dict: 126617
+Completely MISSING from Russian dict: 0
+Identical to English (RU == EN): 10
+Empty translations: 0
+Valid Cyrillic translations: 126533
+Non-Cyrillic translations: 74
+
+=== SAMPLE IDENTICAL TO ENGLISH (UNTRANSLATED) ===
+[CN] %d时%d分  ==>  [EN] %d:%d
+[CN] %s倍  ==>  [EN] %sx
+[CN] %s年%s月%s日 %s:%s  ==>  [EN] %s/%s/%s %s:%s
+[CN] %s年%s月%s日 %s时%s分  ==>  [EN] %s/%s/%s %s:%s
+[CN] %s第%s%s  ==>  [EN] %s %s %s
+[CN] %时  ==>  [EN] %
+[CN] <Double>%s倍</>  ==>  [EN] <Double>%sx</>
+[CN] 为\r\n什\r\n么\r\n？  ==>  [EN] W\r\nh\r\ny\r\n?
+[CN] 真\r\n贪\r\n心  ==>  [EN] So\nGreedy
+[CN] ？？？  ==>  [EN] ???

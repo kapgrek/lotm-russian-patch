@@ -1160,14 +1160,7 @@ local function cacheGeminiLookup(value, translated)
         geminiTextCache.LookupWriteIndex % geminiTextCache.LookupLimit + 1
 end
 
-local function lookupGeminiText(value)
-    local RussianMod = runtimeFixes.RussianMod
-    if RussianMod and RussianMod.lookupRussianText then
-        local ru = RussianMod.lookupRussianText(value)
-        if ru ~= nil then
-            return ru
-        end
-    end
+local function rawLookupGeminiText(value)
     if type(value) ~= "string" then return nil end
     local cached = geminiTextCache.Lookups[value]
     if cached ~= nil then
@@ -1212,6 +1205,23 @@ local function lookupGeminiText(value)
     local translated = shard[value]
     cacheGeminiLookup(value, translated)
     return translated
+end
+
+local function lookupGeminiText(value)
+    local RussianMod = runtimeFixes.RussianMod
+    if RussianMod and RussianMod.lookupRussianText then
+        local ru = RussianMod.lookupRussianText(value)
+        if ru ~= nil then
+            return ru
+        end
+    end
+    return rawLookupGeminiText(value)
+end
+
+runtimeFixes.rawLookupGeminiText = rawLookupGeminiText
+runtimeFixes.lookupGeminiText = lookupGeminiText
+if runtimeFixes.RussianMod then
+    runtimeFixes.RussianMod.lookupGeminiText = rawLookupGeminiText
 end
 
 -- TextControlSentenceData uses #CanMove...# as executable puzzle markup, not

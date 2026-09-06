@@ -26,20 +26,47 @@ class VerifySkillCoverage
 
         var existingRu = new HashSet<string>(StringComparer.Ordinal);
         int totalRuEntries = 0;
-        foreach (var line in File.ReadAllLines(ruPath, Encoding.UTF8))
+
+        string shardsDir = @"d:\gameDev\translate lotm\data\shards";
+        if (Directory.Exists(shardsDir) && Directory.GetFiles(shardsDir, "RuntimeTextGemini_*.lua").Length > 0)
         {
-            string t = line.Trim();
-            if (t.StartsWith("[\""))
+            var shardFiles = Directory.GetFiles(shardsDir, "RuntimeTextGemini_*.lua");
+            Console.WriteLine(string.Format("Загрузка русских шардов из data/shards/ ({0} файлов)...", shardFiles.Length));
+            foreach (var sf in shardFiles)
             {
-                int delim = t.IndexOf("\"] = \"");
-                if (delim > 2)
+                foreach (var line in File.ReadAllLines(sf, Encoding.UTF8))
                 {
-                    existingRu.Add(t.Substring(2, delim - 2));
-                    totalRuEntries++;
+                    string t = line.Trim();
+                    if (t.StartsWith("[\""))
+                    {
+                        int delim = t.IndexOf("\"] = \"");
+                        if (delim > 2)
+                        {
+                            existingRu.Add(t.Substring(2, delim - 2));
+                            totalRuEntries++;
+                        }
+                    }
                 }
             }
+            Console.WriteLine(string.Format("Всего записей в шардах: {0} (уникальных ключей: {1})", totalRuEntries, existingRu.Count));
         }
-        Console.WriteLine(string.Format("Всего записей в RuntimeTextRussian.lua: {0}", totalRuEntries));
+        else if (File.Exists(ruPath))
+        {
+            foreach (var line in File.ReadAllLines(ruPath, Encoding.UTF8))
+            {
+                string t = line.Trim();
+                if (t.StartsWith("[\""))
+                {
+                    int delim = t.IndexOf("\"] = \"");
+                    if (delim > 2)
+                    {
+                        existingRu.Add(t.Substring(2, delim - 2));
+                        totalRuEntries++;
+                    }
+                }
+            }
+            Console.WriteLine(string.Format("Всего записей в RuntimeTextRussian.lua: {0}", totalRuEntries));
+        }
 
         // 1. Проверка покрытия формульных навыков
         var formulaRegex = new Regex(@"(\*d|\*f|spellfielddisc|bulletdisc|buffdisc|mul\(|CheckStar\()", RegexOptions.IgnoreCase);
@@ -117,26 +144,24 @@ class VerifySkillCoverage
         Console.WriteLine(string.Format("  - Навык «Пламя разума» (Детальное описание, строка 118131): {0}", mindFireDetailed ? "✅ НАЙДЕН" : "❌ ОТСУТСТВУЕТ"));
         Console.WriteLine(string.Format("  - Талант «Пламя разума» (Пассивный узел Horror, строка 5256): {0}", mindFirePassive ? "✅ НАЙДЕН" : "❌ ОТСУТСТВУЕТ"));
 
-        // 3. Проверка синхронизации файлов
-        Console.WriteLine("\nПроверка синхронизации:");
-        long rootSize = new FileInfo(ruPath).Length;
-        Console.WriteLine(string.Format("  - Размер RuntimeTextRussian.lua в корне: {0:N0} байт", rootSize));
+        // 3. Проверка синхронизации шардов и файлов
+        Console.WriteLine("\nПроверка синхронизации архитектуры шардов:");
+        int shardCount = Directory.Exists(shardsDir) ? Directory.GetFiles(shardsDir, "RuntimeTextGemini_*.lua").Length : 0;
+        Console.WriteLine(string.Format("  - Русских шардов в data/shards/: {0}/1024 {1}", shardCount, shardCount == 1024 ? "✅ ПОЛНЫЙ НАБОР" : "❌ НЕПОЛНЫЙ"));
+
+        string modBaseShardsDir = @"d:\gameDev\translate lotm\mod_base\Saved\Mods\lua\mods\cpdd_runtime_fixes";
+        int modBaseShardCount = Directory.Exists(modBaseShardsDir) ? Directory.GetFiles(modBaseShardsDir, "RuntimeTextGemini_*.lua").Length : 0;
+        Console.WriteLine(string.Format("  - Русских шардов в mod_base/: {0}/1024 {1}", modBaseShardCount, modBaseShardCount == 1024 ? "✅ ПОЛНЫЙ НАБОР" : "❌ НЕПОЛНЫЙ"));
 
         if (File.Exists(dataRuPath))
         {
             long dataSize = new FileInfo(dataRuPath).Length;
-            Console.WriteLine(string.Format("  - Размер в data/: {0:N0} байт {1}", dataSize, dataSize == rootSize ? "✅ Синхронизирован" : "⚠️ Отличается"));
+            Console.WriteLine(string.Format("  - Стаб RuntimeTextRussian.lua в data/: {0} байт {1}", dataSize, dataSize < 5000 ? "✅ БЕЗОПАСЕН (LJ_MAX_CONSTS защищён)" : "⚠️ ПРЕВЫШАЕТ ЛИМИТ"));
         }
 
-        if (File.Exists(gameRuPath))
+        if (missingFormulas == 0 && mindFireDetailed && mindFirePassive && shardCount == 1024)
         {
-            long gameSize = new FileInfo(gameRuPath).Length;
-            Console.WriteLine(string.Format("  - Размер в игре: {0:N0} байт {1}", gameSize, gameSize == rootSize ? "✅ Синхронизирован" : "⚠️ Отличается"));
-        }
-
-        if (missingFormulas == 0 && mindFireDetailed && mindFirePassive)
-        {
-            Console.WriteLine("\n🎉 ВСЕ ТЕСТЫ ПРОЙДЕНЫ! Покрытие детальных навыков 100%!");
+            Console.WriteLine("\n🎉 ВСЕ ТЕСТЫ ПРОЙДЕНЫ! Покрытие детальных навыков 100%! Шардовая архитектура полностью готова!");
             Environment.Exit(0);
         }
         else
