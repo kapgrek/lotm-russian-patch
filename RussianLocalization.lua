@@ -129,17 +129,123 @@ Russian.stringConstOverrides = {
 
 -- Прямой словарь Английский -> Русский (для текстов, уже переведенных патчем в English)
 Russian.englishToRussian = {
+    ["Necrotic Mark"] = "Метка некроманта",
+    ["Magic Mushroom"] = "Волшебный гриб",
+    ["Wave Riding"] = "Покорение волн",
+    ["Law Judgment"] = "Приговор закона",
+    ["Requiem Poem"] = "Упокойная поэма",
+    ["Ensemble Poem"] = "Созвучие стихов",
+    ["Midnight Poem"] = "Полуночная поэма",
+    ["Fortune-Turning Ritual"] = "Ритуал удачи",
+    ["Gray Fog Suppression"] = "Подавление тумана",
+    ["gray fog Suppression"] = "Подавление тумана",
+    ["Gray Fog Blessing"] = "Благословение тумана",
+    ["gray fog Blessing"] = "Благословение тумана",
+    ["Historical Beacon"] = "Исторический маяк",
+    ["Air Cannon"] = "Воздушная пушка",
+    ["Mind Insight"] = "Взор разума",
+    ["Drill Guard"] = "Защита\nбура",
+    ["Leader Claw Combo"] = "Когти\nвожака",
+    ["Descending Shadow"] = "Нисходящая\nтень",
+    ["Knight's Vow"] = "Клятва\nрыцаря",
+    ["Dawn Light Guard"] = "Защита\nрассвета",
+    ["Vision of Mystery"] = "Взор\nтайновидца",
+    ["Insight Gaze"] = "Взор\nтайновидца",
+    ["Mystery Ritual"] = "Ритуал\nтайн",
+    ["Sword Master"] = "Мастер\nмеча",
+    ["Performance Ends"] = "Конец\nспектакля",
+    ["Pious Prayer"] = "Истовая\nмолитва",
+    ["Witchcraft"] = "Колдовство",
+    ["Mysterious Illusion"] = "Таинственная\nиллюзия",
+    ["Spear of Longinus"] = "Копьё\nЛонгина",
+    ["Information Torrent"] = "Поток\nзнаний",
+    ["Vortex of Knowledge"] = "Поток\nзнаний",
+    ["Star Sand"] = "Звёздный\nпесок",
+    ["Nebula Chant"] = "Ария\nтуманности",
+    ["Nebula Aria"] = "Ария\nтуманности",
+    ["Footprints"] = "Следы",
+    ["Footprint Reappearance"] = "Следы",
+    ["Flashback"] = "Возврат",
+    ["Folding Screen"] = "Ширма\nпространств",
+    ["Space Cage"] = "Клетка\nпространства",
+    ["Starlight Cage"] = "Звёздная\nклетка",
+    ["Trick Performance"] = "Шоу\nфокусов",
+    ["Finisher Skill Layered Gate"] = "Врата\nпространств",
+    ["Layered Gate"] = "Врата\nпространств",
+    ["Enveloped in Holy Flames"] = "Святое\nпламя",
+    ["Holy Flames"] = "Святое\nпламя",
+    ["Refraction of Light"] = "Преломление\nсвета",
+    ["Sun Oath"] = "Солнечная\nклятва",
+    ["Solar Oath"] = "Солнечная\nклятва",
+    ["Punishment"] = "Кара",
+    ["God's Punishment"] = "Божья\nкара",
+    ["Divine Punishment"] = "Божья\nкара",
+    ["Holy Light Protection"] = "Защита\nСвета",
+    ["Sun Chaser"] = "Ловец\nСолнца",
+    ["Unshadowed Spear"] = "Копьё\nСвета",
+    ["Soul of the Blazing Sun"] = "Душа\nСолнца",
+    ["Blazing Sun"] = "Яркое\nСолнце",
+    ["Dawn Armor"] = "Доспех\nрассвета",
+    ["Combat Stance Imprint"] = "Боевая\nстойка",
+    ["Slash of Glory"] = "Удар\nславы",
+    ["Silver Rapier"] = "Серебряная\nрапира",
+    ["Sunset Hurricane"] = "Закатный\nураган",
+    ["Royal Court Command"] = "Приказ\nдвора",
+    ["Exorcism Slash"] = "Удар\nэкзорцизма",
+    ["Hunter Instant Slash"] = "Быстрый\nвыпад",
+    ["Demon Hunter Instant Slash"] = "Быстрый\nвыпад",
+    ["Blade of Withering"] = "Клинок\nувядания",
+    ["Greatsword Slash"] = "Удар\nдвуручником",
+    ["Angry Slam"] = "Яростный\nудар",
+    ["Plague"] = "Чума",
+    ["Mental Nightmare"] = "Ментальный\nкошмар",
+    ["Mind Reading"] = "Чтение\nмыслей",
+    ["Psychotherapy"] = "Психо-\nтерапия",
+    ["Pacify"] = "Умиротво-\nрение",
+    ["Dream Rebirth"] = "Перерож-\nдение",
+    ["Dream Recovery"] = "Возврат\nсна",
+    ["Mind Fire"] = "Пламя\nразума",
+    ["Psychological Invisibility"] = "Незри-\nмость",
+    ["Consciousness Shock"] = "Удар\nсознания",
+    ["Mental Guidance"] = "Ментальное\nвнушение",
+    ["Deterrence"] = "Устра-\nшение",
+    ["Mental Plague"] = "Ментальная\nчума",
+    ["Consciousness Manipulation"] = "Контроль\nсознания",
+    ["Dream Analysis"] = "Анализ\nснов",
+    ["Dream Weaving"] = "Плетение\nснов",
+    ["Frenzy"] = "Бешен-\nство",
+    ["Insight"] = "Проница-\nтельность",
+    ["Circular area with a radius of 12 meters"] = "Круглая область радиусом 12 м",
+    ["Circular area with a radius of 10 meters"] = "Круглая область радиусом 10 м",
+    ["Circular area with a radius of 8 meters"] = "Круглая область радиусом 8 м",
+    ["Circular area with a radius of 6 meters"] = "Круглая область радиусом 6 м",
+    ["Circular area with a radius of 4 meters"] = "Круглая область радиусом 4 м",
+    ["Circular area with a radius of 5 meters"] = "Круглая область радиусом 5 м",
+    ["Continuous"] = "Период.",
+    ["Bond"] = "Связи",
+    ["Fellows"] = "Связи",
+    ["Rd. 1 talent not enabled"] = "Не активно",
+    ["talent not enabled"] = "Не активно",
+    ["Beyonder talent not enabled"] = "Не активно",
+    ["Imagination Stance"] = "Стойка фантазии",
+    ["Nightmare Stance"] = "Стойка кошмара",
+    ["In Offensive Stance"] = "В атакующей стойке",
+    ["Offensive Stance"] = "Атакующая стойка",
+    ["In Defense Form"] = "В защитной стойке",
+    ["Defense Form"] = "Защитная стойка",
+    ["Output"] = "Урон",
+    ["Healing"] = "Исцеление",
     ["Puppets"] = "Куклы",
     ["Puppet"] = "Куклы",
-    ["Passive"] = "Пассивный",
+    ["Passive"] = "Пассив.",
     ["Normal"] = "Обычный",
     ["Roleplay"] = "Роль",
     ["Special"] = "Особый",
-    ["Displacement"] = "Перемещение",
-    ["Survival"] = "Выживание",
-    ["Control Break"] = "Снятие контроля",
-    ["Hard Crowd Control"] = "Жёсткий контроль",
-    ["Soft Crowd Control"] = "Мягкий контроль",
+    ["Displacement"] = "Рывок",
+    ["Survival"] = "Защита",
+    ["Control Break"] = "Снятие контр.",
+    ["Hard Crowd Control"] = "Жёстк. контр.",
+    ["Soft Crowd Control"] = "Мягк. контр.",
     ["Group"] = "Группа",
     ["One-click Assist"] = "Помощник",
     -- Главный экран, логин и сервер
@@ -286,8 +392,8 @@ Russian.englishToRussian = {
     ["Connections"] = "Связи",
     ["marionette"] = "Куклы",
     ["Training Dummy"] = "Манекен",
-    ["Single Target"] = "Одиночная цель",
-    ["Area Target"] = "По области",
+    ["Single Target"] = "Одиноч.",
+    ["Area Target"] = "Область",
     ["Area of Effect"] = "По области",
     ["AOE"] = "По области",
     ["Super Armor"] = "Суперброня",
@@ -366,7 +472,7 @@ Russian.englishToRussian = {
     ["SecretPartner"] = "Куклы",
     ["Marionette"] = "Куклы",
     ["Marionettes"] = "Куклы",
-    ["Fellow"] = "Союзники",
+    ["Fellow"] = "Связи",
     ["Ally"] = "Союзник",
     ["Allies"] = "Союзники",
     ["Club"] = "Клуб",
@@ -433,7 +539,7 @@ Russian.englishToRussian = {
     ["Survivability"] = "Живучесть",
     ["Difficulty"] = "Сложность",
     ["Control"] = "Контроль",
-    ["Burst"] = "Взрывной урон",
+    ["Burst"] = "Взрыв",
     ["Support"] = "Поддержка",
 
     -- Канон Повелителя Тайн (English -> Russian)
@@ -556,13 +662,13 @@ Russian.englishToRussian = {
     ["Sebastian"] = "Себастьян",
     ["Man"] = "Мужчина",
     ["Ugly Man"] = "Уродец",
-    ["Dawn Arrival"] = "Пришествие рассвета",
-    ["Arbitration Brand"] = "Клеймо арбитража",
+    ["Dawn Arrival"] = "Пришествие\nрассвета",
+    ["Arbitration Brand"] = "Клеймо\nарбитража",
     ["Mystery Pry Gaze"] = "Взор тайновидца",
     ["Morning Light Protection"] = "Защита утреннего света",
     ["Knight's Oath"] = "Клятва рыцаря",
-    ["Butterfly Spirit Possession"] = "Одержимость духом бабочки",
-    ["Death Knell Echo"] = "Эхо погребального звона",
+    ["Butterfly Spirit Possession"] = "Дух\nбабочки",
+    ["Death Knell Echo"] = "Погребальный\nЗвон",
     ["Alpha Wolf Claw Combo"] = "Серия когтей вожака",
     ["Drill Protection"] = "Защита бура",
     -- Вкладки инвентаря
@@ -591,17 +697,104 @@ Russian.englishToRussian = {
 
 -- Китайский -> Русский (точные переопределения интерфейса и текста)
 Russian.chineseToRussian = {
+    ["死灵印记"] = "Метка некроманта",
+    ["神奇蘑菇"] = "Волшебный гриб",
+    ["驭浪"] = "Покорение волн",
+    ["律令裁决"] = "Приговор закона",
+    ["戏法表演"] = "Шоу фокусов",
+    ["安魂诗篇"] = "Упокойная поэма",
+    ["合奏诗篇"] = "Созвучие стихов",
+    ["午夜诗篇"] = "Полуночная поэма",
+    ["转运仪式"] = "Ритуал удачи",
+    ["灰雾压制"] = "Подавление тумана",
+    ["灰雾加持"] = "Благословение тумана",
+    ["历史明灯"] = "Исторический маяк",
+    ["空气炮"] = "Воздушная пушка",
+    ["心灵洞察"] = "Взор разума",
+    ["窥秘仪式"] = "Ритуал\nтайн",
+    ["剑术大师"] = "Мастер\nмеча",
+    ["演出落幕"] = "Конец\nспектакля",
+    ["虔诚祷祝"] = "Истовая\nмолитва",
+    ["巫术"] = "Колдовство",
+    ["神秘幻象"] = "Таинственная\nиллюзия",
+    ["朗基努斯之枪"] = "Копьё\nЛонгина",
+    ["信息洪流"] = "Поток\nзнаний",
+    ["星沙"] = "Звёздный\nпесок",
+    ["星云咏叹"] = "Ария\nтуманности",
+    ["足迹"] = "Следы",
+    ["足迹再现"] = "Следы",
+    ["闪回"] = "Возврат",
+    ["折幕"] = "Ширма\nпространств",
+    ["空间牢笼"] = "Клетка\nпространства",
+    ["星光囚笼"] = "Звёздная\nклетка",
+    ["戏法演绎"] = "Шоу\nфокусов",
+    ["层叠之门"] = "Врата\nпространств",
+    ["圣焰"] = "Святое\nпламя",
+    ["光之折射"] = "Преломление\nсвета",
+    ["太阳誓约"] = "Солнечная\nклятва",
+    ["惩戒"] = "Кара",
+    ["神罚"] = "Божья\nкара",
+    ["圣光庇护"] = "Защита\nСвета",
+    ["逐日"] = "Ловец\nСолнца",
+    ["无暗之枪"] = "Копьё\nСвета",
+    ["烈阳之魂"] = "Душа\nСолнца",
+    ["烈阳"] = "Яркое\nСолнце",
+    ["黎明铠甲"] = "Доспех\nрассвета",
+    ["战姿留痕"] = "Боевая\nстойка",
+    ["荣耀之斩"] = "Удар\nславы",
+    ["银白细剑"] = "Серебряная\nрапира",
+    ["日暮飓风"] = "Закатный\nураган",
+    ["王庭号令"] = "Приказ\nдвора",
+    ["驱魔卫斩"] = "Удар\nэкзорцизма",
+    ["猎魔瞬斩"] = "Быстрый\nвыпад",
+    ["凋零之刃"] = "Клинок\nувядания",
+    ["巨剑斩击"] = "Удар\nдвуручником",
+    ["怒意猛击"] = "Яростный\nудар",
+    ["噩梦"] = "Кошмар",
+    ["瘟疫"] = "Чума",
+    ["精神噩梦"] = "Ментальный\nкошмар",
+    ["读心"] = "Чтение\nмыслей",
+    ["心理治疗"] = "Психо-\nтерапия",
+    ["安抚"] = "Умиротво-\nрение",
+    ["梦境重生"] = "Перерож-\nдение",
+    ["梦境复苏"] = "Возврат\nсна",
+    ["心灵之火"] = "Пламя\nразума",
+    ["心理学隐身"] = "Незри-\nмость",
+    ["意识冲击"] = "Удар\nсознания",
+    ["心灵引导"] = "Ментальное\nвнушение",
+    ["震慑"] = "Устра-\nшение",
+    ["精神瘟疫"] = "Ментальная\nчума",
+    ["意识操纵"] = "Контроль\nсознания",
+    ["梦境分析"] = "Анализ\nснов",
+    ["梦境编织"] = "Плетение\nснов",
+    ["狂乱"] = "Бешен-\nство",
+    ["洞悉"] = "Проница-\nтельность",
+    ["洞察"] = "Проница-\nтельность",
+    ["被动"] = "Пассив.",
+    ["普通"] = "Обычный",
+    ["伤害"] = "Урон",
+    ["控制"] = "Контроль",
+    ["持续"] = "Период.",
+    ["羁绊"] = "Связи",
+    ["伙伴"] = "Связи",
+    ["非凡天赋未启用"] = "Не активно",
+    ["空想姿态"] = "Стойка фантазии",
+    ["噩梦姿态"] = "Стойка кошмара",
+    ["输出形态"] = "Атакующая стойка",
+    ["防御形态"] = "Защитная стойка",
+    ["输出"] = "Урон",
+    ["治疗"] = "Исцеление",
     ["诡秘之境"] = "Царство\nТайн",
     ["扮演"] = "Роль",
     ["特殊"] = "Особый",
-    ["位移"] = "Перемещение",
-    ["生存"] = "Выживание",
-    ["爆发"] = "Взрывной урон",
-    ["范围"] = "По области",
-    ["单体"] = "Одиночная цель",
-    ["解控"] = "Снятие контроля",
-    ["硬控"] = "Жёсткий контроль",
-    ["软控"] = "Мягкий контроль",
+    ["位移"] = "Рывок",
+    ["生存"] = "Защита",
+    ["爆发"] = "Взрыв",
+    ["范围"] = "Область",
+    ["单体"] = "Одиноч.",
+    ["解控"] = "Снятие контр.",
+    ["硬控"] = "Жёстк. контр.",
+    ["软控"] = "Мягк. контр.",
     ["群体"] = "Группа",
     ["群攻"] = "Группа",
     ["一键辅助"] = "Помощник",
@@ -811,15 +1004,71 @@ function Russian.lookupRussianText(text)
     end
 
     -- 5. Контекстный перевод динамических описаний навыков и подсказок
-    if #text > 15 then
+    if #text > 12 then
         local m = text
 
-        -- Благословение Шута (Подробнее / Next-level effect)
+        -- ----------------------------------------------------
+        -- ПУТЬ ЗРИТЕЛЯ / СНОВИДЕЦ (Spectator)
+        -- ----------------------------------------------------
+        -- Ментальная чума (Mental Plague)
+        m = m:gsub("Deals ([%d%.]+) magic damage to enemies in the area and applies Plague for ([%d%.]+) seconds%.", "Наносит %1 маг. урона врагам в области и накладывает Чуму на %2 сек.")
+        m = m:gsub("Deals ([%d%.]+) magic damage to enemies in the area and applies <HighLight>Plague</> for ([%d%.]+) seconds%.", "Наносит %1 маг. урона врагам в области и накладывает <HighLight>Чуму</> на %2 сек.")
+        m = m:gsub("Plague: Take ([%d%.]+) magic damage every ([%d%.]+) seconds%..?", "Чума: Получает %1 маг. урона каждые %2 сек.")
+        m = m:gsub("<FaintYellow>Plague</>: Take ([%d%.]+) magic damage every ([%d%.]+) seconds%..?", "<FaintYellow>Чума</>: Получает %1 маг. урона каждые %2 сек.")
+        m = m:gsub("When dealing damage to targets affected by Mental Plague, an additional coordinated attack is triggered, dealing magic damage equal to ([%d%.]+)%% of the base effect%.", "При нанесении урона целям под действием Ментальной чумы срабатывает совместная атака, наносящая маг. урон в размере %1%% от базового эффекта.")
+        m = m:gsub("When dealing damage to targets affected by <HyperLink.-Mental Plague.-</>, an additional coordinated attack is triggered, dealing magic damage equal to ([%d%.]+)%% of the base effect%.", "При нанесении урона целям под действием Ментальной чумы срабатывает совместная атака, наносящая маг. урон в размере %1%% от базового эффекта.")
+        m = m:gsub("Spread a Mental Plague in the target area, dealing damage and infecting enemy units within range%.", "Распространяет Ментальную чуму в выбранной области, нанося урон и заражая вражеские цели.")
+        m = m:gsub("Deals (.-) magic damage to the locked target and surrounding enemies, and <HyperLink.-floats.-</> enemy monsters in the <HighLight>Plague</> state%.", "Наносит %1 маг. урона захваченной цели и окружающим врагам, подбрасывая монстров в состоянии <HighLight>Чумы</>.")
+        m = m:gsub("Deals (.-) magic damage to the locked target and surrounding enemies, and floats enemy monsters in the Plague state%.", "Наносит %1 маг. урона захваченной цели и окружающим врагам, подбрасывая монстров в состоянии Чумы.")
+
+        -- Стойка кошмара и Стойка фантазии
+        m = m:gsub("A Nightmare Stance specialized in combat%. When using combat skills to deal damage, the user heals themselves, but the healing applied by the user is significantly reduced%.", "Боевая стойка Кошмара. При нанесении урона боевыми навыками исцеляет заклинателя, но эффективность применяемого им лечения сильно снижена.")
+        m = m:gsub("In Nightmare Stance, when dealing damage, your self%-healing is increased by (%d+)%%%.", "В стойке Кошмара при нанесении урона самоисцеление повышено на %1%%.")
+        m = m:gsub("In Nightmare Stance, healing ability is no longer reduced%.", "В стойке Кошмара эффективность лечения больше не снижается.")
+
+        -- Удар сознания, Кошмар, Устрашение, Внушение
+        m = m:gsub("Consciousness Shock applies (.-) Nightmare (.-) upon hit%. After (%d+) stacks, the Nightmare explosion deals magic damage to the target and enemies within (%d+) meters equal to (%d+)%% of the base effect%.", "Удар сознания накладывает уровень Кошмара при попадании. При накоплении %2 уровней взрыв Кошмара наносит цели и врагам в радиусе %3 м маг. урон в размере %4%% от базового эффекта.")
+        m = m:gsub("A three%-stage combo that launches mental energy attacks, each stage dealing (.-) magic damage to enemies%. \n Only available in <HighLight> Nightmare Stance </>; switches to <HighLight> Pacify </> in <HighLight> Imagination Stance </>%.", "Серия из 3 ударов ментальной энергией, каждый этап наносит %1 маг. урона врагам. \n Доступно только в <HighLight>Стойке кошмара</>; в <HighLight>Стойке фантазии</> переключается на <HighLight>Умиротворение</>.")
+        m = m:gsub("A three%-stage combo that pacifies the minds of allies, each stage restoring (.-) Health to allied targets%. \n Only available in <HighLight> Imagination Stance </>; switches to <HighLight> Consciousness Shock </> in <HighLight> Nightmare Stance </>%.", "Серия из 3 этапов, успокаивающая разум союзников и восстанавливающая %1 ед. здоровья союзным целям. \n Доступно только в <HighLight>Стойке фантазии</>; в <HighLight>Стойке кошмара</> переключается на <HighLight>Удар сознания</>.")
+        m = m:gsub("Causes party members within (%d+) meters to gain a <HighLight>Heart Healing Mark</>, lasting for ([%d%.]+) seconds%..-", "Накладывает на членов группы в радиусе %1 м <HighLight>Метку исцеления</> на %2 сек. Держатель метки получает снижение урона и восстанавливает здоровье, когда заклинатель применяет лечение.")
+        m = m:gsub("Causes a target party member to gain a <HighLight>Mind Reading Mark</>, lasting for ([%d%.]+) seconds%..-", "Накладывает на члена группы <HighLight>Метку чтения мыслей</> на %1 сек. При снижении здоровья цели ниже 30%% дает бафф и лечит цель при боевых заклинаниях.")
+        m = m:gsub("Creates a field that deals (.-) magic damage to enemies within range every second for (%d+) seconds%. \n Only available in <HighLight> Nightmare Stance </>; switches to <HighLight> Psychological Suggestion </> in <HighLight> Imagination Stance </>%.", "Создает поле, наносящее врагам внутри %1 маг. урона каждую секунду в течение %2 сек. \n Доступно только в <HighLight>Стойке кошмара</>; в <HighLight>Стойке фантазии</> переключается на <HighLight>Внушение</>.")
+        m = m:gsub("Continuously heals allies within range, restoring ([%d%.]+) Health to allies within range every ([%d%.]+) seconds, up to (%d+) times%..-", "Непрерывно исцеляет союзников вокруг, восстанавливая %1 ед. здоровья союзникам в области каждые %2 сек. (до %3 раз). Во время действия навыка можно двигаться.")
+
+        -- ----------------------------------------------------
+        -- ПУТЬ ВОИНА / ГИГАНТ (Warrior / Giant)
+        -- ----------------------------------------------------
+        m = m:gsub("As a natural Weapon Master, the Warrior can skillfully use a variety of weapons%. Use dual swords in Offensive Stance to increase your damage; use a greatsword in Defense Form to gain damage reduction and more easily attract monster aggro%.", "Прирожденный Мастер оружия, Воин искусно владеет разными клинками. В атакующей стойке парные мечи увеличивают урон; в защитной стойке двуручник снижает урон и привлекает внимание врагов.")
+        m = m:gsub("Dash forward with the sword at high speed to slash, attacking units along the path and gaining a Dusk Mark %(used to strengthen Angry Slam and finisher skills%)%. Applies decay %(continuous damage%) in Offensive Stance, and increases your block in Defense Form%.", "Совершает стремительный выпад вперед с мечом, атакуя врагов на пути и получая Метку сумерек (для усиления Яростного удара и добиваний). В атакующей стойке накладывает увядание, в защитной стойке повышает блок.")
+        m = m:gsub("Wield dual swords to launch a storm%-like offensive, dealing massive damage and controlling enemies with continuous slashes%. You gain a Dusk Mark %(used to strengthen Angry Slam and finisher skills%)%. Applies decay %(continuous damage%) in Offensive Stance%.", "Яростно обрушивает вихрь ударов парными клинками, нанося огромный урон и контролируя врагов сериями взмахов. Дает Метку сумерек. В атакующей стойке накладывает увядание.")
+        m = m:gsub("Dash in a designated direction, dealing ([%d%.]+) physical damage to enemies along the path%. Upon hitting an enemy, gain (%d+) Twilight Mark.-", "Совершает рывок в выбранном направлении, нанося %1 физ. урона врагам на пути. При попадании дает %2 Метку сумерек. В защитной стойке дает защиту, в атакующей накладывает Увядание.")
+        m = m:gsub("Perform three consecutive attacks on enemies in a small range in front of you, dealing (.-) physical damage respectively%..-", "Совершает три последовательных удара по врагам перед собой, нанося %1 физ. урона. Дает Метку сумерек и накладывает Увядание.")
+        m = m:gsub("Let out a stunning roar, dealing ([%d%.]+) physical damage to surrounding enemies.-Then, summon a giant phantom shadow to slam the ground, dealing ([%d%.]+) physical damage and knocking down monsters.-", "Издает оглушительный рев, нанося %1 физ. урона врагам вокруг. Затем призывает фантом гиганта, сотрясающий землю, нанося %2 физ. урона и сбивая монстров с ног.")
+        m = m:gsub("Continuously strike surrounding enemies, dealing (.-) physical damage to enemies in range every ([%d%.]+) seconds for (%d+) seconds, dragging enemy monsters toward you.-", "Непрерывно сокрушает врагов вокруг, нанося %1 физ. урона каждые %2 сек. в течение %3 сек. и притягивая монстров к себе. Дает Метки сумерек и Суперброню.")
+        m = m:gsub("Deploy a domain, (.-), while dealing ([%d%.]+) physical damage to enemies in range; then, continue to charge and gain Super Armor, dealing ([%d%.]+) physical damage to enemies in range upon completion%..-", "Разворачивает поле боя, даруя союзникам защиту и нанося %2 физ. урона врагам вокруг. Затем накапливает силы в Суперброне и наносит %3 физ. урона. Потребляет Метки сумерек для усиления щита.")
+
+        -- ----------------------------------------------------
+        -- ПУТЬ ЖРЕЦА / СОЛНЦЕ (Bard / Sun)
+        -- ----------------------------------------------------
+        m = m:gsub("Solar Energy must be at least (%d+) points to cast%. Consumes all Solar Energy, dealing ([%d%.]+) physical damage to the locked target and triggering Unshadowed%..-", "Требуется минимум %1 ед. Солнечной энергии. Поглощает всю энергию, нанося %2 физ. урона цели и активируя Бестеневой эффект. В состоянии Яркого Солнца наносит дополнительный чистый урон.")
+        m = m:gsub("Can only be cast when Spirituality is at least (%d+) points%. Consumes (%d+) points of Spirituality.-dealing ([%d%.]+) physical damage to enemies in a frontal range and Knocking Down enemy monsters%..-", "Требуется минимум %1 ед. энергии. Наносит %3 физ. урона врагам в секторе перед собой и сбивает монстров с ног. В состоянии Яркого Солнца зона и урон увеличены.")
+        m = m:gsub("Condenses a short axe to continuously attack surrounding enemies for (%d+) seconds, dealing (.-) physical damage every ([%d%.]+) seconds.-", "Призывает священный топор, непрерывно атакуя врагов вокруг в течение %1 сек. и нанося %2 физ. урона каждые %3 сек. Дает Солнечную энергию.")
+        m = m:gsub("Summons Holy Light to strengthen yourself%. Gain (%d+) points of Solar Energy immediately upon casting.-", "Призывает Святой Свет для усиления. Мгновенно дает %1 ед. Солнечной энергии и увеличивает наносимый физ. урон.")
+        m = m:gsub("Establish a Solar Oath at the designated location lasting (%d+) seconds, dealing (.-) physical damage to enemies within the area and applying continuous Stagnation%..-", "Создает Солнечную клятву в выбранной точке на %1 сек., нанося %2 физ. урона врагам в области и накладывая непрерывную Тягучесть и Опаление.")
+
+        -- ----------------------------------------------------
+        -- ПУТЬ УЧЕНИКА / ДВЕРЬ / ТАЙНОВЕДЕЦ (Apprentice / Door)
+        -- ----------------------------------------------------
+        m = m:gsub("Fire a beam at the locked target to deal ([%d%.]+) magic damage%. The beam will refract to nearby enemy targets up to (%d+) times.-", "Выпускает луч света в цель, нанося %1 маг. урона. Луч преломляется во врагов рядом до %2 раз, накладывая Тягучесть и даруя Тайные знания.")
+        m = m:gsub("Summon a Starlight Cage to deal ([%d%.]+) magic damage to the locked target with a (.-) base probability of Stun for ([%d%.]+) seconds%..-", "Призывает Звёздную клетку, нанося %1 маг. урона цели и с вероятностью %2 оглушая ее на %3 сек. Дает Тайные знания.")
+        m = m:gsub("Rain down Star Sand on the target area, dealing (.-) magic damage to enemies within the range and applying.-", "Обрушивает Звёздный песок на выбранную область, нанося %1 маг. урона врагам в зоне действия и подбрасывая монстров в воздух.")
+
+        -- ----------------------------------------------------
+        -- ПУТЬ ШУТА / ПРОВИДЕЦ (Seer / Fool)
+        -- ----------------------------------------------------
         m = m:gsub("Increase your Physical Damage Boost by ([%d%.]+)%% and Pierce by (%d+) points%., lasts for (%d+) seconds, simultaneously gaining (%d+) point of Card Energy and one Spirituality Blue Card%.", "Повышает ваш физ. урон на %1%% и пробивание на %2 ед., длится %3 сек., одновременно даруя %4 очко Энергии карт и одну Синюю карту духовности.")
         m = m:gsub("Increase your Physical Damage Boost by ([%d%.]+)%% and Pierce by (%d+) points%., lasts for (%d+) seconds, simultaneously gaining (%d+) point of <HighLight>Card Energy</> and one <HighLight>Spirituality Blue Card</>%.", "Повышает ваш физ. урон на %1%% и пробивание на %2 ед., длится %3 сек., одновременно даруя %4 очко <HighLight>Энергии карт</> и одну <HighLight>Синюю карту духовности</>.")
         m = m:gsub("Increase your Physical Damage Boost by ([%d%.]+)%% and Pierce by (%d+) points%., lasts for (%d+) seconds, simultaneously gaining (%d+) point of <HighLight>Card Energy</HighLight> and one <HighLight>Spirituality Blue Card</HighLight>%.", "Повышает ваш физ. урон на %1%% и пробивание на %2 ед., длится %3 сек., одновременно даруя %4 очко <HighLight>Энергии карт</HighLight> и одну <HighLight>Синюю карту духовности</HighLight>.")
-
-        -- Царство Тайн (Подробнее / Next-level effect)
         m = m:gsub("Manipulate the target's spirit body threads to apply (.-), while deploying a Realm of Mysteries around the target, causing enemies in range to suffer (.-) for ([%d%.]+) seconds, dealing (.-) physical damage 6 times; then, a final strike deals (.-) physical damage%. If the target is a monster, (.-) the target; if the target is a player, (.-) the target for ([%d%.]+) seconds%. Upon casting, gain one (.-); if the last card obtained was a (.-), gain a (.-) instead%.", function(slow, stag, t1, dmg1, dmg2, launch, stun, t2, c1, c2, c3)
             slow = slow:gsub("Slow", "Замедление")
             stag = stag:gsub("Stagnation", "Тягучесть")
@@ -843,116 +1092,45 @@ function Russian.lookupRussianText(text)
         m = m:gsub("Upon casting, gain one (.-) and apply one stack of (.-) to enemies hit; if the last card obtained was a (.-), gain a (.-) instead and gain one point of (.-)%.", "При применении дает одну %1 и накладывает один уровень %2 на пораженных врагов; если последней полученной картой была %3, дает вместо этого %4 и 1 очко %5.")
         m = m:gsub("Upon casting, gain one (.-) and apply one stack of (.-) to enemies hit by the explosion; if the last card obtained was a (.-), gain a (.-) instead and gain one point of (.-) upon the explosion hit%.", "При применении дает одну %1 и накладывает один уровень %2 на врагов, пораженных взрывом; если последней полученной картой была %3, дает вместо этого %4 и 1 очко %5 при попадании взрыва.")
 
-        -- Блок механики карт Шута
+        -- Карты Шута
         m = m:gsub("Fate Yellow Card/Spirituality Blue Card: When (%d+) Fate Yellow Cards/Spirituality Blue Cards are obtained, consume all cards to cause the Finisher Skill Shuffle Cards to switch to Fooling of Fate/Spirituality Burst%.", "Жёлтая карта судьбы / Синяя карта духовности: При сборе %1 Жёлтых карт судьбы / Синих карт духовности они расходуются, переключая Добивание: Тасование карт на Одурачивание судьбы / Всплеск духовности.")
         m = m:gsub("Fate Yellow Card/Spirituality Blue Card: When three Fate Yellow Cards/Spirituality Blue Cards are collected, consume all cards to switch the Finisher Skill Shuffle to Fooling of Fate/Spirituality Burst%.", "Жёлтая карта судьбы / Синяя карта духовности: При сборе 3 карт они расходуются, переключая Добивание: Тасование на Одурачивание судьбы / Всплеск духовности.")
         m = m:gsub("<FaintYellow>Fate Yellow Card</>/<FaintYellow>Spirituality Blue Card</>: When (%d+) <HighLight>Fate Yellow Cards</>/<HighLight>Spirituality Blue Cards</> are obtained, consume all cards to cause the <HighLight>Finisher Skill Shuffle Cards</> to switch to <HighLight>Fooling of Fate</>/<HighLight>Spirituality Burst</>%.", "<FaintYellow>Жёлтая карта судьбы</>/<FaintYellow>Синяя карта духовности</>: При сборе %1 <HighLight>Жёлтых карт судьбы</>/<HighLight>Синих карт духовности</> они расходуются, переключая <HighLight>Добивание: Тасование карт</> на <HighLight>Одурачивание судьбы</>/<HighLight>Всплеск духовности</>.")
         m = m:gsub("<FaintYellow>Fate Yellow Card</FaintYellow>/<FaintYellow>Spirituality Blue Card</FaintYellow>: When (%d+) <HighLight>Fate Yellow Cards</HighLight>/<HighLight>Spirituality Blue Cards</HighLight> are obtained, consume all cards to cause the <HighLight>Finisher Skill Shuffle Cards</HighLight> to switch to <HighLight>Fooling of Fate</HighLight>/<HighLight>Spirituality Burst</HighLight>%.", "<FaintYellow>Жёлтая карта судьбы</FaintYellow>/<FaintYellow>Синяя карта духовности</FaintYellow>: При сборе %1 <HighLight>Жёлтых карт судьбы</HighLight>/<HighLight>Синих карт духовности</HighLight> они расходуются, переключая <HighLight>Добивание: Тасование карт</> на <HighLight>Одурачивание судьбы</>/<HighLight>Всплеск духовности</>.")
         m = m:gsub("<FaintYellow>Fooling of Fate Yellow Card</>/<FaintYellow>Spirituality Blue Card</>: When three <HighLight>Fooling of Fate Yellow Cards</>/<HighLight>Spirituality Blue Cards</> are collected, consume all cards to switch the <HighLight>Finisher Skill Shuffle</> to <HighLight>Fooling of Fate</>/<HighLight>Spirituality Burst</>%.", "<FaintYellow>Жёлтая карта судьбы</>/<FaintYellow>Синяя карта духовности</>: При сборе трех <HighLight>Жёлтых карт судьбы</>/<HighLight>Синих карт духовности</> все карты расходуются, переключая <HighLight>Добивание: Тасование карт</> на <HighLight>Одурачивание судьбы</>/<HighLight>Всплеск духовности</>.")
+        m = m:gsub("Card Energy: Can hold up to (%d+) points; when reaching (%d+) points, the Finisher Skill switches and locks to Shuffle Cards%.", "Энергия карт: Вмещает до %1 очков; при накоплении %2 очков Добивание переключается и блокируется на Тасовании карт.")
+        m = m:gsub("<FaintYellow>Card Energy</>: Can hold up to (%d+) points%. When reaching (%d+) points, the <HighLight>Finisher Skill</> switches and locks to <HighLight>Shuffle Cards</>%.", "<FaintYellow>Энергия карт</>: Вмещает до %1 очков. При накоплении %2 очков <HighLight>Добивание</> переключается и блокируется на <HighLight>Тасовании карт</>.")
+        m = m:gsub("<FaintYellow>Card Energy</>: Can hold up to (%d+) points%. When reaching (%d+) points, the <HighLight>Finisher Skill</HighLight> switches and locks to <HighLight>Shuffle Cards</HighLight>%.", "<FaintYellow>Энергия карт</>: Вмещает до %1 очков. При накоплении %2 очков <HighLight>Добивание</HighLight> переключается и блокируется на <HighLight>Тасовании карт</>.")
+        m = m:gsub("<FaintYellow>Card Energy</FaintYellow>: Can hold up to (%d+) points%. When reaching (%d+) points, the <HighLight>Finisher Skill</HighLight> switches and locks to <HighLight>Shuffle Cards</HighLight>%.", "<FaintYellow>Энергия карт</FaintYellow>: Вмещает до %1 очков. При накоплении %2 очков <HighLight>Добивание</HighLight> переключается и блокируется на <HighLight>Тасовании карт</>.")
 
-        -- Блок энергии карт
-        m = m:gsub("Card Energy: Can hold up to (%d+) points; when reaching (%d+) points, the Finisher Skill switches and locks to Shuffle Cards%.", "Энергия карт: Вмещает до %1 очков; при достижении %2 очков Добивающий навык переключается и фиксируется на Тасование карт.")
-        m = m:gsub("Card Energy: Can hold up to (%d+) points%. When reaching (%d+) points, the Finisher Skill switches and locks to Shuffle Cards", "Энергия карт: Вмещает до %1 очков. При %2 очках Добивающий навык переключается и фиксируется на Тасование карт.")
-        m = m:gsub("<FaintYellow>Card Energy</>: Can hold up to (%d+) points; when reaching (%d+) points, the <HighLight>Finisher Skill</> switches and locks to <HighLight>Shuffle Cards</>%.", "<FaintYellow>Энергия карт</>: Вмещает до %1 очков; при достижении %2 очков <HighLight>Добивающий навык</> переключается и фиксируется на <HighLight>Тасование карт</>.")
-        m = m:gsub("<FaintYellow>Card Energy</FaintYellow>: Can hold up to (%d+) points; when reaching (%d+) points, the <HighLight>Finisher Skill</HighLight> switches and locks to <HighLight>Shuffle Cards</HighLight>%.", "<FaintYellow>Энергия карт</FaintYellow>: Вмещает до %1 очков; при достижении %2 очков <HighLight>Добивающий навык</> переключается и фиксируется на <HighLight>Тасование карт</>.")
-        m = m:gsub("<FaintYellow>Card Energy</>: Can hold up to (%d+) points%. When reaching (%d+) points, the <HighLight>Finisher Skill</> switches and locks to <HighLight>Shuffle Cards</>", "<FaintYellow>Энергия карт</>: Вмещает до %1 очков. При %2 очках <HighLight>Добивающий навык</> переключается и фиксируется на <HighLight>Тасование карт</>.")
-
-        -- Благословение Шута (Кратко)
-        m = m:gsub("Praise the Fool, increasing the user's damage for (%d+) seconds, and obtain a Spirituality Blue Card and one point of Card Energy %(used to unlock Finisher Skills%)%.", "Восславьте Шута: увеличивает урон персонажа на %1 сек., дарует Синюю карту духовности и 1 очко Энергии карт (необходимо для открытия добивающих навыков).")
-        m = m:gsub("The Fool that doesn't belong to this era; the mysterious ruler above the gray fog; the King of Yellow and Black who wields good luck%. Praise the Fool!", "Не принадлежащий этой эпохе Шут; таинственный правитель над серым туманом; Владыка Жёлтого и Чёрного, повелевающий удачей. Восславь Шута!")
-
-        -- Воздушная пуля
-        m = m:gsub("Maintain movement and continuously fire multiple Air Bullets at enemies; the user gains a Spirituality Blue Card and one point of Card Energy %(used to unlock Finisher Skills%)%.", "Позволяет двигаться и непрерывно выпускать множество Воздушных пуль во врагов; дает Синюю карту духовности и 1 очко Энергии карт (необходимо для открытия добивающих навыков).")
-        m = m:gsub("Continuously fire Air Bullets at the locked target for ([%d%.]+) seconds, dealing (%d+) physical damage (%d+) times and <HyperLink stylename=\"M_Link\" u=\"2\">interrupting</> enemy monsters; you can move while casting and gain ([%d%.]+) seconds of <HyperLink stylename=\"M_Link\" u=\"11\">Super Armor</> and (%d+)%% Acceleration upon activation%. After casting, gain one point of <HighLight>Card Energy</> and one <HighLight>Spirituality Blue Card</>%.", "Непрерывно выпускайте Воздушные пули в цель в течение %1 сек., нанося %2 физ. урона %3 раз и <HyperLink stylename=\"M_Link\" u=\"2\">прерывая</> вражеских монстров; во время применения можно двигаться и получить при активации %4 сек. <HyperLink stylename=\"M_Link\" u=\"11\">Суперброни</> и %5%% ускорения. После применения дает 1 очко <HighLight>Энергии карт</> и одну <HighLight>Синюю карту духовности</>.")
-        m = m:gsub("Continuously fire Air Bullets at the locked target for ([%d%.]+) seconds, dealing (%d+) physical damage (%d+) times and interrupting enemy monsters; you can move while casting and gain ([%d%.]+) seconds of Super Armor and (%d+)%% Acceleration upon activation%. After casting, gain one point of Card Energy and one Spirituality Blue Card%.", "Непрерывно выпускайте Воздушные пули в цель в течение %1 сек., нанося %2 физ. урона %3 раз и прерывая врагов; во время каста можно двигаться и получить %4 сек. Суперброни и %5%% ускорения. После каста дает 1 очко Энергии карт и одну Синюю карту духовности.")
-
-        -- Таро-расклад
-        m = m:gsub("Throw a Tarot card at the enemy, unfolding a Tarot Array to continuously deal damage, and knock up monster targets upon finishing%. The user obtains an identical card based on the type of the previous card obtained %(used to unlock Finisher Skills%) and the corresponding additional effect%.", "Бросает карту Таро во врага, разворачивая Таро-расклад для непрерывного нанесения урона, и подбрасывает монстров при завершении. Дает карту того же типа, что и предыдущая полученная карта (необходимо для открытия добивающих навыков), а также соответствующий дополнительный эффект.")
-        m = m:gsub("Throw tarot cards at the target and deploy a card formation, dealing (.-) physical damage 4 times to enemy monsters within the formation and <HyperLink stylename=\"M_Link\" u=\"2\">interrupting</> them%. The formation then explodes, dealing (.-) physical damage and <HyperLink stylename=\"M_Link\" u=\"2\">launching</> enemy monsters within range, up to a maximum of <HyperLink stylename=\"M_Link\" u=\"2\">launching</> (%d+) targets%. Upon casting, gain one <HighLight>Fooling of Fate Yellow Card</> and apply one stack of <HighLight>Fooling Mark</> to enemies hit by the explosion; if the last card obtained was a <HighLight>Spirituality Blue Card</>, gain a <HighLight>Spirituality Blue Card</> instead and gain one point of <HighLight>Card Energy</> upon the explosion hit%.", "Бросает карты Таро в цель и разворачивает расклад карт, нанося вражеским монстрам в области %1 физ. урона 4 раза и <HyperLink stylename=\"M_Link\" u=\"2\">прерывая</> их. Затем расклад взрывается, нанося %2 физ. урона и <HyperLink stylename=\"M_Link\" u=\"2\">подбрасывая</> вражеских монстров в области (до %3 целей). При применении дает одну <HighLight>Жёлтую карту судьбы</> и накладывает один уровень <HighLight>Метки одурачивания</> на врагов, пораженных взрывом; если последней полученной картой была <HighLight>Синяя карта духовности</>, дает вместо этого <HighLight>Синюю карту духовности</> и 1 очко <HighLight>Энергии карт</> при попадании взрыва.")
-        m = m:gsub("Throw tarot cards at the target and deploy a card formation, dealing (.-) physical damage 4 times to enemy monsters within the formation and interrupting them%. The formation then explodes, dealing (.-) physical damage and launching enemy monsters within range, up to a maximum of launching (%d+) targets%. Upon casting, gain one Fooling of Fate Yellow Card and apply one stack of Fooling Mark to enemies hit by the explosion; if the last card obtained was a Spirituality Blue Card, gain a Spirituality Blue Card instead and gain one point of Card Energy upon the explosion hit%.", "Бросает карты Таро в цель и разворачивает расклад карт, нанося врагам в области %1 физ. урона 4 раза и прерывая их. Затем расклад взрывается, нанося %2 физ. урона и подбрасывая вражеских монстров в области (до %3 целей). При применении дает одну Жёлтую карту судьбы и накладывает один уровень Метки одурачивания на врагов, пораженных взрывом; если последней полученной картой была Синяя карта духовности, дает вместо этого Синюю карту духовности и 1 очко Энергии карт при попадании взрыва.")
-
-        -- Раскрытие карты
-        m = m:gsub("Launch playing cards to attack the target%. After this skill deals damage (%d+) times, obtain an identical card based on the type of the previous card obtained %(used to unlock Finisher Skills%)%.", "Бросает игральные карты для атаки цели. После нанесения урона %1 раза дает карту того же типа, что и предыдущая полученная карта (необходимо для открытия добивающих навыков).")
-        m = m:gsub("Performs a three%-stage attack on enemies in a frontal fan%-shaped area, with each stage dealing (%d+) physical damage and <HyperLink stylename=\"M_Link\" u=\"2\">interrupting</> enemy monsters%. After the first stage is released, you gain (.-) for (%d+) seconds%. The third stage applies one stack of <HighLight>Fooling Mark</> and has a base probability of (.-) to <HyperLink stylename=\"M_Link\" u=\"2\">knock back</> the enemy, applying a ([%d%.]+)%-second (.-) <HyperLink stylename=\"M_Link\" u=\"20\">Healing Reduction</> effect, while you gain one <HighLight>Fate Yellow Card</>%.", "Совершает трёхэтапную атаку по врагам в секторе перед собой, на каждом этапе нанося %1 физ. урона и <HyperLink stylename=\"M_Link\" u=\"2\">прерывая</> вражеских монстров. После первого этапа дает эффект %2 на %3 сек. Третий этап накладывает один уровень <HighLight>Метки одурачивания</> и с вероятностью %4 <HyperLink stylename=\"M_Link\" u=\"2\">отбрасывает</> врага, накладывая на %5 сек. эффект %6 <HyperLink stylename=\"M_Link\" u=\"20\">снижения исцеления</>, при этом вы получаете одну <HighLight>Жёлтую карту судьбы</>.")
-        m = m:gsub("Performs a three%-stage attack on enemies in a frontal fan%-shaped area, with each stage dealing (%d+) physical damage and interrupting enemy monsters%. After the first stage is released, you gain (.-) for (%d+) seconds%. The third stage applies one stack of Fooling Mark and has a base probability of (.-) to knock back the enemy, applying a ([%d%.]+)%-second (.-) Healing Reduction effect, while you gain one Fate Yellow Card%.", "Совершает трёхэтапную атаку по врагам в секторе перед собой, на каждом этапе нанося %1 физ. урона и прерывая вражеских монстров. После первого этапа дает эффект %2 на %3 сек. Третий этап накладывает один уровень Метки одурачивания и с вероятностью %4 отбрасывает врага, накладывая на %5 сек. эффект %6 снижения исцеления, при этом вы получаете одну Жёлтую карту судьбы.")
-
-        -- Дождь карт чудес
-        m = m:gsub("Miraculously summon a rain of cards at the target location, dealing damage, Slow, and Stun to enemies, and additional Healing Reduction to players%. The user obtains an identical card based on the type of the previous card obtained %(used to unlock Finisher Skills%) and the corresponding additional effect%.", "Чудесным образом обрушивает дождь карт в указанную область, нанося урон, замедление и оглушение врагам, а также доп. снижение исцеления игрокам. Дает карту того же типа, что и предыдущая полученная карта (необходимо для открытия добивающих навыков), а также соответствующий дополнительный эффект.")
-        m = m:gsub("Deal (.-) physical damage to enemies in range with a (.-) base chance to apply, for ([%d%.]+) seconds, the effect of (.-), and a (.-) base chance to <HyperLink stylename=\"M_Link\" u=\"6\">Stun</> enemies at the center of the range for ([%d%.]+) seconds, up to a maximum of <HyperLink stylename=\"M_Link\" u=\"6\">Stun</> (%d+) targets%. When hitting enemy players, apply ([%d%.]+) seconds of (.-) <HyperLink stylename=\"M_Link\" u=\"20\">Healing Reduction</>%. Upon casting, gain one <HighLight>Fooling of Fate Yellow Card</> and apply one stack of <HighLight>Fooling Mark</> to enemies hit; if the last card obtained was a <HighLight>Spirituality Blue Card</>, gain a <HighLight>Spirituality Blue Card</> instead and gain one point of <HighLight>Card Energy</>%.", "Наносит %1 физ. урона врагам в области с базовой вероятностью %2 наложить на %3 сек. эффект %4, а также с вероятностью %5 <HyperLink stylename=\"M_Link\" u=\"6\">оглушить</> врагов в центре области на %6 сек. (до %7 целей). При попадании по вражеским игрокам накладывает на %8 сек. эффект %9 <HyperLink stylename=\"M_Link\" u=\"20\">снижения исцеления</>. При применении дает одну <HighLight>Жёлтую карту судьбы</> и накладывает один уровень <HighLight>Метки одурачивания</> на пораженных врагов; если последней полученной картой была <HighLight>Синяя карта духовности</>, дает вместо этого <HighLight>Синюю карту духовности</> и 1 очко <HighLight>Энергии карт</>.")
-        m = m:gsub("Deal (.-) physical damage to enemies in range with a (.-) base chance to apply, for ([%d%.]+) seconds, the effect of (.-), and a (.-) base chance to Stun enemies at the center of the range for ([%d%.]+) seconds, up to a maximum of Stun (%d+) targets%. When hitting enemy players, apply ([%d%.]+) seconds of (.-) Healing Reduction%. Upon casting, gain one Fooling of Fate Yellow Card and apply one stack of Fooling Mark to enemies hit; if the last card obtained was a Spirituality Blue Card, gain a Spirituality Blue Card instead and gain one point of Card Energy%.", "Наносит %1 физ. урона врагам в области с базовой вероятностью %2 наложить на %3 сек. эффект %4, а также с вероятностью %5 оглушить врагов в центре области на %6 сек. (до %7 целей). При попадании по вражеским игрокам накладывает на %8 сек. эффект %9 снижения исцеления. При применении дает одну Жёлтую карту судьбы и накладывает один уровень Метки одурачивания на пораженных врагов; если последней полученной картой была Синяя карта духовности, дает вместо этого Синюю карту духовности и 1 очко Энергии карт.")
-
-        -- Тасование карт
-        m = m:gsub("Collect Card Energy to unlock the skill%. Inject all collected Card Energy into a large number of cards, continuously pouring energy%-filled cards at enemies to deal high damage%. Other skills can be released and movement is possible during the casting process%.", "Соберите Энергию карт, чтобы открыть навык. Вливает всю собранную Энергию карт в множество карт, непрерывно осыпая врагов заряженными картами для нанесения огромного урона. Во время применения можно использовать другие навыки и двигаться.")
-        m = m:gsub("Can only be released when <HighLight>Card Energy</> reaches 5 points%. Consume 5 points of <HighLight>Card Energy</> to continuously fire cards at the locked target for ([%d%.]+) seconds, dealing (.-) physical damage 12 times to the target and enemies in a small area, and <HyperLink stylename=\"M_Link\" u=\"2\">interrupting</> enemy monsters%. You can release other skills and move while casting%. \nAs long as this skill is available, the <HighLight>Finisher Skill</> will not switch to <HighLight>Fooling of Fate</> or <HighLight>Spirituality Burst</>, but they can still be unlocked by collecting <HighLight>Fooling of Fate Yellow Cards</> or <HighLight>Spirituality Blue Cards</> and will become available immediately after this skill is cast%.", "Можно применить только при 5 очках <HighLight>Энергии карт</>. Расходует 5 очков <HighLight>Энергии карт</>, чтобы непрерывно выпускать карты в цель в течение %1 сек., нанося %2 физ. урона 12 раз цели и врагам в небольшой области, <HyperLink stylename=\"M_Link\" u=\"2\">прерывая</> вражеских монстров. Во время применения можно использовать другие навыки и двигаться. \nПока навык доступен, <HighLight>Добивающий навык</> не переключится на <HighLight>Одурачивание судьбы</> или <HighLight>Всплеск духовности</>, но их все еще можно разблокировать, собирая <HighLight>Жёлтые карты судьбы</> или <HighLight>Синие карты духовности</>, и они станут доступны сразу после применения этого навыка.")
-        m = m:gsub("Can only be released when Card Energy reaches 5 points%. Consume 5 points of Card Energy to continuously fire cards at the locked target for ([%d%.]+) seconds, dealing (.-) physical damage 12 times to the target and enemies in a small area, and interrupting enemy monsters%. You can release other skills and move while casting%. \nAs long as this skill is available, the Finisher Skill will not switch to Fooling of Fate or Spirituality Burst, but they can still be unlocked by collecting Fooling of Fate Yellow Cards or Spirituality Blue Cards and will become available immediately after this skill is cast%.", "Можно применить только при 5 очках Энергии карт. Расходует 5 очков Энергии карт, чтобы непрерывно выпускать карты в цель в течение %1 сек., нанося %2 физ. урона 12 раз цели и врагам в небольшой области, прерывая вражеских монстров. Во время применения можно использовать другие навыки и двигаться. \nПока навык доступен, Добивающий навык не переключится на Одурачивание судьбы или Всплеск духовности, но их все еще можно разблокировать, собирая Жёлтые карты судьбы или Синие карты духовности, и они станут доступны сразу после применения этого навыка.")
-
-        -- Одурачивание судьбы
-        m = m:gsub("Collect Fate Yellow Cards to unlock the skill%. Fool enemies within range, dealing massive damage%. Afterward, for a period of time, the user's normal attacks will apply a Fooling Mark that deals additional damage, and attack speed is increased%. Using it grants one point of Card Energy%.", "Соберите Жёлтые карты судьбы, чтобы открыть навык. Одурачивает врагов в области, нанося огромный урон. Затем в течение некоторого времени ваши обычные атаки будут накладывать Метку одурачивания, наносящую дополнительный урон, а скорость атаки повысится. Использование дает 1 очко Энергии карт.")
-        m = m:gsub("Collect three <HighLight>Fooling of Fate Yellow Cards</> to unlock this skill%. Deal (.-) physical damage to enemies in range and apply one stack of <HighLight>Fooling Mark</>; enemy monsters are <HyperLink stylename=\"M_Link\" u=\"2\">interrupted</>%. Then, for ([%d%.]+) seconds, your Normal Attacks have a (.-) chance to apply one stack of <HighLight>Fooling Mark</> to the target, and you gain (.-)%. Gain one point of <HighLight>Card Energy</> after casting%. \nCasting Fooling of Fate will clear the <HighLight>Vulnerability</> effect of Spirituality Burst%.", "Соберите три <HighLight>Жёлтые карты судьбы</>, чтобы разблокировать этот навык. Наносит %1 физ. урона врагам в области и накладывает один уровень <HighLight>Метки одурачивания</>; монстры получают <HyperLink stylename=\"M_Link\" u=\"2\">прерывание</>. Затем в течение %2 сек. ваши Обычные атаки имеют шанс %3 наложить один уровень <HighLight>Метки одурачивания</> на цель, и вы получаете эффект %4. Дает 1 очко <HighLight>Энергии карт</> после применения. \nПрименение Одурачивания судьбы снимет эффект <HighLight>Уязвимости</> от Всплеска духовности.")
-        m = m:gsub("Collect three Fooling of Fate Yellow Cards to unlock this skill%. Deal (.-) physical damage to enemies in range and apply one stack of Fooling Mark; enemy monsters are interrupted%. Then, for ([%d%.]+) seconds, your Normal Attacks have a (.-) chance to apply one stack of Fooling Mark to the target, and you gain (.-)%. Gain one point of Card Energy after casting%. \nCasting Fooling of Fate will clear the Vulnerability effect of Spirituality Burst%.", "Соберите три Жёлтые карты судьбы, чтобы разблокировать этот навык. Наносит %1 физ. урона врагам в области и накладывает один уровень Метки одурачивания; монстры получают прерывание. Затем в течение %2 сек. ваши Обычные атаки имеют шанс %3 наложить один уровень Метки одурачивания на цель, и вы получаете эффект %4. Дает 1 очко Энергии карт после применения. \nПрименение Одурачивания судьбы снимет эффект Уязвимости от Всплеска духовности.")
-
-        -- Всплеск духовности
-        m = m:gsub("Collect Spirituality Blue Cards to unlock the skill%. Release the user's spiritual power, dealing massive damage to enemies within range and applying Vulnerability%. Using it grants one point of Card Energy%.", "Соберите Синие карты духовности, чтобы открыть навык. Высвобождает духовную силу заклинателя, нанося огромный урон врагам в области и накладывая Уязвимость. Использование дает 1 очко Энергии карт.")
-        m = m:gsub("Collect three <HighLight>Spirituality Blue Cards</> to unlock this skill%. Deal (.-) physical damage to enemies in range and apply <HighLight>Vulnerability</> for ([%d%.]+) seconds, <HyperLink stylename=\"M_Link\" u=\"2\">launching</> enemy monsters%. Gain one point of <HighLight>Card Energy</> after casting%. \nCasting Spirituality Burst will clear the self%-buff effects of Fooling of Fate%.", "Соберите три <HighLight>Синие карты духовности</>, чтобы разблокировать этот навык. Наносит %1 физ. урона врагам в области и накладывает <HighLight>Уязвимость</> на %2 сек., <HyperLink stylename=\"M_Link\" u=\"2\">подбрасывая</> вражеских монстров. Дает 1 очко <HighLight>Энергии карт</> после применения. \nПрименение Всплеска духовности снимет собственные усиления от Одурачивания судьбы.")
-        m = m:gsub("Collect three Spirituality Blue Cards to unlock this skill%. Deal (.-) physical damage to enemies in range and apply Vulnerability for ([%d%.]+) seconds, launching enemy monsters%. Gain one point of Card Energy after casting%. \nCasting Spirituality Burst will clear the self%-buff effects of Fooling of Fate%.", "Соберите три Синие карты духовности, чтобы разблокировать этот навык. Наносит %1 физ. урона врагам в области и накладывает Уязвимость на %2 сек., подбрасывая вражеских монстров. Дает 1 очко Энергии карт после применения. \nПрименение Всплеска духовности снимет собственные усиления от Одурачивания судьбы.")
-
-        -- Прыжок пламени
-        m = m:gsub("Using Flame Jump also grants (%d+) fate cards and one point of Card Energy%.", "Использование Прыжка пламени также дает %1 карты судьбы и 1 очко Энергии карт.")
-
-        -- Замена бумажного человечка
-        m = m:gsub("Cleanse yourself of <HyperLink stylename=\"M_Link\" u=\"3\">control effects</>, leave a Paper Figurine Substitute at your position that inherits your locked marks, and leap in the direction of the joystick %(or backwards by default%)%. Gain ([%d%.]+) seconds of <HyperLink stylename=\"M_Link\" u=\"11\">Super Armor</> and, for ([%d%.]+) seconds, the effect of (.-) upon release%. The Paper Figurine Substitute will automatically perform three basic attacks on enemies, dealing (.-) physical damage respectively, then explode to deal (%d+) physical damage to surrounding enemies%.", "Снимает с себя <HyperLink stylename=\"M_Link\" u=\"3\">эффекты контроля</>, оставляет на своей позиции Замену бумажного человечка, перенимающую метки захвата цели, и совершает прыжок по направлению джойстика (по умолчанию назад). При применении дает %1 сек. <HyperLink stylename=\"M_Link\" u=\"11\">Суперброни</> и на %2 сек. эффект %3. Бумажный человечек автоматически проводит три базовые атаки по врагам, нанося соответственно %4 физ. урона, после чего взрывается, нанося %5 физ. урона окружающим врагам.")
-        m = m:gsub("Cleanse yourself of control effects, leave a Paper Figurine Substitute at your position that inherits your locked marks, and leap in the direction of the joystick %(or backwards by default%)%. Gain ([%d%.]+) seconds of Super Armor and, for ([%d%.]+) seconds, the effect of (.-) upon release%. The Paper Figurine Substitute will automatically perform three basic attacks on enemies, dealing (.-) physical damage respectively, then explode to deal (%d+) physical damage to surrounding enemies%.", "Снимает с себя эффекты контроля, оставляет на своей позиции Замену бумажного человечка, перенимающую метки захвата цели, и совершает прыжок по направлению джойстика (по умолчанию назад). При применении дает %1 сек. Суперброни и на %2 сек. эффект %3. Бумажный человечек автоматически проводит три базовые атаки по врагам, нанося соответственно %4 физ. урона, после чего взрывается, нанося %5 физ. урона окружающим врагам.")
-
-        -- Метка одурачивания и Уязвимость
-        m = m:gsub("<FaintYellow>Fooling Mark</>: After stacking (%d+) times, it detonates and is removed, dealing (.-) physical damage to the target from the caster%.", "<FaintYellow>Метка одурачивания</>: При %1 уровнях детонирует и снимается, нанося цели физ. урон от заклинателя.")
-        m = m:gsub("Fooling Mark: After stacking (%d+) times, it detonates and is removed, dealing (.-) physical damage to the target from the caster%.", "Метка одурачивания: При %1 уровнях детонирует и снимается, нанося цели физ. урон от заклинателя.")
-        m = m:gsub("<FaintYellow>Vulnerability</>: Damage taken from the caster is increased by (%d+)%%%.?", "<FaintYellow>Уязвимость</>: Получаемый от заклинателя урон увеличен на %1%%.")
-        m = m:gsub("Vulnerability: Damage taken from the caster is increased by (%d+)%%%.?", "Уязвимость: Получаемый от заклинателя урон увеличен на %1%%.")
-
-        -- Строка улучшения внизу экрана
+        -- ----------------------------------------------------
+        -- ОБЩИЕ МЕХАНИКИ И ЗОНЫ ДЕЙСТВИЯ (Range / Areas)
+        -- ----------------------------------------------------
+        m = m:gsub("Circular area with a radius of ([%d%.]+) meters", "Круглая область радиусом %1 м")
+        m = m:gsub("within a ([%d%.]+)%-meter radius of the target", "в радиусе %1 м от цели")
+        m = m:gsub("within a ([%d%.]+)%-meter radius of yourself", "в радиусе %1 м вокруг себя")
+        m = m:gsub("fan%-shaped area in front of you", "сектор перед собой")
+        m = m:gsub("within a circular area in front of you", "в круглой области перед собой")
         m = m:gsub("All .-skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
         m = m:gsub("All .-Skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
-        m = m:gsub(".-skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
-        m = m:gsub(".-Skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
         m = m:gsub("Gain extra Skill Points through %[Sequence Advancement%]%.", "Получайте доп. очки навыков за [Продвижение по Последовательностям].")
 
-        -- Специфические фразы механик Шута и Провидца
-        m = m:gsub("Increase your Physical Damage Boost by ([%d%.]+)%% and Pierce by (%d+) points%., lasts for (%d+) seconds", "Повышает ваш физ. урон на %1%% и пробивание на %2 ед., длится %3 сек.")
-        m = m:gsub("Increase your Physical Damage Boost by ([%d%.]+)%% and Pierce by (%d+) points", "Повышает ваш физ. урон на %1%% и пробивание на %2 ед.")
-        m = m:gsub("lasts for (%d+) seconds", "длится %1 сек.")
-        m = m:gsub("simultaneously gaining (%d+) point of Card Energy and one Spirituality Blue Card", "одновременно даруя %1 очко Энергии карт и одну Синюю карту духовности")
-        m = m:gsub("simultaneously gaining (%d+) point of <HighLight>Card Energy</> and one <HighLight>Spirituality Blue Card</>", "одновременно даруя %1 очко <HighLight>Энергии карт</> и одну <HighLight>Синюю карту духовности</>")
-        m = m:gsub("simultaneously gaining (%d+) point of <HighLight>Card Energy</HighLight> and one <HighLight>Spirituality Blue Card</HighLight>", "одновременно даруя %1 очко <HighLight>Энергии карт</HighLight> и одну <HighLight>Синюю карту духовности</HighLight>")
-        m = m:gsub("Gain one point of <HighLight>Card Energy</> after casting", "Дает 1 очко <HighLight>Энергии карт</> после применения")
-        m = m:gsub("Gain one point of Card Energy after casting", "Дает 1 очко Энергии карт после применения")
-        m = m:gsub("Fate Yellow Card/Spirituality Blue Card", "Жёлтая карта судьбы / Синяя карта духовности")
-        m = m:gsub("Fate Yellow Cards/Spirituality Blue Cards", "Жёлтых карт судьбы / Синих карт духовности")
-        m = m:gsub("Fooling of Fate Yellow Card/Spirituality Blue Card", "Жёлтая карта судьбы / Синяя карта духовности")
-        m = m:gsub("Fooling of Fate Yellow Cards/Spirituality Blue Cards", "Жёлтых карт судьбы / Синих карт духовности")
-        m = m:gsub("Fooling of Fate Yellow Card", "Жёлтая карта судьбы")
-        m = m:gsub("Fooling of Fate Yellow Cards", "Жёлтые карты судьбы")
-        m = m:gsub("Spirituality Blue Card", "Синяя карта духовности")
-        m = m:gsub("Spirituality Blue Cards", "Синие карты духовности")
-        m = m:gsub("Card Energy: Can hold up to (%d+) points", "Энергия карт: Вмещает до %1 очков")
-        m = m:gsub("when reaching (%d+) points, the Finisher Skill switches and locks to Shuffle Cards", "при достижении %1 очков Добивающий навык переключается и фиксируется на Тасование карт")
-        m = m:gsub("When reaching (%d+) points, the <HighLight>Finisher Skill</> switches and locks to <HighLight>Shuffle Cards</>", "При %1 очках <HighLight>Добивающий навык</> переключается и фиксируется на <HighLight>Тасование карт</>")
-        m = m:gsub("when reaching (%d+) points, the <HighLight>Finisher Skill</> switches and locks to <HighLight>Shuffle Cards</>", "при достижении %1 очков <HighLight>Добивающий навык</> переключается и фиксируется на <HighLight>Тасование карт</>")
-        m = m:gsub("Finisher Skill Shuffle Cards", "Добивание: Тасование карт")
-        m = m:gsub("Finisher Skill Shuffle", "Добивание: Тасование карт")
-        m = m:gsub("Fooling of Fate/Spirituality Burst", "Одурачивание судьбы / Всплеск духовности")
-        m = m:gsub("Fooling Mark", "Метка одурачивания")
-        m = m:gsub("Spirituality Burst", "Всплеск духовности")
-        m = m:gsub("Fooling of Fate", "Одурачивание судьбы")
-        m = m:gsub("Shuffle Cards", "Тасование карт")
+        -- Баффы и статусы
         m = m:gsub("Super Armor", "Суперброня")
         m = m:gsub("Slow ([%d%.]+)%%", "Замедление %1%%")
         m = m:gsub("Stagnation", "Тягучесть")
+        m = m:gsub("Grievous Injury", "Тяжёлая рана")
         m = m:gsub("launch the target", "подбрасывает цель")
         m = m:gsub("Stun the target for ([%d%.]+) seconds", "оглушает цель на %1 сек.")
-        m = m:gsub("Soft Crowd Control", "Мягкий контроль")
-        m = m:gsub("Hard Crowd Control", "Жёсткий контроль")
-        m = m:gsub("Single Target", "Одиночная цель")
-        m = m:gsub("Area Target", "По области")
+        m = m:gsub("Knocking Down", "Сбивание с ног")
+        m = m:gsub("knocking down", "сбивание с ног")
+        m = m:gsub("knock down", "сбить с ног")
+        m = m:gsub("Imprisonment", "Заточение")
+        m = m:gsub("Healing Reduction", "Снижение лечения")
+        m = m:gsub("Damage Reduction", "Снижение урона")
+        m = m:gsub("Physical Damage Boost", "Усиление физ. урона")
+        m = m:gsub("Magic Damage Boost", "Усиление маг. урона")
+        m = m:gsub("Pierce", "Пробивание")
 
         if m ~= text then
             return m
