@@ -129,6 +129,14 @@ class RefineRussianDictionary
             val = Regex.Replace(val, @"\b(семьи Антигонуса|семья Антигонуса|род Антигонуса|рода Антигонуса|Антигонуса|Антигонус)\b", "Антигона", RegexOptions.IgnoreCase);
             val = Regex.Replace(val, @"\b(Райел Бибер|Рейл Бибер|Риэль Бибер)\b", "Райэль Бибер", RegexOptions.IgnoreCase);
 
+            // 5. Канонизация Beyonder и Коррупция
+            val = Regex.Replace(val, @"\bBeyonders\b", "Потусторонние", RegexOptions.IgnoreCase);
+            val = Regex.Replace(val, @"\bBeyonder\b", "Потусторонний", RegexOptions.IgnoreCase);
+            val = Regex.Replace(val, @"\b(Коррупция|коррупция)\b", "Искажение");
+            val = Regex.Replace(val, @"\b(Коррупции|коррупции)\b", "Искажения");
+            val = Regex.Replace(val, @"\b(Коррупцию|коррупцию)\b", "Искажение");
+            val = Regex.Replace(val, @"\b(Коррупцией|коррупцией)\b", "Искажением");
+
             val = val.Replace("\\п", "\\n").Replace("\\т", "\\t").Replace("\\р", "\\r");
 
             if (val != originalVal)
@@ -144,7 +152,7 @@ class RefineRussianDictionary
         // Запись обратно
         using (var sw = new StreamWriter(ruPath, false, new UTF8Encoding(false)))
         {
-            sw.WriteLine("-- Generated Russian Translation Dictionary for Lord of Mysteries");
+            sw.WriteLine("-- Lord of the Mysteries Russian Localization Runtime Dictionary");
             sw.WriteLine(string.Format("-- Entries: {0}", entries.Count));
             sw.WriteLine("return {");
             foreach (var key in orderedKeys)
