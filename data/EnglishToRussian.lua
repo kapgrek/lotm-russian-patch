@@ -35,6 +35,14 @@ local exact = {
     ["Enter World"] = "Войти в мир",
     ["Start Game"] = "Начать игру",
 
+    -- Header & Character Info
+    ["Level cap reached"] = "Макс. ур.",
+    ["(Level cap reached)"] = "(Макс. ур.)",
+    ["Character ID: %s"] = "ID: %s",
+    ["Character ID:"] = "ID:",
+    ["Character ID"] = "ID",
+    ["Placeholder"] = "Инфо",
+
     -- Esc Menu 4-Row confirmed items
     ["Explore"] = "Исследование",
     ["Archive"] = "Архив",

@@ -149,7 +149,8 @@ end
             text = text.Replace(t4, r4);
         }
 
-        // 6. Letter spacing in setSingleWidgetText
+        // 6. Letter spacing in setSingleWidgetText (clean first for strict idempotency)
+        text = text.Replace("runtimeFixes.adjustWidgetLetterSpacing", "adjustWidgetLetterSpacing");
         text = text.Replace("adjustWidgetLetterSpacing(widget)", "runtimeFixes.adjustWidgetLetterSpacing(widget)");
         text = text.Replace("adjustWidgetLetterSpacing(textWidget, 13)", "runtimeFixes.adjustWidgetLetterSpacing(textWidget, 13)");
 

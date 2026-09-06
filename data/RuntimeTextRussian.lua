@@ -1,6 +1,20 @@
 -- Generated Russian Translation Dictionary for Lord of Mysteries
 -- Entries: 26583
 return {
+    ["Level cap reached"] = "Макс. ур.",
+    ["(Level cap reached)"] = "(Макс. ур.)",
+    ["已达到等级上限"] = "Макс. ур.",
+    ["已达成等级上限"] = "Макс. ур.",
+    ["(已达到等级上限)"] = "(Макс. ур.)",
+    ["(已达成等级上限)"] = "(Макс. ур.)",
+    ["角色编号:"] = "ID:",
+    ["角色编号：%s"] = "ID: %s",
+    ["角色编号: %s"] = "ID: %s",
+    ["角色编号"] = "ID",
+    ["Character ID: %s"] = "ID: %s",
+    ["Character ID:"] = "ID:",
+    ["Character ID"] = "ID",
+    ["Placeholder"] = "Инфо",
     ["#CanMove武力#"] = "Сила",
     ["(匹配类型:3=3v3,4=5v5) "] = "(Тип матча: 3=3х3, 4=5х5).",
     ["#CanMoveResources#"] = "#CanMoveResources#",

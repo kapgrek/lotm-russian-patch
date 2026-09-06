@@ -1885,7 +1885,11 @@ local function translateTextWidget(widget, discoveryContext)
                 widget:SynchronizeProperties()
             end
         end)
-        runtimeFixes.adjustWidgetLetterSpacing(widget)
+        pcall(function()
+            if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                runtimeFixes.adjustWidgetLetterSpacing(widget)
+            end
+        end)
         pcall(function()
             if widget.InvalidateLayoutAndVolatility ~= nil then
                 widget:InvalidateLayoutAndVolatility()
@@ -4954,7 +4958,11 @@ runtimeFixes.setNamedWidgetText = function(owner, widgetName, text)
             widget:SynchronizeProperties()
         end
     end)
-    runtimeFixes.adjustWidgetLetterSpacing(widget)
+    pcall(function()
+        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+            runtimeFixes.adjustWidgetLetterSpacing(widget)
+        end
+    end)
     pcall(function()
         if widget.InvalidateLayoutAndVolatility ~= nil then
             widget:InvalidateLayoutAndVolatility()
@@ -7533,19 +7541,23 @@ local function installShortMenuLabels(value, environment)
     local originalRefresh = class.OnRefresh
     class.OnRefresh = function(self, params)
         local results = { originalRefresh(self, params) }
-        local menuId = self.MenuID
-        local menuData = menuId and Game and Game.TableData and Game.TableData.GetMenuDataRow(menuId)
-        local label = menuData and shortMenuLabels[menuData.ButtonEnum]
-        if label and self.view then
-            -- KGTextBlock can repaint its serialized long translation after
-            -- OnRefresh. Persist the compact value in both the widget property
-            -- and the live Slate text so later menu refreshes cannot restore it.
-            runtimeFixes.setNamedWidgetText(self.view, "Text_Name", label)
-            local textWidget = getNamedWidget(self.view, "Text_Name")
-            if textWidget then
-                runtimeFixes.adjustWidgetLetterSpacing(textWidget, 13)
+        pcall(function()
+            local menuId = self.MenuID
+            local menuData = menuId and Game and Game.TableData and Game.TableData.GetMenuDataRow(menuId)
+            local label = menuData and shortMenuLabels[menuData.ButtonEnum]
+            if label and self.view then
+                -- KGTextBlock can repaint its serialized long translation after
+                -- OnRefresh. Persist the compact value in both the widget property
+                -- and the live Slate text so later menu refreshes cannot restore it.
+                if runtimeFixes and runtimeFixes.setNamedWidgetText then
+                    runtimeFixes.setNamedWidgetText(self.view, "Text_Name", label)
+                end
+                local textWidget = getNamedWidget(self.view, "Text_Name")
+                if textWidget and runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                    runtimeFixes.adjustWidgetLetterSpacing(textWidget, 13)
+                end
             end
-        end
+        end)
         return unpack(results)
     end
     class.__cpddShortMenuLabels = true
