@@ -8,24 +8,94 @@ class InspectSamples
 {
     static string GeminiPath = @"d:\gameDev\translate lotm\source_en\RuntimeTextGemini.lua";
     static string RuPath = @"d:\gameDev\translate lotm\RuntimeTextRussian.lua";
-    static string LsiDir = @"d:\gameDev\translate lotm\mod_base\Saved\Mods\lua\mods\cpdd_runtime_fixes";
 
-    static string SourceKey(string value)
+    static bool IsTechnicalCodeOrDebug(string enVal, string cnKey)
     {
-        byte[] bytes = Encoding.UTF8.GetBytes(value);
-        uint hash = 2166136261u;
-        for (int i = 0; i < bytes.Length; i++)
+        if (string.IsNullOrWhiteSpace(enVal) || Regex.IsMatch(enVal, @"^\d+$"))
+            return true;
+
+        if (enVal.Contains("ConfigID") || enVal.Contains("3DConfigID") ||
+            enVal.EndsWith(".lua") || enVal.EndsWith(".uasset") || enVal.Contains("AI Bot - Mechanism") || enVal.Contains("ALS Jogging") ||
+            enVal.StartsWith(">>") || enVal.Contains("cannot be overridden") || enVal.Contains("animation ends") || enVal.Contains("motion matching") ||
+            enVal.StartsWith("[Discarded]") || enVal.StartsWith("CBT2") || enVal.StartsWith("dj") || enVal.Contains("PhyAtk") || enVal.Contains("Jizhi") ||
+            enVal.StartsWith(".p4config") || enVal.Contains("-----") || enVal.Contains(".cpp") || enVal.Contains(".h") ||
+            enVal.StartsWith("523") || enVal.StartsWith("520") || enVal.StartsWith("GTA-") || enVal.StartsWith("GTA ") ||
+            enVal.StartsWith("Camera_") || enVal.StartsWith("Mat_") || enVal.StartsWith("SK_") || enVal.StartsWith("SM_") ||
+            enVal.StartsWith("SkillID: ") || enVal.Contains("InterruptMode") || enVal.Contains("BindSkillID") ||
+            enVal.StartsWith("AI ") || enVal.Contains("AI ") || enVal.Contains("AOI Primary Layer") ||
+            enVal.Contains("ExcelCfg") || enVal.Contains("LuaList") || enVal.Contains("returned nil") ||
+            enVal.Contains("failed to retrieve") || enVal.Contains("GetTask") || enVal.Contains("QuestSystem") ||
+            enVal.Contains("Combat Attribute") || enVal.Contains("Attribute mode") ||
+            enVal.Contains("_Panel") || enVal.Contains("_Item") || enVal.Contains("MailId") ||
+            enVal.StartsWith("[UIFrame") || enVal.StartsWith("HUD_") || enVal.Contains("GuildSystem:") ||
+            enVal.Contains("PreviewAppearanceOnDummy") || enVal.Contains("missing appearance data") ||
+            enVal.Contains("ByOwner:") || enVal.Contains("ByUnit:") || enVal.Contains("ByPos:") ||
+            enVal.Contains("errorCode=") ||
+            enVal.StartsWith("===== ") || enVal.Contains("PlatformScalabilitySettings") ||
+            Regex.IsMatch(enVal, @"^\d+:\s*(Disable|Enable|Hide|Start|End|Override)") ||
+            Regex.IsMatch(enVal, @"^\d+-(Disable|Enable|Correct)"))
+            return true;
+
+        return false;
+    }
+
+    static int GetStringPriorityScore(string enVal, string cnKey)
+    {
+        int score = 0;
+        if (enVal.Contains("?") || enVal.Contains("!") || enVal.Contains("...") || enVal.Contains("\"") || enVal.Contains("“") ||
+            Regex.IsMatch(enVal, @"\b(I|you|he|she|we|they|my|your|his|her|our|their|me|him|us|them)\b", RegexOptions.IgnoreCase) ||
+            Regex.IsMatch(enVal, @"\b(am|is|are|was|were|will|would|can|could|should|must|don't|can't|won't|didn't|haven't|isn't)\b", RegexOptions.IgnoreCase) ||
+            enVal.Contains("{{"))
         {
-            hash ^= bytes[i];
-            hash = unchecked(hash + (hash << 1) + (hash << 4) + (hash << 7) + (hash << 8) + (hash << 24));
+            score += 100;
         }
-        return bytes.Length + ":" + hash.ToString("x8");
+
+        if (Regex.IsMatch(enVal, @"\b(Click|Talk|Go to|Find|Defeat|Obtain|Collect|Use|Enter|Leave|Open|Close|Select|Investigate|Inspect|Arrive|Explore|Follow|Escort|Protect|Interact)\b", RegexOptions.IgnoreCase))
+        {
+            score += 60;
+        }
+
+        if (Regex.IsMatch(enVal, @"\b(Potion|Formula|Recipe|Weapon|Blade|Sword|Armor|Robe|Ring|Pendant|Boots|Crown|Mask|Badge|Scroll|Crystal|Essence|Gem|Skill|Talent|Passive|Attack|Defense|HP|Damage|Critical|Speed|Cooldown)\b", RegexOptions.IgnoreCase))
+        {
+            score += 50;
+        }
+
+        if (Regex.IsMatch(enVal, @"\b(Tingen|Backlund|Bieber|Sharon|House|Factory|Dock|Bar|Street|Square|Cathedral|Church|Order|School of Thought|Battlefield|Dungeon|Ruins|Camp|Forest|Tower|Gate)\b", RegexOptions.IgnoreCase))
+        {
+            score += 40;
+        }
+
+        if (Regex.IsMatch(enVal, @"\b(Club|Guild|Mail|Chat|Friend|Team|Party|Rank|Score|Round|Match|Server|Online|Offline|Confirm|Cancel|Delete|Save|Load|Settings|Option|Display|Audio|Music|Sound|Video|Graphics|Resolution|Reward|Drop|Level|Price|Cost|Limit)\b", RegexOptions.IgnoreCase))
+        {
+            score += 30;
+        }
+
+        if (enVal.Contains(" "))
+        {
+            score += 20;
+        }
+
+        if (enVal.Length >= 8 && enVal.Length <= 120 && !enVal.Contains("_"))
+        {
+            score += 15;
+        }
+
+        if (enVal.StartsWith("00_") || enVal.StartsWith("01_") || enVal.Contains("Test Scene"))
+        {
+            score -= 50;
+        }
+
+        if (enVal.Length < 3)
+        {
+            score -= 40;
+        }
+
+        return score;
     }
 
     static void Main()
     {
         Console.OutputEncoding = Encoding.UTF8;
-
         var existingRu = new HashSet<string>(StringComparer.Ordinal);
         if (File.Exists(RuPath))
         {
@@ -37,47 +107,14 @@ class InspectSamples
                     int delim = t.IndexOf("\"] = \"");
                     if (delim > 0)
                     {
-                        string k = t.Substring(2, delim - 2);
-                        existingRu.Add(k);
+                        existingRu.Add(t.Substring(2, delim - 2));
                     }
                 }
             }
         }
 
-        var lsiTagMap = new Dictionary<string, List<string>>();
-        if (Directory.Exists(LsiDir))
-        {
-            foreach (var file in Directory.GetFiles(LsiDir, "LanguageSourceIndex_*.lua"))
-            {
-                foreach (var line in File.ReadAllLines(file, Encoding.UTF8))
-                {
-                    int start = line.IndexOf("[\"");
-                    if (start >= 0)
-                    {
-                        int end = line.IndexOf("\"]", start + 2);
-                        if (end > start)
-                        {
-                            string hashKey = line.Substring(start + 2, end - start - 2);
-                            string rest = line.Substring(end + 2).Trim();
-                            var tags = new List<string>();
-                            var matches = Regex.Matches(rest, @"""([a-zA-Z0-9_]+):(\d+)""");
-                            foreach (Match m in matches)
-                            {
-                                tags.Add(m.Groups[1].Value);
-                            }
-                            if (tags.Count > 0)
-                            {
-                                lsiTagMap[hashKey] = tags;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        var samples = new Dictionary<string, List<string>>();
-        string[] focus = new string[] { "talkother", "oldtalk", "gossip" };
-        foreach (var f in focus) samples[f] = new List<string>();
+        var list = new List<Tuple<int, string, string>>();
+        var seen = new HashSet<string>(StringComparer.Ordinal);
 
         using (var reader = new StreamReader(GeminiPath, Encoding.UTF8))
         {
@@ -95,33 +132,33 @@ class InspectSamples
                         int valEnd = t.EndsWith("\",") ? t.Length - 2 : t.Length - 1;
                         string enVal = valEnd >= valStart ? t.Substring(valStart, valEnd - valStart) : "";
 
-                        if (existingRu.Contains(cnKey) || existingRu.Contains(enVal)) continue;
-                        if (string.IsNullOrWhiteSpace(enVal) || enVal.Length < 10) continue;
+                        if (existingRu.Contains(cnKey) || existingRu.Contains(enVal))
+                            continue;
 
-                        string sk = SourceKey(cnKey);
-                        if (lsiTagMap.ContainsKey(sk))
-                        {
-                            foreach (var tag in lsiTagMap[sk])
-                            {
-                                if (samples.ContainsKey(tag) && samples[tag].Count < 10)
-                                {
-                                    samples[tag].Add(enVal);
-                                }
-                            }
-                        }
+                        if (seen.Contains(cnKey) || seen.Contains(enVal))
+                            continue;
+                        seen.Add(cnKey);
+                        seen.Add(enVal);
+
+                        if (IsTechnicalCodeOrDebug(enVal, cnKey))
+                            continue;
+
+                        int score = GetStringPriorityScore(enVal, cnKey);
+                        list.Add(Tuple.Create(score, cnKey, enVal));
                     }
                 }
             }
         }
 
-        foreach (var kvp in samples)
+        list.Sort((a, b) => b.Item1.CompareTo(a.Item1));
+
+        for (int p = 0; p < Math.Min(8500, list.Count); p += 1000)
         {
-            Console.WriteLine("=== Tag: " + kvp.Key + " ===");
-            foreach (var s in kvp.Value)
+            Console.WriteLine(string.Format("\n=== Sample at index {0} ===", p));
+            for (int i = p; i < Math.Min(p + 5, list.Count); i++)
             {
-                Console.WriteLine("  * " + s);
+                Console.WriteLine(string.Format("  [{0}] EN: {1} | CN: {2}", i, list[i].Item3, list[i].Item2));
             }
-            Console.WriteLine();
         }
     }
 }
