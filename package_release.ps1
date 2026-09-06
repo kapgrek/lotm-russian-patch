@@ -16,11 +16,19 @@ New-Item -ItemType Directory -Path "$staging\Binaries\Win64\lua\Launch\Base" -Fo
 $gameDir = "D:\Games\GMZZLauncher\Game\C7"
 
 Write-Host "Copying mod files..."
-Copy-Item "$gameDir\Saved\Mods\bootstrap.lua" "$staging\Saved\Mods\" -Force
-Copy-Item "$gameDir\Saved\Mods\manifest.lua" "$staging\Saved\Mods\" -Force
-Copy-Item "$gameDir\Saved\Mods\translation-overrides.lua" "$staging\Saved\Mods\" -Force
-Copy-Item "$gameDir\Saved\Mods\lua\mods\cpdd_runtime_fixes\*" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\" -Recurse -Force
-Copy-Item "$gameDir\Binaries\Win64\lua\Launch\Base\CPDDTranslation.lua" "$staging\Binaries\Win64\lua\Launch\Base\" -Force
+if (Test-Path "$gameDir\Saved\Mods") {
+    Copy-Item "$gameDir\Saved\Mods\bootstrap.lua" "$staging\Saved\Mods\" -Force
+    Copy-Item "$gameDir\Saved\Mods\manifest.lua" "$staging\Saved\Mods\" -Force
+    Copy-Item "$gameDir\Saved\Mods\translation-overrides.lua" "$staging\Saved\Mods\" -Force
+    Copy-Item "$gameDir\Saved\Mods\lua\mods\cpdd_runtime_fixes\*" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\" -Recurse -Force
+    Copy-Item "$gameDir\Binaries\Win64\lua\Launch\Base\CPDDTranslation.lua" "$staging\Binaries\Win64\lua\Launch\Base\" -Force
+} elseif (Test-Path "$projectRoot\mod_base\Saved\Mods") {
+    Write-Host "Using mod_base fallback template..." -ForegroundColor Yellow
+    Copy-Item "$projectRoot\mod_base\Saved\Mods\*" "$staging\Saved\Mods\" -Recurse -Force
+    Copy-Item "$projectRoot\mod_base\Binaries\Win64\lua\Launch\Base\*" "$staging\Binaries\Win64\lua\Launch\Base\" -Recurse -Force
+} else {
+    throw "Base mod files not found in game directory ($gameDir) or in mod_base template."
+}
 
 # Гарантия: файлы русификатора из data/ имеют абсолютный приоритет
 Copy-Item "$projectRoot\data\Init.lua" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\Init.lua" -Force

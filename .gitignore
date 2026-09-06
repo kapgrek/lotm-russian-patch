@@ -1,4 +1,5 @@
 build/
+mod_base/
 *.zip
 *.exe
 *.log
@@ -6,3 +7,4 @@ build/
 .vs/
 bin/
 obj/
+
