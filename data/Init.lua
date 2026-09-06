@@ -976,6 +976,15 @@ function runtimeFixes.normalizeDefenseBreakTerminology(value)
     value = value:gsub("Magic Armor Break", "Magic Defense Break")
     return value
 end
+
+runtimeFixes.stringCharLength = function(value)
+    if type(value) ~= "string" then return 0 end
+    local ok, len = pcall(function() return utf8 and utf8.len and utf8.len(value) end)
+    if ok and len ~= nil then return len end
+    local _, count = value:gsub("[^\128-\191]", "")
+    return count
+end
+
 runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
     if widget == nil then return end
     pcall(function()
@@ -987,6 +996,37 @@ runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
         local font = widget.Font or (widget.GetFont and widget:GetFont())
         if font ~= nil then
             font.LetterSpacing = -50
+            if targetSize == nil then
+                local wName = ""
+                pcall(function() wName = tostring(widget:GetName()) end)
+                local wText = ""
+                pcall(function() wText = tostring(widget:GetText()) end)
+                local isButtonLike = wName:find("Btn") or wName:find("Button") or wName:find("Tab")
+                    or wName:find("Title") or wName:find("Item") or wName:find("Sequence")
+                    or wName:find("Transfer") or wName:find("Dec") or wName:find("Node")
+                    or wName:find("Choice") or wName:find("Option")
+                if not isButtonLike then
+                    pcall(function()
+                        local parent = widget.GetParent and widget:GetParent()
+                        if parent ~= nil then
+                            local pName = tostring(parent:GetName())
+                            if pName:find("Btn") or pName:find("Button") or pName:find("Tab") or pName:find("Item") then
+                                isButtonLike = true
+                            end
+                        end
+                    end)
+                end
+                if isButtonLike and not wText:find("\n") then
+                    local charLen = runtimeFixes.stringCharLength(wText)
+                    if charLen >= 14 then
+                        targetSize = 12
+                    elseif charLen >= 10 then
+                        targetSize = 13
+                    elseif charLen >= 7 then
+                        targetSize = 14
+                    end
+                end
+            end
             if targetSize ~= nil and font.Size ~= nil and font.Size > targetSize then
                 font.Size = targetSize
             end
@@ -995,6 +1035,14 @@ runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
             else
                 widget.Font = font
             end
+            pcall(function()
+                if widget.SynchronizeProperties ~= nil then
+                    widget:SynchronizeProperties()
+                end
+                if widget.InvalidateLayoutAndVolatility ~= nil then
+                    widget:InvalidateLayoutAndVolatility()
+                end
+            end)
         end
     end)
 end
@@ -1896,8 +1944,16 @@ local function translateTextWidget(widget, discoveryContext)
             end
         end)
         repairedCount = changed and 1 or 0
+    else
+        if currentText and (currentText:find("[\208\209]") ~= nil or currentText:find("[A-Za-z]") ~= nil) then
+            pcall(function()
+                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                    runtimeFixes.adjustWidgetLetterSpacing(widget)
+                end
+            end)
+        end
     end
-        return repairedCount
+    return repairedCount
 end
 
 -- The reference translation runtime generates a global list of text-like
@@ -3445,30 +3501,32 @@ local function needsTallEnglishSceneText(value)
         return false
     end
     local plain = value:gsub("<.->", "")
-    return plain:find("[A-Za-z]") ~= nil
-        and (#plain > SCENE_TEXT_PRIMARY_ROW_MAX or plain:find("[\r\n]") ~= nil)
+    local hasAlphabet = plain:find("[A-Za-z]") ~= nil or plain:find("[\208\209]") ~= nil
+    local charLen = runtimeFixes.stringCharLength(plain)
+    return hasAlphabet and (charLen > SCENE_TEXT_PRIMARY_ROW_MAX or plain:find("[\r\n]") ~= nil)
 end
 
 local function isPlainAsciiSceneTitle(value)
-    if type(value) ~= "string" or value == "" or #value > SCENE_TEXT_TITLE_MAX then
+    if type(value) ~= "string" or value == "" then
+        return false
+    end
+    local charLen = runtimeFixes.stringCharLength(value)
+    if charLen > SCENE_TEXT_TITLE_MAX then
         return false
     end
     if value:find("[\r\n]") or value:find("<", 1, true) or value:find(">", 1, true) then
         return false
     end
-    for index = 1, #value do
-        local byte = value:byte(index)
-        if byte < 32 or byte > 126 then
-            return false
-        end
+    if value:find("[\228-\239]") ~= nil then
+        return false
     end
-    return true
+    return value:find("[A-Za-z0-9]") ~= nil or value:find("[\208\209]") ~= nil
 end
 
 local function reflowEnglishSceneTitle(displayText, leonSubTitle)
     if not isPlainAsciiSceneTitle(displayText)
         or (leonSubTitle ~= nil and leonSubTitle ~= "")
-        or #displayText <= SCENE_TEXT_PRIMARY_ROW_MAX then
+        or runtimeFixes.stringCharLength(displayText) <= SCENE_TEXT_PRIMARY_ROW_MAX then
         return displayText, leonSubTitle
     end
 
@@ -3485,8 +3543,10 @@ local function reflowEnglishSceneTitle(displayText, leonSubTitle)
     for index = 1, #words - 1 do
         local primary = table.concat(words, " ", 1, index)
         local continuation = table.concat(words, " ", index + 1)
-        local overflow = math.max(0, #primary - SCENE_TEXT_PRIMARY_ROW_MAX)
-        local score = overflow * 100 + math.abs(#primary - #continuation)
+        local pLen = runtimeFixes.stringCharLength(primary)
+        local cLen = runtimeFixes.stringCharLength(continuation)
+        local overflow = math.max(0, pLen - SCENE_TEXT_PRIMARY_ROW_MAX)
+        local score = overflow * 100 + math.abs(pLen - cLen)
         if bestScore == nil or score < bestScore then
             bestIndex = index
             bestScore = score
@@ -3506,11 +3566,15 @@ local function longestPlainAsciiSceneLine(value)
         return nil
     end
     local longest
+    local longestLen = 0
     for line in value:gmatch("[^\r\n]+") do
         local plain = line:gsub("<.->", "")
-        if isPlainAsciiSceneTitle(plain)
-            and (longest == nil or #plain > #longest) then
-            longest = plain
+        if isPlainAsciiSceneTitle(plain) then
+            local charLen = runtimeFixes.stringCharLength(plain)
+            if longest == nil or charLen > longestLen then
+                longest = plain
+                longestLen = charLen
+            end
         end
     end
     return longest
@@ -3620,15 +3684,16 @@ local function fitEnglishSceneTextFont(self)
         return false
     end
     local targetSize = baseSize
-    if #longestLine > SCENE_TEXT_PRIMARY_ROW_MAX then
+    local lineLen = runtimeFixes.stringCharLength(longestLine)
+    if lineLen > SCENE_TEXT_PRIMARY_ROW_MAX then
         targetSize = math.min(targetSize, SCENE_TEXT_MAX_ENGLISH_FONT_SIZE)
-        if #longestLine > SCENE_TEXT_MAIN_LINE_CHAR_BUDGET then
+        if lineLen > SCENE_TEXT_MAIN_LINE_CHAR_BUDGET then
             targetSize = math.min(
                 targetSize,
                 math.max(
                     SCENE_TEXT_MIN_FONT_SIZE,
                     math.floor(
-                        baseSize * SCENE_TEXT_MAIN_LINE_CHAR_BUDGET / #longestLine + 0.5
+                        baseSize * SCENE_TEXT_MAIN_LINE_CHAR_BUDGET / lineLen + 0.5
                     )
                 )
             )
@@ -5199,7 +5264,28 @@ runtimeFixes.repairSequencePromotionChangeLayout = function(self)
     return runtimeFixes.fitSequencePromotionChangeText(widget)
 end
 
+runtimeFixes.repairSequencePromotionRoot = function(self)
+    local root = self and (self.view or self.userWidget or self.widget)
+    if root ~= nil then
+        pcall(function()
+            local visited = setmetatable({}, { __mode = "k" })
+            walkWidgetDescendants(root, visited, function(candidate)
+                pcall(function()
+                    if candidate ~= nil and (candidate.GetText ~= nil or candidate.Text ~= nil) then
+                        translateTextWidget(candidate)
+                        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                            runtimeFixes.adjustWidgetLetterSpacing(candidate)
+                        end
+                    end
+                end)
+            end)
+        end)
+    end
+    return true
+end
+
 runtimeFixes.repairSequencePromotionPanelButtons = function(self)
+    runtimeFixes.repairSequencePromotionRoot(self)
     local button = self and self.WBP_ConditionBtnCom
     local widget = getNamedWidget(button and button.view, "Text_Name")
         or getNamedWidget(button and (button.userWidget or button.widget), "Text_Name")
@@ -5220,7 +5306,8 @@ runtimeFixes.repairSequencePromotionPanelButtons = function(self)
     end
     local changed = pcall(function()
         local currentSize = tonumber(font.Size) or 18
-        font.Size = math.min(currentSize, 18)
+        font.Size = math.min(currentSize, 14)
+        if font.LetterSpacing ~= nil then font.LetterSpacing = -50 end
         widget.Font = font
         if widget.SetFont ~= nil then widget:SetFont(font) end
         if widget.SynchronizeProperties ~= nil then widget:SynchronizeProperties() end
@@ -6887,6 +6974,13 @@ local exactWidgetRepairSpecs = {
         true,
     },
     {
+        "Gameplay.LogicSystem.SequencePromotion.SequencePromotion_Panel.SequencePromotion_Panel",
+        "SequencePromotion_Panel",
+        { "InitUIView", "OnRefresh", "Refresh" },
+        runtimeFixes.repairSequencePromotionRoot,
+        true,
+    },
+    {
         "Gameplay.LogicSystem.SequencePromotion.SequencePromotion_Panel.Sequence_Dec",
         "Sequence_Dec",
         { "InitUIView", "Refresh" },
@@ -7608,7 +7702,7 @@ runtimeFixes.SinglePassPanelUids = {
     GuildInside_Panel = true,
     Menu_Panel = true,
     Sealed_Equip_Panel = true,
-    SequencePromotion_Panel = true,
+    SequencePromotion_Panel = false,
 }
 
 -- These high-frequency panels have dedicated data/view hooks above. A generic
