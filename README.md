@@ -20,6 +20,16 @@
 4. Нажмите кнопку **«Установить / Обновить»**.
 5. Запустите игру через официальный лаунчер — игра запустится на русском языке!
 
+> **Примечание по безопасности (Windows SmartScreen):**  
+> Поскольку модификация фанатская и не имеет платного коммерческого сертификата от Microsoft, при первом запуске SmartScreen может показать синее окно («Защитник Windows защитил ваш компьютер»). Нажмите **«Подробнее»** ➔ **«Выполнить в любом случае»**.
+
+### 📦 Ручная установка (без .exe)
+
+Если вы не хотите использовать исполняемый файл или система блокирует скачивание сторонних `.exe`:
+1. Скачайте архив **[`lom-russian-patch-data.zip`](https://github.com/kapgrek/lotm-russian-patch/releases/latest)** из раздела релизов.
+2. Распакуйте его содержимое напрямую в папку игры `.../Game/C7` (согласитесь на объединение папок `Saved` и `Binaries` и замену файлов).
+3. Запустите игру как обычно.
+
 ---
 
 ## 🌟 Особенности
@@ -33,10 +43,16 @@
 
 ## 🛠️ Сборка установщика из исходников
 
-Установщик написан на C# / Windows Forms и компилируется стандартным компилятором `csc.exe`, встроенным в Windows:
+Сборка установщика с манифестом Windows 10/11, иконкой и наложением цифровой подписи Authenticode:
 
 ```powershell
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /target:winexe /optimize+ /r:System.dll,System.Windows.Forms.dll,System.Drawing.dll,System.IO.Compression.dll,System.IO.Compression.FileSystem.dll /out:Lord-of-Mysteries-Russian-Patch.exe installer/Program.cs
+powershell -ExecutionPolicy Bypass -File installer/build_installer.ps1
+```
+
+Либо ручной вызов компилятора `csc.exe`:
+
+```powershell
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /target:winexe /optimize+ /platform:anycpu /highentropyva+ /r:System.dll,System.Windows.Forms.dll,System.Drawing.dll,System.IO.Compression.dll,System.IO.Compression.FileSystem.dll /win32manifest:installer/app.manifest /win32icon:installer/app.ico /out:Lord-of-Mysteries-Russian-Patch.exe installer/Program.cs installer/AssemblyInfo.cs
 ```
 
 ---

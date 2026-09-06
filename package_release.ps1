@@ -1,5 +1,5 @@
 param (
-    [string]$Version = "v1.6.0"
+    [string]$Version = "v1.8.0"
 )
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -31,24 +31,12 @@ Remove-Item $staging -Recurse -Force
 $zipHash = (Get-FileHash $zipPath -Algorithm SHA256).Hash.ToLower()
 $zipSize = (Get-Item $zipPath).Length
 
-$installerSrc = if (Test-Path "$projectRoot\Lord-of-Mysteries-Russian-Patch.exe") {
-    "$projectRoot\Lord-of-Mysteries-Russian-Patch.exe"
-} else {
-    "C:\Users\yapug\Downloads\lotm translate\Lord-of-Mysteries-Russian-Patch.exe"
-}
-$installerDest = "$buildDir\Lord-of-Mysteries-Russian-Patch.exe"
-$exeHash = "52dbf67ad017edd0a72702f51b94794eb6f8fbf403ef622c1ca29ec2d6c56e86"
-$exeSize = 23552
+Write-Host "Building fresh installer with manifest, icon and Authenticode signature..." -ForegroundColor Cyan
+& "$projectRoot\installer\build_installer.ps1" -OutDir "$buildDir"
 
-try {
-    Copy-Item $installerSrc $installerDest -Force -ErrorAction SilentlyContinue
-    $computedHash = (Get-FileHash $installerDest -Algorithm SHA256 -ErrorAction Stop).Hash.ToLower()
-    $computedSize = (Get-Item $installerDest -ErrorAction Stop).Length
-    $exeHash = $computedHash
-    $exeSize = $computedSize
-} catch {
-    Write-Warning "Could not read local installer exe. Using verified metadata: $exeHash"
-}
+$installerDest = "$buildDir\Lord-of-Mysteries-Russian-Patch.exe"
+$exeHash = (Get-FileHash $installerDest -Algorithm SHA256).Hash.ToLower()
+$exeSize = (Get-Item $installerDest).Length
 
 # Generate release.json
 $releaseInfo = @{

@@ -131,7 +131,27 @@ D:\gameDev\translate lotm\
    - Пересчитайте количество переведённых строк и процент.
    - Запишите номер пакета, дату, количество добавленных строк и краткое резюме в [`TRANSLATION_LOG.md`](file:///d:/gameDev/translate%20lotm/TRANSLATION_LOG.md).
 
-6. **Коммит и релиз:**
-   - Закоммитьте изменения в Git с понятным сообщением (например, `feat(translate): batch #1 - main quests and tingen dialogues`).
-   - При необходимости собрать релиз запустите:
-     `.\package_release.ps1 -Version "v1.X.X"`
+6. **Коммит и сборка релиза:**
+   - Закоммитьте изменения в Git с понятным сообщением (например, `feat(translate): batch #3 - roselle diaries and newspapers`).
+   - Сборка релизного пакета выполняется **ТОЛЬКО** через:
+     `powershell -ExecutionPolicy Bypass -File .\package_release.ps1 -Version "v1.X.X"`
+   - Скрипт автоматически компилирует установщик со встроенным манифестом Windows 10/11, иконкой, метаданными сборки и наложением цифровой подписи Authenticode с таймстемпом DigiCert, исключая ложные срабатывания Защитника Windows.
+   - Загрузка/обновление файлов релиза на GitHub выполняется через GitHub CLI:
+     `gh release upload v1.X.X build/Lord-of-Mysteries-Russian-Patch.exe build/lom-russian-patch-data.zip build/release.json --clobber`
+
+---
+
+## 🛡️ Стандарт безопасности установщика (Installer & Antivirus Safety Standard)
+
+1. **Запрет сырой сборки без манифеста и метаданных:**
+   - **СТРОГО ЗАПРЕЩЕНО** компилировать `Lord-of-Mysteries-Russian-Patch.exe` через «голый» `csc.exe` без параметров `/win32manifest` и `/win32icon`. Бинарники без манифеста и метаданных сборки мгновенно блокируются эвристикой SmartScreen и Windows Defender (`Trojan:Win32/Wacatac.B!ml`).
+   - При смене версии **ОБЯЗАТЕЛЬНО** синхронизировать версию в [`installer/AssemblyInfo.cs`](file:///d:/gameDev/translate%20lotm/installer/AssemblyInfo.cs) и [`installer/app.manifest`](file:///d:/gameDev/translate%20lotm/installer/app.manifest).
+
+2. **Запрет подозрительных для эвристики конструкций:**
+   - Запрещено жестко зашивать в C#-код динамические скриптовые инжекции со строками `load(source)` и `xpcall`. Все файлы загрузчика (`CPDDTranslation.lua`) должны передаваться и копироваться исключительно как готовые файлы в составе пакета данных.
+
+3. **Обязательная проверка Защитником Windows:**
+   - Перед релизом установщик проверяется локально:
+     `Start-MpScan -ScanPath "build\Lord-of-Mysteries-Russian-Patch.exe" -ScanType CustomScan`
+     Критерий успешности: **0 обнаруженных угроз**.
+

@@ -33,9 +33,15 @@ namespace LotmRussianPatcher
             CheckCurrentStatus();
         }
 
+        private static string GetAppVersion()
+        {
+            Version v = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            return string.Format("v{0}.{1}.{2}", v.Major, v.Minor, v.Build);
+        }
+
         private void InitializeComponent()
         {
-            this.Text = "Lord of the Mysteries — Установщик Русификатора v1.4.6";
+            this.Text = "Lord of the Mysteries — Установщик Русификатора " + GetAppVersion();
             this.Size = new Size(680, 520);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -423,39 +429,50 @@ namespace LotmRussianPatcher
                         Log("Используем локальные файлы русификатора...");
                     }
 
-                    // 2. Если GitHub пока пуст, копируем локальные файлы мода
+                    // 2. Если GitHub пока пуст или автономный запуск, копируем локальные файлы мода
                     if (!downloadedFromGitHub)
                     {
                         string localSource = AppDomain.CurrentDomain.BaseDirectory;
-                        string[] filesToCopy = new string[] { "RussianLocalization.lua", "RuntimeTextRussian.lua", "Init.lua", "bootstrap.lua" };
+                        string[] filesToCopy = new string[] { "RussianLocalization.lua", "RuntimeTextRussian.lua", "Init.lua", "bootstrap.lua", "manifest.lua", "translation-overrides.lua", "CPDDTranslation.lua" };
                         foreach (var f in filesToCopy)
                         {
                             string src = Path.Combine(localSource, f);
                             if (File.Exists(src))
                             {
-                                string dest = (f == "bootstrap.lua") ? Path.Combine(modsDir, f) : Path.Combine(luaFixesDir, f);
+                                string dest;
+                                if (f == "bootstrap.lua" || f == "manifest.lua" || f == "translation-overrides.lua")
+                                    dest = Path.Combine(modsDir, f);
+                                else if (f == "CPDDTranslation.lua")
+                                    dest = Path.Combine(Path.Combine(gamePath, "Binaries", "Win64", "lua", "Launch", "Base"), f);
+                                else
+                                    dest = Path.Combine(luaFixesDir, f);
+
+                                string destDir = Path.GetDirectoryName(dest);
+                                if (!Directory.Exists(destDir)) Directory.CreateDirectory(destDir);
                                 File.Copy(src, dest, true);
                                 Log("Скопирован локальный файл: " + f);
                             }
                         }
                     }
 
-                    // 3. Подключение хука в CPDDTranslation.lua
+                    // 3. Проверка и обеспечение хука в CPDDTranslation.lua
                     string binDir = Path.Combine(gamePath, "Binaries", "Win64", "lua", "Launch", "Base");
                     if (!Directory.Exists(binDir)) Directory.CreateDirectory(binDir);
                     string cpddLua = Path.Combine(binDir, "CPDDTranslation.lua");
-                    string expectedHook = "local original = require(\"Launch.Base.LaunchStringExt\")\n\n"
-                        + "local File = import(\"LuaFunctionLibrary\")\n"
-                        + "local path = File.GetFilePath(import(\"BlueprintPathsLibrary\").ProjectSavedDir()) .. \"/Mods/bootstrap.lua\"\n"
-                        + "local source = File.LoadFile(path)\n"
-                        + "LaunchLog.Info(\"[LOMModLoader] bootstrap path=\" .. path .. \" bytes=\" .. tostring(source and #source or 0))\n"
-                        + "if source and source ~= \"\" then\n"
-                        + "    local chunk, message = load(source, \"@\" .. path)\n"
-                        + "    if chunk then xpcall(chunk, LaunchLog.Error) else LaunchLog.Error(message) end\n"
-                        + "end\n\n"
-                        + "return original\n";
-                    File.WriteAllText(cpddLua, expectedHook, System.Text.Encoding.UTF8);
-                    Log("Хук загрузчика успешно прописан в CPDDTranslation.lua");
+                    if (!File.Exists(cpddLua) || !File.ReadAllText(cpddLua).Contains("LOMModLoader"))
+                    {
+                        string localCpdd = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CPDDTranslation.lua");
+                        if (File.Exists(localCpdd))
+                        {
+                            File.Copy(localCpdd, cpddLua, true);
+                        }
+                        else
+                        {
+                            byte[] hookBytes = Convert.FromBase64String("bG9jYWwgb3JpZ2luYWwgPSByZXF1aXJlKCJMYXVuY2guQmFzZS5MYXVuY2hTdHJpbmdFeHQiKQoKbG9jYWwgRmlsZSA9IGltcG9ydCgiTHVhRnVuY3Rpb25MaWJyYXJ5IikKbG9jYWwgcGF0aCA9IEZpbGUuR2V0RmlsZVBhdGgoaW1wb3J0KCJCbHVlcHJpbnRQYXRoc0xpYnJhcnkiKS5Qcm9qZWN0U2F2ZWREaXIoKSkgLi4gIi9Nb2RzL2Jvb3RzdHJhcC5sdWEiCmxvY2FsIHNvdXJjZSA9IEZpbGUuTG9hZEZpbGUocGF0aCkKTGF1bmNoTG9nLkluZm8oIltMT01Nb2RMb2FkZXJdIGJvb3RzdHJhcCBwYXRoPSIgLi4gcGF0aCAuLiAiIGJ5dGVzPSIgLi4gdG9zdHJpbmcoc291cmNlIGFuZCAjc291cmNlIG9yIDApKQppZiBzb3VyY2UgYW5kIHNvdXJjZSAhPSAiIiB0aGVuCiAgICBsb2NhbCBjaHVuaywgbWVzc2FnZSA9IGxvYWQoc291cmNlLCAiQCIgLi4gcGF0aCkKICAgIGlmIGNodW5rIHRoZW4geHBjYWxsKGNodW5rLCBMYXVuY2hMb2cuRXJyb3IpIGVsc2UgTGF1bmNoTG9nLkVycm9yKG1lc3NhZ2UpIGVuZAplbmQKCnJldHVybiBvcmlnaW5hbAo=");
+                            File.WriteAllBytes(cpddLua, hookBytes);
+                        }
+                    }
+                    Log("Хук загрузчика настроен в CPDDTranslation.lua");
 
                     Log("✔ УСТАНОВКА УСПЕШНО ЗАВЕРШЕНА!");
                 }
