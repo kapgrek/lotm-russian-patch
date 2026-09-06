@@ -1,4 +1,4 @@
-﻿# LOTM Russian Localization Project — AGENTS Guidelines
+# LOTM Russian Localization Project — AGENTS Guidelines
 
 > **Проект:** Фанатский русификатор для игры *Lord of the Mysteries* (C7, Unreal Engine).  
 > **Официальный репозиторий:** `https://github.com/kapgrek/lotm-russian-patch`  
@@ -9,7 +9,9 @@
 
 ## 📌 Ключевой манифест для агентов
 
-Каждый агент, начинающий сессию в этом проекте, **ОБЯЗАН** первым делом прочитать [`TRANSLATION_LOG.md`](file:///d:/gameDev/translate%20lotm/TRANSLATION_LOG.md).
+Каждый агент, начинающий сессию в этом проекте, **ОБЯЗАН** первым делом:
+1. Ознакомиться с правилами перевода, стилем и глоссарием в [`TRANSLATION_GUIDE.md`](file:///d:/gameDev/translate%20lotm/TRANSLATION_GUIDE.md).
+2. Прочитать журнал текущего прогресса в [`TRANSLATION_LOG.md`](file:///d:/gameDev/translate%20lotm/TRANSLATION_LOG.md).
 В `TRANSLATION_LOG.md` зафиксирован текущий прогресс, сколько строк переведено, сколько осталось, и какой пакет работы является следующим.
 
 **Главное правило:** Не делать повторную работу и не перезаписывать существующие качественные переводы.
@@ -39,6 +41,7 @@ D:\gameDev\translate lotm\
 ├── RussianLocalization.lua        # Копия в корне для удобства работы и версионирования
 ├── RuntimeTextRussian.lua         # Копия словаря в корне (12,566+ строк)
 ├── package_release.ps1            # Скрипт сборки zip-архива, SHA256 и release.json
+├── TRANSLATION_GUIDE.md           # ГЛОССАРИЙ, СТИЛЬ (TONE OF VOICE) И ТЕХТРЕБОВАНИЯ
 ├── TRANSLATION_LOG.md             # ДНЕВНИК РАЗРАБОТКИ И ТРЕКЕР ПРОГРЕССА
 ├── AGENTS.md                      # Данный регламент для агентов
 └── GEMINI.md                      # Конфигурационный файл для моделей Gemini
