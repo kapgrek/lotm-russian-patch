@@ -22,6 +22,17 @@ Copy-Item "$gameDir\Saved\Mods\translation-overrides.lua" "$staging\Saved\Mods\"
 Copy-Item "$gameDir\Saved\Mods\lua\mods\cpdd_runtime_fixes\*" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\" -Recurse -Force
 Copy-Item "$gameDir\Binaries\Win64\lua\Launch\Base\CPDDTranslation.lua" "$staging\Binaries\Win64\lua\Launch\Base\" -Force
 
+# Гарантия: файлы русификатора из data/ имеют абсолютный приоритет
+Copy-Item "$projectRoot\data\Init.lua" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\Init.lua" -Force
+Copy-Item "$projectRoot\data\RussianLocalization.lua" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\RussianLocalization.lua" -Force
+Copy-Item "$projectRoot\data\RuntimeTextRussian.lua" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\RuntimeTextRussian.lua" -Force
+if (Test-Path "$projectRoot\data\EnglishToRussian.lua") {
+    Copy-Item "$projectRoot\data\EnglishToRussian.lua" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\EnglishToRussian.lua" -Force
+}
+if (Test-Path "$projectRoot\data\CPDDTranslation.lua") {
+    Copy-Item "$projectRoot\data\CPDDTranslation.lua" "$staging\Binaries\Win64\lua\Launch\Base\CPDDTranslation.lua" -Force
+}
+
 $zipPath = "$buildDir\lom-russian-patch-data.zip"
 Write-Host "Creating archive $zipPath..."
 [System.IO.Compression.ZipFile]::CreateFromDirectory($staging, $zipPath, [System.IO.Compression.CompressionLevel]::Optimal, $false)

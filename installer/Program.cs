@@ -433,7 +433,7 @@ namespace LotmRussianPatcher
                     if (!downloadedFromGitHub)
                     {
                         string localSource = AppDomain.CurrentDomain.BaseDirectory;
-                        string[] filesToCopy = new string[] { "RussianLocalization.lua", "RuntimeTextRussian.lua", "Init.lua", "bootstrap.lua", "manifest.lua", "translation-overrides.lua", "CPDDTranslation.lua" };
+                        string[] filesToCopy = new string[] { "RussianLocalization.lua", "RuntimeTextRussian.lua", "Init.lua", "bootstrap.lua", "manifest.lua", "translation-overrides.lua", "CPDDTranslation.lua", "EnglishToRussian.lua" };
                         foreach (var f in filesToCopy)
                         {
                             string src = Path.Combine(localSource, f);

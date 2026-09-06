@@ -1,4 +1,4 @@
-﻿[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 $gameMods = "D:\Games\GMZZLauncher\Game\C7\Saved\Mods"
 $russianFile = "$gameMods\lua\mods\cpdd_runtime_fixes\RussianLocalization.lua"
@@ -23,6 +23,16 @@ switch ($choice) {
             $content = $content -replace "Russian\.Enabled\s*=\s*false", "Russian.Enabled = true"
             $content = $content -replace "Enabled\s*=\s*false", "Enabled = true"
             [System.IO.File]::WriteAllText($russianFile, $content, (New-Object System.Text.UTF8Encoding($false)))
+
+            $gameInit = "$gameMods\lua\mods\cpdd_runtime_fixes\Init.lua"
+            $dataInit = "$PSScriptRoot\..\data\Init.lua"
+            if (Test-Path $gameInit) {
+                $initText = [System.IO.File]::ReadAllText($gameInit, [System.Text.Encoding]::UTF8)
+                if (-not $initText.Contains("RussianLocalization") -and (Test-Path $dataInit)) {
+                    Copy-Item $dataInit $gameInit -Force
+                    Write-Host "[OK] Хуки в Init.lua восстановлены!" -ForegroundColor Cyan
+                }
+            }
             Write-Host "`n[OK] Русификатор успешно ВКЛЮЧЕН!" -ForegroundColor Green
         } else {
             Write-Host "`n[ОШИБКА] Файл RussianLocalization.lua не найден!" -ForegroundColor Red

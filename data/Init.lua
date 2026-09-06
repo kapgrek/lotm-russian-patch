@@ -1,6 +1,6 @@
 local Loader = assert(LOMModLoader, "LOMModLoader is required")
 
-local VERSION = "0.9.56"
+local VERSION = "0.9.71"
 local CIRCUIT_BREAKER_TIPS_ID = 6427242
 local CIRCUIT_BREAKER_TEXT = "If the server is too crowded, it will enter a circuit-breaker state, temporarily preventing new accounts that have not created a character on the current server from queuing. Please choose another server that is not under a circuit-breaker to experience the game."
 
@@ -349,6 +349,8 @@ end
 -- aggregate entry for 米 (which legitimately means "Rice" in chat/filter
 -- data) is not changed globally.
 local visibleTextExactOverrides = {
+    ["两位先生离开了，不知何时才能看到这充满风采的照片……"] =
+        "The two gentlemen have left. Who knows when I'll get to see this splendid photograph...",
     ["机动"] = "Mobility",
     ["射程"] = "Range",
     ["Win by Lying Down"] = "Easy Wins",
@@ -391,6 +393,7 @@ local visibleTextExactOverrides = {
     ["塞巴斯蒂安"] = "Sebastian",
     ["寒巴斯蒂安"] = "Sebastian",
     ["非凡评分"] = "Beyonder Rating",
+    ["再战·一号信徒"] = "Rematch: Believer Number One",
     ["推荐非凡评分"] = "Recommended Beyonder Rating",
     ["奖励预览"] = "Reward Preview",
     ["目标点数"] = "Target Score",
@@ -866,6 +869,15 @@ if okRussian and type(RussianMod) == "table" and RussianMod.Enabled then
     end
 end
 
+local okEng, EnglishMod = pcall(require, "mods.cpdd_runtime_fixes.EnglishToRussian")
+if okEng and type(EnglishMod) == "table" and type(EnglishMod.exact) == "table" then
+    for k, v in pairs(EnglishMod.exact) do
+        if visibleTextExactOverrides[k] == nil then
+            visibleTextExactOverrides[k] = v
+        end
+    end
+end
+
 local directTables = {}
 local MISSING_DIRECT_TABLE = {}
 local function report(message)
@@ -877,7 +889,16 @@ end
 
 local runtimeMetrics = {
     GeminiLoads = 0,
+    GeminiShardLoadMillis = 0,
+    GeminiShardEvictions = 0,
+    GeminiShardReloads = 0,
+    GeminiLookupCacheHits = 0,
+    GeminiLookupCacheMisses = 0,
+    GeminiLookupCacheEvictions = 0,
     SourceShardLoads = 0,
+    SourceShardLoadMillis = 0,
+    SourceShardEvictions = 0,
+    SourceShardReloads = 0,
     SourceShardHits = 0,
     SourceShardMisses = 0,
     TranslationCacheHits = 0,
@@ -885,12 +906,25 @@ local runtimeMetrics = {
     LiveRepairCacheHits = 0,
     LiveRepairCacheMisses = 0,
     WidgetIndexesBuilt = 0,
+    WidgetTreeReplacements = 0,
+    WidgetCacheInvalidations = 0,
     GetAllWidgetsCalls = 0,
     WidgetsVisited = 0,
     PanelsRepaired = 0,
     PanelRepairMillis = 0,
     PanelLabelsRepaired = 0,
     PanelRepairReportsSuppressed = 0,
+    SlowPanelRepairs = 0,
+    SlowTargetedRepairs = 0,
+    TargetedPanelSkips = 0,
+    NestedComponentSkips = 0,
+    NestedRefreshCoalesces = 0,
+    SinglePassPanelSkips = 0,
+    TaskBoardTargetRuns = 0,
+    TaskBoardTargetComponents = 0,
+    TaskBoardTargetWidgetsFound = 0,
+    TaskBoardTargetLabelsRepaired = 0,
+    TaskBoardTargetFailures = 0,
     KsbcFallbacks = 0,
     UnresolvedVisibleCjk = 0,
     UnresolvedCjkWrites = 0,
@@ -936,7 +970,6 @@ function runtimeFixes.normalizeDefenseBreakTerminology(value)
     value = value:gsub("Magic Armor Break", "Magic Defense Break")
     return value
 end
-
 local function adjustWidgetLetterSpacing(widget, targetSize)
     if widget == nil then return end
     pcall(function()
@@ -1013,8 +1046,66 @@ local function setRuntimeUIRepair(enabled)
     return loader.Features.RuntimeUIRepair
 end
 
-local geminiTextOverrides = nil
-local geminiTextUnavailable = false
+local bit = require("bit")
+
+local function sourceKey(value)
+    local hash = bit.tobit(2166136261)
+    for index = 1, #value do
+        hash = bit.bxor(hash, value:byte(index))
+        hash = bit.tobit(
+            hash
+            + bit.lshift(hash, 1)
+            + bit.lshift(hash, 4)
+            + bit.lshift(hash, 7)
+            + bit.lshift(hash, 8)
+            + bit.lshift(hash, 24)
+        )
+    end
+    return tostring(#value) .. ":" .. bit.tohex(hash)
+end
+
+local geminiTextCache = {
+    Shards = {},
+    Order = {},
+    Missing = {},
+    Seen = {},
+    Lookups = {},
+    LookupOrder = {},
+    LookupWriteIndex = 1,
+    LookupCount = 0,
+    ShardLimit = 128,
+    LookupLimit = 8192,
+}
+
+local function touchGeminiShard(prefix)
+    for index = #geminiTextCache.Order, 1, -1 do
+        if geminiTextCache.Order[index] == prefix then
+            table.remove(geminiTextCache.Order, index)
+            break
+        end
+    end
+    geminiTextCache.Order[#geminiTextCache.Order + 1] = prefix
+    if #geminiTextCache.Order <= geminiTextCache.ShardLimit then return end
+    local evicted = table.remove(geminiTextCache.Order, 1)
+    geminiTextCache.Shards[evicted] = nil
+    package.loaded["mods.cpdd_runtime_fixes.RuntimeTextGemini_" .. evicted] = nil
+    runtimeMetrics.GeminiShardEvictions = runtimeMetrics.GeminiShardEvictions + 1
+end
+
+local function cacheGeminiLookup(value, translated)
+    if geminiTextCache.LookupCount >= geminiTextCache.LookupLimit then
+        local evicted = geminiTextCache.LookupOrder[geminiTextCache.LookupWriteIndex]
+        if evicted ~= nil then geminiTextCache.Lookups[evicted] = nil end
+        runtimeMetrics.GeminiLookupCacheEvictions =
+            runtimeMetrics.GeminiLookupCacheEvictions + 1
+    else
+        geminiTextCache.LookupCount = geminiTextCache.LookupCount + 1
+    end
+    geminiTextCache.Lookups[value] = translated ~= nil and translated or false
+    geminiTextCache.LookupOrder[geminiTextCache.LookupWriteIndex] = value
+    geminiTextCache.LookupWriteIndex =
+        geminiTextCache.LookupWriteIndex % geminiTextCache.LookupLimit + 1
+end
 
 local function lookupGeminiText(value)
     if RussianMod and RussianMod.lookupRussianText then
@@ -1023,17 +1114,50 @@ local function lookupGeminiText(value)
             return ru
         end
     end
-    if geminiTextOverrides == nil and not geminiTextUnavailable then
-        local ok, loaded = pcall(require, "mods.cpdd_runtime_fixes.RuntimeTextGemini")
-        if ok and type(loaded) == "table" then
-            geminiTextOverrides = loaded
-            runtimeMetrics.GeminiLoads = runtimeMetrics.GeminiLoads + 1
-        else
-            geminiTextUnavailable = true
-            report("Gemini runtime text map unavailable: " .. tostring(loaded))
-        end
+    if type(value) ~= "string" then return nil end
+    local cached = geminiTextCache.Lookups[value]
+    if cached ~= nil then
+        runtimeMetrics.GeminiLookupCacheHits = runtimeMetrics.GeminiLookupCacheHits + 1
+        return cached ~= false and cached or nil
     end
-    return geminiTextOverrides and geminiTextOverrides[value] or nil
+    runtimeMetrics.GeminiLookupCacheMisses = runtimeMetrics.GeminiLookupCacheMisses + 1
+    local key = sourceKey(value)
+    local hashPrefix = key:match(":([0-9a-f][0-9a-f][0-9a-f])")
+    local prefix = hashPrefix
+        and string.format("%03x", math.floor(tonumber(hashPrefix, 16) / 4))
+        or nil
+    if prefix == nil or geminiTextCache.Missing[prefix] then return nil end
+
+    local shard = geminiTextCache.Shards[prefix]
+    if shard == nil then
+        local moduleName = "mods.cpdd_runtime_fixes.RuntimeTextGemini_" .. prefix
+        local started = nowMilliseconds()
+        local ok, loaded = pcall(require, moduleName)
+        local elapsed = nowMilliseconds() - started
+        runtimeMetrics.GeminiShardLoadMillis = runtimeMetrics.GeminiShardLoadMillis
+            + elapsed
+        if not ok or type(loaded) ~= "table" then
+            geminiTextCache.Missing[prefix] = true
+            report("Gemini runtime text shard unavailable " .. prefix .. ": " .. tostring(loaded))
+            return nil
+        end
+        shard = loaded
+        if geminiTextCache.Seen[prefix] then
+            runtimeMetrics.GeminiShardReloads = runtimeMetrics.GeminiShardReloads + 1
+        else
+            geminiTextCache.Seen[prefix] = true
+        end
+        if elapsed >= 8 then
+            report("slow Gemini text shard " .. prefix .. " loaded in "
+                .. string.format("%.2f", elapsed) .. " ms")
+        end
+        geminiTextCache.Shards[prefix] = shard
+        runtimeMetrics.GeminiLoads = runtimeMetrics.GeminiLoads + 1
+    end
+    touchGeminiShard(prefix)
+    local translated = shard[value]
+    cacheGeminiLookup(value, translated)
+    return translated
 end
 
 -- TextControlSentenceData uses #CanMove...# as executable puzzle markup, not
@@ -1175,6 +1299,10 @@ end
 
 local function invalidateWidgetCache(owner)
     if owner ~= nil then
+        if widgetLists[owner] ~= nil or widgetNameIndexes[owner] ~= nil then
+            runtimeMetrics.WidgetCacheInvalidations =
+                runtimeMetrics.WidgetCacheInvalidations + 1
+        end
         widgetLists[owner] = nil
         widgetNameIndexes[owner] = nil
     end
@@ -1184,11 +1312,6 @@ local function getWidgetList(owner)
     if owner == nil then
         return nil
     end
-    local cached = widgetLists[owner]
-    if cached ~= nil then
-        return cached ~= NO_WIDGET_LIST and cached or nil
-    end
-
     -- Most owners reached by the recursive walk are leaf widgets. Resolve the
     -- tree before allocating an Unreal object array so leaf visits stay cheap.
     local tree = nil
@@ -1197,8 +1320,17 @@ local function getWidgetList(owner)
         tree = owner.WidgetTree
         getAllWidgets = tree and tree.GetAllWidgets or nil
     end)
+    local cached = widgetLists[owner]
+    if cached ~= nil and cached.Tree == tree then
+        return cached.Widgets ~= NO_WIDGET_LIST and cached.Widgets or nil
+    end
+    if cached ~= nil then
+        widgetNameIndexes[owner] = nil
+        runtimeMetrics.WidgetTreeReplacements =
+            runtimeMetrics.WidgetTreeReplacements + 1
+    end
     if not treeOk or tree == nil or type(getAllWidgets) ~= "function" then
-        widgetLists[owner] = NO_WIDGET_LIST
+        widgetLists[owner] = { Tree = tree, Widgets = NO_WIDGET_LIST }
         return nil
     end
 
@@ -1208,22 +1340,23 @@ local function getWidgetList(owner)
         return getAllWidgets(tree, widgets)
     end)
     if not ok then
-        widgetLists[owner] = NO_WIDGET_LIST
+        widgetLists[owner] = { Tree = tree, Widgets = NO_WIDGET_LIST }
         return nil
     end
     widgets = unrealArrayToTable(result ~= nil and result or widgets)
-    widgetLists[owner] = widgets
+    widgetLists[owner] = { Tree = tree, Widgets = widgets }
     runtimeMetrics.WidgetIndexesBuilt = runtimeMetrics.WidgetIndexesBuilt + 1
     return widgets
 end
 
 local function getWidgetNameIndex(owner)
+    local widgets = getWidgetList(owner) or {}
     local cached = widgetNameIndexes[owner]
     if cached ~= nil then
         return cached
     end
     local index = {}
-    for _, candidate in pairs(getWidgetList(owner) or {}) do
+    for _, candidate in pairs(widgets) do
         local candidateName = nil
         pcall(function()
             if candidate ~= nil and candidate.GetName ~= nil then
@@ -1288,6 +1421,7 @@ local hasCjk
 -- development-only branches and private logging state.
 runtimeMetrics.CaptureDataAssignment = function() return false end
 runtimeMetrics.CaptureTranslationAssignment = function(...) return runtimeMetrics.CaptureDataAssignment(...) end
+
 local visibleTextCache = {}
 
 local function walkWidgetDescendants(owner, visited, visitor)
@@ -1409,6 +1543,17 @@ local function translateVisibleText(value)
         return cached
     end
     runtimeMetrics.TranslationCacheMisses = runtimeMetrics.TranslationCacheMisses + 1
+    -- HUD quest tips prepend this header after looking up the authored body.
+    -- Preserve the body lookup instead of requiring every prefixed variant.
+    local tipBody = value:match("^Tip:(.+)$") or value:match("^Tip：(.+)$")
+    if tipBody ~= nil then
+        local translatedBody = translateVisibleText(tipBody)
+        if translatedBody ~= tipBody then
+            local result = "Tip: " .. translatedBody
+            visibleTextCache[value] = result
+            return result
+        end
+    end
     local enterWorldShortened = shortenEnterWorldLabel(value)
     if enterWorldShortened ~= value then
         visibleTextCache[value] = enterWorldShortened
@@ -1429,6 +1574,13 @@ local function translateVisibleText(value)
         if ru ~= nil then
             visibleTextCache[value] = ru
             return ru
+        end
+    end
+    if EnglishMod and EnglishMod.translate then
+        local ruEng = EnglishMod.translate(value)
+        if ruEng ~= nil then
+            visibleTextCache[value] = ruEng
+            return ruEng
         end
     end
     local normalizedLargeNumber = runtimeFixes.normalizeLocalizedLargeNumbers(value)
@@ -1693,9 +1845,12 @@ local function translateTextWidget(widget, discoveryContext)
         return 0
     end
 
-    local ok, current = pcall(function()
-        return widget:GetText()
-    end)
+    local getText = nil
+    local methodOk = pcall(function() getText = widget.GetText end)
+    if not methodOk or type(getText) ~= "function" then
+        return 0
+    end
+    local ok, current = pcall(getText, widget)
     if not ok or current == nil then
         return 0
     end
@@ -1860,9 +2015,8 @@ runtimeFixes.VisibleWidgetNames = {
     "Text_Content", "TextUsing", "TB_Word",
 }
 
-local function translateViewTextWidgets(view, userWidget, discoveryContext, component)
-    invalidateWidgetCache(userWidget)
-    local visited = {}
+local function translateViewTextWidgets(view, userWidget, discoveryContext, component, sharedVisited)
+    local visited = sharedVisited or {}
     local repairedCount = 0
     local function translateWidgetTree(owner)
         walkWidgetDescendants(owner, visited, function(widget)
@@ -1902,6 +2056,31 @@ local function translateViewTextWidgets(view, userWidget, discoveryContext, comp
     -- buttons, whose text does not belong to the panel's root tree.
     translateWidgetTree(userWidget)
     queueGeneratedWidgetProbe(userWidget, component, discoveryContext)
+    return repairedCount
+end
+
+-- Data and view hooks already know which component changed. Restrict their
+-- hot-path fallback to directly exposed text widgets instead of recursively
+-- revisiting every descendant in the owning panel.
+local function translateDirectViewTextWidgets(view, discoveryContext)
+    if type(view) ~= "table" then return 0 end
+    local visited = setmetatable({}, { __mode = "k" })
+    local repairedCount = 0
+    local function translateDirect(widget)
+        local widgetType = type(widget)
+        if (widgetType ~= "table" and widgetType ~= "userdata")
+            or visited[widget]
+        then
+            return
+        end
+        visited[widget] = true
+        runtimeMetrics.WidgetsVisited = runtimeMetrics.WidgetsVisited + 1
+        repairedCount = repairedCount + translateTextWidget(widget, discoveryContext)
+    end
+    for _, widget in pairs(view) do translateDirect(widget) end
+    if type(view._widgetCache) == "table" then
+        for _, widget in pairs(view._widgetCache) do translateDirect(widget) end
+    end
     return repairedCount
 end
 
@@ -2048,32 +2227,15 @@ local function directLookup(index, tag)
     return data and data[index] or nil
 end
 
-local bit = require("bit")
-
 hasCjk = function(value)
     return type(value) == "string" and value:find("[\228-\233][\128-\191][\128-\191]") ~= nil
 end
 
-local function sourceKey(value)
-    local hash = bit.tobit(2166136261)
-    for index = 1, #value do
-        hash = bit.bxor(hash, value:byte(index))
-        hash = bit.tobit(
-            hash
-            + bit.lshift(hash, 1)
-            + bit.lshift(hash, 4)
-            + bit.lshift(hash, 7)
-            + bit.lshift(hash, 8)
-            + bit.lshift(hash, 24)
-        )
-    end
-    return tostring(#value) .. ":" .. bit.tohex(hash)
-end
-
-local SOURCE_SHARD_CACHE_LIMIT = 64
+local SOURCE_SHARD_CACHE_LIMIT = 128
 local sourceShardCache = {}
 local sourceShardOrder = {}
 local missingSourceShards = {}
+local seenSourceShards = {}
 
 local function touchSourceShard(prefix)
     for index = #sourceShardOrder, 1, -1 do
@@ -2087,12 +2249,13 @@ local function touchSourceShard(prefix)
         local evicted = table.remove(sourceShardOrder, 1)
         sourceShardCache[evicted] = nil
         package.loaded["mods.cpdd_runtime_fixes.LanguageSourceIndex_" .. evicted] = nil
+        runtimeMetrics.SourceShardEvictions = runtimeMetrics.SourceShardEvictions + 1
     end
 end
 
 local function sourceIndexLookup(key)
     local hashPrefix = type(key) == "string" and key:match(":([0-9a-f][0-9a-f])") or nil
-    local prefix = hashPrefix and string.format("%02x", math.floor(tonumber(hashPrefix, 16) / 4)) or nil
+    local prefix = hashPrefix
     if prefix == nil or missingSourceShards[prefix] then
         runtimeMetrics.SourceShardMisses = runtimeMetrics.SourceShardMisses + 1
         return nil
@@ -2115,11 +2278,19 @@ local function sourceIndexLookup(key)
         return nil
     end
     sourceShardCache[prefix] = loaded
+    if seenSourceShards[prefix] then
+        runtimeMetrics.SourceShardReloads = runtimeMetrics.SourceShardReloads + 1
+    else
+        seenSourceShards[prefix] = true
+    end
     touchSourceShard(prefix)
     runtimeMetrics.SourceShardLoads = runtimeMetrics.SourceShardLoads + 1
     local elapsed = nowMilliseconds() - started
-    report("loaded language source shard " .. prefix .. " in "
-        .. string.format("%.2f", elapsed) .. " ms")
+    runtimeMetrics.SourceShardLoadMillis = runtimeMetrics.SourceShardLoadMillis + elapsed
+    if elapsed >= 8 then
+        report("slow language source shard " .. prefix .. " loaded in "
+            .. string.format("%.2f", elapsed) .. " ms")
+    end
     return loaded[key]
 end
 
@@ -2211,6 +2382,12 @@ repairLiveString = function(tableName, rowKey, fieldPath, value)
             return ru
         end
     end
+    if EnglishMod and EnglishMod.translate then
+        local ruEng = EnglishMod.translate(value)
+        if ruEng ~= nil then
+            return ruEng
+        end
+    end
     local enterWorldShortened = shortenEnterWorldLabel(value)
     if enterWorldShortened ~= value then
         return enterWorldShortened
@@ -2266,6 +2443,7 @@ repairLiveString = function(tableName, rowKey, fieldPath, value)
     local speakerPrefix, spokenText = value:match("^([^:：]-[:：]%s*)(.+)$")
     if speakerPrefix ~= nil and hasCjk(spokenText) then
         local exactSpoken = visibleTextExactOverrides[spokenText]
+            or lookupGeminiText(spokenText)
         if type(exactSpoken) == "string" and not hasCjk(exactSpoken) then
             local combined = translateVisibleText(speakerPrefix) .. exactSpoken
             if liveRepairCacheSize >= LIVE_REPAIR_CACHE_LIMIT then
@@ -4036,22 +4214,24 @@ Loader.AfterLoad("Gameplay.LogicSystem.SkillCustomizer.DescFormulaHelper", funct
         return value
     end
     local originalGenerateTipsDesc = helper.GenerateTipsDesc
-    if type(originalGenerateTipsDesc) == "function" then
-        helper.GenerateTipsDesc = function(tipsString, markTag)
-            local original = originalGenerateTipsDesc(tipsString, markTag)
-            if type(original) ~= "string" then
-                return original
-            end
-            local translated = repairLiveString(
-                "DescFormulaHelper", "GenerateTipsDesc",
-                "GenerateTipsDesc.return", original
-            )
-            runtimeMetrics.CaptureTranslationAssignment(
-                nil, "DescFormulaHelper", "DescFormulaHelper",
-                "TipsDescription", original, translated
-            )
-            return translated
+    if type(originalGenerateTipsDesc) ~= "function" then
+        return value
+    end
+
+    helper.GenerateTipsDesc = function(tipsString, markTag)
+        local original = originalGenerateTipsDesc(tipsString, markTag)
+        if type(original) ~= "string" then
+            return original
         end
+        local translated = repairLiveString(
+            "DescFormulaHelper", "GenerateTipsDesc",
+            "GenerateTipsDesc.return", original
+        )
+        runtimeMetrics.CaptureTranslationAssignment(
+            nil, "DescFormulaHelper", "DescFormulaHelper",
+            "TipsDescription", original, translated
+        )
+        return translated
     end
 
     local originalGenerateDesc = helper.GenerateDesc
@@ -4067,7 +4247,6 @@ Loader.AfterLoad("Gameplay.LogicSystem.SkillCustomizer.DescFormulaHelper", funct
             )
         end
     end
-
     helper.__cpddGeneratedTipsRepair = VERSION
     report("installed shared generated equipment-tip translation")
     return value
@@ -4125,9 +4304,28 @@ local function installSkillDescriptionRepair(value, environment)
         end
     end
 
+    local originalTalents = skillSystem.GetCurrentSkillRelatedTalentIDs
+    if type(originalTalents) == "function" then
+        skillSystem.GetCurrentSkillRelatedTalentIDs = function(self, skillId)
+            -- This method builds fresh rows from SkillIDTalentNodeMap, which
+            -- bypasses GetRow. Translate before consumers strip rich-text tags.
+            local rows = originalTalents(self, skillId)
+            if type(rows) == "table" then
+                for _, row in ipairs(rows) do
+                    if type(row) == "table" and type(row.Desc) == "string" then
+                        row.Desc = repairLiveString("SkillCustomSystem", row.NodeID,
+                            "GetCurrentSkillRelatedTalentIDs.Desc", row.Desc)
+                    end
+                end
+            end
+            return rows
+        end
+        wrapped = wrapped + 1
+    end
+
     skillSystem.__cpddGeneratedTextRepair = VERSION
     if wrapped > 0 then
-        report("installed generated skill-description repair (wrapped " .. wrapped .. " methods)")
+        report("installed generated skill-description repair")
     end
     return wrapped > 0
 end
@@ -4142,7 +4340,7 @@ Loader.AfterLoad(
     "cpdd.runtime-fix.generated-skill-description"
 )
 
-local function installViewMethodRepair(value, environment, symbolName, methodNames, source)
+local function installViewMethodRepair(value, environment, symbolName, methodNames, source, directOnly)
     local class = getSymbol(value, environment, symbolName)
     if type(class) ~= "table" then
         return false
@@ -4164,8 +4362,23 @@ local function installViewMethodRepair(value, environment, symbolName, methodNam
                     -- bind a different row to an existing component. Rescan on
                     -- the event itself; this remains bounded to this view and
                     -- does not restore the expensive global widget sweep.
-                    local rootWidget = self and (self.userWidget or self.widget)
-                    translateViewTextWidgets(self and self.view, rootWidget)
+                    local started = nowMilliseconds()
+                    local repaired = directOnly
+                        and translateDirectViewTextWidgets(self and self.view)
+                        or translateViewTextWidgets(
+                            self and self.view,
+                            self and (self.userWidget or self.widget)
+                        )
+                    local elapsed = nowMilliseconds() - started
+                    if elapsed >= 8 then
+                        runtimeMetrics.SlowTargetedRepairs =
+                            runtimeMetrics.SlowTargetedRepairs + 1
+                        report("slow targeted view repair source=" .. tostring(source)
+                            .. " method=" .. tostring(methodName)
+                            .. " elapsed_ms=" .. string.format("%.2f", elapsed)
+                            .. " labels=" .. tostring(repaired or 0)
+                            .. " direct=" .. tostring(directOnly == true))
+                    end
                 end
                 return unpack(results)
             end
@@ -4201,6 +4414,7 @@ local function installDataMethodRepair(value, environment, symbolName, methodNam
                 end
                 local argumentCount = select("#", ...)
                 local arguments = { ... }
+                local translateStarted = nowMilliseconds()
                 for argumentIndex = 1, argumentCount do
                     local data = arguments[argumentIndex]
                     local fieldName = methodName .. ".argument" .. tostring(argumentIndex)
@@ -4219,6 +4433,7 @@ local function installDataMethodRepair(value, environment, symbolName, methodNam
                         }, fieldName)
                     end
                 end
+                local translateElapsed = nowMilliseconds() - translateStarted
                 local results = { original(self, unpack(arguments, 1, argumentCount)) }
                 -- Data-driven rows and tooltip blocks are reused. Their first
                 -- refresh can contain a placeholder or an earlier item's text,
@@ -4226,8 +4441,20 @@ local function installDataMethodRepair(value, environment, symbolName, methodNam
                 -- values untranslated and invisible to the detector. This is
                 -- still event-driven: only the small component being refreshed
                 -- is rescanned, never every widget on every frame.
-                local rootWidget = self and (self.userWidget or self.widget)
-                translateViewTextWidgets(self and self.view, rootWidget)
+                local widgetStarted = nowMilliseconds()
+                local repaired = translateDirectViewTextWidgets(self and self.view)
+                local widgetElapsed = nowMilliseconds() - widgetStarted
+                local elapsed = translateElapsed + widgetElapsed
+                if elapsed >= 8 then
+                    runtimeMetrics.SlowTargetedRepairs =
+                        runtimeMetrics.SlowTargetedRepairs + 1
+                    report("slow targeted data repair source=" .. tostring(source)
+                        .. " method=" .. tostring(methodName)
+                        .. " elapsed_ms=" .. string.format("%.2f", elapsed)
+                        .. " argument_ms=" .. string.format("%.2f", translateElapsed)
+                        .. " widget_ms=" .. string.format("%.2f", widgetElapsed)
+                        .. " labels=" .. tostring(repaired or 0))
+                end
                 return unpack(results)
             end
             wrapped = wrapped + 1
@@ -4741,6 +4968,250 @@ runtimeFixes.setPanelWidgetText = function(self, widgetName, text)
     ) or changed
 end
 
+runtimeFixes.GuildEventPreviewMonths = {
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+}
+
+runtimeFixes.formatGuildEventPreviewText = function(value)
+    if type(value) ~= "string" then
+        return value, false
+    end
+
+    local changed = false
+    local display = value:gsub(
+        " *Month%s+(%d%d?)%s+Day%s+(%d%d?)",
+        function(monthValue, dayValue)
+            local month = runtimeFixes.GuildEventPreviewMonths[tonumber(monthValue)]
+            local day = tonumber(dayValue)
+            if month == nil or day == nil or day < 1 or day > 31 then
+                return " Month " .. monthValue .. " Day " .. dayValue
+            end
+            changed = true
+            return "\n" .. month .. " " .. tostring(day)
+        end,
+        1
+    )
+    return display, changed
+end
+
+runtimeFixes.repairGuildEventPreviewTextWidget = function(widget)
+    if widget == nil then
+        return false
+    end
+
+    local current = nil
+    pcall(function() current = tostring(widget:GetText()) end)
+    local display, changed = runtimeFixes.formatGuildEventPreviewText(current)
+    if not changed then
+        return false
+    end
+
+    pcall(function() widget:SetText(display) end)
+    pcall(function()
+        -- The cooked list row is tall enough for two compact lines but not for
+        -- the original full-size English sentence. Keep wrapping deterministic
+        -- so recycling the item cannot produce a third clipped line.
+        if widget.SetAutoWrapText ~= nil then widget:SetAutoWrapText(false) end
+        if widget.SetRenderTransformPivot ~= nil then
+            widget:SetRenderTransformPivot(sceneTextVector2D(0, 0.5))
+        end
+        if widget.SetRenderScale ~= nil then
+            widget:SetRenderScale(sceneTextVector2D(0.66, 0.66))
+        end
+        if widget.InvalidateLayoutAndVolatility ~= nil then
+            widget:InvalidateLayoutAndVolatility()
+        end
+    end)
+    return true
+end
+
+runtimeFixes.repairGuildEventPreviewLayout = function(self)
+    local widget = getNamedWidget(self and self.view, "RichText_Content")
+        or getNamedWidget(self and (self.userWidget or self.widget), "RichText_Content")
+    return runtimeFixes.repairGuildEventPreviewTextWidget(widget)
+end
+
+runtimeFixes.repairGuildEventPreviewTree = function(view, root)
+    local repaired = 0
+    local visited = setmetatable({}, { __mode = "k" })
+    local function inspect(widget)
+        if runtimeFixes.repairGuildEventPreviewTextWidget(widget) then
+            repaired = repaired + 1
+        end
+    end
+    if type(view) == "table" then
+        for _, widget in pairs(view) do
+            walkWidgetDescendants(widget, visited, inspect)
+        end
+        if type(view._widgetCache) == "table" then
+            for _, widget in pairs(view._widgetCache) do
+                walkWidgetDescendants(widget, visited, inspect)
+            end
+        end
+    end
+    walkWidgetDescendants(root, visited, inspect)
+    if repaired > 0 and not runtimeFixes.GuildEventPreviewFallbackReported then
+        runtimeFixes.GuildEventPreviewFallbackReported = true
+        report("repaired Guild Event Preview through displayed-widget fallback")
+    end
+    return repaired
+end
+
+runtimeFixes.fitSequencePromotionConditionText = function(widget)
+    if widget == nil then
+        return false
+    end
+
+    local current = nil
+    pcall(function() current = tostring(widget:GetText()) end)
+    if type(current) ~= "string" or current == "" then
+        return false
+    end
+
+    -- The original row is a single Chinese-height canvas with its progress
+    -- value painted over the right edge. Keep that value untouched, but split
+    -- the two long English sentence forms into balanced lines so neither can
+    -- collide with it.
+    local display = current:gsub(
+        "^Acting level reached%s+(%d+)$",
+        "Reach Acting Level %1",
+        1
+    )
+    display = display:gsub(
+        "^Fully digested%s+",
+        "Fully digested\n",
+        1
+    )
+    display = display:gsub(
+        "^Collected all materials%s+for%s+the%s+",
+        "Collected all\nmaterials for the ",
+        1
+    )
+    if display ~= current then
+        pcall(function() widget:SetText(display) end)
+        pcall(function() widget.Text = display end)
+    end
+
+    -- Eighteen pixels allows two lines to remain inside the cooked entry
+    -- height. An additional bounded scale handles unusually long pathway
+    -- names without changing or truncating their translation.
+    local font = nil
+    pcall(function()
+        if widget.GetFont ~= nil then
+            font = widget:GetFont()
+        else
+            font = widget.Font
+        end
+    end)
+    if font ~= nil then
+        pcall(function()
+            local currentSize = tonumber(font.Size) or 18
+            font.Size = math.min(currentSize, 18)
+            widget.Font = font
+            if widget.SetFont ~= nil then widget:SetFont(font) end
+        end)
+    end
+
+    local longestLine = 0
+    for line in display:gmatch("[^\r\n]+") do
+        local ok, length = pcall(function() return utf8.len(line) end)
+        longestLine = math.max(longestLine, ok and length or #line)
+    end
+    local scale = math.max(0.78, math.min(1, 32 / math.max(1, longestLine)))
+    pcall(function()
+        if widget.SetAutoWrapText ~= nil then widget:SetAutoWrapText(false) end
+        if widget.SetRenderTransformPivot ~= nil then
+            widget:SetRenderTransformPivot(sceneTextVector2D(0, 0.5))
+        end
+        if widget.SetRenderScale ~= nil then
+            widget:SetRenderScale(sceneTextVector2D(scale, scale))
+        end
+        if widget.SynchronizeProperties ~= nil then widget:SynchronizeProperties() end
+        if widget.InvalidateLayoutAndVolatility ~= nil then
+            widget:InvalidateLayoutAndVolatility()
+        end
+    end)
+    return true
+end
+
+runtimeFixes.repairSequencePromotionConditionLayout = function(self)
+    local widget = getNamedWidget(self and self.view, "Text_Condition")
+        or getNamedWidget(self and (self.userWidget or self.widget), "Text_Condition")
+    return runtimeFixes.fitSequencePromotionConditionText(widget)
+end
+
+runtimeFixes.fitSequencePromotionChangeText = function(widget)
+    if widget == nil then
+        return false
+    end
+
+    local current = nil
+    pcall(function() current = tostring(widget:GetText()) end)
+    if type(current) ~= "string" or current == "" then
+        return false
+    end
+    local plain = current:gsub("<.->", ""):match("^%s*(.-)%s*$")
+    local ok, length = pcall(function() return utf8.len(plain) end)
+    length = ok and length or #plain
+
+    -- This RichTextBlock gets its fonts from inline styles, so SetFont cannot
+    -- resize it reliably. Scale only this label, from its left edge, using the
+    -- cooked row's measured 21-character English budget.
+    local scale = math.max(0.42, math.min(1, 21 / math.max(1, length)))
+    pcall(function()
+        if widget.SetAutoWrapText ~= nil then widget:SetAutoWrapText(false) end
+        if widget.SetRenderTransformPivot ~= nil then
+            widget:SetRenderTransformPivot(sceneTextVector2D(0, 0.5))
+        end
+        if widget.SetRenderScale ~= nil then
+            widget:SetRenderScale(sceneTextVector2D(scale, scale))
+        end
+        if widget.InvalidateLayoutAndVolatility ~= nil then
+            widget:InvalidateLayoutAndVolatility()
+        end
+    end)
+    return true
+end
+
+runtimeFixes.repairSequencePromotionChangeLayout = function(self)
+    local widget = getNamedWidget(self and self.view, "Text_Change")
+        or getNamedWidget(self and (self.userWidget or self.widget), "Text_Change")
+    return runtimeFixes.fitSequencePromotionChangeText(widget)
+end
+
+runtimeFixes.repairSequencePromotionPanelButtons = function(self)
+    local button = self and self.WBP_ConditionBtnCom
+    local widget = getNamedWidget(button and button.view, "Text_Name")
+        or getNamedWidget(button and (button.userWidget or button.widget), "Text_Name")
+    if widget == nil then
+        return false
+    end
+
+    local font = nil
+    pcall(function()
+        if widget.GetFont ~= nil then
+            font = widget:GetFont()
+        else
+            font = widget.Font
+        end
+    end)
+    if font == nil then
+        return false
+    end
+    local changed = pcall(function()
+        local currentSize = tonumber(font.Size) or 18
+        font.Size = math.min(currentSize, 18)
+        widget.Font = font
+        if widget.SetFont ~= nil then widget:SetFont(font) end
+        if widget.SynchronizeProperties ~= nil then widget:SynchronizeProperties() end
+        if widget.InvalidateLayoutAndVolatility ~= nil then
+            widget:InvalidateLayoutAndVolatility()
+        end
+    end)
+    return changed
+end
+
 runtimeFixes.translateNamedContainers = function(view, root, names)
     local repaired = 0
     local seen = setmetatable({}, { __mode = "k" })
@@ -4862,7 +5333,7 @@ runtimeFixes.repairSkillCommonLabels = function(self)
 
     -- These two footer labels belong to the parent panel, not to the
     -- Skill_BeStrong_Btn component.
-    runtimeFixes.setNamedWidgetText(view, "Text_WoodenPost", "Training Dummy")
+    runtimeFixes.setNamedWidgetText(view, "Text_WoodenPost", "Манекен")
     local oneClickPage = nil
     pcall(function()
         oneClickPage = view.WBP_Skill_OneClick_Page
@@ -5557,6 +6028,7 @@ local function installExactWidgetRepair(value, environment, symbolName, methodNa
     end
 
     local wrapped = 0
+    local repairErrorReported = false
     local repairedInstances = setmetatable({}, { __mode = "k" })
     for _, methodName in ipairs(methodNames) do
         local original = class[methodName]
@@ -5571,7 +6043,12 @@ local function installExactWidgetRepair(value, environment, symbolName, methodNa
                     if not repeatAfterMethod then
                         repairedInstances[self] = true
                     end
-                    repair(self)
+                    local ok, err = pcall(repair, self)
+                    if not ok and not repairErrorReported then
+                        repairErrorReported = true
+                        report("exact widget repair failed safely for " .. tostring(source)
+                            .. ": " .. tostring(err))
+                    end
                 end
                 return unpack(results)
             end
@@ -6035,6 +6512,186 @@ local function installSettingsPresetLayoutRepair(value, environment)
     return true
 end
 
+local taskBoardWidgetNames = {
+    "Text_TargetDesc",
+    "Text_Name",
+    "Text_ChapterName",
+    "RichText_Hint01",
+    "RichText_Hint02",
+    "RichText_Path",
+}
+
+local taskInfoRepairReports = setmetatable({}, { __mode = "k" })
+local function repairTaskInfoLabels(self)
+    if self == nil then return 0 end
+    local view = nil
+    local readable = pcall(function() view = self.view end)
+    if not readable or type(view) ~= "table" then return 0 end
+
+    local repaired = 0
+    local visited = setmetatable({}, { __mode = "k" })
+    local function repair(widget)
+        local widgetType = type(widget)
+        if (widgetType ~= "table" and widgetType ~= "userdata")
+            or visited[widget]
+        then
+            return
+        end
+        visited[widget] = true
+        repaired = repaired + translateTextWidget(widget)
+    end
+    local function repairNamed(owner, name)
+        repair(getNamedWidget(owner, name))
+    end
+
+    for _, name in ipairs({
+        "Text_TaskDesc1", "Text_ChapterName",
+        "RichText_Hint01", "RichText_Hint02", "RichText_Path",
+    }) do
+        repairNamed(view, name)
+    end
+
+    local targetRoot = getNamedWidget(view, "WBP_TaskTargetItem")
+    repairNamed(targetRoot, "Text_TargetDesc")
+    pcall(function()
+        repairNamed(self.WBP_TaskTargetItemCom and self.WBP_TaskTargetItemCom.view,
+            "Text_TargetDesc")
+    end)
+
+    for _, tagName in ipairs({ "TaskTag1", "TaskTag2", "TaskTag3" }) do
+        repairNamed(getNamedWidget(view, tagName), "Text_Tag_lua")
+    end
+
+    if taskInfoRepairReports[self] ~= true then
+        taskInfoRepairReports[self] = true
+        report("Task Info targeted repair active labels=" .. tostring(repaired))
+    end
+    return repaired
+end
+
+local taskListItemRepairReports = setmetatable({}, { __mode = "k" })
+local function repairTaskListItemLabels(self)
+    if self == nil then return 0 end
+    local view = nil
+    local readable = pcall(function() view = self.view end)
+    if not readable or type(view) ~= "table" then return 0 end
+
+    local repaired = 0
+    for _, name in ipairs({ "Text_ChapterName", "Text_TaskLocation" }) do
+        repaired = repaired + translateTextWidget(getNamedWidget(view, name))
+    end
+    if taskListItemRepairReports[self] ~= true then
+        taskListItemRepairReports[self] = true
+        report("Task list item targeted repair active labels=" .. tostring(repaired))
+    end
+    return repaired
+end
+
+local taskBoardRepairStates = setmetatable({}, { __mode = "k" })
+local taskBoardRepairBursts = setmetatable({}, { __mode = "k" })
+
+local function repairTaskBoardLabelsNow(self)
+    if self == nil then return 0 end
+    local destroyed = false
+    pcall(function() destroyed = self.isDestroyed == true end)
+    if destroyed then return 0 end
+
+    local repaired = 0
+    local foundCount = 0
+    local componentCount = 0
+    local visitedWidgets = setmetatable({}, { __mode = "k" })
+    local visitedComponents = setmetatable({}, { __mode = "k" })
+    local library = resolveWidgetProbeLibrary()
+    local findWidget = library and library.FindWidget
+    local function repairComponent(component)
+        if component == nil or visitedComponents[component] then return end
+        visitedComponents[component] = true
+        componentCount = componentCount + 1
+        local view, root, children
+        local readable = pcall(function()
+            view = component.view
+            root = component.userWidget or component.widget
+            children = component._childComponents
+        end)
+        if not readable then
+            runtimeMetrics.TaskBoardTargetFailures = runtimeMetrics.TaskBoardTargetFailures + 1
+            return
+        end
+        repaired = repaired + translateDirectViewTextWidgets(view)
+        for _, name in ipairs(taskBoardWidgetNames) do
+            local widget = getNamedWidget(view, name) or getNamedWidget(root, name)
+            if widget == nil and root ~= nil and type(findWidget) == "function" then
+                local ok, found = pcall(findWidget, root, name)
+                if ok then widget = found end
+            end
+            if widget ~= nil and not visitedWidgets[widget] then
+                visitedWidgets[widget] = true
+                foundCount = foundCount + 1
+                repaired = repaired + translateTextWidget(widget)
+            end
+        end
+        if type(children) == "table" then
+            for _, child in pairs(children) do
+                repairComponent(child)
+            end
+        end
+    end
+    repairComponent(self)
+    runtimeMetrics.TaskBoardTargetRuns = runtimeMetrics.TaskBoardTargetRuns + 1
+    runtimeMetrics.TaskBoardTargetComponents =
+        runtimeMetrics.TaskBoardTargetComponents + componentCount
+    runtimeMetrics.TaskBoardTargetWidgetsFound =
+        runtimeMetrics.TaskBoardTargetWidgetsFound + foundCount
+    runtimeMetrics.TaskBoardTargetLabelsRepaired =
+        runtimeMetrics.TaskBoardTargetLabelsRepaired + repaired
+
+    local state = taskBoardRepairStates[self]
+    if state == nil then
+        state = { Runs = 0, Components = 0, Found = 0, Repaired = 0 }
+        taskBoardRepairStates[self] = state
+    end
+    state.Runs = state.Runs + 1
+    state.Components = math.max(state.Components, componentCount)
+    state.Found = math.max(state.Found, foundCount)
+    state.Repaired = state.Repaired + repaired
+    return repaired
+end
+
+local function reportTaskBoardRepair(self)
+    repairTaskBoardLabelsNow(self)
+    taskBoardRepairBursts[self] = nil
+    local state = taskBoardRepairStates[self]
+    if state ~= nil and state.Reported ~= true then
+        state.Reported = true
+        report("Task Board targeted repair runs=" .. tostring(state.Runs)
+            .. " child_components=" .. tostring(state.Components)
+            .. " widgets_found=" .. tostring(state.Found)
+            .. " labels_repaired=" .. tostring(state.Repaired))
+    end
+end
+
+local function repairTaskBoardLabels(self)
+    local started = nowMilliseconds()
+    local repaired = repairTaskBoardLabelsNow(self)
+    if taskBoardRepairBursts[self] ~= true then
+        taskBoardRepairBursts[self] = true
+        scheduleRepairAfter(self, 0.05, repairTaskBoardLabelsNow)
+        scheduleRepairAfter(self, 0.25, repairTaskBoardLabelsNow)
+        if not scheduleRepairAfter(self, 0.75, reportTaskBoardRepair) then
+            taskBoardRepairBursts[self] = nil
+            reportTaskBoardRepair(self)
+        end
+    end
+    local elapsed = nowMilliseconds() - started
+    if elapsed >= 8 then
+        runtimeMetrics.SlowTargetedRepairs = runtimeMetrics.SlowTargetedRepairs + 1
+        report("slow targeted Task Board repair elapsed_ms="
+            .. string.format("%.2f", elapsed)
+            .. " labels=" .. tostring(repaired))
+    end
+    return repaired
+end
+
 local viewRepairSpecs = {
     {
         "Gameplay.LogicSystem.SkillCustomizer.Main.SkillCommon_Panel",
@@ -6056,14 +6713,176 @@ local viewRepairSpecs = {
         "GuildInside_Permission_Panel",
         { "OnRefresh", "OnReceiveGuildRights", "RefreshRightsData" },
     },
-    {
-        "Gameplay.LogicSystem.Task.New.Task_Main_Panel",
-        "Task_Main_Panel",
-        { "OnRefresh", "refreshTabList" },
-    },
 }
 
 local exactWidgetRepairSpecs = {
+    {
+        "Gameplay.LogicSystem.NPC.Dialogue.DialogueScreenTextComp",
+        "DialogueScreenTextComp",
+        { "OnSectionInit" },
+        function(self)
+            translateTextWidget(getNamedWidget(self and self.usingScreenText, "RTB_Aside1_lua"))
+        end,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.NPC.Border_Panel",
+        "Border_Panel",
+        { "SetBlackScreenText" },
+        function(self)
+            local view = self and self.view
+            translateTextWidget(getNamedWidget(view and view.WidgetRoot, "RTB_Aside1_lua"))
+        end,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.NPC.MimeWhite_Panel",
+        "MimeWhite_Panel",
+        { "SetBlackScreenText" },
+        function(self)
+            local view = self and self.view
+            translateTextWidget(getNamedWidget(view and view.WidgetRoot, "RTB_Aside1_lua"))
+        end,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.Reminder.PlayerInfo.PowerItemSpecial",
+        "PowerItemSpecial",
+        { "Refresh", "PlayInAnimation" },
+        function(self)
+            -- The rating caption is serialized inside this small reminder.
+            -- Do not hook SetCEText: the score tween calls it every frame.
+            local root = self and (self.userWidget or self.widget)
+            local caption = getNamedWidget(self and self.view, "C7TextBlock_100")
+                or getNamedWidget(root, "C7TextBlock_100")
+            if caption ~= nil then
+                -- This serialized C7TextBlock need not expose a readable GetText.
+                runtimeFixes.setNamedWidgetText({ caption = caption }, "caption", "Beyonder Rating")
+                return
+            end
+            local function repairCaption(widget)
+                local name
+                pcall(function() name = tostring(widget:GetName()) end)
+                if name == "C7TextBlock_100" then
+                    runtimeFixes.setNamedWidgetText({ caption = widget }, "caption", "Beyonder Rating")
+                else
+                    translateTextWidget(widget)
+                end
+            end
+            local visited = {}
+            walkWidgetDescendants(root, visited, repairCaption)
+            local treeRoot
+            pcall(function() treeRoot = root.WidgetTree.RootWidget end)
+            if treeRoot == nil then
+                pcall(function() treeRoot = root:GetRootWidget() end)
+            end
+            walkWidgetDescendants(treeRoot, visited, repairCaption)
+        end,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.GameplayIntegration.UI.PVP.GameplayIntegration_PVPEntrance_Item",
+        "GameplayIntegration_PVPEntrance_Item",
+        { "OnRefresh" },
+        function(self)
+            -- Translate the four known data values directly; no panel scan or
+            -- lazy dictionary read is needed when the entrance card refreshes.
+            local english = {
+                ["高原竞逐"] = "Highland Competition",
+                ["大战场"] = "Large Battlefield",
+                ["800人战场"] = "800-Player Battlefield",
+                ["周三、周六晚上开放"] = "Open Wednesday and Saturday nights",
+                ["周三、周六晚开放"] = "Open Wednesday and Saturday nights",
+            }
+            local row = Game and Game.TableData
+                and Game.TableData.GetPlayEntrancePVPTypeDataRow(self.id)
+            if type(row) ~= "table" and type(row) ~= "userdata" then return end
+            local view = self.view
+            for name, field in pairs({ Text_Title = "Name", Text_TypeName = "Subtitle", Text_Type = "MiniName" }) do
+                local text = english[row[field]]
+                if text then runtimeFixes.setNamedWidgetText(view, name, text) end
+            end
+            local text = english[row.TimeDesc]
+            if text then
+                runtimeFixes.setNamedWidgetText(view and view.WBP_GameplayIntegration_TimeTip, "Text_TimeTip", text)
+            end
+        end,
+        true,
+    },
+    -- HUD quests repaint independently of HUD_Panel. Touch only the bound
+    -- labels after their text-producing methods; never queue a HUD tree walk.
+    {
+        "Gameplay.LogicSystem.HUD.HUD_Task.New.HUD_Task_Title",
+        "HUD_Task_Title",
+        { "RefreshTitle" },
+        function(self)
+            translateTextWidget(getNamedWidget(self and self.view, "KText_Title"))
+        end,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.HUD.HUD_Task.New.HUD_Task_Item",
+        "HUD_Task_Item",
+        { "refreshMainTarget", "refreshTips", "SetTouchFunBtn" },
+        function(self)
+            local view = self and self.view
+            for _, name in ipairs({ "Text_TargetDes", "RichText_Tips", "Text_Touch" }) do
+                translateTextWidget(getNamedWidget(view, name))
+            end
+        end,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.HUD.HUD_Task.New.HUD_Task_Sub_Item",
+        "HUD_Task_Sub_Item",
+        { "OnRefresh" },
+        function(self)
+            translateTextWidget(getNamedWidget(self and self.view, "Text_TargetDesc"))
+        end,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.Task.New.Task_List_Item",
+        "Task_List_Item",
+        { "OnRefresh" },
+        repairTaskListItemLabels,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.Task.New.Task_Info",
+        "Task_Info",
+        { "RefreshInfo" },
+        repairTaskInfoLabels,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.Guild.GuildInside.Entrance.GuildInside_Panel.GuildInside_Announce_Preview_Item",
+        "GuildInside_Announce_Preview_Item",
+        { "OnRefresh" },
+        runtimeFixes.repairGuildEventPreviewLayout,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.SequencePromotion.SequencePromotion_Panel.Sequence_Dec",
+        "Sequence_Dec",
+        { "InitUIView", "Refresh" },
+        runtimeFixes.repairSequencePromotionPanelButtons,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.SequencePromotion.SequencePromotion_Panel.Sequence_TaskItem",
+        "Sequence_TaskItem",
+        { "OnRefresh" },
+        runtimeFixes.repairSequencePromotionConditionLayout,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.SequencePromotion.SequencePromotion_Panel.Sequence_TextItem",
+        "Sequence_TextItem",
+        { "OnRefresh" },
+        runtimeFixes.repairSequencePromotionChangeLayout,
+        true,
+    },
     {
         "Gameplay.LogicSystem.CreateRole.CreateRoleAnswer_Panel",
         "CreateRoleAnswer_Panel",
@@ -6429,9 +7248,11 @@ local dataRepairSpecs = {
 }
 
 local function registerViewRepair(spec)
-    local moduleName, symbolName, methodNames = spec[1], spec[2], spec[3]
+    local moduleName, symbolName, methodNames, directOnly = spec[1], spec[2], spec[3], spec[4]
     Loader.AfterLoad(moduleName, function(value, environment)
-        installViewMethodRepair(value, environment, symbolName, methodNames, moduleName)
+        installViewMethodRepair(
+            value, environment, symbolName, methodNames, moduleName, directOnly
+        )
         return value
     end, 1000000, "cpdd.runtime-fix.view." .. moduleName:gsub("[^%w]", "-"))
 end
@@ -6730,14 +7551,12 @@ Loader.AfterLoad(
 -- delayed pass coalesces bursts so this does not restore the global sweep.
 local dynamicPanelRescanUids = {
     ActivityMain_Panel = true,
-    BagItemTips_Panel = true,
     FashionStation_Details_Panel = true,
     NewbieGuide_MainPanel = true,
     Sealed_Fuse_Main_Panel = true,
     Sealed_Fuse_Select_Panel = true,
     Shops_Panel = true,
     Sequence_Panel = true,
-    TaskBoardPanel = true,
     TrainTrade_Hud_Panel = true,
 }
 
@@ -6748,10 +7567,25 @@ local extendedPanelRepairDelays = {
     Sealed_Fuse_Select_Panel = { 0.25, 0.75, 1.50 },
     Sequence_Panel = { 0.50, 1.50, 3.00, 6.00, 10.00, 20.00 },
     Shops_Panel = { 0.25, 0.50, 1.00, 2.00 },
-    -- Task-board story cards populate their end-of-season labels several
-    -- seconds after Open and can replace them again when the selected card
-    -- changes. Keep this bounded to the one proven dynamic panel.
-    TaskBoardPanel = { 0.25, 0.75, 1.50, 3.00, 6.00, 10.00, 15.00 },
+}
+
+-- Current-session telemetry showed that these panels translated useful text
+-- during their completed root Open pass, then spent 9-37 ms per delayed pass
+-- revisiting 209-2162 widgets without changing a label. Their dynamic rows
+-- already have dedicated data/view hooks above.
+runtimeFixes.SinglePassPanelUids = {
+    GuildInside_Panel = true,
+    Menu_Panel = true,
+    Sealed_Equip_Panel = true,
+    SequencePromotion_Panel = true,
+}
+
+-- These high-frequency panels have dedicated data/view hooks above. A generic
+-- recursive UIComponent pass only duplicates that work and was measured at up
+-- to 80 ms for item previews and 26 ms every 0.2 seconds for the task board.
+local targetedPanelRepairUids = {
+    BagItemTips_Panel = true,
+    TaskBoardPanel = true,
 }
 
 local function isDynamicPanelRescan(component)
@@ -6777,8 +7611,16 @@ function panelTextRepair:Repair(component, reason)
         return 0
     end
     local started = nowMilliseconds()
+    local visitedBefore = runtimeMetrics.WidgetsVisited
+    local geminiLoadsBefore = runtimeMetrics.GeminiLoads
+    local geminiEvictionsBefore = runtimeMetrics.GeminiShardEvictions
+    local geminiReloadsBefore = runtimeMetrics.GeminiShardReloads
+    local sourceLoadsBefore = runtimeMetrics.SourceShardLoads
+    local sourceEvictionsBefore = runtimeMetrics.SourceShardEvictions
+    local sourceReloadsBefore = runtimeMetrics.SourceShardReloads
     local repaired = 0
     local componentUid = component.uid or component.UID or component.__cname
+    local visitedWidgets = {}
     if tostring(componentUid) == "Shops_Panel" then
         -- The shop can restore its live formatter after after_main. Reassert it
         -- immediately before scanning cards populated by the list view.
@@ -6797,8 +7639,15 @@ function panelTextRepair:Repair(component, reason)
             current.view,
             rootWidget,
             discoveryContext,
-            current
+            current,
+            visitedWidgets
         ) or 0)
+        if tostring(componentUid) == "GuildInside_Panel" then
+            repaired = repaired + runtimeFixes.repairGuildEventPreviewTree(
+                current.view,
+                rootWidget
+            )
+        end
 
         -- Child UIComponents and cached subviews own independent UWidgetTrees.
         -- Walking them is the important coverage difference from the old panel
@@ -6809,8 +7658,23 @@ function panelTextRepair:Repair(component, reason)
     end
     repairComponent(component)
         runtimeMetrics.PanelsRepaired = runtimeMetrics.PanelsRepaired + 1
-    runtimeMetrics.PanelRepairMillis = runtimeMetrics.PanelRepairMillis + (nowMilliseconds() - started)
+    local elapsed = nowMilliseconds() - started
+    runtimeMetrics.PanelRepairMillis = runtimeMetrics.PanelRepairMillis + elapsed
     runtimeMetrics.PanelLabelsRepaired = runtimeMetrics.PanelLabelsRepaired + repaired
+    if elapsed >= 8 then
+        runtimeMetrics.SlowPanelRepairs = runtimeMetrics.SlowPanelRepairs + 1
+        report("slow panel repair uid=" .. tostring(componentUid or "unknown")
+            .. " reason=" .. tostring(reason or "unknown")
+            .. " elapsed_ms=" .. string.format("%.2f", elapsed)
+            .. " widgets=" .. tostring(runtimeMetrics.WidgetsVisited - visitedBefore)
+            .. " labels=" .. tostring(repaired)
+            .. " gemini_shards=" .. tostring(runtimeMetrics.GeminiLoads - geminiLoadsBefore)
+            .. " gemini_evictions=" .. tostring(runtimeMetrics.GeminiShardEvictions - geminiEvictionsBefore)
+            .. " gemini_reloads=" .. tostring(runtimeMetrics.GeminiShardReloads - geminiReloadsBefore)
+            .. " source_shards=" .. tostring(runtimeMetrics.SourceShardLoads - sourceLoadsBefore)
+            .. " source_evictions=" .. tostring(runtimeMetrics.SourceShardEvictions - sourceEvictionsBefore)
+            .. " source_reloads=" .. tostring(runtimeMetrics.SourceShardReloads - sourceReloadsBefore))
+    end
     if repaired > 0 then
         local label = tostring(component.uid or component.__cname or reason or "panel")
         local summary = self.Reports[label]
@@ -6830,6 +7694,32 @@ end
 
 function panelTextRepair:ProcessOnce(component, reason)
     if component == nil then return 0 end
+    local rootComponent = component
+    local parentReadable = pcall(function()
+        local depth = 0
+        while rootComponent.parentComponent ~= nil and depth < 64 do
+            rootComponent = rootComponent.parentComponent
+            depth = depth + 1
+        end
+    end)
+    if parentReadable and rootComponent ~= component then
+        runtimeMetrics.NestedComponentSkips = runtimeMetrics.NestedComponentSkips + 1
+        if reason == "Refresh" and isDynamicPanelRescan(rootComponent) then
+            runtimeMetrics.NestedRefreshCoalesces =
+                runtimeMetrics.NestedRefreshCoalesces + 1
+            self:Queue(rootComponent, true)
+        end
+        return 0
+    end
+    local uid = component.uid or component.UID or component.__cname
+    if tostring(uid) == "TaskBoardPanel" then
+        runtimeMetrics.TargetedPanelSkips = runtimeMetrics.TargetedPanelSkips + 1
+        return 0
+    end
+    if uid ~= nil and targetedPanelRepairUids[tostring(uid)] then
+        runtimeMetrics.TargetedPanelSkips = runtimeMetrics.TargetedPanelSkips + 1
+        return 0
+    end
     local repeatable = isDynamicPanelRescan(component)
     local key = self:StateKey(component)
     local state = self.States[key]
@@ -6847,6 +7737,10 @@ function panelTextRepair:ProcessOnce(component, reason)
         return 0
     end
     local repaired = self:Repair(component, reason)
+    if uid ~= nil and runtimeFixes.SinglePassPanelUids[tostring(uid)] then
+        runtimeMetrics.SinglePassPanelSkips = runtimeMetrics.SinglePassPanelSkips + 1
+        return repaired
+    end
     self:Queue(component, repeatable)
     self:QueueExtended(component)
     return repaired
@@ -6905,22 +7799,40 @@ local function installEventDrivenPanelRepair(value, environment)
         return false
     end
 
+    local repairErrorReported = false
     for _, methodName in ipairs({ "Open", "Refresh" }) do
         local original = rawget(class, methodName)
         if type(original) == "function" then
             class[methodName] = function(self, ...)
                 local results = { original(self, ...) }
-                panelTextRepair:ProcessOnce(self, methodName)
+                local ok, err = pcall(panelTextRepair.ProcessOnce,
+                    panelTextRepair, self, methodName)
+                if not ok and not repairErrorReported then
+                    repairErrorReported = true
+                    report("event-driven panel repair failed safely: " .. tostring(err))
+                end
                 return unpack(results)
             end
         end
     end
-    local originalClose = rawget(class, "Close")
-    if type(originalClose) == "function" then
-        class.Close = function(self, ...)
+    local function clearComponentCaches(self)
+        local rootWidget = nil
+        pcall(function()
             panelTextRepair.States[panelTextRepair:StateKey(self)] = nil
-            invalidateWidgetCache(self and (self.userWidget or self.widget))
-            return originalClose(self, ...)
+            rootWidget = self and (self.userWidget or self.widget)
+        end)
+        invalidateWidgetCache(rootWidget)
+        if rootWidget ~= nil then
+            widgetProbeStates[rootWidget] = nil
+        end
+    end
+    for _, methodName in ipairs({ "Close", "Destroy", "OnDestroy", "Dispose" }) do
+        local original = rawget(class, methodName)
+        if type(original) == "function" then
+            class[methodName] = function(self, ...)
+                clearComponentCaches(self)
+                return original(self, ...)
+            end
         end
     end
     class.__cpddEventTextRepair = VERSION

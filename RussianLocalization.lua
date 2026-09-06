@@ -846,6 +846,15 @@ Russian.englishToRussian = {
     ["Potions"] = "Зелья",
 }
 
+local okEng, EnglishMod = pcall(require, "mods.cpdd_runtime_fixes.EnglishToRussian")
+if okEng and type(EnglishMod) == "table" and type(EnglishMod.exact) == "table" then
+    for k, v in pairs(EnglishMod.exact) do
+        if Russian.englishToRussian[k] == nil then
+            Russian.englishToRussian[k] = v
+        end
+    end
+end
+
 -- Китайский -> Русский (точные переопределения интерфейса и текста)
 Russian.chineseToRussian = {
     ["诗意光环"] = "Поэтическая\nаура",
@@ -1157,6 +1166,10 @@ function Russian.lookupRussianText(text)
     -- 1. Сначала проверяем точный перевод с английского (UI патча)
     local ru = Russian.englishToRussian[text]
     if ru ~= nil then return ru end
+    if EnglishMod and type(EnglishMod.translate) == "function" then
+        local ruEng = EnglishMod.translate(text)
+        if ruEng ~= nil then return ruEng end
+    end
 
     -- 2. Затем проверяем точный перевод с китайского
     ru = Russian.chineseToRussian[text]
