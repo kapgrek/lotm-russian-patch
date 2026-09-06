@@ -16,11 +16,11 @@ class Program
 
         string text = File.ReadAllText(sourceInitPath, Encoding.UTF8);
 
-        // 1. Remove any old standalone runtimeFixes declaration to prevent duplicate locals
-        string tOldRf = "\nlocal runtimeFixes = {}\n";
-        if (text.Contains(tOldRf)) text = text.Replace(tOldRf, "\n-- runtimeFixes declared above\n");
-        string tOldRfWin = "\r\nlocal runtimeFixes = {}\r\n";
-        if (text.Contains(tOldRfWin)) text = text.Replace(tOldRfWin, "\r\n-- runtimeFixes declared above\r\n");
+        // 1. Remove any old standalone runtimeFixes declaration (near line 940) to prevent duplicate locals
+        string tOldRf = "CaptureDataAssignmentsEnabled = false,\n}\nlocal runtimeFixes = {}\n";
+        if (text.Contains(tOldRf)) text = text.Replace(tOldRf, "CaptureDataAssignmentsEnabled = false,\n}\n-- runtimeFixes declared above\n");
+        string tOldRfWin = "CaptureDataAssignmentsEnabled = false,\r\n}\r\nlocal runtimeFixes = {}\r\n";
+        if (text.Contains(tOldRfWin)) text = text.Replace(tOldRfWin, "CaptureDataAssignmentsEnabled = false,\r\n}\r\n-- runtimeFixes declared above\r\n");
 
         // 2. Define runtimeFixes early and wrap RussianMod / EnglishToRussian load in do ... end
         string t1 = "    QuitGame = \"Exit\",\r\n}";

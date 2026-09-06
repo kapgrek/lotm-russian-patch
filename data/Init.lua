@@ -842,7 +842,7 @@ local shortMenuLabels = {
     QuitGame = "Exit",
 }
 
--- runtimeFixes declared above
+local runtimeFixes = {}
 
 do
     local okRussian, RussianMod = pcall(require, "mods.cpdd_runtime_fixes.RussianLocalization")
@@ -1885,7 +1885,7 @@ local function translateTextWidget(widget, discoveryContext)
                 widget:SynchronizeProperties()
             end
         end)
-        runtimeFixes.runtimeFixes.adjustWidgetLetterSpacing(widget)
+        runtimeFixes.adjustWidgetLetterSpacing(widget)
         pcall(function()
             if widget.InvalidateLayoutAndVolatility ~= nil then
                 widget:InvalidateLayoutAndVolatility()
@@ -4954,7 +4954,7 @@ runtimeFixes.setNamedWidgetText = function(owner, widgetName, text)
             widget:SynchronizeProperties()
         end
     end)
-    runtimeFixes.runtimeFixes.adjustWidgetLetterSpacing(widget)
+    runtimeFixes.adjustWidgetLetterSpacing(widget)
     pcall(function()
         if widget.InvalidateLayoutAndVolatility ~= nil then
             widget:InvalidateLayoutAndVolatility()
@@ -7543,7 +7543,7 @@ local function installShortMenuLabels(value, environment)
             runtimeFixes.setNamedWidgetText(self.view, "Text_Name", label)
             local textWidget = getNamedWidget(self.view, "Text_Name")
             if textWidget then
-                runtimeFixes.runtimeFixes.adjustWidgetLetterSpacing(textWidget, 13)
+                runtimeFixes.adjustWidgetLetterSpacing(textWidget, 13)
             end
         end
         return unpack(results)
