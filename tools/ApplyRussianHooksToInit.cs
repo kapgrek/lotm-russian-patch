@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text;
 
@@ -16,61 +16,68 @@ class Program
 
         string text = File.ReadAllText(sourceInitPath, Encoding.UTF8);
 
-        // 1. RussianMod and EnglishToRussian load
+        // 1. Remove any old standalone runtimeFixes declaration to prevent duplicate locals
+        string tOldRf = "\nlocal runtimeFixes = {}\n";
+        if (text.Contains(tOldRf)) text = text.Replace(tOldRf, "\n-- runtimeFixes declared above\n");
+        string tOldRfWin = "\r\nlocal runtimeFixes = {}\r\n";
+        if (text.Contains(tOldRfWin)) text = text.Replace(tOldRfWin, "\r\n-- runtimeFixes declared above\r\n");
+
+        // 2. Define runtimeFixes early and wrap RussianMod / EnglishToRussian load in do ... end
         string t1 = "    QuitGame = \"Exit\",\r\n}";
         if (!text.Contains(t1)) t1 = "    QuitGame = \"Exit\",\n}";
-        if (!text.Contains(t1))
+        if (text.Contains(t1) && !text.Contains("runtimeFixes.RussianMod"))
         {
-            Console.WriteLine("Target 1 not found!");
-            return 1;
-        }
-        string r1 = t1 + "\r\n\r\n" +
-@"local okRussian, RussianMod = pcall(require, ""mods.cpdd_runtime_fixes.RussianLocalization"")
-if okRussian and type(RussianMod) == ""table"" and RussianMod.Enabled then
-    if RussianMod.stringConstOverrides then
-        for k, v in pairs(RussianMod.stringConstOverrides) do stringConstOverrides[k] = v end
-    end
-    if RussianMod.englishToRussian then
-        for k, v in pairs(RussianMod.englishToRussian) do visibleTextExactOverrides[k] = v end
-    end
-    if RussianMod.chineseToRussian then
-        for k, v in pairs(RussianMod.chineseToRussian) do visibleTextExactOverrides[k] = v end
-    end
-    if RussianMod.visibleTextExactOverrides then
-        for k, v in pairs(RussianMod.visibleTextExactOverrides) do visibleTextExactOverrides[k] = v end
-    end
-    if RussianMod.shortMenuLabels then
-        for k, v in pairs(RussianMod.shortMenuLabels) do shortMenuLabels[k] = v end
-    end
-    if RussianMod.marionetteEnglishNames then
-        for k, v in pairs(RussianMod.marionetteEnglishNames) do marionetteEnglishNames[k] = v end
-    end
-    if RussianMod.visibleTextReplacements then
-        for _, rep in ipairs(RussianMod.visibleTextReplacements) do
-            table.insert(visibleTextReplacements, 1, rep)
+            string r1 = t1 + "\r\n\r\n" +
+@"local runtimeFixes = {}
+
+do
+    local okRussian, RussianMod = pcall(require, ""mods.cpdd_runtime_fixes.RussianLocalization"")
+    if okRussian and type(RussianMod) == ""table"" and RussianMod.Enabled then
+        runtimeFixes.RussianMod = RussianMod
+        if RussianMod.stringConstOverrides then
+            for k, v in pairs(RussianMod.stringConstOverrides) do stringConstOverrides[k] = v end
+        end
+        if RussianMod.englishToRussian then
+            for k, v in pairs(RussianMod.englishToRussian) do visibleTextExactOverrides[k] = v end
+        end
+        if RussianMod.chineseToRussian then
+            for k, v in pairs(RussianMod.chineseToRussian) do visibleTextExactOverrides[k] = v end
+        end
+        if RussianMod.visibleTextExactOverrides then
+            for k, v in pairs(RussianMod.visibleTextExactOverrides) do visibleTextExactOverrides[k] = v end
+        end
+        if RussianMod.shortMenuLabels then
+            for k, v in pairs(RussianMod.shortMenuLabels) do shortMenuLabels[k] = v end
+        end
+        if RussianMod.marionetteEnglishNames then
+            for k, v in pairs(RussianMod.marionetteEnglishNames) do marionetteEnglishNames[k] = v end
+        end
+        if RussianMod.visibleTextReplacements then
+            for _, rep in ipairs(RussianMod.visibleTextReplacements) do
+                table.insert(visibleTextReplacements, 1, rep)
+            end
         end
     end
-end
 
-local okEng, EnglishMod = pcall(require, ""mods.cpdd_runtime_fixes.EnglishToRussian"")
-if okEng and type(EnglishMod) == ""table"" and type(EnglishMod.exact) == ""table"" then
-    for k, v in pairs(EnglishMod.exact) do
-        if visibleTextExactOverrides[k] == nil then
-            visibleTextExactOverrides[k] = v
+    local okEng, EnglishMod = pcall(require, ""mods.cpdd_runtime_fixes.EnglishToRussian"")
+    if okEng and type(EnglishMod) == ""table"" and type(EnglishMod.exact) == ""table"" then
+        runtimeFixes.EnglishMod = EnglishMod
+        for k, v in pairs(EnglishMod.exact) do
+            if visibleTextExactOverrides[k] == nil then
+                visibleTextExactOverrides[k] = v
+            end
         end
     end
 end";
-        text = text.Replace(t1, r1);
+            text = text.Replace(t1, r1);
+        }
 
-        // 2. adjustWidgetLetterSpacing function
+        // 3. adjustWidgetLetterSpacing attached to runtimeFixes
         string t2 = "Loader.Telemetry = Loader.Telemetry or {}\r\nLoader.Telemetry.Runtime = runtimeMetrics";
         if (!text.Contains(t2)) t2 = "Loader.Telemetry = Loader.Telemetry or {}\nLoader.Telemetry.Runtime = runtimeMetrics";
-        if (!text.Contains(t2))
+        if (text.Contains(t2) && !text.Contains("runtimeFixes.adjustWidgetLetterSpacing = function"))
         {
-            Console.WriteLine("Target 2 not found!");
-            return 1;
-        }
-        string r2 = @"local function adjustWidgetLetterSpacing(widget, targetSize)
+            string r2 = @"runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
     if widget == nil then return end
     pcall(function()
         if widget.SetLetterSpacing ~= nil then
@@ -92,20 +99,18 @@ end";
         end
     end)
 end
-runtimeFixes.adjustWidgetLetterSpacing = adjustWidgetLetterSpacing
 
 " + t2;
-        text = text.Replace(t2, r2);
+            text = text.Replace(t2, r2);
+        }
 
-        // 3. lookupGeminiText hook
+        // 4. lookupGeminiText hook
         string t3 = "local function lookupGeminiText(value)\r\n    if type(value) ~= \"string\" then return nil end";
         if (!text.Contains(t3)) t3 = "local function lookupGeminiText(value)\n    if type(value) ~= \"string\" then return nil end";
-        if (!text.Contains(t3))
+        if (text.Contains(t3))
         {
-            Console.WriteLine("Target 3 not found!");
-            return 1;
-        }
-        string r3 = @"local function lookupGeminiText(value)
+            string r3 = @"local function lookupGeminiText(value)
+    local RussianMod = runtimeFixes.RussianMod
     if RussianMod and RussianMod.lookupRussianText then
         local ru = RussianMod.lookupRussianText(value)
         if ru ~= nil then
@@ -113,20 +118,19 @@ runtimeFixes.adjustWidgetLetterSpacing = adjustWidgetLetterSpacing
         end
     end
     if type(value) ~= ""string"" then return nil end";
-        text = text.Replace(t3, r3);
+            text = text.Replace(t3, r3);
+        }
 
-        // 4. translateVisibleText hook
+        // 5. translateVisibleText hook
         string t4 = @"    local reviewedExact = visibleTextExactOverrides[value]
     if reviewedExact ~= nil then
         visibleTextCache[value] = reviewedExact
         return reviewedExact
     end";
-        if (!text.Contains(t4))
+        if (text.Contains(t4) && !text.Contains("local RussianMod = runtimeFixes.RussianMod\n    if RussianMod and RussianMod.lookupRussianText"))
         {
-            Console.WriteLine("Target 4 not found!");
-            return 1;
-        }
-        string r4 = t4 + @"
+            string r4 = t4 + @"
+    local RussianMod = runtimeFixes.RussianMod
     if RussianMod and RussianMod.lookupRussianText then
         local ru = RussianMod.lookupRussianText(value)
         if ru ~= nil then
@@ -134,6 +138,7 @@ runtimeFixes.adjustWidgetLetterSpacing = adjustWidgetLetterSpacing
             return ru
         end
     end
+    local EnglishMod = runtimeFixes.EnglishMod
     if EnglishMod and EnglishMod.translate then
         local ruEng = EnglishMod.translate(value)
         if ruEng ~= nil then
@@ -141,40 +146,27 @@ runtimeFixes.adjustWidgetLetterSpacing = adjustWidgetLetterSpacing
             return ruEng
         end
     end";
-        text = text.Replace(t4, r4);
-
-        // 5. Letter spacing in setSingleWidgetText (both places)
-        string t5a = "        pcall(function()\r\n            if widget.SynchronizeProperties ~= nil then\r\n                widget:SynchronizeProperties()\r\n            end\r\n        end)\r\n        pcall(function()\r\n            if widget.InvalidateLayoutAndVolatility ~= nil then";
-        if (!text.Contains(t5a)) t5a = "        pcall(function()\n            if widget.SynchronizeProperties ~= nil then\n                widget:SynchronizeProperties()\n            end\n        end)\n        pcall(function()\n            if widget.InvalidateLayoutAndVolatility ~= nil then";
-        string r5a = "        pcall(function()\r\n            if widget.SynchronizeProperties ~= nil then\r\n                widget:SynchronizeProperties()\r\n            end\r\n        end)\r\n        adjustWidgetLetterSpacing(widget)\r\n        pcall(function()\r\n            if widget.InvalidateLayoutAndVolatility ~= nil then";
-        if (text.Contains(t5a))
-        {
-            text = text.Replace(t5a, r5a);
+            text = text.Replace(t4, r4);
         }
 
-        string t5b = "    pcall(function()\r\n        if widget.SynchronizeProperties ~= nil then\r\n            widget:SynchronizeProperties()\r\n        end\r\n    end)\r\n    pcall(function()\r\n        if widget.InvalidateLayoutAndVolatility ~= nil then";
-        if (!text.Contains(t5b)) t5b = "    pcall(function()\n        if widget.SynchronizeProperties ~= nil then\n            widget:SynchronizeProperties()\n        end\n    end)\n    pcall(function()\n        if widget.InvalidateLayoutAndVolatility ~= nil then";
-        string r5b = "    pcall(function()\r\n        if widget.SynchronizeProperties ~= nil then\r\n            widget:SynchronizeProperties()\r\n        end\r\n    end)\r\n    adjustWidgetLetterSpacing(widget)\r\n    pcall(function()\r\n        if widget.InvalidateLayoutAndVolatility ~= nil then";
-        if (text.Contains(t5b))
-        {
-            text = text.Replace(t5b, r5b);
-        }
+        // 6. Letter spacing in setSingleWidgetText
+        text = text.Replace("adjustWidgetLetterSpacing(widget)", "runtimeFixes.adjustWidgetLetterSpacing(widget)");
+        text = text.Replace("adjustWidgetLetterSpacing(textWidget, 13)", "runtimeFixes.adjustWidgetLetterSpacing(textWidget, 13)");
 
-        // 6. repairLiveString hook
+        // 7. repairLiveString hook
         string t6 = "repairLiveString = function(tableName, rowKey, fieldPath, value)\r\n    local enterWorldShortened = shortenEnterWorldLabel(value)";
         if (!text.Contains(t6)) t6 = "repairLiveString = function(tableName, rowKey, fieldPath, value)\n    local enterWorldShortened = shortenEnterWorldLabel(value)";
-        if (!text.Contains(t6))
+        if (text.Contains(t6))
         {
-            Console.WriteLine("Target 6 not found!");
-            return 1;
-        }
-        string r6 = @"repairLiveString = function(tableName, rowKey, fieldPath, value)
+            string r6 = @"repairLiveString = function(tableName, rowKey, fieldPath, value)
+    local RussianMod = runtimeFixes.RussianMod
     if RussianMod and RussianMod.lookupRussianText then
         local ru = RussianMod.lookupRussianText(value)
         if ru ~= nil then
             return ru
         end
     end
+    local EnglishMod = runtimeFixes.EnglishMod
     if EnglishMod and EnglishMod.translate then
         local ruEng = EnglishMod.translate(value)
         if ruEng ~= nil then
@@ -182,17 +174,16 @@ runtimeFixes.adjustWidgetLetterSpacing = adjustWidgetLetterSpacing
         end
     end
     local enterWorldShortened = shortenEnterWorldLabel(value)";
-        text = text.Replace(t6, r6);
+            text = text.Replace(t6, r6);
+        }
 
-        // 7. AssembleDescString hook
+        // 8. AssembleDescString hook
         string t7 = "    function utils:AssembleDescString(inString, values, rtbOverWrite, id, level, descType, originalType, descContext)\r\n        local original = originalAssembleDescString(";
         if (!text.Contains(t7)) t7 = "    function utils:AssembleDescString(inString, values, rtbOverWrite, id, level, descType, originalType, descContext)\n        local original = originalAssembleDescString(";
-        if (!text.Contains(t7))
+        if (text.Contains(t7))
         {
-            Console.WriteLine("Target 7 not found!");
-            return 1;
-        }
-        string r7 = @"    function utils:AssembleDescString(inString, values, rtbOverWrite, id, level, descType, originalType, descContext)
+            string r7 = @"    function utils:AssembleDescString(inString, values, rtbOverWrite, id, level, descType, originalType, descContext)
+        local RussianMod = runtimeFixes.RussianMod
         if type(inString) == ""string"" and RussianMod and RussianMod.lookupRussianText then
             local ruIn = RussianMod.lookupRussianText(inString)
             if ruIn ~= nil then
@@ -200,219 +191,120 @@ runtimeFixes.adjustWidgetLetterSpacing = adjustWidgetLetterSpacing
             end
         end
         local original = originalAssembleDescString(";
-        text = text.Replace(t7, r7);
-
-        // 8. DescFormulaHelper hook
-        string t8 = @"    helper.GenerateTipsDesc = function(tipsString, markTag)
-        local original = originalGenerateTipsDesc(tipsString, markTag)
-        if type(original) ~= ""string"" then
-            return original
-        end
-        local translated = repairLiveString(
-            ""DescFormulaHelper"", ""GenerateTipsDesc"",
-            ""GenerateTipsDesc.return"", original
-        )
-        runtimeMetrics.CaptureTranslationAssignment(
-            nil, ""DescFormulaHelper"", ""DescFormulaHelper"",
-            ""TipsDescription"", original, translated
-        )
-        return translated
-    end
-    helper.__cpddGeneratedTipsRepair = VERSION";
-        if (!text.Contains(t8))
-        {
-            Console.WriteLine("Target 8 not found!");
-            return 1;
+            text = text.Replace(t7, r7);
         }
-        string r8 = @"    helper.GenerateTipsDesc = function(tipsString, markTag)
-        local original = originalGenerateTipsDesc(tipsString, markTag)
-        if type(original) ~= ""string"" then
-            return original
-        end
-        local translated = repairLiveString(
-            ""DescFormulaHelper"", ""GenerateTipsDesc"",
-            ""GenerateTipsDesc.return"", original
-        )
-        runtimeMetrics.CaptureTranslationAssignment(
-            nil, ""DescFormulaHelper"", ""DescFormulaHelper"",
-            ""TipsDescription"", original, translated
-        )
-        return translated
-    end
 
-    local originalGenerateDesc = helper.GenerateDesc
-    if type(originalGenerateDesc) == ""function"" then
-        helper.GenerateDesc = function(...)
-            local original = originalGenerateDesc(...)
-            if type(original) ~= ""string"" then
-                return original
-            end
-            return repairLiveString(
-                ""DescFormulaHelper"", select(1, ...),
-                ""GenerateDesc.return"", original
-            )
-        end
-    end
-    helper.__cpddGeneratedTipsRepair = VERSION";
-        text = text.Replace(t8, r8);
-
-        // 9. installSkillDescriptionRepair
-        string t9 = @"    local wrapped = 0
-    for _, methodName in ipairs({
-        ""GenerateSkillDescNoRichText"",
-        ""GenerateSkillBriefDesc"",
-        ""GenerateSkillDecoText"",
-    }) do
-        local original = skillSystem[methodName]
-        if type(original) == ""function"" then
-            skillSystem[methodName] = function(self, ...)
-                local results = { original(self, ...) }
-                if type(results[1]) == ""string"" then
-                    results[1] = repairLiveString(""SkillCustomSystem"", select(1, ...), methodName, results[1])
-                end
-                return unpack(results)
-            end
-            wrapped = wrapped + 1
-        end
-    end";
-        if (!text.Contains(t9))
-        {
-            Console.WriteLine("Target 9 not found!");
-            return 1;
-        }
-        string r9 = @"    local wrapped = 0
-    local targetMethods = {
-        ""GenerateSkillDesc"",
-        ""GenerateSkillDescNoRichText"",
-        ""GenerateSkillBriefDesc"",
-        ""GenerateSkillDecoText"",
-        ""GenerateSkillDetailDesc"",
-        ""GenerateSkillNextDesc"",
-        ""GetSkillDesc"",
-        ""GetSkillBriefDesc"",
-        ""GetSkillDetailDesc"",
-        ""GenerateNextLevelDesc"",
-        ""GetNextLevelDesc"",
-    }
-    local seen = {}
-    for _, methodName in ipairs(targetMethods) do
-        seen[methodName] = true
-        local original = skillSystem[methodName]
-        if type(original) == ""function"" then
-            skillSystem[methodName] = function(self, ...)
-                local results = { original(self, ...) }
-                if type(results[1]) == ""string"" then
-                    results[1] = repairLiveString(""SkillCustomSystem"", select(1, ...), methodName, results[1])
-                end
-                return unpack(results)
-            end
-            wrapped = wrapped + 1
-        end
-    end
-
-    for k, v in pairs(skillSystem) do
-        if not seen[k] and type(k) == ""string"" and type(v) == ""function"" and (
-            k:find(""SkillDesc"") or k:find(""SkillBrief"") or k:find(""SkillDeco"") or k:find(""SkillDetail"") or k:find(""Desc"")
-        ) then
-            local original = v
-            skillSystem[k] = function(self, ...)
-                local results = { original(self, ...) }
-                if type(results[1]) == ""string"" then
-                    results[1] = repairLiveString(""SkillCustomSystem"", select(1, ...), k, results[1])
-                end
-                return unpack(results)
-            end
-            wrapped = wrapped + 1
-        end
-    end";
-        text = text.Replace(t9, r9);
-
-        // 10. repairSkillCommonLabels
-        string t10 = @"    runtimeFixes.setNamedWidgetText(view, ""Text_WoodenPost"", ""Training Dummy"")
-    local oneClickPage = nil
-    pcall(function()
-        oneClickPage = view.WBP_Skill_OneClick_Page
-    end)
-    runtimeFixes.setNamedWidgetText(oneClickPage, ""Text_Content"", ""One-Click Assist"")
-
-    -- BP_SetType on the embedded header can refresh all three captions after
-    -- its Lua component returns. Repair the nested UserWidget from the parent
-    -- as the final owner as well as through the component hook.
-    runtimeFixes.repairEmbeddedSkillHeaderLabels(self)
-    runtimeFixes.repairSkillHeaderLabels(self and self.WBP_Skill_BeStrong_BtnCom)
-end";
-        if (!text.Contains(t10))
-        {
-            Console.WriteLine("Target 10 not found!");
-            return 1;
-        }
-        string r10 = @"    runtimeFixes.setNamedWidgetText(view, ""Text_WoodenPost"", ""Манекен"")
-    local oneClickPage = nil
-    pcall(function()
-        oneClickPage = view.WBP_Skill_OneClick_Page
-    end)
-    runtimeFixes.setNamedWidgetText(oneClickPage, ""Text_Content"", ""Помощник"")
-
-    -- BP_SetType on the embedded header can refresh all three captions after
-    -- its Lua component returns. Repair the nested UserWidget from the parent
-    -- as the final owner as well as through the component hook.
-    runtimeFixes.repairEmbeddedSkillHeaderLabels(self)
-    runtimeFixes.repairSkillHeaderLabels(self and self.WBP_Skill_BeStrong_BtnCom)
-    translateViewTextWidgets(view, self.userWidget or self.widget)
-end";
-        text = text.Replace(t10, r10);
-
-        // 11. creatorChoiceLabels
+        // 9. creatorChoiceLabels
         string t11 = @"local creatorChoiceLabels = {
     [1] = { ""Madness"", ""Sanity"" },
     [2] = { ""Wisdom"", ""Power"" },
     [3] = { ""Glory"", ""Emotion"" },
 }";
-        if (!text.Contains(t11))
+        if (text.Contains(t11))
         {
-            Console.WriteLine("Target 11 not found!");
-            return 1;
-        }
-        string r11 = @"local creatorChoiceLabels = (RussianMod and RussianMod.creatorChoiceLabels) or {
+            string r11 = @"local creatorChoiceLabels = (runtimeFixes.RussianMod and runtimeFixes.RussianMod.creatorChoiceLabels) or {
     [1] = { ""Madness"", ""Sanity"" },
     [2] = { ""Wisdom"", ""Power"" },
     [3] = { ""Glory"", ""Emotion"" },
 }";
-        text = text.Replace(t11, r11);
-
-        // 12. installShortMenuLabels
-        string t12 = @"        local label = menuData and shortMenuLabels[menuData.ButtonEnum]
-        if label and self.view then
-            -- KGTextBlock can repaint its serialized long translation after
-            -- OnRefresh. Persist the compact value in both the widget property
-            -- and the live Slate text so later menu refreshes cannot restore it.
-            runtimeFixes.setNamedWidgetText(self.view, ""Text_Name"", label)
-        end
-        return unpack(results)
-    end
-    class.__cpddShortMenuLabels = true
-    report(""installed compact English menu labels"")";
-        if (!text.Contains(t12))
-        {
-            Console.WriteLine("Target 12 not found!");
-            return 1;
+            text = text.Replace(t11, r11);
         }
-        string r12 = @"        local label = menuData and shortMenuLabels[menuData.ButtonEnum]
-        if label and self.view then
-            -- KGTextBlock can repaint its serialized long translation after
-            -- OnRefresh. Persist the compact value in both the widget property
-            -- and the live Slate text so later menu refreshes cannot restore it.
-            runtimeFixes.setNamedWidgetText(self.view, ""Text_Name"", label)
-            local textWidget = getNamedWidget(self.view, ""Text_Name"")
-            if textWidget then
-                adjustWidgetLetterSpacing(textWidget, 13)
-            end
-        end
-        return unpack(results)
+
+        // 10. TaskBoard block encapsulation
+        string targetTaskBoardStart = "local taskBoardWidgetNames = {";
+        string targetTaskBoardEnd = @"    local elapsed = nowMilliseconds() - started
+    if elapsed >= 8 then
+        runtimeMetrics.SlowTargetedRepairs = runtimeMetrics.SlowTargetedRepairs + 1
+        report(""slow targeted Task Board repair elapsed_ms=""
+            .. string.format(""%.2f"", elapsed)
+            .. "" labels="" .. tostring(repaired))
     end
-    class.__cpddShortMenuLabels = true
-    report(""installed compact Russian menu labels"")";
-        text = text.Replace(t12, r12);
+    return repaired
+end";
+        if (!text.Contains(targetTaskBoardEnd)) targetTaskBoardEnd = targetTaskBoardEnd.Replace("\r\n", "\n");
+        if (text.Contains(targetTaskBoardStart) && text.Contains(targetTaskBoardEnd) && !text.Contains("do\nlocal taskBoardWidgetNames"))
+        {
+            text = text.Replace(targetTaskBoardStart, "do\nlocal taskBoardWidgetNames = {");
+            string replTaskBoardEnd = targetTaskBoardEnd + @"
+runtimeFixes.repairTaskInfoLabels = repairTaskInfoLabels
+runtimeFixes.repairTaskListItemLabels = repairTaskListItemLabels
+runtimeFixes.repairTaskBoardLabels = repairTaskBoardLabels
+end";
+            text = text.Replace(targetTaskBoardEnd, replTaskBoardEnd);
+            text = text.Replace("        repairTaskListItemLabels,\r\n        true,", "        runtimeFixes.repairTaskListItemLabels,\r\n        true,");
+            text = text.Replace("        repairTaskListItemLabels,\n        true,", "        runtimeFixes.repairTaskListItemLabels,\n        true,");
+            text = text.Replace("        repairTaskInfoLabels,\r\n        true,", "        runtimeFixes.repairTaskInfoLabels,\r\n        true,");
+            text = text.Replace("        repairTaskInfoLabels,\n        true,", "        runtimeFixes.repairTaskInfoLabels,\n        true,");
+        }
+
+        // 11. installShortMenuLabels encapsulation
+        string targetShortMenuStart = "local function installShortMenuLabels(value, environment)";
+        string targetShortMenuEnd = @"Loader.AfterLoad(
+    ""Gameplay.LogicSystem.Menu.MenuBtn_Item"",
+    function(value, environment)
+        installShortMenuLabels(value, environment)
+        return value
+    end,
+    1000000,
+    ""cpdd.runtime-fix.short-menu-labels""
+)";
+        if (!text.Contains(targetShortMenuEnd)) targetShortMenuEnd = targetShortMenuEnd.Replace("\r\n", "\n");
+        if (text.Contains(targetShortMenuStart) && text.Contains(targetShortMenuEnd) && !text.Contains("do\nlocal function installShortMenuLabels"))
+        {
+            text = text.Replace(targetShortMenuStart, "do\nlocal function installShortMenuLabels(value, environment)");
+            text = text.Replace(targetShortMenuEnd, targetShortMenuEnd + "\nend");
+        }
+
+        // 12. Event-Driven Panel Repair encapsulation
+        string targetPanelStart = "local dynamicPanelRescanUids = {";
+        string targetPanelEnd = @"Loader.AfterLoad(
+    ""Framework.KGFramework.KGUI.Core.UIComponent"",
+    function(value, environment)
+        installEventDrivenPanelRepair(value, environment)
+        return value
+    end,
+    1000000,
+    ""cpdd.runtime-fix.event-driven-panels""
+)";
+        if (!text.Contains(targetPanelEnd)) targetPanelEnd = targetPanelEnd.Replace("\r\n", "\n");
+        if (text.Contains(targetPanelStart) && text.Contains(targetPanelEnd) && !text.Contains("do\nlocal dynamicPanelRescanUids"))
+        {
+            text = text.Replace(targetPanelStart, "do\nlocal dynamicPanelRescanUids = {");
+            string targetPanelDef = @"local panelTextRepair = {
+    States = setmetatable({}, { __mode = ""k"" }),
+    Reports = {},
+}";
+            string replPanelDef = @"local panelTextRepair = {
+    States = setmetatable({}, { __mode = ""k"" }),
+    Reports = {},
+}
+runtimeFixes.panelTextRepair = panelTextRepair";
+            if (!text.Contains(targetPanelDef)) targetPanelDef = targetPanelDef.Replace("\r\n", "\n");
+            if (text.Contains(targetPanelDef)) text = text.Replace(targetPanelDef, replPanelDef);
+            text = text.Replace(targetPanelEnd, targetPanelEnd + "\nend");
+            text = text.Replace("RepairPanel = function(component) return panelTextRepair:Repair(component, \"manual\") end,",
+                                "RepairPanel = function(component) return runtimeFixes.panelTextRepair and runtimeFixes.panelTextRepair:Repair(component, \"manual\") or 0 end,");
+        }
+
+        // 13. Statistics Everywhere encapsulation
+        string targetStatsStart = "local function statisticsEverywhereEnabled()";
+        string targetStatsEnd = @"Loader.AfterLoad(
+    ""Gameplay.LogicSystem.HUD.HUD_MiddleBtnContent.HUDMiddleMenuCheck"",
+    installStatisticsEverywhere,
+    1000000,
+    ""cpdd.runtime-fix.statistics-everywhere""
+)";
+        if (!text.Contains(targetStatsEnd)) targetStatsEnd = targetStatsEnd.Replace("\r\n", "\n");
+        if (text.Contains(targetStatsStart) && text.Contains(targetStatsEnd) && !text.Contains("do\nlocal function statisticsEverywhereEnabled"))
+        {
+            text = text.Replace(targetStatsStart, "do\nlocal function statisticsEverywhereEnabled()");
+            string replStatsEnd = @"runtimeFixes.setStatisticsEverywhere = setStatisticsEverywhere
+runtimeFixes.statisticsEverywhereEnabled = statisticsEverywhereEnabled
+" + targetStatsEnd + "\nend";
+            text = text.Replace(targetStatsEnd, replStatsEnd);
+            text = text.Replace("SetStatisticsEverywhere = setStatisticsEverywhere,", "SetStatisticsEverywhere = runtimeFixes.setStatisticsEverywhere,");
+            text = text.Replace("IsStatisticsEverywhereEnabled = statisticsEverywhereEnabled,", "IsStatisticsEverywhereEnabled = runtimeFixes.statisticsEverywhereEnabled,");
+        }
 
         // Write destinations
         string dest1 = @"D:\gameDev\translate lotm\data\Init.lua";
@@ -421,7 +313,7 @@ end";
         File.WriteAllText(dest1, text, new UTF8Encoding(false));
         File.WriteAllText(dest2, text, new UTF8Encoding(false));
 
-        Console.WriteLine("Successfully applied Russian hooks to 0.9.71 Init.lua!");
+        Console.WriteLine("Successfully applied Russian hooks to Init.lua with encapsulated local scopes!");
         Console.WriteLine("Updated: " + dest1);
         Console.WriteLine("Updated: " + dest2);
         return 0;

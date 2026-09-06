@@ -842,38 +842,44 @@ local shortMenuLabels = {
     QuitGame = "Exit",
 }
 
-local okRussian, RussianMod = pcall(require, "mods.cpdd_runtime_fixes.RussianLocalization")
-if okRussian and type(RussianMod) == "table" and RussianMod.Enabled then
-    if RussianMod.stringConstOverrides then
-        for k, v in pairs(RussianMod.stringConstOverrides) do stringConstOverrides[k] = v end
-    end
-    if RussianMod.englishToRussian then
-        for k, v in pairs(RussianMod.englishToRussian) do visibleTextExactOverrides[k] = v end
-    end
-    if RussianMod.chineseToRussian then
-        for k, v in pairs(RussianMod.chineseToRussian) do visibleTextExactOverrides[k] = v end
-    end
-    if RussianMod.visibleTextExactOverrides then
-        for k, v in pairs(RussianMod.visibleTextExactOverrides) do visibleTextExactOverrides[k] = v end
-    end
-    if RussianMod.shortMenuLabels then
-        for k, v in pairs(RussianMod.shortMenuLabels) do shortMenuLabels[k] = v end
-    end
-    if RussianMod.marionetteEnglishNames then
-        for k, v in pairs(RussianMod.marionetteEnglishNames) do marionetteEnglishNames[k] = v end
-    end
-    if RussianMod.visibleTextReplacements then
-        for _, rep in ipairs(RussianMod.visibleTextReplacements) do
-            table.insert(visibleTextReplacements, 1, rep)
+-- runtimeFixes declared above
+
+do
+    local okRussian, RussianMod = pcall(require, "mods.cpdd_runtime_fixes.RussianLocalization")
+    if okRussian and type(RussianMod) == "table" and RussianMod.Enabled then
+        runtimeFixes.RussianMod = RussianMod
+        if RussianMod.stringConstOverrides then
+            for k, v in pairs(RussianMod.stringConstOverrides) do stringConstOverrides[k] = v end
+        end
+        if RussianMod.englishToRussian then
+            for k, v in pairs(RussianMod.englishToRussian) do visibleTextExactOverrides[k] = v end
+        end
+        if RussianMod.chineseToRussian then
+            for k, v in pairs(RussianMod.chineseToRussian) do visibleTextExactOverrides[k] = v end
+        end
+        if RussianMod.visibleTextExactOverrides then
+            for k, v in pairs(RussianMod.visibleTextExactOverrides) do visibleTextExactOverrides[k] = v end
+        end
+        if RussianMod.shortMenuLabels then
+            for k, v in pairs(RussianMod.shortMenuLabels) do shortMenuLabels[k] = v end
+        end
+        if RussianMod.marionetteEnglishNames then
+            for k, v in pairs(RussianMod.marionetteEnglishNames) do marionetteEnglishNames[k] = v end
+        end
+        if RussianMod.visibleTextReplacements then
+            for _, rep in ipairs(RussianMod.visibleTextReplacements) do
+                table.insert(visibleTextReplacements, 1, rep)
+            end
         end
     end
-end
 
-local okEng, EnglishMod = pcall(require, "mods.cpdd_runtime_fixes.EnglishToRussian")
-if okEng and type(EnglishMod) == "table" and type(EnglishMod.exact) == "table" then
-    for k, v in pairs(EnglishMod.exact) do
-        if visibleTextExactOverrides[k] == nil then
-            visibleTextExactOverrides[k] = v
+    local okEng, EnglishMod = pcall(require, "mods.cpdd_runtime_fixes.EnglishToRussian")
+    if okEng and type(EnglishMod) == "table" and type(EnglishMod.exact) == "table" then
+        runtimeFixes.EnglishMod = EnglishMod
+        for k, v in pairs(EnglishMod.exact) do
+            if visibleTextExactOverrides[k] == nil then
+                visibleTextExactOverrides[k] = v
+            end
         end
     end
 end
@@ -931,7 +937,7 @@ local runtimeMetrics = {
     UnresolvedCjkWriteFailures = 0,
     CaptureDataAssignmentsEnabled = false,
 }
-local runtimeFixes = {}
+-- runtimeFixes declared above
 -- These IDs describe confirmed, distinct player attributes. Numeric IDs from
 -- downloaded localization data are normally treated as non-authoritative, but
 -- these overrides may safely win when the live value still matches one of the
@@ -970,7 +976,7 @@ function runtimeFixes.normalizeDefenseBreakTerminology(value)
     value = value:gsub("Magic Armor Break", "Magic Defense Break")
     return value
 end
-local function adjustWidgetLetterSpacing(widget, targetSize)
+runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
     if widget == nil then return end
     pcall(function()
         if widget.SetLetterSpacing ~= nil then
@@ -992,7 +998,6 @@ local function adjustWidgetLetterSpacing(widget, targetSize)
         end
     end)
 end
-runtimeFixes.adjustWidgetLetterSpacing = adjustWidgetLetterSpacing
 
 Loader.Telemetry = Loader.Telemetry or {}
 Loader.Telemetry.Runtime = runtimeMetrics
@@ -1108,6 +1113,7 @@ local function cacheGeminiLookup(value, translated)
 end
 
 local function lookupGeminiText(value)
+    local RussianMod = runtimeFixes.RussianMod
     if RussianMod and RussianMod.lookupRussianText then
         local ru = RussianMod.lookupRussianText(value)
         if ru ~= nil then
@@ -1569,6 +1575,7 @@ local function translateVisibleText(value)
         visibleTextCache[value] = reviewedExact
         return reviewedExact
     end
+    local RussianMod = runtimeFixes.RussianMod
     if RussianMod and RussianMod.lookupRussianText then
         local ru = RussianMod.lookupRussianText(value)
         if ru ~= nil then
@@ -1576,6 +1583,7 @@ local function translateVisibleText(value)
             return ru
         end
     end
+    local EnglishMod = runtimeFixes.EnglishMod
     if EnglishMod and EnglishMod.translate then
         local ruEng = EnglishMod.translate(value)
         if ruEng ~= nil then
@@ -1877,7 +1885,7 @@ local function translateTextWidget(widget, discoveryContext)
                 widget:SynchronizeProperties()
             end
         end)
-        adjustWidgetLetterSpacing(widget)
+        runtimeFixes.runtimeFixes.adjustWidgetLetterSpacing(widget)
         pcall(function()
             if widget.InvalidateLayoutAndVolatility ~= nil then
                 widget:InvalidateLayoutAndVolatility()
@@ -2376,12 +2384,14 @@ local function returnLiveRepairResult(tableName, rowKey, fieldPath, original, re
 end
 
 repairLiveString = function(tableName, rowKey, fieldPath, value)
+    local RussianMod = runtimeFixes.RussianMod
     if RussianMod and RussianMod.lookupRussianText then
         local ru = RussianMod.lookupRussianText(value)
         if ru ~= nil then
             return ru
         end
     end
+    local EnglishMod = runtimeFixes.EnglishMod
     if EnglishMod and EnglishMod.translate then
         local ruEng = EnglishMod.translate(value)
         if ruEng ~= nil then
@@ -4181,6 +4191,7 @@ Loader.AfterLoad("Gameplay.LogicSystem.SkillCustomizer.SkillBuffDescUtils", func
     end
 
     function utils:AssembleDescString(inString, values, rtbOverWrite, id, level, descType, originalType, descContext)
+        local RussianMod = runtimeFixes.RussianMod
         if type(inString) == "string" and RussianMod and RussianMod.lookupRussianText then
             local ruIn = RussianMod.lookupRussianText(inString)
             if ruIn ~= nil then
@@ -4943,7 +4954,7 @@ runtimeFixes.setNamedWidgetText = function(owner, widgetName, text)
             widget:SynchronizeProperties()
         end
     end)
-    adjustWidgetLetterSpacing(widget)
+    runtimeFixes.runtimeFixes.adjustWidgetLetterSpacing(widget)
     pcall(function()
         if widget.InvalidateLayoutAndVolatility ~= nil then
             widget:InvalidateLayoutAndVolatility()
@@ -6353,7 +6364,7 @@ end
 -- subtitle. The former PAK fix edited those two WidgetBlueprint assets. Do
 -- the equivalent on the live widgets so bootstrap-only installs retain the
 -- full choices without shipping cooked asset replacements.
-local creatorChoiceLabels = (RussianMod and RussianMod.creatorChoiceLabels) or {
+local creatorChoiceLabels = (runtimeFixes.RussianMod and runtimeFixes.RussianMod.creatorChoiceLabels) or {
     [1] = { "Madness", "Sanity" },
     [2] = { "Wisdom", "Power" },
     [3] = { "Glory", "Emotion" },
@@ -6512,6 +6523,7 @@ local function installSettingsPresetLayoutRepair(value, environment)
     return true
 end
 
+do
 local taskBoardWidgetNames = {
     "Text_TargetDesc",
     "Text_Name",
@@ -6691,6 +6703,10 @@ local function repairTaskBoardLabels(self)
     end
     return repaired
 end
+runtimeFixes.repairTaskInfoLabels = repairTaskInfoLabels
+runtimeFixes.repairTaskListItemLabels = repairTaskListItemLabels
+runtimeFixes.repairTaskBoardLabels = repairTaskBoardLabels
+end
 
 local viewRepairSpecs = {
     {
@@ -6845,14 +6861,14 @@ local exactWidgetRepairSpecs = {
         "Gameplay.LogicSystem.Task.New.Task_List_Item",
         "Task_List_Item",
         { "OnRefresh" },
-        repairTaskListItemLabels,
+        runtimeFixes.repairTaskListItemLabels,
         true,
     },
     {
         "Gameplay.LogicSystem.Task.New.Task_Info",
         "Task_Info",
         { "RefreshInfo" },
-        repairTaskInfoLabels,
+        runtimeFixes.repairTaskInfoLabels,
         true,
     },
     {
@@ -7504,6 +7520,7 @@ Loader.AfterLoad("Gameplay.LogicSystem.NPC.Dialogue.Dialogue_NPCBtnSkip", functi
     return value
 end, 1000000, "cpdd.runtime-fix.dialogue-skip-controls")
 
+do
 local function installShortMenuLabels(value, environment)
     local class = getSymbol(value, environment, "MenuBtn_Item")
     if type(class) ~= "table" or type(class.OnRefresh) ~= "function" then
@@ -7526,7 +7543,7 @@ local function installShortMenuLabels(value, environment)
             runtimeFixes.setNamedWidgetText(self.view, "Text_Name", label)
             local textWidget = getNamedWidget(self.view, "Text_Name")
             if textWidget then
-                adjustWidgetLetterSpacing(textWidget, 13)
+                runtimeFixes.runtimeFixes.adjustWidgetLetterSpacing(textWidget, 13)
             end
         end
         return unpack(results)
@@ -7545,10 +7562,12 @@ Loader.AfterLoad(
     1000000,
     "cpdd.runtime-fix.short-menu-labels"
 )
+end
 
 -- Item tooltips are reused for subsequent hovered items without closing their
 -- UIComponent. Rescan only this proven dynamic panel on Refresh; the pending
 -- delayed pass coalesces bursts so this does not restore the global sweep.
+do
 local dynamicPanelRescanUids = {
     ActivityMain_Panel = true,
     FashionStation_Details_Panel = true,
@@ -7600,6 +7619,7 @@ local panelTextRepair = {
     States = setmetatable({}, { __mode = "k" }),
     Reports = {},
 }
+runtimeFixes.panelTextRepair = panelTextRepair
 
 function panelTextRepair:StateKey(component)
     if component == nil then return nil end
@@ -7849,7 +7869,9 @@ Loader.AfterLoad(
     1000000,
     "cpdd.runtime-fix.event-driven-panels"
 )
+end
 
+do
 local function statisticsEverywhereEnabled()
     local loader = rawget(_G, "LOMModLoader")
     local features = loader and loader.Features
@@ -7914,12 +7936,15 @@ local function setStatisticsEverywhere(enabled)
     return loader.Features.StatisticsEverywhere
 end
 
+runtimeFixes.setStatisticsEverywhere = setStatisticsEverywhere
+runtimeFixes.statisticsEverywhereEnabled = statisticsEverywhereEnabled
 Loader.AfterLoad(
     "Gameplay.LogicSystem.HUD.HUD_MiddleBtnContent.HUDMiddleMenuCheck",
     installStatisticsEverywhere,
     1000000,
     "cpdd.runtime-fix.statistics-everywhere"
 )
+end
 
 Loader.On("after_main", function()
     -- Hooks apply immediately to already-loaded modules and through the loader
@@ -7945,9 +7970,9 @@ return {
     IsRuntimeRowRepairEnabled = runtimeRowRepairEnabled,
     SetRuntimeUIRepair = setRuntimeUIRepair,
     IsRuntimeUIRepairEnabled = runtimeUIRepairEnabled,
-    SetStatisticsEverywhere = setStatisticsEverywhere,
-    IsStatisticsEverywhereEnabled = statisticsEverywhereEnabled,
+    SetStatisticsEverywhere = runtimeFixes.setStatisticsEverywhere,
+    IsStatisticsEverywhereEnabled = runtimeFixes.statisticsEverywhereEnabled,
     ResolveAuthoritativeAggregate = runtimeFixes.authoritativeAggregateLookup,
     PerformanceMetrics = runtimeMetrics,
-    RepairPanel = function(component) return panelTextRepair:Repair(component, "manual") end,
+    RepairPanel = function(component) return runtimeFixes.panelTextRepair and runtimeFixes.panelTextRepair:Repair(component, "manual") or 0 end,
         }
