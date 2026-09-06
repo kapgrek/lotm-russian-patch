@@ -12,10 +12,14 @@ namespace LotmTranslator
 {
     class Program
     {
-        static string GeminiPath = @"D:\Games\GMZZLauncher\Game\C7\Saved\Mods\lua\mods\cpdd_runtime_fixes\RuntimeTextGemini.lua";
+        static string GeminiPath = File.Exists(@"D:\gameDev\translate lotm\source_en\RuntimeTextGemini.lua")
+            ? @"D:\gameDev\translate lotm\source_en\RuntimeTextGemini.lua"
+            : @"D:\Games\GMZZLauncher\Game\C7\Saved\Mods\lua\mods\cpdd_runtime_fixes\RuntimeTextGemini.lua";
         static string RussianPath = @"D:\Games\GMZZLauncher\Game\C7\Saved\Mods\lua\mods\cpdd_runtime_fixes\RuntimeTextRussian.lua";
-        static string RepoRuPath = @"C:\Users\yapug\.gemini\antigravity\scratch\lotm-russian-patch\RuntimeTextRussian.lua";
-        static string RepoDataRuPath = @"C:\Users\yapug\.gemini\antigravity\scratch\lotm-russian-patch\data\RuntimeTextRussian.lua";
+        static string RepoRuPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\RuntimeTextRussian.lua"));
+        static string RepoDataRuPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\data\RuntimeTextRussian.lua"));
+        static string LocalRuPath = @"D:\gameDev\translate lotm\RuntimeTextRussian.lua";
+        static string LocalDataRuPath = @"D:\gameDev\translate lotm\data\RuntimeTextRussian.lua";
 
         static readonly Dictionary<string, string> CanonMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
@@ -257,6 +261,8 @@ namespace LotmTranslator
             // 6. Синхронизация с репозиторием
             if (File.Exists(RepoRuPath)) File.Copy(RussianPath, RepoRuPath, true);
             if (File.Exists(RepoDataRuPath)) File.Copy(RussianPath, RepoDataRuPath, true);
+            if (File.Exists(LocalRuPath)) File.Copy(RussianPath, LocalRuPath, true);
+            if (File.Exists(LocalDataRuPath)) File.Copy(RussianPath, LocalDataRuPath, true);
             Console.WriteLine("Словарь успешно синхронизирован с репозиторием!");
         }
 

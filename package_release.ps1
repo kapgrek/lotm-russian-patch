@@ -1,10 +1,11 @@
-﻿param (
+param (
     [string]$Version = "v1.1.0"
 )
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
-$buildDir = "C:\Users\yapug\.gemini\antigravity\scratch\lotm-russian-patch\build"
+$projectRoot = $PSScriptRoot
+$buildDir = "$projectRoot\build"
 if (Test-Path $buildDir) { Remove-Item $buildDir -Recurse -Force }
 New-Item -ItemType Directory -Path $buildDir -Force | Out-Null
 
@@ -33,7 +34,11 @@ $zipHash = (Get-FileHash $zipPath -Algorithm SHA256).Hash.ToLower()
 $zipSize = (Get-Item $zipPath).Length
 
 # Копируем установщик в папку build
-$installerSrc = "C:\Users\yapug\Downloads\lotm translate\Lord-of-Mysteries-Russian-Patch.exe"
+$installerSrc = if (Test-Path "$projectRoot\Lord-of-Mysteries-Russian-Patch.exe") {
+    "$projectRoot\Lord-of-Mysteries-Russian-Patch.exe"
+} else {
+    "C:\Users\yapug\Downloads\lotm translate\Lord-of-Mysteries-Russian-Patch.exe"
+}
 $installerDest = "$buildDir\Lord-of-Mysteries-Russian-Patch.exe"
 Copy-Item $installerSrc $installerDest -Force
 $exeHash = (Get-FileHash $installerDest -Algorithm SHA256).Hash.ToLower()
