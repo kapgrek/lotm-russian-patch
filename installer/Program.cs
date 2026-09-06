@@ -35,7 +35,7 @@ namespace LotmRussianPatcher
 
         private void InitializeComponent()
         {
-            this.Text = "Lord of the Mysteries — Установщик Русификатора v1.2";
+            this.Text = "Lord of the Mysteries — Установщик Русификатора v1.4.6";
             this.Size = new Size(680, 520);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;

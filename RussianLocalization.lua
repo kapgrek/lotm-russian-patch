@@ -128,22 +128,206 @@ Russian.stringConstOverrides = {
 }
 
 -- Прямой словарь Английский -> Русский (для текстов, уже переведенных патчем в English)
+Russian.skillTags = {
+    ["Finisher Skill"] = "Добив.",
+    ["Finisher"] = "Добив.",
+    ["Finishing Skill"] = "Добив.",
+    ["Finisher Skills"] = "Добив.",
+    ["Finishing"] = "Добив.",
+    ["Execution Skill"] = "Добив.",
+    ["终结技"] = "Добив.",
+    ["终结技能"] = "Добив.",
+    ["终结"] = "Добив.",
+    ["Healing"] = "Лечение",
+    ["Heal"] = "Лечение",
+    ["Heals"] = "Лечение",
+    ["治疗"] = "Лечение",
+    ["Group"] = "Группа",
+    ["Party"] = "Группа",
+    ["群体"] = "Группа",
+    ["群攻"] = "Группа",
+    ["队伍"] = "Группа",
+    ["Single Target"] = "Одиноч.",
+    ["Single"] = "Одиноч.",
+    ["单体"] = "Одиноч.",
+    ["Area Target"] = "Область",
+    ["Area"] = "Область",
+    ["AOE"] = "Область",
+    ["AoE"] = "Область",
+    ["范围"] = "Область",
+    ["Output"] = "Урон",
+    ["Damage"] = "Урон",
+    ["输出"] = "Урон",
+    ["伤害"] = "Урон",
+    ["Burst"] = "Взрыв",
+    ["爆发"] = "Взрыв",
+    ["Continuous"] = "Период.",
+    ["DOT"] = "Период.",
+    ["DoT"] = "Период.",
+    ["持续"] = "Период.",
+    ["Survival"] = "Защита",
+    ["Defense"] = "Защита",
+    ["Shield"] = "Щит",
+    ["生存"] = "Защита",
+    ["防御"] = "Защита",
+    ["Displacement"] = "Рывок",
+    ["Movement"] = "Рывок",
+    ["位移"] = "Рывок",
+    ["Control Break"] = "Снятие контр.",
+    ["Cleanse"] = "Снятие контр.",
+    ["解控"] = "Снятие контр.",
+    ["Hard Crowd Control"] = "Жёстк. контр.",
+    ["硬控"] = "Жёстк. контр.",
+    ["Soft Crowd Control"] = "Мягк. контр.",
+    ["软控"] = "Мягк. контр.",
+    ["Crowd Control"] = "Контроль",
+    ["Control"] = "Контроль",
+    ["控制"] = "Контроль",
+    ["Strengthening"] = "Усиление",
+    ["Enhance"] = "Усиление",
+    ["强化"] = "Усиление",
+    ["Receive Blue Card"] = "+Синяя карта",
+    ["Receive Yellow Card"] = "+Жёлт. карта",
+    ["Self"] = "Себя",
+    ["自身"] = "Себя",
+    ["Target"] = "Цель",
+    ["目标"] = "Цель",
+    ["Passive"] = "Пассив.",
+    ["被动"] = "Пассив.",
+    ["Normal"] = "Обычный",
+    ["普通"] = "Обычный",
+    ["Special"] = "Особый",
+    ["特殊"] = "Особый",
+    ["Roleplay"] = "Роль",
+    ["扮演"] = "Роль",
+    ["Puppets"] = "Куклы",
+    ["Puppet"] = "Куклы",
+    ["Marionette"] = "Куклы",
+    ["Marionettes"] = "Куклы",
+    ["Fellows"] = "Связи",
+    ["Fellow"] = "Связи",
+    ["Bond"] = "Связи",
+    ["One-click Assist"] = "Помощник",
+    ["One-Click Assist"] = "Помощник",
+    ["一键辅助"] = "Помощник",
+}
+
 Russian.englishToRussian = {
-    ["Necrotic Mark"] = "Метка некроманта",
-    ["Magic Mushroom"] = "Волшебный гриб",
-    ["Wave Riding"] = "Покорение волн",
-    ["Law Judgment"] = "Приговор закона",
-    ["Requiem Poem"] = "Упокойная поэма",
-    ["Ensemble Poem"] = "Созвучие стихов",
-    ["Midnight Poem"] = "Полуночная поэма",
-    ["Fortune-Turning Ritual"] = "Ритуал удачи",
-    ["Gray Fog Suppression"] = "Подавление тумана",
-    ["gray fog Suppression"] = "Подавление тумана",
-    ["Gray Fog Blessing"] = "Благословение тумана",
-    ["gray fog Blessing"] = "Благословение тумана",
-    ["Historical Beacon"] = "Исторический маяк",
-    ["Air Cannon"] = "Воздушная пушка",
-    ["Mind Insight"] = "Взор разума",
+    ["Poetic Aura"] = "Поэтическая
+аура",
+    ["Tranquility Aura"] = "Аура
+покоя",
+    ["Spirit Mediumship Ritual"] = "Спиритический
+ритуал",
+    ["Necromancer Mark"] = "Метка
+некроманта",
+    ["Law Edict"] = "Приговор
+закона",
+    ["Trick Performance."] = "Шоу
+фокусов",
+    ["Good Luck Ritual"] = "Ритуал
+удачи",
+    ["Fortune-Turning Ritual."] = "Ритуал
+удачи",
+    ["Mystery Peeping Ritual"] = "Ритуал
+тайн",
+    ["Curtain Call"] = "Конец
+спектакля",
+    ["Devout Prayer"] = "Истовая
+молитва",
+    ["Pendulum Dowsing"] = "Гадание на
+маятнике",
+    ["Door Opening"] = "Открытие
+двери",
+    ["Mind Soothing"] = "Утешение
+разума",
+    ["Trick Illusion"] = "Иллюзорный
+фокус",
+    ["Spirit Remnant"] = "Остаточный
+образ",
+    ["Listen to Heart"] = "Глас
+сердца",
+    ["Ready to Strike"] = "Готовность
+к удару",
+    ["Historical Void"] = "Пустота
+истории",
+    ["Historical void"] = "Пустота
+истории",
+    ["Marionette Manipulation"] = "Управление
+куклами",
+    ["Puppet Manipulation"] = "Управление
+куклами",
+    ["Card Storm"] = "Дождь
+карт",
+    ["Rain of Cards"] = "Дождь
+карт",
+    ["Throw Cards"] = "Бросок
+карт",
+    ["Air Missile"] = "Воздушная
+ракета",
+    ["Fate Yellow Card"] = "Жёлтая карта
+судьбы",
+    ["Spirituality Blue Card"] = "Синяя карта
+духовности",
+    ["Finisher Skill Shuffle"] = "Тасование
+карт",
+    ["Finisher Skill Shuffle Cards"] = "Тасование
+карт",
+    ["Mystic Illusion"] = "Таинственная
+иллюзия",
+    ["Torrent of Information"] = "Поток
+знаний",
+    ["Holy Flame"] = "Святое
+пламя",
+    ["Sanctuary Protection"] = "Защита
+Святилища",
+    ["Sanctuary Blessing"] = "Защита
+Святилища",
+    ["Combat Stance"] = "Боевая
+стойка",
+    ["Battle Stance Mark"] = "Боевая
+стойка",
+    ["Honor Slash"] = "Удар
+славы",
+    ["Hurricane"] = "Ураган",
+    ["Dusk Hurricane"] = "Закатный
+ураган",
+    ["Decay Blade"] = "Клинок
+увядания",
+    ["Sea of Subconsciousness"] = "Море
+подсознания",
+    ["Psychological Suggestion"] = "Психологич.
+внушение",
+    ["Necrotic Mark"] = "Метка
+некроманта",
+    ["Magic Mushroom"] = "Волшебный
+гриб",
+    ["Wave Riding"] = "Покорение
+волн",
+    ["Law Judgment"] = "Приговор
+закона",
+    ["Requiem Poem"] = "Упокойная
+поэма",
+    ["Ensemble Poem"] = "Созвучие
+стихов",
+    ["Midnight Poem"] = "Полуночная
+поэма",
+    ["Fortune-Turning Ritual"] = "Ритуал
+удачи",
+    ["Gray Fog Suppression"] = "Подавление
+тумана",
+    ["gray fog Suppression"] = "Подавление
+тумана",
+    ["Gray Fog Blessing"] = "Благословение
+тумана",
+    ["gray fog Blessing"] = "Благословение
+тумана",
+    ["Historical Beacon"] = "Исторический
+маяк",
+    ["Air Cannon"] = "Воздушная
+пушка",
+    ["Mind Insight"] = "Взор
+разума",
     ["Drill Guard"] = "Защита\nбура",
     ["Leader Claw Combo"] = "Когти\nвожака",
     ["Descending Shadow"] = "Нисходящая\nтень",
@@ -151,70 +335,113 @@ Russian.englishToRussian = {
     ["Dawn Light Guard"] = "Защита\nрассвета",
     ["Vision of Mystery"] = "Взор\nтайновидца",
     ["Insight Gaze"] = "Взор\nтайновидца",
-    ["Mystery Ritual"] = "Ритуал\nтайн",
-    ["Sword Master"] = "Мастер\nмеча",
-    ["Performance Ends"] = "Конец\nспектакля",
-    ["Pious Prayer"] = "Истовая\nмолитва",
+    ["Mystery Ritual"] = "Ритуал
+тайн",
+    ["Sword Master"] = "Мастер
+меча",
+    ["Performance Ends"] = "Конец
+спектакля",
+    ["Pious Prayer"] = "Истовая
+молитва",
     ["Witchcraft"] = "Колдовство",
-    ["Mysterious Illusion"] = "Таинственная\nиллюзия",
-    ["Spear of Longinus"] = "Копьё\nЛонгина",
-    ["Information Torrent"] = "Поток\nзнаний",
+    ["Mysterious Illusion"] = "Таинственная
+иллюзия",
+    ["Spear of Longinus"] = "Копьё
+Лонгина",
+    ["Information Torrent"] = "Поток
+знаний",
     ["Vortex of Knowledge"] = "Поток\nзнаний",
-    ["Star Sand"] = "Звёздный\nпесок",
+    ["Star Sand"] = "Звёздный
+песок",
     ["Nebula Chant"] = "Ария\nтуманности",
-    ["Nebula Aria"] = "Ария\nтуманности",
+    ["Nebula Aria"] = "Ария
+туманности",
     ["Footprints"] = "Следы",
     ["Footprint Reappearance"] = "Следы",
     ["Flashback"] = "Возврат",
-    ["Folding Screen"] = "Ширма\nпространств",
-    ["Space Cage"] = "Клетка\nпространства",
-    ["Starlight Cage"] = "Звёздная\nклетка",
-    ["Trick Performance"] = "Шоу\nфокусов",
-    ["Finisher Skill Layered Gate"] = "Врата\nпространств",
-    ["Layered Gate"] = "Врата\nпространств",
+    ["Folding Screen"] = "Ширма
+пространств",
+    ["Space Cage"] = "Клетка
+пространства",
+    ["Starlight Cage"] = "Звёздная
+клетка",
+    ["Trick Performance"] = "Шоу
+фокусов",
+    ["Finisher Skill Layered Gate"] = "Врата
+пространств",
+    ["Layered Gate"] = "Врата
+пространств",
     ["Enveloped in Holy Flames"] = "Святое\nпламя",
     ["Holy Flames"] = "Святое\nпламя",
-    ["Refraction of Light"] = "Преломление\nсвета",
+    ["Refraction of Light"] = "Преломление
+света",
     ["Sun Oath"] = "Солнечная\nклятва",
-    ["Solar Oath"] = "Солнечная\nклятва",
+    ["Solar Oath"] = "Солнечная
+клятва",
     ["Punishment"] = "Кара",
-    ["God's Punishment"] = "Божья\nкара",
-    ["Divine Punishment"] = "Божья\nкара",
-    ["Holy Light Protection"] = "Защита\nСвета",
-    ["Sun Chaser"] = "Ловец\nСолнца",
-    ["Unshadowed Spear"] = "Копьё\nСвета",
-    ["Soul of the Blazing Sun"] = "Душа\nСолнца",
-    ["Blazing Sun"] = "Яркое\nСолнце",
-    ["Dawn Armor"] = "Доспех\nрассвета",
+    ["God's Punishment"] = "Божья
+кара",
+    ["Divine Punishment"] = "Божья
+кара",
+    ["Holy Light Protection"] = "Защита
+Света",
+    ["Sun Chaser"] = "Ловец
+Солнца",
+    ["Unshadowed Spear"] = "Копьё
+Света",
+    ["Soul of the Blazing Sun"] = "Душа
+Солнца",
+    ["Blazing Sun"] = "Яркое
+Солнце",
+    ["Dawn Armor"] = "Доспех
+рассвета",
     ["Combat Stance Imprint"] = "Боевая\nстойка",
-    ["Slash of Glory"] = "Удар\nславы",
-    ["Silver Rapier"] = "Серебряная\nрапира",
-    ["Sunset Hurricane"] = "Закатный\nураган",
-    ["Royal Court Command"] = "Приказ\nдвора",
-    ["Exorcism Slash"] = "Удар\nэкзорцизма",
-    ["Hunter Instant Slash"] = "Быстрый\nвыпад",
-    ["Demon Hunter Instant Slash"] = "Быстрый\nвыпад",
-    ["Blade of Withering"] = "Клинок\nувядания",
-    ["Greatsword Slash"] = "Удар\nдвуручником",
-    ["Angry Slam"] = "Яростный\nудар",
+    ["Slash of Glory"] = "Удар
+славы",
+    ["Silver Rapier"] = "Серебряная
+рапира",
+    ["Sunset Hurricane"] = "Закатный
+ураган",
+    ["Royal Court Command"] = "Приказ
+двора",
+    ["Exorcism Slash"] = "Удар
+экзорцизма",
+    ["Hunter Instant Slash"] = "Быстрый
+выпад",
+    ["Demon Hunter Instant Slash"] = "Быстрый
+выпад",
+    ["Blade of Withering"] = "Клинок
+увядания",
+    ["Greatsword Slash"] = "Удар
+двуручником",
+    ["Angry Slam"] = "Яростный
+удар",
     ["Plague"] = "Чума",
     ["Mental Nightmare"] = "Ментальный\nкошмар",
     ["Mind Reading"] = "Чтение\nмыслей",
-    ["Psychotherapy"] = "Психо-\nтерапия",
-    ["Pacify"] = "Умиротво-\nрение",
+    ["Psychotherapy"] = "Психо-
+терапия",
+    ["Pacify"] = "Умиро-
+творение",
     ["Dream Rebirth"] = "Перерож-\nдение",
     ["Dream Recovery"] = "Возврат\nсна",
-    ["Mind Fire"] = "Пламя\nразума",
+    ["Mind Fire"] = "Пламя
+разума",
     ["Psychological Invisibility"] = "Незри-\nмость",
-    ["Consciousness Shock"] = "Удар\nсознания",
+    ["Consciousness Shock"] = "Удар
+сознания",
     ["Mental Guidance"] = "Ментальное\nвнушение",
-    ["Deterrence"] = "Устра-\nшение",
-    ["Mental Plague"] = "Ментальная\nчума",
+    ["Deterrence"] = "Устра-
+шение",
+    ["Mental Plague"] = "Ментальная
+чума",
     ["Consciousness Manipulation"] = "Контроль\nсознания",
     ["Dream Analysis"] = "Анализ\nснов",
-    ["Dream Weaving"] = "Плетение\nснов",
-    ["Frenzy"] = "Бешен-\nство",
-    ["Insight"] = "Проница-\nтельность",
+    ["Dream Weaving"] = "Плетение
+снов",
+    ["Frenzy"] = "Бешенство",
+    ["Insight"] = "Прозре-
+ние",
     ["Circular area with a radius of 12 meters"] = "Круглая область радиусом 12 м",
     ["Circular area with a radius of 10 meters"] = "Круглая область радиусом 10 м",
     ["Circular area with a radius of 8 meters"] = "Круглая область радиусом 8 м",
@@ -227,12 +454,18 @@ Russian.englishToRussian = {
     ["Rd. 1 talent not enabled"] = "Не активно",
     ["talent not enabled"] = "Не активно",
     ["Beyonder talent not enabled"] = "Не активно",
-    ["Imagination Stance"] = "Стойка фантазии",
-    ["Nightmare Stance"] = "Стойка кошмара",
-    ["In Offensive Stance"] = "В атакующей стойке",
-    ["Offensive Stance"] = "Атакующая стойка",
-    ["In Defense Form"] = "В защитной стойке",
-    ["Defense Form"] = "Защитная стойка",
+    ["Imagination Stance"] = "Стойка
+фантазии",
+    ["Nightmare Stance"] = "Стойка
+кошмара",
+    ["In Offensive Stance"] = "В атакующей
+стойке",
+    ["Offensive Stance"] = "Атакующая
+стойка",
+    ["In Defense Form"] = "В защитной
+стойке",
+    ["Defense Form"] = "Защитная
+стойка",
     ["Output"] = "Урон",
     ["Healing"] = "Исцеление",
     ["Puppets"] = "Куклы",
@@ -430,34 +663,53 @@ Russian.englishToRussian = {
     ["Using Flame Jump also grants 3 fate cards and one point of Card Energy."] = "Использование Прыжка пламени также дает 3 карты судьбы и 1 очко Энергии карт.",
     ["Obtaining a fate card also grants one point of Card Energy."] = "Получение карты судьбы также дает 1 очко Энергии карт.",
     ["Praise the Fool, increasing the user's damage for 10 seconds, and obtain a Spirituality Blue Card and one point of Card Energy (used to unlock Finisher Skills)."] = "Восславьте Шута: увеличивает урон заклинателя на 10 сек., дарует одну Синюю карту духовности и 1 очко Энергии карт (необходимо для открытия добивающих навыков).",
-    ["Air Bullet"] = "Воздушная\nпуля",
-    ["Air Bullets"] = "Воздушные\nпули",
-    ["Tarot Array"] = "Таро-\nрасклад",
+    ["Air Bullet"] = "Воздушная
+пуля",
+    ["Air Bullets"] = "Воздушные
+пули",
+    ["Tarot Array"] = "Таро-
+расклад",
     ["Miracle Card Rain"] = "Дождь\nкарт чудес",
     ["Fool's Blessing"] = "Благословение\nШута",
     ["Card Flying Dagger"] = "Карточный\nкинжал",
-    ["Flame Jump"] = "Прыжок\nпламени",
+    ["Flame Jump"] = "Прыжок
+пламени",
     ["Card Master"] = "Мастер\nкарт",
     ["Realm of Mysteries"] = "Царство\nТайн",
     ["Reveal Card"] = "Раскрытие\nкарт",
-    ["Paper Figurine Substitute"] = "Бумажный\nчеловечек",
-    ["Fooling of Fate"] = "Одурачивание\nсудьбы",
-    ["Spirituality Burst"] = "Всплеск\nдуховности",
-    ["Shuffle Cards"] = "Тасование\nкарт",
+    ["Paper Figurine Substitute"] = "Бумажный
+заменитель",
+    ["Fooling of Fate"] = "Одурачивание
+судьбы",
+    ["Spirituality Burst"] = "Всплеск
+духовности",
+    ["Shuffle Cards"] = "Тасование
+карт",
     ["Cut Cards"] = "Снятие\nкарт",
-    ["Open Door"] = "Открытие\nдвери",
-    ["Secret Words"] = "Тайные\nслова",
-    ["Pendulum Divination"] = "Гадание на\nмаятнике",
-    ["Earthquake Slam"] = "Сотрясение\nземли",
-    ["Praise the Sun"] = "Восславь\nСолнце",
-    ["Emotional Spectrum"] = "Эмоциональный\nспектр",
-    ["Poised to Strike"] = "Готовность\nк удару",
+    ["Open Door"] = "Открытие
+двери",
+    ["Secret Words"] = "Тайные
+слова",
+    ["Pendulum Divination"] = "Гадание на
+маятнике",
+    ["Earthquake Slam"] = "Сотрясение
+земли",
+    ["Praise the Sun"] = "Восславь
+Солнце",
+    ["Emotional Spectrum"] = "Эмоциональный
+спектр",
+    ["Poised to Strike"] = "Готовность
+к удару",
     ["Listen to Heart's Voice"] = "Глас\nсердца",
-    ["Smiling Clown"] = "Улыбающийся\nклоун",
-    ["War Soul Afterimage"] = "Остаточный\nобраз",
+    ["Smiling Clown"] = "Улыбающийся
+клоун",
+    ["War Soul Afterimage"] = "Остаточный
+образ",
     ["Illusion Trick"] = "Иллюзорный\nфокус",
-    ["Holy Light Favor"] = "Святой\nСвет",
-    ["Astrological Revelation"] = "Откровение\nзвёзд",
+    ["Holy Light Favor"] = "Святой
+Свет",
+    ["Astrological Revelation"] = "Откровение
+звёзд",
     ["Mental Comfort"] = "Утешение\nразума",
     ["Talent"] = "Таланты",
     ["Talents"] = "Таланты",
@@ -697,79 +949,166 @@ Russian.englishToRussian = {
 
 -- Китайский -> Русский (точные переопределения интерфейса и текста)
 Russian.chineseToRussian = {
-    ["死灵印记"] = "Метка некроманта",
-    ["神奇蘑菇"] = "Волшебный гриб",
-    ["驭浪"] = "Покорение волн",
-    ["律令裁决"] = "Приговор закона",
-    ["戏法表演"] = "Шоу фокусов",
-    ["安魂诗篇"] = "Упокойная поэма",
-    ["合奏诗篇"] = "Созвучие стихов",
-    ["午夜诗篇"] = "Полуночная поэма",
-    ["转运仪式"] = "Ритуал удачи",
-    ["灰雾压制"] = "Подавление тумана",
-    ["灰雾加持"] = "Благословение тумана",
-    ["历史明灯"] = "Исторический маяк",
-    ["空气炮"] = "Воздушная пушка",
-    ["心灵洞察"] = "Взор разума",
-    ["窥秘仪式"] = "Ритуал\nтайн",
-    ["剑术大师"] = "Мастер\nмеча",
-    ["演出落幕"] = "Конец\nспектакля",
-    ["虔诚祷祝"] = "Истовая\nмолитва",
+    ["诗意光环"] = "Поэтическая
+аура",
+    ["宁静光环"] = "Аура
+покоя",
+    ["通灵仪式"] = "Спиритический
+ритуал",
+    ["历史孔隙"] = "Пустота
+истории",
+    ["操纵秘偶"] = "Управление
+куклами",
+    ["卡牌风暴"] = "Дождь
+карт",
+    ["塔罗法阵"] = "Таро-
+расклад",
+    ["飞牌"] = "Бросок
+карт",
+    ["空气飞弹"] = "Воздушная
+ракета",
+    ["命运黄牌"] = "Жёлтая карта
+судьбы",
+    ["灵性蓝牌"] = "Синяя карта
+духовности",
+    ["终结技-洗牌"] = "Тасование
+карт",
+    ["圣域庇佑"] = "Защита
+Святилища",
+    ["潜意识海"] = "Море
+подсознания",
+    ["威慑"] = "Устра-
+шение",
+    ["心理暗示"] = "Психологич.
+внушение",
+    ["死灵印记"] = "Метка
+некроманта",
+    ["神奇蘑菇"] = "Волшебный
+гриб",
+    ["驭浪"] = "Покорение
+волн",
+    ["律令裁决"] = "Приговор
+закона",
+    ["戏法表演"] = "Шоу
+фокусов",
+    ["安魂诗篇"] = "Упокойная
+поэма",
+    ["合奏诗篇"] = "Созвучие
+стихов",
+    ["午夜诗篇"] = "Полуночная
+поэма",
+    ["转运仪式"] = "Ритуал
+удачи",
+    ["灰雾压制"] = "Подавление
+тумана",
+    ["灰雾加持"] = "Благословение
+тумана",
+    ["历史明灯"] = "Исторический
+маяк",
+    ["空气炮"] = "Воздушная
+пушка",
+    ["心灵洞察"] = "Взор
+разума",
+    ["窥秘仪式"] = "Ритуал
+тайн",
+    ["剑术大师"] = "Мастер
+меча",
+    ["演出落幕"] = "Конец
+спектакля",
+    ["虔诚祷祝"] = "Истовая
+молитва",
     ["巫术"] = "Колдовство",
-    ["神秘幻象"] = "Таинственная\nиллюзия",
-    ["朗基努斯之枪"] = "Копьё\nЛонгина",
-    ["信息洪流"] = "Поток\nзнаний",
-    ["星沙"] = "Звёздный\nпесок",
-    ["星云咏叹"] = "Ария\nтуманности",
+    ["神秘幻象"] = "Таинственная
+иллюзия",
+    ["朗基努斯之枪"] = "Копьё
+Лонгина",
+    ["信息洪流"] = "Поток
+знаний",
+    ["星沙"] = "Звёздный
+песок",
+    ["星云咏叹"] = "Ария
+туманности",
     ["足迹"] = "Следы",
     ["足迹再现"] = "Следы",
     ["闪回"] = "Возврат",
-    ["折幕"] = "Ширма\nпространств",
-    ["空间牢笼"] = "Клетка\nпространства",
-    ["星光囚笼"] = "Звёздная\nклетка",
-    ["戏法演绎"] = "Шоу\nфокусов",
-    ["层叠之门"] = "Врата\nпространств",
-    ["圣焰"] = "Святое\nпламя",
-    ["光之折射"] = "Преломление\nсвета",
-    ["太阳誓约"] = "Солнечная\nклятва",
+    ["折幕"] = "Ширма
+пространств",
+    ["空间牢笼"] = "Клетка
+пространства",
+    ["星光囚笼"] = "Звёздная
+клетка",
+    ["戏法演绎"] = "Шоу
+фокусов",
+    ["层叠之门"] = "Врата
+пространств",
+    ["圣焰"] = "Святое
+пламя",
+    ["光之折射"] = "Преломление
+света",
+    ["太阳誓约"] = "Солнечная
+клятва",
     ["惩戒"] = "Кара",
-    ["神罚"] = "Божья\nкара",
-    ["圣光庇护"] = "Защита\nСвета",
-    ["逐日"] = "Ловец\nСолнца",
-    ["无暗之枪"] = "Копьё\nСвета",
-    ["烈阳之魂"] = "Душа\nСолнца",
-    ["烈阳"] = "Яркое\nСолнце",
-    ["黎明铠甲"] = "Доспех\nрассвета",
-    ["战姿留痕"] = "Боевая\nстойка",
-    ["荣耀之斩"] = "Удар\nславы",
-    ["银白细剑"] = "Серебряная\nрапира",
-    ["日暮飓风"] = "Закатный\nураган",
-    ["王庭号令"] = "Приказ\nдвора",
-    ["驱魔卫斩"] = "Удар\nэкзорцизма",
-    ["猎魔瞬斩"] = "Быстрый\nвыпад",
-    ["凋零之刃"] = "Клинок\nувядания",
-    ["巨剑斩击"] = "Удар\nдвуручником",
-    ["怒意猛击"] = "Яростный\nудар",
+    ["神罚"] = "Божья
+кара",
+    ["圣光庇护"] = "Защита
+Света",
+    ["逐日"] = "Ловец
+Солнца",
+    ["无暗之枪"] = "Копьё
+Света",
+    ["烈阳之魂"] = "Душа
+Солнца",
+    ["烈阳"] = "Яркое
+Солнце",
+    ["黎明铠甲"] = "Доспех
+рассвета",
+    ["战姿留痕"] = "Боевая
+стойка",
+    ["荣耀之斩"] = "Удар
+славы",
+    ["银白细剑"] = "Серебряная
+рапира",
+    ["日暮飓风"] = "Закатный
+ураган",
+    ["王庭号令"] = "Приказ
+двора",
+    ["驱魔卫斩"] = "Удар
+экзорцизма",
+    ["猎魔瞬斩"] = "Быстрый
+выпад",
+    ["凋零之刃"] = "Клинок
+увядания",
+    ["巨剑斩击"] = "Удар
+двуручником",
+    ["怒意猛击"] = "Яростный
+удар",
     ["噩梦"] = "Кошмар",
     ["瘟疫"] = "Чума",
     ["精神噩梦"] = "Ментальный\nкошмар",
     ["读心"] = "Чтение\nмыслей",
-    ["心理治疗"] = "Психо-\nтерапия",
-    ["安抚"] = "Умиротво-\nрение",
+    ["心理治疗"] = "Психо-
+терапия",
+    ["安抚"] = "Умиро-
+творение",
     ["梦境重生"] = "Перерож-\nдение",
     ["梦境复苏"] = "Возврат\nсна",
-    ["心灵之火"] = "Пламя\nразума",
+    ["心灵之火"] = "Пламя
+разума",
     ["心理学隐身"] = "Незри-\nмость",
-    ["意识冲击"] = "Удар\nсознания",
+    ["意识冲击"] = "Удар
+сознания",
     ["心灵引导"] = "Ментальное\nвнушение",
     ["震慑"] = "Устра-\nшение",
-    ["精神瘟疫"] = "Ментальная\nчума",
+    ["精神瘟疫"] = "Ментальная
+чума",
     ["意识操纵"] = "Контроль\nсознания",
     ["梦境分析"] = "Анализ\nснов",
-    ["梦境编织"] = "Плетение\nснов",
-    ["狂乱"] = "Бешен-\nство",
+    ["梦境编织"] = "Плетение
+снов",
+    ["狂乱"] = "Бешенство",
     ["洞悉"] = "Проница-\nтельность",
-    ["洞察"] = "Проница-\nтельность",
+    ["洞察"] = "Прозре-
+ние",
     ["被动"] = "Пассив.",
     ["普通"] = "Обычный",
     ["伤害"] = "Урон",
@@ -778,10 +1117,14 @@ Russian.chineseToRussian = {
     ["羁绊"] = "Связи",
     ["伙伴"] = "Связи",
     ["非凡天赋未启用"] = "Не активно",
-    ["空想姿态"] = "Стойка фантазии",
-    ["噩梦姿态"] = "Стойка кошмара",
-    ["输出形态"] = "Атакующая стойка",
-    ["防御形态"] = "Защитная стойка",
+    ["空想姿态"] = "Стойка
+фантазии",
+    ["噩梦姿态"] = "Стойка
+кошмара",
+    ["输出形态"] = "Атакующая
+стойка",
+    ["防御形态"] = "Защитная
+стойка",
     ["输出"] = "Урон",
     ["治疗"] = "Исцеление",
     ["诡秘之境"] = "Царство\nТайн",
@@ -910,34 +1253,54 @@ Russian.chineseToRussian = {
     ["装配技能"] = "Экипировать",
     ["下级效果"] = "Эффект след. уровня",
     ["空气子弹"] = "Воздушная\nпуля",
-    ["空气弹"] = "Воздушная\nпуля",
+    ["空气弹"] = "Воздушная
+пуля",
     ["纸牌飞刀"] = "Карточный\nкинжал",
     ["塔罗牌阵"] = "Таро-\nрасклад",
     ["奇迹牌雨"] = "Дождь\nкарт чудес",
-    ["火焰跳跃"] = "Прыжок\nпламени",
+    ["火焰跳跃"] = "Прыжок
+пламени",
     ["愚者祝福"] = "Благословение\nШута",
     ["卡牌大师"] = "Мастер\nкарт",
     ["诡秘领域"] = "Царство\nТайн",
     ["开牌"] = "Раскрытие\nкарт",
-    ["纸人替身"] = "Бумажный\nчеловечек",
-    ["命运愚弄"] = "Одурачивание\nсудьбы",
-    ["灵性爆发"] = "Всплеск\nдуховности",
-    ["洗牌"] = "Тасование\nкарт",
+    ["纸人替身"] = "Бумажный
+заменитель",
+    ["命运愚弄"] = "Одурачивание
+судьбы",
+    ["灵性爆发"] = "Всплеск
+духовности",
+    ["洗牌"] = "Тасование
+карт",
     ["切牌"] = "Снятие\nкарт",
-    ["开门"] = "Открытие\nдвери",
-    ["秘语"] = "Тайные\nслова",
-    ["灵摆占卜"] = "Гадание на\nмаятнике",
-    ["地震重击"] = "Сотрясение\nземли",
-    ["赞美太阳"] = "Восславь\nСолнце",
-    ["情绪光谱"] = "Эмоциональный\nспектр",
-    ["蓄势待发"] = "Готовность\nк удару",
-    ["倾听心声"] = "Глас\nсердца",
-    ["微笑小丑"] = "Улыбающийся\nклоун",
-    ["战魂残影"] = "Остаточный\nобраз",
-    ["戏法假象"] = "Иллюзорный\nфокус",
-    ["圣光眷顾"] = "Святой\nСвет",
-    ["占星启示"] = "Откровение\nзвёзд",
-    ["心灵抚慰"] = "Утешение\nразума",
+    ["开门"] = "Открытие
+двери",
+    ["秘语"] = "Тайные
+слова",
+    ["灵摆占卜"] = "Гадание на
+маятнике",
+    ["地震重击"] = "Сотрясение
+земли",
+    ["赞美太阳"] = "Восславь
+Солнце",
+    ["情绪光谱"] = "Эмоциональный
+спектр",
+    ["蓄势待发"] = "Готовность
+к удару",
+    ["倾听心声"] = "Глас
+сердца",
+    ["微笑小丑"] = "Улыбающийся
+клоун",
+    ["战魂残影"] = "Остаточный
+образ",
+    ["戏法假象"] = "Иллюзорный
+фокус",
+    ["圣光眷顾"] = "Святой
+Свет",
+    ["占星启示"] = "Откровение
+звёзд",
+    ["心灵抚慰"] = "Утешение
+разума",
 }
 
 -- Подмена фрагментов текста внутри фраз
@@ -974,6 +1337,18 @@ function Russian.lookupRussianText(text)
         return nil
     end
 
+    -- 0. Компактные теги навыков (гарантированное совпадение без вылезания за экран)
+    local trimmed = text:match("^%s*(.-)%s*$")
+    if trimmed ~= nil and trimmed ~= "" then
+        local tag = Russian.skillTags[trimmed]
+        if tag ~= nil then return tag end
+
+        local sec = trimmed:match("^(%d+)%s*[Ss]econds?$") or trimmed:match("^(%d+)%s*秒$") or trimmed:match("^(%d+)Second$")
+        if sec ~= nil then
+            return sec .. " сек."
+        end
+    end
+
     -- 1. Сначала проверяем точный перевод с английского (UI патча)
     local ru = Russian.englishToRussian[text]
     if ru ~= nil then return ru end
@@ -1004,36 +1379,62 @@ function Russian.lookupRussianText(text)
     end
 
     -- 5. Контекстный перевод динамических описаний навыков и подсказок
-    if #text > 12 then
+    if #text > 8 then
         local m = text
+
+        -- ----------------------------------------------------
+        -- УНИВЕРСАЛЬНЫЙ ПЕРЕКЛЮЧАТЕЛЬ СТОЕК ДЛЯ ВСЕХ НАВЫКОВ
+        -- ----------------------------------------------------
+        m = m:gsub("Only available in%s*(.-)%s*;%s*switches to%s*(.-)%s*in%s*(.-)%s*%.", function(st1, sk, st2)
+            local function trStance(s)
+                s = s:gsub("Imagination Stance", "Стойке фантазии")
+                s = s:gsub("Nightmare Stance", "Стойке кошмара")
+                s = s:gsub("Offensive Stance", "Атакующей стойке")
+                s = s:gsub("Defense Form", "Защитной стойке")
+                return s
+            end
+            local function trSkill(s)
+                s = s:gsub("Mind Fire", "Пламя разума")
+                s = s:gsub("Psychotherapy", "Психотерапию")
+                s = s:gsub("Consciousness Shock", "Удар сознания")
+                s = s:gsub("Pacify", "Умиротворение")
+                s = s:gsub("Psychological Suggestion", "Внушение")
+                s = s:gsub("Angry Slam", "Яростный удар")
+                s = s:gsub("Greatsword Slash", "Удар двуручником")
+                s = s:gsub("Blade of Withering", "Клинок увядания")
+                return s
+            end
+            return string.format("Доступно только в %s; в %s переключается на %s.", trStance(st1), trStance(st2), trSkill(sk))
+        end)
 
         -- ----------------------------------------------------
         -- ПУТЬ ЗРИТЕЛЯ / СНОВИДЕЦ (Spectator)
         -- ----------------------------------------------------
+        -- Психотерапия (Psychotherapy)
+        m = m:gsub("Continuously heals allies within range, restoring%s+(.-)%s+Health to allies within range every ([%d%.]+) seconds, up to (%d+) times%.", "Непрерывно исцеляет союзников в области, восстанавливая %1 ед. здоровья союзникам в области каждые %2 сек. (до %3 раз).")
+        m = m:gsub("You can move and cast other skills while this skill is active%.", "Во время действия навыка можно двигаться и применять другие навыки.")
+        m = m:gsub("You can move and cast other skills while casting%.", "Во время применения можно двигаться и применять другие навыки.")
+        m = m:gsub("You can release other skills and move while casting%.", "Во время применения можно двигаться и применять другие навыки.")
+
         -- Ментальная чума (Mental Plague)
-        m = m:gsub("Deals ([%d%.]+) magic damage to enemies in the area and applies Plague for ([%d%.]+) seconds%.", "Наносит %1 маг. урона врагам в области и накладывает Чуму на %2 сек.")
-        m = m:gsub("Deals ([%d%.]+) magic damage to enemies in the area and applies <HighLight>Plague</> for ([%d%.]+) seconds%.", "Наносит %1 маг. урона врагам в области и накладывает <HighLight>Чуму</> на %2 сек.")
-        m = m:gsub("Plague: Take ([%d%.]+) magic damage every ([%d%.]+) seconds%..?", "Чума: Получает %1 маг. урона каждые %2 сек.")
-        m = m:gsub("<FaintYellow>Plague</>: Take ([%d%.]+) magic damage every ([%d%.]+) seconds%..?", "<FaintYellow>Чума</>: Получает %1 маг. урона каждые %2 сек.")
-        m = m:gsub("When dealing damage to targets affected by Mental Plague, an additional coordinated attack is triggered, dealing magic damage equal to ([%d%.]+)%% of the base effect%.", "При нанесении урона целям под действием Ментальной чумы срабатывает совместная атака, наносящая маг. урон в размере %1%% от базового эффекта.")
-        m = m:gsub("When dealing damage to targets affected by <HyperLink.-Mental Plague.-</>, an additional coordinated attack is triggered, dealing magic damage equal to ([%d%.]+)%% of the base effect%.", "При нанесении урона целям под действием Ментальной чумы срабатывает совместная атака, наносящая маг. урон в размере %1%% от базового эффекта.")
-        m = m:gsub("Spread a Mental Plague in the target area, dealing damage and infecting enemy units within range%.", "Распространяет Ментальную чуму в выбранной области, нанося урон и заражая вражеские цели.")
-        m = m:gsub("Deals (.-) magic damage to the locked target and surrounding enemies, and <HyperLink.-floats.-</> enemy monsters in the <HighLight>Plague</> state%.", "Наносит %1 маг. урона захваченной цели и окружающим врагам, подбрасывая монстров в состоянии <HighLight>Чумы</>.")
-        m = m:gsub("Deals (.-) magic damage to the locked target and surrounding enemies, and floats enemy monsters in the Plague state%.", "Наносит %1 маг. урона захваченной цели и окружающим врагам, подбрасывая монстров в состоянии Чумы.")
+        m = m:gsub("Deals (.-) magic damage to enemies in the area and applies (.-) for ([%d%.]+) seconds%.", "Наносит %1 маг. урона врагам в области и накладывает %2 на %3 сек.")
+        m = m:gsub("When dealing damage to targets affected by (.-)Mental Plague(.-), an additional coordinated attack is triggered, dealing magic damage equal to (.-)%% of the base effect%.", "При нанесении урона целям под действием Ментальной чумы срабатывает совместная атака, наносящая маг. урон в размере %3%% от базового эффекта.")
+        m = m:gsub("Spread a Mental Plague in the target area, dealing damage and infecting enemy units within range%.", "Распространяет Ментальную чуму в выбранной области, нанося урон и заражая врагов.")
+        m = m:gsub("Deals (.-) magic damage to the locked target and surrounding enemies, and (.-) enemy monsters in the (.-)Plague(.-) state%.", "Наносит %1 маг. урона захваченной цели и окружающим врагам, подбрасывая монстров в состоянии Чумы.")
+        m = m:gsub("Deals (.-) magic damage to the locked target and surrounding enemies", "Наносит %1 маг. урона захваченной цели и окружающим врагам")
 
         -- Стойка кошмара и Стойка фантазии
         m = m:gsub("A Nightmare Stance specialized in combat%. When using combat skills to deal damage, the user heals themselves, but the healing applied by the user is significantly reduced%.", "Боевая стойка Кошмара. При нанесении урона боевыми навыками исцеляет заклинателя, но эффективность применяемого им лечения сильно снижена.")
         m = m:gsub("In Nightmare Stance, when dealing damage, your self%-healing is increased by (%d+)%%%.", "В стойке Кошмара при нанесении урона самоисцеление повышено на %1%%.")
         m = m:gsub("In Nightmare Stance, healing ability is no longer reduced%.", "В стойке Кошмара эффективность лечения больше не снижается.")
 
-        -- Удар сознания, Кошмар, Устрашение, Внушение
-        m = m:gsub("Consciousness Shock applies (.-) Nightmare (.-) upon hit%. After (%d+) stacks, the Nightmare explosion deals magic damage to the target and enemies within (%d+) meters equal to (%d+)%% of the base effect%.", "Удар сознания накладывает уровень Кошмара при попадании. При накоплении %2 уровней взрыв Кошмара наносит цели и врагам в радиусе %3 м маг. урон в размере %4%% от базового эффекта.")
-        m = m:gsub("A three%-stage combo that launches mental energy attacks, each stage dealing (.-) magic damage to enemies%. \n Only available in <HighLight> Nightmare Stance </>; switches to <HighLight> Pacify </> in <HighLight> Imagination Stance </>%.", "Серия из 3 ударов ментальной энергией, каждый этап наносит %1 маг. урона врагам. \n Доступно только в <HighLight>Стойке кошмара</>; в <HighLight>Стойке фантазии</> переключается на <HighLight>Умиротворение</>.")
-        m = m:gsub("A three%-stage combo that pacifies the minds of allies, each stage restoring (.-) Health to allied targets%. \n Only available in <HighLight> Imagination Stance </>; switches to <HighLight> Consciousness Shock </> in <HighLight> Nightmare Stance </>%.", "Серия из 3 этапов, успокаивающая разум союзников и восстанавливающая %1 ед. здоровья союзным целям. \n Доступно только в <HighLight>Стойке фантазии</>; в <HighLight>Стойке кошмара</> переключается на <HighLight>Удар сознания</>.")
-        m = m:gsub("Causes party members within (%d+) meters to gain a <HighLight>Heart Healing Mark</>, lasting for ([%d%.]+) seconds%..-", "Накладывает на членов группы в радиусе %1 м <HighLight>Метку исцеления</> на %2 сек. Держатель метки получает снижение урона и восстанавливает здоровье, когда заклинатель применяет лечение.")
-        m = m:gsub("Causes a target party member to gain a <HighLight>Mind Reading Mark</>, lasting for ([%d%.]+) seconds%..-", "Накладывает на члена группы <HighLight>Метку чтения мыслей</> на %1 сек. При снижении здоровья цели ниже 30%% дает бафф и лечит цель при боевых заклинаниях.")
-        m = m:gsub("Creates a field that deals (.-) magic damage to enemies within range every second for (%d+) seconds%. \n Only available in <HighLight> Nightmare Stance </>; switches to <HighLight> Psychological Suggestion </> in <HighLight> Imagination Stance </>%.", "Создает поле, наносящее врагам внутри %1 маг. урона каждую секунду в течение %2 сек. \n Доступно только в <HighLight>Стойке кошмара</>; в <HighLight>Стойке фантазии</> переключается на <HighLight>Внушение</>.")
-        m = m:gsub("Continuously heals allies within range, restoring ([%d%.]+) Health to allies within range every ([%d%.]+) seconds, up to (%d+) times%..-", "Непрерывно исцеляет союзников вокруг, восстанавливая %1 ед. здоровья союзникам в области каждые %2 сек. (до %3 раз). Во время действия навыка можно двигаться.")
+        -- Удар сознания, Умиротворение, Внушение
+        m = m:gsub("Consciousness Shock applies (.-) Nightmare (.-) upon hit%. After (%d+) stacks, the Nightmare explosion deals magic damage to the target and enemies within (%d+) meters equal to (.-)%% of the base effect%.", "Удар сознания накладывает уровень Кошмара при попадании. При накоплении %3 уровней взрыв Кошмара наносит цели и врагам в радиусе %4 м маг. урон в размере %5%% от базового эффекта.")
+        m = m:gsub("A three%-stage combo that launches mental energy attacks, each stage dealing (.-) magic damage to enemies%.", "Серия из 3 ударов ментальной энергией, каждый этап наносит %1 маг. урона врагам.")
+        m = m:gsub("A three%-stage combo that pacifies the minds of allies, each stage restoring (.-) Health to allied targets%.", "Серия из 3 этапов, успокаивающая разум союзников и восстанавливающая %1 ед. здоровья союзным целям.")
+        m = m:gsub("Causes party members within (%d+) meters to gain a <HighLight>Heart Healing Mark</>, lasting for ([%d%.]+) seconds%..-", "Накладывает на членов группы в радиусе %1 м <HighLight>Метку исцеления</> на %2 сек.")
+        m = m:gsub("Causes a target party member to gain a <HighLight>Mind Reading Mark</>, lasting for ([%d%.]+) seconds%..-", "Накладывает на члена группы <HighLight>Метку чтения мыслей</> на %1 сек.")
+        m = m:gsub("Creates a field that deals (.-) magic damage to enemies within range every second for (%d+) seconds%.", "Создает поле, наносящее врагам внутри %1 маг. урона каждую секунду в течение %2 сек.")
 
         -- ----------------------------------------------------
         -- ПУТЬ ВОИНА / ГИГАНТ (Warrior / Giant)
@@ -1041,27 +1442,35 @@ function Russian.lookupRussianText(text)
         m = m:gsub("As a natural Weapon Master, the Warrior can skillfully use a variety of weapons%. Use dual swords in Offensive Stance to increase your damage; use a greatsword in Defense Form to gain damage reduction and more easily attract monster aggro%.", "Прирожденный Мастер оружия, Воин искусно владеет разными клинками. В атакующей стойке парные мечи увеличивают урон; в защитной стойке двуручник снижает урон и привлекает внимание врагов.")
         m = m:gsub("Dash forward with the sword at high speed to slash, attacking units along the path and gaining a Dusk Mark %(used to strengthen Angry Slam and finisher skills%)%. Applies decay %(continuous damage%) in Offensive Stance, and increases your block in Defense Form%.", "Совершает стремительный выпад вперед с мечом, атакуя врагов на пути и получая Метку сумерек (для усиления Яростного удара и добиваний). В атакующей стойке накладывает увядание, в защитной стойке повышает блок.")
         m = m:gsub("Wield dual swords to launch a storm%-like offensive, dealing massive damage and controlling enemies with continuous slashes%. You gain a Dusk Mark %(used to strengthen Angry Slam and finisher skills%)%. Applies decay %(continuous damage%) in Offensive Stance%.", "Яростно обрушивает вихрь ударов парными клинками, нанося огромный урон и контролируя врагов сериями взмахов. Дает Метку сумерек. В атакующей стойке накладывает увядание.")
-        m = m:gsub("Dash in a designated direction, dealing ([%d%.]+) physical damage to enemies along the path%. Upon hitting an enemy, gain (%d+) Twilight Mark.-", "Совершает рывок в выбранном направлении, нанося %1 физ. урона врагам на пути. При попадании дает %2 Метку сумерек. В защитной стойке дает защиту, в атакующей накладывает Увядание.")
-        m = m:gsub("Perform three consecutive attacks on enemies in a small range in front of you, dealing (.-) physical damage respectively%..-", "Совершает три последовательных удара по врагам перед собой, нанося %1 физ. урона. Дает Метку сумерек и накладывает Увядание.")
-        m = m:gsub("Let out a stunning roar, dealing ([%d%.]+) physical damage to surrounding enemies.-Then, summon a giant phantom shadow to slam the ground, dealing ([%d%.]+) physical damage and knocking down monsters.-", "Издает оглушительный рев, нанося %1 физ. урона врагам вокруг. Затем призывает фантом гиганта, сотрясающий землю, нанося %2 физ. урона и сбивая монстров с ног.")
-        m = m:gsub("Continuously strike surrounding enemies, dealing (.-) physical damage to enemies in range every ([%d%.]+) seconds for (%d+) seconds, dragging enemy monsters toward you.-", "Непрерывно сокрушает врагов вокруг, нанося %1 физ. урона каждые %2 сек. в течение %3 сек. и притягивая монстров к себе. Дает Метки сумерек и Суперброню.")
-        m = m:gsub("Deploy a domain, (.-), while dealing ([%d%.]+) physical damage to enemies in range; then, continue to charge and gain Super Armor, dealing ([%d%.]+) physical damage to enemies in range upon completion%..-", "Разворачивает поле боя, даруя союзникам защиту и нанося %2 физ. урона врагам вокруг. Затем накапливает силы в Суперброне и наносит %3 физ. урона. Потребляет Метки сумерек для усиления щита.")
+        m = m:gsub("Dash in a designated direction, dealing (.-) physical damage to enemies along the path%. Upon hitting an enemy, gain (.-) Twilight Mark.-", "Совершает рывок в выбранном направлении, нанося %1 физ. урона врагам на пути. При попадании дает %2 Метку сумерек.")
+        m = m:gsub("Dash rapidly toward an enemy target, dealing (.-) physical damage to enemies in the destination area.-", "Совершает стремительный рывок к цели, нанося %1 физ. урона врагам в точке прибытия.")
+        m = m:gsub("Perform three consecutive attacks on enemies in a small range in front of you, dealing (.-) physical damage respectively%..-", "Совершает три последовательных удара по врагам перед собой, нанося %1 физ. урона.")
+        m = m:gsub("Let out a stunning roar, dealing (.-) physical damage to surrounding enemies.-Then, summon a giant phantom shadow to slam the ground, dealing (.-) physical damage and knocking down monsters.-", "Издает оглушительный рев, нанося %1 физ. урона врагам вокруг. Затем призывает фантом гиганта, сотрясающий землю, нанося %2 физ. урона и сбивая монстров с ног.")
+        m = m:gsub("Continuously strike surrounding enemies, dealing (.-) physical damage to enemies in range every (.-) seconds for (.-) seconds, dragging enemy monsters toward you.-", "Непрерывно сокрушает врагов вокруг, нанося %1 физ. урона каждые %2 сек. в течение %3 сек. и притягивая монстров к себе.")
+        m = m:gsub("Deploy a domain, (.-), while dealing (.-) physical damage to enemies in range; then, continue to charge and gain Super Armor, dealing (.-) physical damage to enemies in range upon completion%..-", "Разворачивает поле боя, даруя союзникам защиту и нанося %2 физ. урона врагам вокруг. Затем накапливает силы в Суперброне и наносит %3 физ. урона.")
+        m = m:gsub("Summon a giant sword formation at the locked target's location, dealing (.-) physical damage%. Gain (.-) Twilight Mark.-", "Призывает строй гигантских мечей в точке цели, нанося %1 физ. урона и получая Метку сумерек.")
+        m = m:gsub("Gain (.-)Silver Rapier(.-) for (.-) seconds; gain (%d+) stacks of (.-)Dawn(.-)%. When casting other skills, tap this skill to directly gain all buff effects%.", "Дарует Серебряную рапиру на %3 сек. и %4 ур. Рассвета. При применении других навыков нажмите этот навык, чтобы сразу получить все эффекты.")
+        m = m:gsub("In Offensive Stance, each hit on an enemy applies (.-) seconds of (.-)Decay(.-)%.", "В атакующей стойке каждое попадание накладывает Увядание на %1 сек.")
+        m = m:gsub("In Defense Form, (.-)%.", "В защитной стойке: %1.")
 
         -- ----------------------------------------------------
         -- ПУТЬ ЖРЕЦА / СОЛНЦЕ (Bard / Sun)
         -- ----------------------------------------------------
-        m = m:gsub("Solar Energy must be at least (%d+) points to cast%. Consumes all Solar Energy, dealing ([%d%.]+) physical damage to the locked target and triggering Unshadowed%..-", "Требуется минимум %1 ед. Солнечной энергии. Поглощает всю энергию, нанося %2 физ. урона цели и активируя Бестеневой эффект. В состоянии Яркого Солнца наносит дополнительный чистый урон.")
-        m = m:gsub("Can only be cast when Spirituality is at least (%d+) points%. Consumes (%d+) points of Spirituality.-dealing ([%d%.]+) physical damage to enemies in a frontal range and Knocking Down enemy monsters%..-", "Требуется минимум %1 ед. энергии. Наносит %3 физ. урона врагам в секторе перед собой и сбивает монстров с ног. В состоянии Яркого Солнца зона и урон увеличены.")
-        m = m:gsub("Condenses a short axe to continuously attack surrounding enemies for (%d+) seconds, dealing (.-) physical damage every ([%d%.]+) seconds.-", "Призывает священный топор, непрерывно атакуя врагов вокруг в течение %1 сек. и нанося %2 физ. урона каждые %3 сек. Дает Солнечную энергию.")
-        m = m:gsub("Summons Holy Light to strengthen yourself%. Gain (%d+) points of Solar Energy immediately upon casting.-", "Призывает Святой Свет для усиления. Мгновенно дает %1 ед. Солнечной энергии и увеличивает наносимый физ. урон.")
-        m = m:gsub("Establish a Solar Oath at the designated location lasting (%d+) seconds, dealing (.-) physical damage to enemies within the area and applying continuous Stagnation%..-", "Создает Солнечную клятву в выбранной точке на %1 сек., нанося %2 физ. урона врагам в области и накладывая непрерывную Тягучесть и Опаление.")
+        m = m:gsub("Solar Energy must be at least (%d+) points to cast%. Consumes all Solar Energy, dealing (.-) physical damage to the locked target and triggering (.-)Unshadowed(.-)%..-", "Требуется минимум %1 ед. Солнечной энергии. Поглощает всю энергию, нанося %2 физ. урона цели и активируя Бестеневой эффект.")
+        m = m:gsub("Can only be cast when Spirituality is at least (%d+) points%. Consumes (%d+) points of Spirituality.-dealing (.-) physical damage to enemies in a frontal range and (.-)Knocking Down(.-) enemy monsters%..-", "Требуется минимум %1 ед. энергии. Поглощает %2 ед., нанося %3 физ. урона врагам в секторе перед собой и сбивая монстров с ног.")
+        m = m:gsub("Condenses a short axe to continuously attack surrounding enemies for (.-) seconds, dealing (.-) physical damage every (.-) seconds.-", "Призывает священный топор, непрерывно атакуя врагов вокруг в течение %1 сек. и нанося %2 физ. урона каждые %3 сек.")
+        m = m:gsub("Summons Holy Light to strengthen yourself%. Gain (.-) points of Solar Energy immediately upon casting.-", "Призывает Святой Свет для усиления. Мгновенно дает %1 ед. Солнечной энергии и увеличивает наносимый урон.")
+        m = m:gsub("Establish a Solar Oath at the designated location lasting (.-) seconds, dealing (.-) physical damage to enemies within the area and applying continuous Stagnation%..-", "Создает Солнечную клятву в выбранной точке на %1 сек., нанося %2 физ. урона врагам в области и накладывая непрерывную Тягучесть.")
+        m = m:gsub("In the (.-)Blazing Sun(.-) state, you will leap in front of the enemy and then slash forward with full force, dealing (.-) physical damage and (.-) knocking down (.-) enemy monsters, and gain (%d+) point of (.-)Solar Energy(.-) upon hitting%.", "В состоянии Яркого Солнца совершает выпад к врагу и рубит изо всех сил, нанося %3 физ. урона, сбивая монстров с ног и получая %7 ед. Солнечной энергии.")
 
         -- ----------------------------------------------------
         -- ПУТЬ УЧЕНИКА / ДВЕРЬ / ТАЙНОВЕДЕЦ (Apprentice / Door)
         -- ----------------------------------------------------
-        m = m:gsub("Fire a beam at the locked target to deal ([%d%.]+) magic damage%. The beam will refract to nearby enemy targets up to (%d+) times.-", "Выпускает луч света в цель, нанося %1 маг. урона. Луч преломляется во врагов рядом до %2 раз, накладывая Тягучесть и даруя Тайные знания.")
-        m = m:gsub("Summon a Starlight Cage to deal ([%d%.]+) magic damage to the locked target with a (.-) base probability of Stun for ([%d%.]+) seconds%..-", "Призывает Звёздную клетку, нанося %1 маг. урона цели и с вероятностью %2 оглушая ее на %3 сек. Дает Тайные знания.")
-        m = m:gsub("Rain down Star Sand on the target area, dealing (.-) magic damage to enemies within the range and applying.-", "Обрушивает Звёздный песок на выбранную область, нанося %1 маг. урона врагам в зоне действия и подбрасывая монстров в воздух.")
+        m = m:gsub("Fire a beam at the locked target to deal (.-) magic damage%. The beam will refract to nearby enemy targets up to (%d+) times.-", "Выпускает луч света в захваченную цель, нанося %1 маг. урона. Луч преломляется во врагов рядом до %2 раз, накладывая Тягучесть и даруя Тайные знания.")
+        m = m:gsub("Summon a Starlight Cage to deal (.-) magic damage to the locked target with a (.-) base probability of Stun for (.-) seconds%..-", "Призывает Звёздную клетку, нанося %1 маг. урона цели и с вероятностью %2 оглушая ее на %3 сек.")
+        m = m:gsub("Rain down Star Sand on the target area, dealing (.-) magic damage to enemies within the range and applying.-", "Обрушивает Звёздный песок на выбранную область, нанося %1 маг. урона врагам в зоне действия и подбрасывая монстров.")
+        m = m:gsub("Release a Spatial Cage to trap the target area, dealing (.-) magic damage to enemies within range and applying Imprisonment for (.-) seconds%..-", "Создает Клетку пространства, нанося %1 маг. урона врагам в зоне и накладывая Заточение на %2 сек.")
+        m = m:gsub("Unfold a Folding Screen of spaces to block attacks and deal (.-) magic damage to enemies passing through%..-", "Разворачивает Ширму пространств, блокируя атаки и нанося %1 маг. урона проходящим врагам.")
 
         -- ----------------------------------------------------
         -- ПУТЬ ШУТА / ПРОВИДЕЦ (Seer / Fool)
@@ -1104,7 +1513,19 @@ function Russian.lookupRussianText(text)
         m = m:gsub("<FaintYellow>Card Energy</FaintYellow>: Can hold up to (%d+) points%. When reaching (%d+) points, the <HighLight>Finisher Skill</HighLight> switches and locks to <HighLight>Shuffle Cards</HighLight>%.", "<FaintYellow>Энергия карт</FaintYellow>: Вмещает до %1 очков. При накоплении %2 очков <HighLight>Добивание</HighLight> переключается и блокируется на <HighLight>Тасовании карт</>.")
 
         -- ----------------------------------------------------
-        -- ОБЩИЕ МЕХАНИКИ И ЗОНЫ ДЕЙСТВИЯ (Range / Areas)
+        -- КУКЛЫ И СВЯЗИ (Puppets & Fellows)
+        -- ----------------------------------------------------
+        m = m:gsub("The doll awakens as its master enters combat%. When the master's skill hits the primary enemy target, the doll attaches itself to the target, causing them to suffer from the (.-)Beset by Misfortune(.-) effect%..-", "Кукла пробуждается при вступлении хозяина в бой. При попадании навыка хозяина по цели кукла прикрепляется к ней, накладывая эффект «Обречённость на несчастье».")
+        m = m:gsub("Allies and self within the (.-)Poetic aura(.-) gain increased Critical Hit rate%..-", "Союзники и заклинатель в Поэтической ауре получают повышенный шанс крит. удара.")
+        m = m:gsub("Allies and self within the (.-)Tranquility aura(.-) can recover a small amount of Health with each attack%..-", "Союзники и заклинатель в Ауре покоя восстанавливают здоровье при каждой атаке.")
+        m = m:gsub("Allies can retain the Acceleration effect for an additional (%d+) seconds after leaving the Spirit Mediumship Ritual range%.", "Союзники сохраняют ускорение ещё %1 сек. после выхода из зоны Спиритического ритуала.")
+        m = m:gsub("Perform a Fortune%-Turning Ritual, increasing the luck of all team members and granting (.-)%.", "Проводит Ритуал удачи, увеличивая удачу всех членов группы и даруя %1.")
+        m = m:gsub("Recite a Midnight Poem, putting surrounding enemies to Sleep for (.-) seconds%..-", "Декламирует Полуночную поэму, усыпляя врагов вокруг на %1 сек.")
+        m = m:gsub("Chant an Ensemble Poem to grant allies continuous healing and Damage Reduction for (.-) seconds%..-", "Исполняет Созвучие стихов, даруя союзникам периодическое исцеление и снижение урона на %1 сек.")
+        m = m:gsub("Deliver a Law Judgment upon enemies, dealing (.-) physical damage and applying (.-)%.", "Выносит Приговор закона врагам, нанося %1 физ. урона и накладывая %2.")
+
+        -- ----------------------------------------------------
+        -- ОБЩИЕ МЕХАНИКИ, ЗОНЫ, СТАТУСЫ И ПОДПИСИ
         -- ----------------------------------------------------
         m = m:gsub("Circular area with a radius of ([%d%.]+) meters", "Круглая область радиусом %1 м")
         m = m:gsub("within a ([%d%.]+)%-meter radius of the target", "в радиусе %1 м от цели")
@@ -1114,6 +1535,11 @@ function Russian.lookupRussianText(text)
         m = m:gsub("All .-skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
         m = m:gsub("All .-Skills level up together%. Gain extra Skill Points through %[Sequence Advancement%]%.", "Все навыки Пути прокачиваются вместе. Получайте доп. очки навыков за [Продвижение по Последовательностям].")
         m = m:gsub("Gain extra Skill Points through %[Sequence Advancement%]%.", "Получайте доп. очки навыков за [Продвижение по Последовательностям].")
+
+        -- Интерфейс описания навыков (заголовки)
+        m = m:gsub("Next Level Effect", "Эффект след. уровня")
+        m = m:gsub("Current Level Effect", "Эффект тек. уровня")
+        m = m:gsub("Base Effect", "Базовый эффект")
 
         -- Баффы и статусы
         m = m:gsub("Super Armor", "Суперброня")
@@ -1130,12 +1556,15 @@ function Russian.lookupRussianText(text)
         m = m:gsub("Damage Reduction", "Снижение урона")
         m = m:gsub("Physical Damage Boost", "Усиление физ. урона")
         m = m:gsub("Magic Damage Boost", "Усиление маг. урона")
+        m = m:gsub("Skill Enhancement", "Усиление навыков")
+        m = m:gsub("Skill Block", "Блок навыков")
         m = m:gsub("Pierce", "Пробивание")
 
         if m ~= text then
             return m
         end
     end
+
 
     return nil
 end
