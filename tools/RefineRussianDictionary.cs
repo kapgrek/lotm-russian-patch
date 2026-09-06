@@ -137,6 +137,11 @@ class RefineRussianDictionary
             val = Regex.Replace(val, @"\b(Коррупцию|коррупцию)\b", "Искажение");
             val = Regex.Replace(val, @"\b(Коррупцией|коррупцией)\b", "Искажением");
 
+            val = Regex.Replace(val, @"\b(ворот Чанис|ворота Чанис|врат Чанис|врата Чанис)\b", "Врат Чаниса", RegexOptions.IgnoreCase);
+            val = Regex.Replace(val, @"\b(Chanis Gate|Чанис Гейт)\b", "Врата Чаниса", RegexOptions.IgnoreCase);
+            val = Regex.Replace(val, @"\b(Стена Духовности)\b", "Стена духовности");
+            val = Regex.Replace(val, @"\b(курчавые бабуины|курчавых бабуинов|вьющиеся бабуины)\b", "курчавошерстные бабуины", RegexOptions.IgnoreCase);
+
             val = val.Replace("\\п", "\\n").Replace("\\т", "\\t").Replace("\\р", "\\r");
 
             if (val != originalVal)
