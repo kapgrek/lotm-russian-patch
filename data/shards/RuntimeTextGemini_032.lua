@@ -4,7 +4,7 @@ return {
     ["        ...So that's how it is. Steam Palace, you should be sleeping in history just like me, but why have you suddenly reappeared in the world? Who... wants to use my power, my aura..."] = "...Так вот как оно есть. Steam Palace, ты, как и я, должен был бы спать в истории, но почему ты вдруг снова появился в мире? Кто... хочет использовать мою силу, мою ауру...",
     ["1. Random meteor chain; 2. Fast/slow semicircle AOE"] = "1. Случайная серия метеоров; 2. Быстрое/медленное полукруглое AOE",
     ["28 Complex Terrain Test Scene"] = "28 Сложная сцена испытания на местности",
-    ["No. 4"] = "№ b",
+    ["No. 4"] = "№ 4",
     ["<Assistant_Title1>【自然柔顺】</>\n<Assistant_Title2>描述：</>商城直售发型\n<Assistant_Title2>使用：</>商城购买后获得自然柔顺发型，可点击<Assistant_System>外观-换装</>查看并使用。\n<Assistant_Title2>获取：</>通过<Assistant_System>商城</>获取"] = "<Assistant_Title1> [Naturally Smooth] </>\n<Assistant_Title2> Описание: </> Прическа для прямой продажи в торговых центрах \n<Assistant_Title2> Использование: </> После покупки в торговом центре вы получите прическу Naturally Smooth, которую можно просмотреть и использовать, нажав <Assistant_System> Внешний вид — Оформление </>. \n<Assistant_Title2> Приобретение: </> Получено через торговый центр <Assistant_System> </>",
     ["<Highlight>工艺：</>白羽织纱・鎏金缀饰\n晨祷者的衣角沾着露水和光线，每一步踏在颂歌的尾音上，将圣殿的宁静吟诵成行走的诗篇。"] = "<Highlight>Ремесло: </>Белая пряжа с перьями/позолоченный орнамент\nПодол молитвенного одеяния испачкан росой и светом; каждый шаг, сделанный в конце гимна, превращает спокойствие святилища в ходячую поэму.",
     ["<P_Heart>(Could the contamination Mr. Moon investigated be related to these vampire rumors?)</>"] = "<P_Heart>(Может ли заражение, которое расследовал мистер Мун, быть связано со слухами о вампирах?)</>",

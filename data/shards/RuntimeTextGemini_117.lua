@@ -171,7 +171,7 @@ return {
     ["点击<h>此处</>快速寻路"] = "Нажмите <h>здесь</> для автоматического поиска пути.",
     ["点击按钮使用封印物的能力。"] = "Нажмите кнопку, чтобы использовать способность Запечатанного Артефакта.",
     ["The familiar <h>wood-carved piano</>"] = "Знакомое фортепиано <h> с резьбой по дереву</>",
-    ["Effect_Unlock_01"] = "Effect_Unlock_bb",
+    ["Effect_Unlock_01"] = "Эффект_Разблокировка_01",
     ["猎犬酒吧--莱特"] = "Паб Hound - Райт",
     ["The Dragon Hunter Gang hunts everything except dragons."] = "Банда охотников на драконов охотится на всех, кроме драконов.",
     ["Player Open Letter Interface; Player Remove Quest Item (Delete All); Player Remove Quest Item (Delete All)"] = "Интерфейс открытого письма игрока; Удалить квестовый предмет игрока (Удалить все); Игрок Удалить квестовый предмет (Удалить все)",

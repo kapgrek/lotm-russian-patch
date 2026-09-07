@@ -25,7 +25,7 @@ return {
     ["BOSS Reset Dissipation Effect"] = "BOSS: Сброс эффекта рассеивания",
     ["GVG Matchmaking"] = "Поиск игроков ГВГ",
     ["That's right! {{先生|女士}}, do you also understand the mystery of it?"] = "Это верно! {{Sir|Madam}}, ты тоже понимаешь тайну этого?",
-    ["Tri3_Puzzle 4"] = "Tri3_Puzzle b",
+    ["Tri3_Puzzle 4"] = "Tri3_Загадка 4",
     ["{{先生|女士}}, I am very skilled at laundry, cooking, and cleaning, and I can read and write normally."] = "{{Sir|Madam}}, я очень хорошо умею стирать, готовить и убирать, могу нормально читать и писать.",
     ["\"Sworn by the heart, to protect my love.\" It seems this was a gift from Mr. Jevon to Ms. Fula. Does she let this keepsake accompany her to sleep..."] = "«Клянусь сердцем защищать мою любовь». Кажется, это был подарок мистера Джевона госпоже Фуле. Позволяет ли она этому сувениру сопровождать ее во сне...",
     ["“神降”仪式进度"] = "Ход ритуала «Божественное нисхождение»",

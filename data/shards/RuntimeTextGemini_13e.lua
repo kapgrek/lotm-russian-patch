@@ -74,7 +74,7 @@ return {
     ["Capton"] = "Кэптон",
     ["发送信息“赞美愚者”"] = "Отправить сообщение «Похвалите дурака»",
     ["When receiving attacks from a Mystery Pryer Pathway Beyonder, negates {*.1f**,F1690001,MysteryPryerHurtDivi} of their Suppression. (Reduces the attacker's Suppression to a maximum of 0)"] = "При получении атак от Тайноведец Pathway Потусторонний нейтрализует {*.1f**,F1690001,MysteryPryerHurtDivi} их подавление. (Уменьшает подавление атакующего до максимума 0)",
-    ["Summon Suppression_Value"] = "Summon Suppression_Valub",
+    ["Summon Suppression_Value"] = "Подавление призванных: значение",
     ["The chandelier is #CanMove rotating #"] = "Люстра #CanMove вращается #",
     ["吧台酒保处，可以购买香槟酒，开启香槟酒，共同庆贺。"] = "В баре вы можете купить шампанское, попить его и отпраздновать вместе.",
     ["吼吼，吼吼？<P_Heart>（那么，你准备好了吗？）</>"] = "Рев-рев, рев-рев? <P_Heart>(Итак, вы готовы?)</>",

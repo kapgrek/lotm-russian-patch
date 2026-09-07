@@ -1,7 +1,7 @@
 ﻿-- Generated Russian translation shard 2a7/3ff.
 -- Dual-indexed (CN + EN keys) for instant zero-limit lookup.
 return {
-    ["\n……\n\n从七月初起，廷根市儿童失踪事件多次发生，失踪者总人数为<Mark id=\"#159\"> 十三人 </>，其中男孩五人、女孩八人。\n目前已找到三人尸体，并已将凶手捉捕结案。\n但尸检检定致死原因均不同，归属于三例不同的现实普通事件。"] = "\n……\n\nSince the beginning of July, child disappearance incidents in Tingen have occurred many times. The total number of missing persons is </> thirteen </>, including five boys and eight girls.\nCurrently, three bodies have been found, and the murderer has been caught and the case closed.\nBut the autopsy determined that the causes of death were all different, belonging to three different realistic ordinary events.",
+    ["\n……\n\n从七月初起，廷根市儿童失踪事件多次发生，失踪者总人数为<Mark id=\"#159\"> 十三人 </>，其中男孩五人、女孩八人。\n目前已找到三人尸体，并已将凶手捉捕结案。\n但尸检检定致死原因均不同，归属于三例不同的现实普通事件。"] = "\n……\n\nС начала июля в Тингене участились случаи пропажи детей. Общее число пропавших без вести составляет <Mark id=\"#159\"> тринадцать человек </>, среди них пять мальчиков и восемь девочек.\nНа данный момент найдены тела троих, убийца задержан, дело закрыто.\nОднако вскрытие показало разные причины смерти, относящиеся к трём не связанным обычным происшествиям.",
     [" <Highlight>工艺：</>流光真丝・鳞粉点染\n蝴蝶虽已在黄昏离去，蝶翼的幻影却仍停驻于披风之上。"] = "<Основное>Ремесло: </>струящийся легкий шелк/чешуйчатая пудра\nХотя бабочка уже улетела в сумерках, призрак ее крыльев все еще задерживается на плаще.",
     ["%s has become the new room owner."] = "%s стал новым владельцем комнаты.",
     ["No one participated in the auction for %s; it has been randomly assigned to %s."] = "Никто не участвовал в аукционе за %s; он был случайным образом назначен %s.",

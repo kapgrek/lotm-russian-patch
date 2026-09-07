@@ -24,7 +24,7 @@ return {
     ["<Yellow>你背负起了被诅咒的命运，死亡时你的尸骨会活化周围土地</>"] = "<Yellow> Вы взвалили на свои плечи проклятую судьбу; после смерти ваши кости оживят окружающую землю </>",
     ["<img id=\"09\" width=\"40\" height=\"40\"/>Damage Reduction: <HighLight>90%</>"] = "<img id=\"09\" width=\"40\" height=\"40\"/>Снижение урона: <HighLight>90%</>",
     ["Actor3-Actor1-近景"] = "Актер3-Актер1-Крупный план",
-    ["BattleZone_Hound"] = "BattleZone_Hounb",
+    ["BattleZone_Hound"] = "БоеваяЗона_Гончая",
     ["Finally about to finish. There's one last step. Miss Justice, should I send {{him|her}} to Tingen now?"] = "Наконец собираюсь закончить. Есть последний шаг. Мисс Джастис, мне стоит послать {{him|her}} в Тинген сейчас?",
     ["Your aura appears dark, stranger {{先生|女士}}, what are you sad about?"] = "Твоя аура кажется темной, незнакомец {{Sir|Madam}}, о чем ты грустишь?",
     ["[Emoji 70]"] = "[Эмодзи 70]",

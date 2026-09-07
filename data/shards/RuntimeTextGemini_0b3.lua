@@ -192,7 +192,7 @@ return {
     ["笑脸小丑-周围人加"] = "Улыбающийся клоун - Окружающие люди Добавить",
     ["Round %s starting soon"] = "Скоро начнется раунд %s",
     ["Round 1 is about to begin"] = "Раунд 1 вот-вот начнется",
-    ["The..."] = "...",
+    ["The..."] = "№...",
     ["Wait for the side effects to subside"] = "Подождите, пока побочные эффекты исчезнут",
     ["Wait time, player plays speech text visible only to self, object plays animation (has state record), delay execution, player plays speech text visible only to self, object plays animation (has state record)"] = "Время ожидания, игрок воспроизводит речевой текст, видимый только ему, объект воспроизводит анимацию (имеет запись состояния), задерживает выполнение, игрок воспроизводит речевой текст, видимый только ему, объект воспроизводит анимацию (имеет запись состояния)",
     ["Wait, {{PlayerName}}!"] = "Подожди, {{PlayerName}}!",

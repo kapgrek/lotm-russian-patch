@@ -189,7 +189,7 @@ return {
     ["监听销毁 or 监听死亡技能"] = "Слушайте разрушение или слушайте Death Skill",
     ["Shield 30"] = "Щит 30",
     ["See what Leonard is up to"] = "Посмотрите, что задумал Леонард",
-    ["Stun Dodge_Value"] = "Stun Dodge_Valub",
+    ["Stun Dodge_Value"] = "Оглушение: уклонение",
     ["Zhiyue"] = "Чжиюэ",
     ["A worn-out lamb doll. The <P_Yellow>yarn</> at the seams seems like an un\nopened seal, waiting for a <P_Yellow>sharp blade</> to cut open the truth."] = "Изношенная кукла-ягненок. <P_Yellow>yarn</> по швам выглядит как неоткрытая печать \n, ожидающая, пока острое лезвие <P_Yellow></> раскроет правду.",
     ["A worn-out wallet with some loose change inside. These items seem untouched for a long time, incredibly fragile..."] = "Потертый кошелек с мелочью внутри. Эти предметы кажутся нетронутыми долгое время, невероятно хрупкими...",

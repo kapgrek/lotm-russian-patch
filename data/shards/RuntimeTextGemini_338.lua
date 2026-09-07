@@ -3,8 +3,8 @@
 return {
     ["\n　　Failed the exam again... I have lost count of how many times I have failed...\n\n　　Perhaps I was not born to be a government employee. Carefully managing that small meat stall and living with a beautiful wife is the life I should be living.\n\n　　She will wash my clothes, I will stew meat for her, and let her become the woman who has eaten the most meat in all of Tingen.\n\n　　What a beautiful life... I should pull myself together and try hard to find a wife."] = "\n　　Опять провалил экзамен... Я потерял счет тому, сколько раз я провалил экзамен...\n\n　　Возможно, я не родился для того, чтобы быть государственным служащим. Тщательно управлять этим маленьким мясным ларьком и жить с красивой женой - это жизнь, которой я должен жить.\n\n　　Она будет стирать мою одежду, я буду тушить для нее мясо, и позволю ей стать женщиной, которая съела больше всего мяса во всем Тингене.\n\n　　Какая прекрасная жизнь... Я должен взять себя в руки и постараться найти жену.",
     ["15_魔女雪伦"] = "15_Ведьма Шэрон",
-    ["5208010   0129肉鸽本4   副本"] = "5208010 0129 Roguelike Dungeon 4 Dungeon",
-    ["5208010   0129 Roguelike Dungeon 4   Dungeon"] = "5208010 0129 Roguelike Dungeon 4 Dungeon",
+    ["5208010   0129肉鸽本4   副本"] = "5208010   0129 Рогалик-подземелье 4   Подземелье",
+    ["5208010   0129 Roguelike Dungeon 4   Dungeon"] = "5208010   0129 Рогалик-подземелье 4   Подземелье",
     ["8 Gold Coins"] = "8 золотых монет",
     ["<Assistant_Title1>不幸者</>\n<Assistant_Title2>成就分类：</>跑团-秩序世界\n<Assistant_Title2>解锁条件：</>在跑团投骰中首次掷出大失败"] = "<Assistant_Title1>Unfortunate One</>\n<Assistant_Title2>Категория достижения: </>TRPG-Мировой порядок\n<Assistant_Title2>Условие разблокировки: </>Первый раз бросить критическую неудачу при броске кубиков TRPG",
     ["<Assistant_Title1>Containment Legend</>\n<Assistant_Title2>Achievement Category: </>Growth - Equipment\n<Assistant_Title2>Unlock Condition: </>Equip 3 Imprinted items"] = "<Assistant_Title1>Легенда содержания</>\n<Assistant_Title2>Категория достижений: </>Рост — оборудование\n<Assistant_Title2>Условие разблокировки: </>Оборудовать 3 запечатанных предмета",

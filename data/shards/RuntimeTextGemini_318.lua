@@ -21,7 +21,7 @@ return {
     ["<h>跟随邓恩</>进入房间"] = "<h>Следуйте за Данном</> в комнату.",
     ["This {{Sir|Miss}}, perhaps you can help Manisha... Oh, but you don't know either!"] = "Этот {{Sir|Miss}}, возможно, ты сможешь помочь Манише... Ой, но ты тоже не знаешь!",
     ["{{Sir|Madam}}, no matter what you buy, this shop will donate five percent of the profits to the poorhouse to help those in need."] = "{{Sir|Madam}}, что бы ты ни купил, этот магазин будет жертвовать пять процентов прибыли в богадельню, чтобы помочь нуждающимся.",
-    ["“剥面人”挑战%s第%s%s"] = "Face-Ripper Challenge %s № %s %s",
+    ["“剥面人”挑战%s第%s%s"] = "Испытание «Сдирателя лиц» %s № %s %s",
     ["“头狼”鲁珀彻底疯狂，向你亮出了獠牙。"] = "Люпер, Альфа-Волк, совсем сошел с ума и обнажил на тебя клыки.",
     ["“她像天使一般飞去了……”"] = "«Она улетела, как ангел...»",
     ["The slogan for \"Lightning Delivery\" is—within Tingen, delivered in half an hour!"] = "Слоган «Молниеносной доставки» — доставка в пределах Тингена за полчаса!",

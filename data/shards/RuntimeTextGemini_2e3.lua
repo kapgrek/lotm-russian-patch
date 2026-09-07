@@ -190,7 +190,7 @@ return {
     ["焰火"] = "Пламя Огонь",
     ["然后，我的日程表就越来越满了！"] = "Потом мой график становился все насыщеннее и насыщеннее!",
     ["特效_传送_子嗣守护"] = "Эффект_Телепорт_ЗащитаПотомства",
-    ["Effect_Teleport_Hound"] = "Effect_Teleport_Hounb",
+    ["Effect_Teleport_Hound"] = "Эффект_Телепорт_Гончая",
     ["Special characters cannot be at the end of the name."] = "В конце имени не могут быть специальные символы.",
     ["Trissy Clone"] = "Трисси Клон",
     ["Wolf Claw Attack - Blue"] = "Атака волчьими когтями — синяя",

@@ -12,7 +12,7 @@ return {
     ["<P_Heart>（放下工具，想了想）</> 有一块怀表，表盖内侧刻了字，是两个人的名字和一个日期。"] = "<P_Heart> (откладывает инструменты, на мгновение задумывается) </> Там были карманные часы, на внутренней стороне крышки выгравированы слова: два имени и дата.",
     ["<TMis> Full </><P_Yellow>%d people </><TMis> respond </>"] = "<TMis> Полный </><P_Yellow>%d человек </><TMis> отвечает </>",
     ["<h>Analyze clues</>"] = "<h>Анализ подсказок</>",
-    ["Boss_梅高欧丝"] = "Boss_Megosb",
+    ["Boss_梅高欧丝"] = "Босс_Мегоуз",
     ["Enum(进战状态)"] = "Энум (боевое состояние)",
     ["Npc_传送_外城入口"] = "Npc_Teleport_Вход во внешний город",
     ["[UIFrame : UIComponent]:SetImage Set image %s failed. Image control needs to be UKGImage %s %s"] = "[UIFrame: UIComponent]:SetImage Установить изображение %s не удалось. 8e6adaf1f9ae06bcb9663531e5521abbУправление изображением должно быть UKGImage %s %s",

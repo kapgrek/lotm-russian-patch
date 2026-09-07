@@ -22,7 +22,7 @@ return {
     ["ByOwner:玩家朝向\nByUnit:使用子实体\nByPos:使用黑板值"] = "ByOwner: Игрок смотрит на \n ByUnit: Используйте подобъект \n ByPos: Используйте значение доски.",
     ["Dear {{Sir|Madam}}:"] = "Уважаемый {{Sir|Madam}}:",
     ["MapID = %s not exist in Manor_庄园.HomeConfig.xlsx"] = "MapID = %s не существует в Manor_Manor.HomeConfig.xlsx",
-    ["Npc_Frye_Entrance"] = "Npc_Frye_Entranbb",
+    ["Npc_Frye_Entrance"] = "NPC_Фрай_Вход",
     ["[UIFrame : NewUIManager] Open panel again %s"] = "[UIFrame: NewUIManager] Снова откройте панель %s",
     ["{\n \"All (default value)\": \"All\", \n \"Enemy\": \"Enemy\", \n \"Friendly (excluding self)\": \"Friend\", \n \"Friendly\": \"FriendAndSelf\", \n}"] = "{\n \"Все (по умолчанию)\": \"All\", \n \"Враги\": \"Enemy\", \n \"Союзники (без себя)\": \"Friend\", \n \"Союзники и я\": \"FriendAndSelf\", \n}",
     ["\"Only when Chaos and Order intersect.\""] = "«Только когда Хаос и Порядок пересекаются».",

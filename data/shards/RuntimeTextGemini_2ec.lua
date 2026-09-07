@@ -16,7 +16,7 @@ return {
     ["<P_Heart>（收了起来）</>没什么。"] = "<P_Heart> (убирает его) </> Ничего.",
     ["<P_Heart>（温柔）</>你也需要签名吗？"] = "<P_Heart> (Мягко) </> Тебе тоже нужна подпись?",
     ["<P_Yellow>Interesting</>, can drama be watched with the nose?"] = "<P_Yellow>Интересно</>, можно ли смотреть драму носом?",
-    ["BOSS_Hound"] = "BOSS_Hounb",
+    ["BOSS_Hound"] = "БОСС_Гончая",
     ["BOSS Armor Break Mark Buff"] = "БОСС: усиление отметки пробития брони",
     ["Kind {{先生|女士}}, please give a little more... there are many other children who haven't eaten..."] = "Добрый {{sir|madam}}, дайте, пожалуйста, еще немного... есть много других детей, которые не ели...",
     ["LuaList(IdGroup(技能))"] = "LuaList(IdGroup(Навык))",

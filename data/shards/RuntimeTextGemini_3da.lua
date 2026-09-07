@@ -4,7 +4,7 @@ return {
     ["(1)谜题1-大门"] = "(1) Головоломка 1 — Ворота",
     ["1. Clear Brass Book-related skill entities"] = "1. Очистите объекты навыков, связанные с Brass Book.",
     ["1苏勒"] = "1 Сол",
-    ["4号"] = "№ b",
+    ["4号"] = "№ 4",
     ["5231114   源堡   单人位面"] = "5231114 Экземпляр замка Сефиры для одиночной игры",
     ["5231116   廷根湖   单人位面"] = "5231116 Одиночное измерение: Тинген Озеро",
     ["<Assistant_Title1>【Display Stand - Thought】</>\n<Assistant_Title2>Description: </>Default display stand action.\n<Assistant_Title2>Usage: </>You can view and use it by clicking <Assistant_System>Appearance - Display Stand</>.\n<Assistant_Title2>Acquisition: </>Unlocked by default."] = "<Assistant_Title1>【Дисплейная подставка - Мысль】</>\n<Assistant_Title2>Описание: </>Действие подставки по умолчанию.\n<Assistant_Title2>Использование: </>Вы можете просмотреть и использовать его, нажав <Assistant_System>Внешний вид - Демонстрационная подставка</>.\n<Assistant_Title2>Приобретение: </>Разблокировано по умолчанию.",
@@ -269,5 +269,5 @@ return {
     ["魔法板秘法师3"] = "Магическая доска Арканист b",
     ["Claw of a Dawn Bird"] = "Коготь рассветной птицы",
     ["默认不填写时，为1，即100%概率。允许填写公式。"] = "По умолчанию 1, если не заполнено, т. е. вероятность 100%. Позволяет заполнять формулы.",
-    ["真\n贪\n心"] = "Какая\nжадность",
+    ["真\n贪\n心"] = "Как\nже\nжадно",
 }

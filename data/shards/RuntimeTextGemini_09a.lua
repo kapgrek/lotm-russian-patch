@@ -23,7 +23,7 @@ return {
     ["Attack <Highlight>Mutated Material</> with the affix <Highlight><战争主教></>: \"All Skill levels +1, Attack Boost increased.\""] = "Атакуйте <Highlight>Mutated Material</> с аффиксом <Highlight><Bishop of War></>: «Все уровни навыков +1, усиление атаки увеличено».",
     ["BOSS4-东南骑兵小怪"] = "БОСС4 — Юго-восточный кавалерийский миньон",
     ["ItrCol_开关内"] = "Переключатель ItrCol_Insibb",
-    ["NPC_Air 2"] = "NPC_Air b",
+    ["NPC_Air 2"] = "NPC_Воздух 2",
     ["QA查看测内存环境"] = "Среда тестирования памяти для просмотра QA",
     ["True:监听所有技能；\nFalse:只监听匹配SkillIDs、SkillTags、SkillTypes的技能"] = "Верно: слушайте все навыки; \nFalse: прослушивать только те навыки, которые соответствуют SkillID, SkillTags, SkillTypes.",
     ["[Emoji 2]"] = "[Эмодзи 2]",

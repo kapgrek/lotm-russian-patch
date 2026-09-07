@@ -18,7 +18,7 @@ return {
     ["<P_Heart>(Did he just admit it so directly?) </>"] = "<P_Heart>(Он только что так прямо признался в этом?) </>",
     ["<P_Heart>（虽然暂时没有危险，但也不像恶作剧那么简单。）</>"] = "<P_Heart>(Хотя непосредственной опасности нет, это не так просто, как розыгрыш.)</>",
     ["Boss Battle_Ancestor Knight_Initial"] = "БоссБитва_РыцарьПредков_Начало",
-    ["NPC_档案编号_0123"] = "NPC_Archive_Number_1abb",
+    ["NPC_档案编号_0123"] = "NPC_Архивный_Номер_0123",
     ["[表情100]"] = "[Эмодзи 100]",
     ["{\"id\":1000,\"title\":\"Downloading Resources\",\"body\":\"Downloading in the background for you\",\"pushMode\":0,\"delayInSeconds\":1}"] = "{\"id\":1000,\"title\":\"Загрузка ресурсов\",\"body\":\"Загрузка ресурсов в фоновом режиме\",\"pushMode\":0,\"delayInSeconds\":1}",
     ["...Alright, at least I got a piece of meat."] = "...Ладно, по крайней мере, я получил кусок мяса.",

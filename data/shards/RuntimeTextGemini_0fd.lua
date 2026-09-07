@@ -15,7 +15,7 @@ return {
     ["<Red>视力损伤</>：异界状态结束后的5秒内陷入视野模糊状态，期间格挡降低*f**，防御降低*f**。\n<Red>排异</>：战斗中每隔30秒，随机一条非凡物质词条属性失效。"] = "<Red>Vision Impairment</>: Within 5 seconds after the Otherworldly state ends, you fall into a blurred vision state, during which Block is reduced by *f** and Defense is reduced by *f**. \n<Red>Rejection</>: Every 30 seconds during combat, one random Потусторонний material attribute becomes ineffective.",
     ["<h>\"Mind Reading\" Dr. Hope</>"] = "<h> «Чтение мыслей» Доктор Хоуп</>",
     ["NPC-卖鱼摊老板约翰森"] = "NPC - Владелец рыбного ларька Джонсон",
-    ["Tri3_谜题3"] = "Tri3_Puzzle b",
+    ["Tri3_谜题3"] = "Tri3_Загадка 3",
     ["[PVPWatchGame] OnEnterWatchMode: Unable to retrieve both teamIDs from LocalSpace.TeamInfoDict"] = "[PVPWatchGame] OnEnterWatchMode: невозможно получить оба идентификатора команды из LocalSpace.TeamInfoDict.",
     ["flowchart节点"] = "узел блок-схемы",
     ["{{PlayerName}}, it seems you also have a talent for being a food critic."] = "{{PlayerName}}, кажется, у тебя еще есть талант кулинарного критика.",

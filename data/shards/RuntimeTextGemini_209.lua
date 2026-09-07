@@ -104,7 +104,7 @@ return {
     ["Guardian Altar 2"] = "Алтарь Стража b",
     ["完成%s/%s次探索：<Highlight>灵体之线</>"] = "Полные исследования %s/%s: нити тела духа <Highlight></>",
     ["Complete the May Manor · Garden Brass Book challenge [Pure Land of Delusion · Hard]"] = "Завершите испытание «Мэйское поместье · Садовая медная книга» [Чистая земля иллюзий · Сложный]",
-    ["Dialogue_LeftHandExtended"] = "Dialogue_LeftHandExtenabb",
+    ["Dialogue_LeftHandExtended"] = "Диалог_Протянуть левую руку",
     ["寻求恩赐"] = "Ищите благословение",
     ["Shooting Area"] = "Стрельба",
     ["Clown - Spell Agent"] = "Клоун - Агент заклинаний",

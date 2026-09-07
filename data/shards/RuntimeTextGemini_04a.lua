@@ -15,7 +15,7 @@ return {
     ["<h>修正推理</>"] = "<h> Исправить вычет </>",
     ["BattleRoom_InsideMemberItemBase invalid slot %s, %s, %s "] = "BattleRoom_InsideMemberItemBase неверный слот %s, %s, %s",
     ["Detective {{先生|女士}}, if you still have questions, why not investigate the room first?"] = "Детектив {{Sir|Madam}}, если у вас все еще есть вопросы, почему бы сначала не осмотреть комнату?",
-    ["NPC_Archive_Number_0123"] = "NPC_Archive_Number_1abb",
+    ["NPC_Archive_Number_0123"] = "NPC_Архивный_Номер_0123",
     ["Yaw/偏航角修正值"] = "Значение коррекции рыскания",
     ["[Auto Chess Transition]: Chess piece jump is missing a start point (%s) or end point (%s)"] = "[Автоматический переход в шахматы]: при прыжке шахматной фигуры отсутствует начальная точка (%s) или конечная точка (%s).",
     ["'Thank you for your speed, and thank you for your kindness.'"] = "«Спасибо за вашу скорость и спасибо за вашу доброту».",

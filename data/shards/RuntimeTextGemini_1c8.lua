@@ -13,7 +13,7 @@ return {
     ["<P_Heart>（皱眉）</>先去墓地广场看看。"] = "<P_Heart> (Хмурится) </> Пойдем на кладбищенскую площадь и посмотрим.",
     ["<P_Heart> (Police badge... perhaps it can help me enter the underground market? Find the bar owner </><P_Yellow> Swain </><P_Heart>, disguise as a police officer?) </>"] = "<P_Heart> (Полицейский значок... возможно, он поможет мне проникнуть на подземный рынок? Найти владельца бара </><P_Yellow> Суэйна </><P_Heart>, замаскироваться под полицейского?) </>",
     ["BOSS 4 - Quality - Medium attack"] = "БОСС 4 — Качество — Средняя атака",
-    ["BattleZone_Offspring Guard"] = "BattleZone_Offspring Guarb",
+    ["BattleZone_Offspring Guard"] = "БоеваяЗона_Страж потомства",
     ["GTA-机械造物-雷电射线"] = "GTA-МехСоздание-Молниевый луч",
     ["It's more than that, {{先生|女士}}. Bayam is famous across the sea for its spices, brothels, and casinos. Once you touch gambling, it's hard to get out."] = "Это нечто большее, {{sir|madam}}. Баям известен за морем своими специями, борделями и казино. Как только вы прикоснетесь к азартным играм, вам будет трудно выйти из них.",
     ["This {{Sir|Miss}}, you see, our Manisha has been in such a hurry since she slipped out this afternoon."] = "Видишь ли, этот {{Sir|Miss}}, наша Маниша так торопилась с тех пор, как ускользнула сегодня днем.",

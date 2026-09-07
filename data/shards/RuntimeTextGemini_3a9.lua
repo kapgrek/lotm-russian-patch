@@ -190,7 +190,7 @@ return {
     ["Continuously take suction effects when controlled by a historical projection of the Realm of Mysteries."] = "Постоянно получайте эффекты всасывания, когда находитесь под контролем исторической проекции Царства Тайн.",
     ["西奥多"] = "Теодор",
     ["The second chapter of the fairy tale written by Xiga Teang, based on Dunn and Daly."] = "Вторая глава сказки Сиги Танг по мотивам Данна и Дейли.",
-    ["Trigger_Butler_Load"] = "Trigger_Butler_Lobb",
+    ["Trigger_Butler_Load"] = "Триггер_Дворецкий_Загрузка",
     ["触发器·寻找爱丽丝"] = "Триггер · Найти Алису",
     ["请先选中需要删除的分组"] = "Пожалуйста, выберите группу, которую нужно удалить в первую очередь.",
     ["Thank you, Clown{{Mr.|Ms.}}."] = "Спасибо, Клоун{{Mr.|Ms.}}.",

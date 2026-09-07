@@ -225,4 +225,5 @@ return {
     ["Witch hug (MF)"] = "Ведьмины объятия (МФ)",
     ["黑荆棘事件簿值夜模式开启"] = "Открыт файл по делу Black Thorn Режим Ночной Ястреб",
     ["齐林格斯"] = "Килангос",
+    ["\n<Tips stylename=\"Letter_Highlight\" u=\"1\" id=\"#160_R\">On the stained note, only a few lines remain legible:</>\n\"I finally understand...\"\n\"The first round is <Letter_Highlight_HW>number two</>! Number two is <Letter_Highlight_HW>real</>!\"\n\"What the Desire Messenger said is all <Letter_Highlight_HW>truth</>, but we will still die—\"\n<Hide stylename=\"Transparent\" id=\"#161_R\">The handwriting broke</>, <Hide id=\"#157\">behind it is a dark stain that has been wiped.</>"] = "\n<Tips stylename=\"Letter_Highlight\" u=\"1\" id=\"#160_R\">На испачканной записке осталось лишь несколько разборчивых строк:</>\n«Я наконец-то понял...»\n«В первом раунде был <Letter_Highlight_HW>номер два</>! Номер два — <Letter_Highlight_HW>настоящий</>!»\n«Посланник Желаний говорил чистую <Letter_Highlight_HW>правду</>, но мы всё равно погибнем...»\n<Hide stylename=\"Transparent\" id=\"#161_R\">Почерк обрывается</>, <Hide id=\"#157\">дальше идёт растёртое тёмное пятно.</>",
 }

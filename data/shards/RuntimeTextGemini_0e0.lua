@@ -26,7 +26,7 @@ return {
     ["Battle: Change Boss Armor Break lock."] = "Битва: изменить замок пробития брони босса.",
     ["CD value (seconds)"] = "Значение CD (секунды)",
     ["GTA - Mechanical Construct - Head - Hide Head"] = "GTA - Механическая конструкция - Голова - Спрятать голову",
-    ["Npc_传送_一号信徒"] = "NPC_Teleport_Believer Number Onb",
+    ["Npc_传送_一号信徒"] = "NPC_Телепорт_Верующий номер один",
     ["\"Spear has fallen into a deep slumber...\""] = "«Копье погрузилось в глубокий сон...»",
     ["“猎人”们总攻前最后的休整地，充斥着战意的气息。占领后可攻击战争石碑，固定每分钟获得30点资源。"] = "The final resting place for \"Охотникs\" before their all-out attack, filled with the aura of Battle Intent. After occupying it, you can Attack the War Stele to gain 30 resources every minute.",
     ["……喵。"] = "...Мяу.",

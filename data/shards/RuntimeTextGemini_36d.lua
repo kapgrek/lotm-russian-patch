@@ -19,7 +19,7 @@ return {
     ["<Highlight>工艺：</>银丝覆面\n轻柔的细语与激情的轰拳，都可以完成一场难以抵抗的长眠。"] = "<Highlight>Craft: </>Покрытие для лица из серебряной нити\nТихий шепот и страстные удары могут завершить непреодолимый долгий сон.",
     ["<P_Heart>（啊，有一位女士在花丛旁洒水。）</>"] = "<P_Heart> (Ах, вот женщина поливает растения возле цветов.) </>",
     ["<P_Heart>(To think I would run into him again. Perhaps he is that </><P_Yellow>key figure</><P_Heart>.)</>"] = "<P_Heart>(Подумать только, я бы столкнулся с ним снова. Возможно, он и есть та самая ключевая фигура </><P_Yellow></><P_Heart>.)</>",
-    ["BattleZone_子嗣守卫"] = "BattleZone_Offspring Guarb",
+    ["BattleZone_子嗣守卫"] = "БоеваяЗона_Страж потомства",
     ["GTA牧师投技眩晕"] = "GTA Priest Throw навык оглушения",
     ["Step 3 mouse position"] = "Шаг 3: положение мыши",
     ["{{PlayerName}} 是你呀 这么巧！"] = "{{PlayerName}}, это ты! Какое совпадение!",

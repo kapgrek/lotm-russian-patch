@@ -19,7 +19,7 @@ return {
     ["<h>牧师</>得到了鼓舞"] = "Священник <h> </> поощряется",
     ["A级氛围-学徒卡门"] = "Атмосфера A-ранга — ученица Кармен",
     ["Isn't there still {{him|her}}?"] = "Разве еще нет {{him|her}}?",
-    ["NPC_Air 1"] = "NPC_Air b",
+    ["NPC_Air 1"] = "NPC_Воздух 1",
     ["PVE战斗状态"] = "Статус PVE-боя",
     ["Yes, {{先生|女士}}, you see, this is the matchbox her mother gave her. Originally, her mother used this matchbox to store her pay stubs."] = "Да, {{Sir|Madam}}, понимаете, это спичечный коробок, который подарила ей мать. Первоначально ее мать использовала этот спичечный коробок для хранения квитанций о зарплате.",
     ["[表情112]"] = "[Эмодзи 112]",

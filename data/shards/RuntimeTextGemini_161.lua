@@ -173,7 +173,7 @@ return {
     ["现在很危险，还不能过去。"] = "Сейчас опасно, перебраться пока нельзя.",
     ["珍妮·"] = "Дженни",
     ["White Line - Counter-clockwise Carriage B15"] = "Белая линия — каретка против часовой стрелки Bbb",
-    ["Sleep Dodge_Value"] = "Sleep Dodge_Valub",
+    ["Sleep Dodge_Value"] = "Усыпление: уклонение",
     ["睿思"] = "Руиси",
     ["Club Core"] = "Клуб Ядро",
     ["Mythical Equipment"] = "Мифическое снаряжение",

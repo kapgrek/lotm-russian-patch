@@ -152,7 +152,7 @@ return {
     ["更多任务"] = "Больше квестов",
     ["Select up to 3 tags"] = "Выберите до 3 тегов",
     ["A Buff description is attempting to call itself, causing an infinite loop! ID:%d"] = "Описание Buff пытается вызвать само себя, вызывая бесконечный цикл! Идентификатор: %d",
-    ["Mechanic_Altar_Magic Circle"] = "Mechanic_Altar_Magic Circlb",
+    ["Mechanic_Altar_Magic Circle"] = "Механика_Алтарь_Магический круг",
     ["Melissa turns after walking to the chair"] = "Мелисса поворачивается, подойдя к креслу.",
     ["Examine the mystical anomaly and find the correct tile to advance (Hint: \"Evil Spirit\")"] = "Изучите мистическую аномалию и найдите правильную плитку для продвижения вперед (Подсказка: «Злой дух»).",
     ["Template Minion - Cat"] = "Шаблон Миньон - Кот",

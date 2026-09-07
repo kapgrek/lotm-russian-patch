@@ -20,7 +20,7 @@ return {
     ["<h>Divinate</> to confirm safety"] = "<h>Divinate</> для подтверждения безопасности",
     ["SkillID: %s, the interrupt state will only execute for one frame; tasks that do not start on the first frame will not be executed"] = "SkillID: %s, состояние прерывания будет выполняться только в течение одного кадра; 8e6adaf1f9ae06bcb9663531e5521abbзадачи, которые не начинаются с первого кадра, не будут выполняться",
     ["lookat锚点"] = "смотреть якорь",
-    ["wave2_假"] = "wave2_fakb",
+    ["wave2_假"] = "волна2_ложная",
     ["{{PlayerName}}, are you alright?"] = "{{PlayerName}}, ты в порядке?",
     ["{{player.name}} has left footprints in every corner of Tingen's streets and alleys, finally making this silent city begin to breathe, earning the title <Chat_Highlight>【The Road is Underfoot】</>. There is still half the scenery waiting for them to continue their journey."] = "{{player.name}} оставил следы на каждом углу улиц и переулков Тингена, наконец заставив этот тихий город начать дышать, получив название <Chat_Highlight>【Дорога под ногами】</>. Еще половина пейзажа ждет их продолжения пути.",
     ["\"Now, modifying a version of 'The Count of Monte Cristo' to be even more exciting and thrilling is a piece of cake, the people of Intis will definitely be addicted.\""] = "«Теперь изменить версию «Графа Монте-Кристо», чтобы сделать ее еще более захватывающей и захватывающей, — проще простого, жители Интиса определенно будут в восторге».",

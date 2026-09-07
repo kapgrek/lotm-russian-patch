@@ -200,7 +200,7 @@ return {
     ["Live Companion.exe"] = "Живой компаньон.exb",
     ["看跳舞。"] = "Смотрю танец.",
     ["Genuine? Oh, that's a rarity—rarer than our family's antique silverware."] = "Подлинный? О, это редкость, реже, чем старинное серебро нашей семьи.",
-    ["睡眠闪避_数值"] = "Sleep Dodge_Valub",
+    ["睡眠闪避_数值"] = "Усыпление: уклонение",
     ["睡莲？……噢！你是旅客吧？"] = "Водяные лилии?...Ой! Ты путешественник, да?",
     ["SMS verification feature is not enabled."] = "Функция подтверждения по SMS не включена.",
     ["Offering_Surround Boss"] = "Предложение_Surround Boss",

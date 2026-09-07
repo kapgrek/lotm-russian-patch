@@ -162,7 +162,7 @@ return {
     ["没什么，最近一切还顺利吗？"] = "Ничего особенного. Все ли шло гладко в последнее время?",
     ["It's okay, there's no one else around here, it won't be heard."] = "Все в порядке, здесь больше никого нет, его не услышат.",
     ["Test Save"] = "Тестовое сохранение",
-    ["Sea Spirit-Black Dynamic"] = "Sea Spirit-Black Dynamib",
+    ["Sea Spirit-Black Dynamic"] = "Морской дух — Тёмная анимация",
     ["Crimson Moon Crown - Full Moon Curse"] = "Корона Багровой Луны - Проклятие полнолуния",
     ["When the Greatsword of Chaos is trapped in the Web of Order, it can pull the water valve! This really is 'only when order and chaos intersect' again."] = "Когда Большой Меч Хаоса оказывается в ловушке Паутины Порядка, он может выдернуть водяной клапан! Это действительно «только тогда, когда порядок и хаос снова пересекутся».",
     ["The thugs attack again"] = "Бандиты снова нападают",

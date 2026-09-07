@@ -24,7 +24,7 @@ return {
     ["Public - Stress Test"] = "Публика – стресс-тест",
     ["Talk相关功能验收"] = "Принятие функций, связанных с разговором",
     ["Then {{big brother|big sister}}, come see me again when you have time; maybe by then I will have bloomed."] = "Тогда {{big brother|big sister}}, приходи ко мне снова, когда у тебя будет время; может быть, к тому времени я расцвету.",
-    ["Tri3_谜题4"] = "Tri3_Puzzle b",
+    ["Tri3_谜题4"] = "Tri3_Загадка 4",
     ["Point B Quest Guidance"] = "Руководство квеста в пункте Б",
     ["{{player.name}} used <Chat_Telegram>Divine Favor Card</> to exchange for the precious <Chat_Telegram>Evernight Thorn</>!"] = "{{player.name}} использовал <Chat_Telegram>Divine Favor Card</> для обмена на драгоценный <Chat_Telegram>Evernight Thorn</>!",
     ["{{先生|女士}} 这是您自己的脚踏车吗？"] = "{{ Mr. | Ms. }}, это твой собственный велосипед?",

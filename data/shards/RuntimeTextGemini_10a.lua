@@ -26,7 +26,7 @@ return {
     ["<P_Heart> (Miracle? The scriptures of the Fool's Church say that the Fool governs miracles...) </>"] = "<P_Heart> (Чудо? В Священных Писаниях Церкви Шута говорится, что Дурак управляет чудесами...) </>",
     ["<Time>%s 秒 </> 后自动进入"] = "Автоматический ввод через <Time>%s секунд </>",
     ["B级动画：克莱恩和戴里克握着剑，戴里克的手在微微颤抖，他发出一声压抑的呜咽，伴随着天空的一道闪电，将剑插入父母的恶灵。"] = "Анимация B-класса: Клейн и Деррик держат меч, рука Деррика слегка дрожит, он издает сдержанный рыдание и со вспышкой молнии в небе вставляет меч в Злого духа своих родителей.",
-    ["Tri3_Puzzle 2"] = "Tri3_Puzzle b",
+    ["Tri3_Puzzle 2"] = "Tri3_Загадка 2",
     ["[SceneCustomSystem]: Current display stand configuration string has been written to the file, file path = %s"] = "[SceneCustomSystem]: текущая строка конфигурации стенда записана в файл, путь к файлу = %s.",
     ["citywalk-猫猫-开始dialog"] = "Citywalk - Кот - Начать диалог",
     ["WC Sweeping"] = "Подметание туалета",

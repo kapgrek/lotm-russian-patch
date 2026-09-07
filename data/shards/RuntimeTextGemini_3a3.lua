@@ -203,7 +203,7 @@ return {
     ["Complete one [Battle for the Throne of God] in a team"] = "Завершите одну [Битву за Трон Бога] в команде.",
     ["Magic Mirror of Despair"] = "Волшебное зеркало отчаяния",
     ["Continue exploring forward."] = "Продолжайте исследовать вперед.",
-    ["Shell Guard"] = "Shell Guarb",
+    ["Shell Guard"] = "Защитный панцирь",
     ["罗丁的结业考试试卷。想知道后续情况的话，去找一位叫拉夫的老师吧。"] = "Выпускной экзамен Родена. Если хочешь знать, что произошло дальше, найди учителя по имени Ральф.",
     ["Rozanne's wishes are of course the most important, we are just checking some basic conditions to ensure he doesn't have any bad intentions."] = "Желания Розанны, конечно, самые важные, мы просто проверяем некоторые базовые условия, чтобы убедиться, что у него нет плохих намерений.",
     ["群聊名字"] = "Имя группового чата",

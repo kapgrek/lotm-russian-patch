@@ -24,7 +24,7 @@ return {
     ["<P_Heart>（皱眉）</>……现在，打扰你们的声音已经……永远消失了。"] = "<P_Heart> (хмурится) </>... Теперь тревожащие вас голоса... исчезли навсегда.",
     ["<P_Heart>（看来阿兹克先生了解非凡世界，也知道黑荆棘的情况。）</>"] = "<P_Heart>(Кажется, г-н Азик понимает Необыкновенный Мир, а также знает о ситуации в Блэкторне.)</>",
     ["<h>戴莉</>想做什么？"] = "Что хочет сделать <h>Дейли</>?",
-    ["Boss_猎犬"] = "Boss_Hounb",
+    ["Boss_猎犬"] = "Босс_Гончая",
     ["{{Sir|Madam}}, have we met somewhere before?"] = "{{Sir|Madam}}, мы где-нибудь уже встречались?",
     ["'%d' Grade Sealed Artifact can have at most %d entry effects active"] = "'%d' Grade Запечатанный артефакт can have at most %d entry effects active",
     ["...{{ Mr. | Miss }}, you see, what else can I say?"] = "...{{ Mr. | Miss }}, понимаешь, что еще я могу сказать?",

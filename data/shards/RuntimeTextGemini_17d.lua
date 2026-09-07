@@ -23,7 +23,7 @@ return {
     ["B营救1018"] = "Б Спасение 1abb",
     ["Defense <Highlight>Mutated Material</> with the affix <Highlight><沉默门徒></>: \"All Skill levels +1, Anti-Critical Hit increased.\""] = "Защита <Highlight>Мутированный материал</> с аффиксом <Highlight><Disciple of Silence></>: «Все уровни навыков +1, антикритический удар увеличен».",
     ["NPC路径3"] = "NPC путь b",
-    ["wave1_fake"] = "wave1_fakb",
+    ["wave1_fake"] = "волна1_ложная",
     ["{ {skillid1, 1.0}, {skillid2, 2.0}} means increasing the rate of skillid1 by 1 time, and skillid2 by 2 times."] = "{ {skillid1, 1.0}, {skillid2, 2.0}} означает увеличение скорости навыка 1 в 1 раз, а навыка 2 в 2 раза.",
     ["{{PlayerName}}, I heard you have accumulated enough merit to advance."] = "{{PlayerName}}, я слышал, что ты накопил достаточно заслуг, чтобы продвинуться вперед.",
     ["{{先生|女士}}, take a look at this? Dividing estates, drawing up wills, writing petitions—I can do it all."] = "{{Sir|Madam}}, взгляни на это? Разделить имения, составить завещания, написать прошения — все это я умею.",

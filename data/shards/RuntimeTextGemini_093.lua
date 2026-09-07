@@ -172,7 +172,7 @@ return {
     ["炭烤章鱼"] = "Осьминог, приготовленный на углях",
     ["点击更换服装。"] = "Нажмите, чтобы сменить одежду.",
     ["点头"] = "Кивок",
-    ["Effect_Teleport_Entrance"] = "Effect_Teleport_Entranbb",
+    ["Effect_Teleport_Entrance"] = "Эффект_Телепорт_Вход",
     ["特效强度设置"] = "Настройки интенсивности эффекта",
     ["Wolf Girl"] = "Девушка-волк",
     ["Demon Hunter Instant Slash Support Filter Pure Enemy"] = "Охотник на демонов Мгновенный удар Поддержка Фильтр Чистый враг",

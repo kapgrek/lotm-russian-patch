@@ -28,7 +28,7 @@ return {
     ["<P_Heart> (Shocked) </> This... is this Monterey?!"] = "<P_Heart> (в шоке) </> Это... это Монтерей?!",
     ["<h>挖开</>泥土"] = "<h> Перекопайте </> почву",
     ["GTA-Mechanical Creation-Mechanism Phase Camera Modification"] = "GTA-Mechanical Creation-Модификация фазовой камеры механизма",
-    ["NPC_空气1"] = "NPC_Air b",
+    ["NPC_空气1"] = "NPC_Воздух 1",
     ["Rapper Exit Effect"] = "Эффект выхода рэпера",
     ["trigger-画外音1"] = "триггер-закадровый голос 1",
     ["\"Grade 2\" is dangerous, use with caution and restraint. Security level is for bishops and Nighthawk team captains and above."] = "«Класс 2» опасен, используйте его с осторожностью и сдержанностью. Уровень безопасности — для епископов и капитанов команд Ночной Ястреб и выше.",

@@ -27,7 +27,7 @@ return {
     [">>Reminder需要在动效结束后关闭, 但动效不存在或者时长为0, 请检查.ReminderID:%s, ReminderType:%s, Class:%s"] = ">>Напоминание необходимо закрыть после окончания анимации, но анимация не существует или ее продолжительность равна 0. Пожалуйста, проверьте. 8e6adaf1f9ae06bcb9663531e5521abbReminderID: %s, ReminderType: %s, Класс: %s",
     ["AI_Stop AI of nearby units"] = "AI_Stop ИИ ближайших юнитов",
     ["A级氛围-学徒卡门-感谢"] = "Атмосфера A-ранга — Ученица Кармен — Спасибо.",
-    ["Boss_Megose"] = "Boss_Megosb",
+    ["Boss_Megose"] = "Босс_Мегоуз",
     ["[UIFrame : NewUIManager] Failed to close interface %s %s %s"] = "[UIFrame: NewUIManager] Не удалось закрыть интерфейс %s %s %s",
     ["[UIFrame : UICompRenderTarget]:OnLoadEntityFinish Rotation参数类型错误%s"] = "[UIFrame: UICompRenderTarget]:OnLoadEntityFinish Ошибка типа параметра вращения %s",
     ["{{PlayerName}}: When you were doing evil, you didn't think this day would come, did you?"] = "{{PlayerName}}: Когда ты творил зло, ты не думал, что этот день наступит, не так ли?",

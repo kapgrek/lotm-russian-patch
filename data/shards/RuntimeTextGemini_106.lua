@@ -11,7 +11,7 @@ return {
     ["<P_Heart> Hmm, only by entering the Beyonder world can I possibly learn the truth about my transmigration and be able to go home. </>"] = "<P_Heart> Хм, только войдя в потусторонний мир, я смогу узнать правду о своем переселении и вернуться домой. </>",
     ["<P_Heart>（我刚逃脱反复死亡的噩梦……又来到一个面临末日危机的世界？！）</>"] = "<P_Heart> (Я только что избежал кошмара повторяющейся смерти... и теперь я попал в мир, столкнувшийся с кризисом Судного дня?!) </>",
     ["The latest series of \"The Great Adventurer\", {{Sir|Madam}}, I am studying the expression style of the famous writer Ms. Fors Wall."] = "В последней серии «Великого авантюриста», {{Sir|Madam}}, я изучаю стиль выражения известной писательницы г-жи Форс Уолл.",
-    ["Tri3_Puzzle 1"] = "Tri3_Puzzle b",
+    ["Tri3_Puzzle 1"] = "Tri3_Загадка 1",
     ["seq Text Board"] = "текстовая доска seq",
     ["“浴火的吞尾蛇”"] = "Уроборос в огне",
     ["...Just for tonight, don't call me 'Ma'am'. Can you do that?"] = "...Только сегодня вечером не называй меня «мэм». Сможешь ли ты это сделать?",
@@ -242,4 +242,5 @@ return {
     ["黄金威能"] = "Золотая мощь",
     ["龙"] = "Дракон",
     ["（英雄）小丑护盾无敌buff"] = "(Герой) усиление неуязвимости Щита Клоуна",
+    ["\n<Tips stylename=\"Letter_Highlight\" u=\"1\" id=\"#160_R\">布满污迹的纸条上，只剩几行还能辨认的字：</>\n“我终于明白了……”\n“第一轮是<Letter_Highlight_HW>二号</>！二号是<Letter_Highlight_HW>真的</>！”\n“欲念使者说的都是<Letter_Highlight_HW>实话</>，可我们还是会死——”\n<Hide stylename=\"Transparent\" id=\"#161_R\">字迹断了</>，<Hide id=\"#157\">后面是一道擦过的暗色污痕。</>"] = "\n<Tips stylename=\"Letter_Highlight\" u=\"1\" id=\"#160_R\">На испачканной записке осталось лишь несколько разборчивых строк:</>\n«Я наконец-то понял...»\n«В первом раунде был <Letter_Highlight_HW>номер два</>! Номер два — <Letter_Highlight_HW>настоящий</>!»\n«Посланник Желаний говорил чистую <Letter_Highlight_HW>правду</>, но мы всё равно погибнем...»\n<Hide stylename=\"Transparent\" id=\"#161_R\">Почерк обрывается</>, <Hide id=\"#157\">дальше идёт растёртое тёмное пятно.</>",
 }

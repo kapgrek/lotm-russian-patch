@@ -14,7 +14,7 @@ return {
     ["<Highlight>护盾</>你可以无敌3秒。"] = "<Highlight>Shield</> Вы можете быть непобедимым в течение 3 секунд.",
     ["<P_Heart>（感动）</>艾米丽……"] = "<P_Heart>(Перемещено) </>Эмили...",
     ["<P_Heart>(Excitedly)</> I am not a vampire!"] = "<P_Heart>(Возбужденно)</> Я не вампир!",
-    ["NPC_Xiga"] = "NPC_Xigb",
+    ["NPC_Xiga"] = "NPC_Сика",
     ["PVE single-target BOSS; does not participate in shop, drops, drafts, or kinship statistics."] = "PVE одноцелевой БОСС; не участвует в статистике магазинов, дропов, драфтов и родства.",
     ["Sorry, {{Sir|Madam}}. I need to complete the preparations for setting sail as soon as possible; you can find my first mate..."] = "Извините, {{Sir|Madam}}. Мне нужно как можно скорее завершить приготовления к отплытию; ты можешь найти моего первого помощника...",
     ["self: Self; \n tar: Target; \n buffadder: Buff applier; \n tarlist: Target list blackboard value; \n all: All objects filtered by skill/Spell Field calculation."] = "я: Я; \n tar: Цель; Баффаддер \n: устройство для наложения баффа; \n tarlist: значение доски целевого списка; \n all: все объекты, отфильтрованные по навыку/расчету поля заклинания.",

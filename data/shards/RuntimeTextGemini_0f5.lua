@@ -15,7 +15,7 @@ return {
     ["<P_Heart>(Coughs lightly)</> Can we not mention the diary..."] = "<P_Heart> (слегка кашляет) </> Можем ли мы не упомянуть дневник...",
     ["<h>中央广场</>景象"] = "Сцена на <h>Central Plaza</>",
     ["Obtain 1 Beyonder material with the {Bishop of Fear} entry"] = "Obtain 1 Потусторонний material with the {Bishop of Fear} entry",
-    ["Tri3_谜题1"] = "Tri3_Puzzle b",
+    ["Tri3_谜题1"] = "Tri3_Загадка 1",
     ["[UIFrame : UICompRenderTarget]: OnLoadEntityFinish Pos parameter type error %s"] = "[UIFrame: UICompRenderTarget]: ошибка типа параметра OnLoadEntityFinish Pos %s",
     ["City Walk: Struck by Lightning While Praying at the Church of the River and Sea"] = "Прогулка по городу: во время молитвы в церкви реки и моря ударила молния",
     ["cs camera 1_2"] = "CS камера 1_b",

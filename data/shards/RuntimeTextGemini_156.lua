@@ -178,7 +178,7 @@ return {
     ["真实视野"] = "Истинное зрение",
     ["Really? I'm coming out right away... wait, who would believe that!"] = "Действительно? Я сейчас выхожу... погодите, кто бы этому поверил!",
     ["Really? This is our honor. I will register your membership information."] = "Действительно? Это наша честь. Я зарегистрирую вашу членскую информацию.",
-    ["眩晕命中_数值"] = "Stun Hit_Valub",
+    ["眩晕命中_数值"] = "Оглушение: шанс попадания",
     ["石板"] = "Каменная табличка",
     ["秘偶游历"] = "Марионетка Путешествия",
     ["Is order an instinct of humanity or reason? Are we spontaneously pursuing stability, or building a cage for life?"] = "Порядок — инстинкт человечества или разум? Стремимся ли мы к стабильности спонтанно или строим клетку для жизни?",

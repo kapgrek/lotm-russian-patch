@@ -3,7 +3,7 @@
 return {
     ["\nLet's bury Andy tonight.\nHe was a good policeman and a good undercover agent. Bring a bouquet of flowers for him on my behalf.\nThe orders from above are: don't ask anything, don't say anything.\nAlso... be careful!"] = "\nДавайте похороним Энди сегодня вечером.\nОн был хорошим полицейским и хорошим агентом под прикрытием. Принеси ему от моего имени букет цветов.\nПриказ сверху: ничего не спрашивай, ничего не говори.\nИ ещё... будь осторожен!",
     ["        But I had almost forgotten that I originally came from a peaceful era, never having been stained by the scent of war. Perhaps because I have always treated this world with a gaming mentality, in the end, even my attitude toward life has become frivolous..."] = "Но я почти забыл, что родом из мирной эпохи и никогда не был запятнан запахом войны. Возможно, потому, что я всегда относился к этому миру с игровым складом ума, в конце концов даже мое отношение к жизни стало несерьезным...",
-    ["1号"] = "№ b",
+    ["1号"] = "№ 1",
     ["4.25离开金梧桐剧场"] = "4.25 Покинуть театр Золотой Инд",
     ["5231122 Tingen Single-Player Instance"] = "5231122 Одиночное измерение: Тинген",
     ["Level 6 - Myriad"] = "Уровень 6 – Мириады",

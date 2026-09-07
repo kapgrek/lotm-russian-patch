@@ -17,7 +17,7 @@ return {
     ["<P_Heart>（自恋狂……）</>"] = "<P_Heart>(Нарцисс...)</>",
     ["CS Placeholder"] = "CS-заполнитель",
     ["GTA-奥黛丽-光点"] = "GTA-Одри-Лайт Пятно",
-    ["NPC_Teleport_Believer Number One"] = "NPC_Teleport_Believer Number Onb",
+    ["NPC_Teleport_Believer Number One"] = "NPC_Телепорт_Верующий номер один",
     ["[Emoji 94]"] = "[Эмодзи 94]",
     ["[Emoji 97]"] = "[Эмодзи 97]",
     ["[Emoji 98]"] = "[Эмодзи 98]",

@@ -145,7 +145,7 @@ return {
     ["收费"] = "Расходы",
     ["Attack power increased"] = "Сила атаки увеличена",
     ["故事的开始总是源自巧合——\n一片静谧的城堡领地，正悄然等待着新的主人。"] = "История всегда начинается со совпадения — тихое замковое поместье \n молча ждет своего нового хозяина.",
-    ["Agility_Value"] = "Agility_Valub",
+    ["Agility_Value"] = "Ловкость: значение",
     ["Spiritual objects scattered everywhere. \n Someone in the Club who seems to be a Nighthawk is collecting them. \n After use, it can guide you to the delivery location to exchange for rewards."] = "Духовные предметы разбросаны повсюду. \n Их собирает кто-то в Клубе, похожий на Ночного Ястреба. \n После использования он может направить вас к месту доставки для обмена на награды.",
     ["斯宾那奇"] = "Шпиначи",
     ["斯特拉"] = "Стелла",

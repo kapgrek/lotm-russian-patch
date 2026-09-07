@@ -189,7 +189,7 @@ return {
     ["To use the upload/save image function, please enable the game's album or file read/write permissions in system settings."] = "Чтобы использовать функцию загрузки/сохранения изображений, включите разрешения на чтение/запись альбома или файла игры в настройках системы.",
     ["Observe the surroundings and solve the puzzle"] = "Наблюдайте за окрестностями и решайте головоломку.",
     ["解锁所有系统，加buff调技能，达到CBT2的62级（弱）"] = "Разблокируйте все системы, добавьте усиления, настройте навыки, достигните 62 уровня CBT2 (Слабый).",
-    ["Trigger_Spawn Guard_Load"] = "Trigger_Spawn Guard_Lobb",
+    ["Trigger_Spawn Guard_Load"] = "Триггер_Страж потомства_Загрузка",
     ["触摸时能感受到野性的脉动。"] = "Может чувствовать пульс дикости при прикосновении.",
     ["计数"] = "Считать",
     ["语音通话已连接"] = "Голосовой вызов подключен.",

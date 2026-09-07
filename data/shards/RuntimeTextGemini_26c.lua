@@ -79,7 +79,7 @@ return {
     ["Don't be afraid, he doesn't seem to have any ill intentions. Is he... waiting for someone?"] = "Не бойтесь, похоже, у него нет злых намерений. Он... кого-то ждет?",
     ["Frontline Combat Class"] = "Боевой класс на передовой",
     ["副本73"] = "Подземелье 73",
-    ["Dungeon_May Manor_Boss Fight Flow_Ancestor Knight_Hard"] = "Dungeon_May Manor_Boss Fight Flow_Ancestor Knight_Harb",
+    ["Dungeon_May Manor_Boss Fight Flow_Ancestor Knight_Hard"] = "Подземелье_Поместье Мэй_Бой с боссом_Рыцарь Предков_Сложно",
     ["加点/切换天赋"] = "Распределение очков/переключение талантов",
     ["October 6th"] = "6 октября",
     ["升级·商行生效，所有的【蓝色/紫色物品】升级为【精品油画小作】"] = "Улучшение · Торговая фирма вступила в силу, все [Синие/фиолетовые предметы] повышены до [Прекрасная маленькая картина маслом]",

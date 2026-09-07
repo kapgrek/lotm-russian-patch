@@ -204,7 +204,7 @@ return {
     ["灾祸平息"] = "Бедствие утихло",
     ["During the Blazing Sun state, Unshadowed Spear is guaranteed to trigger Unshadowed against enemies, and the base damage increase upon triggering Unshadowed grows to 50%."] = "В состоянии «Пылающее солнце» «Незатененное копье» гарантированно активирует «Незатененное» против врагов, а базовое увеличение урона при срабатывании «Незатененного» возрастает до 50%.",
     ["Brand Equipment upgrade item.\nCan upgrade the 55 Gear Level gold quality brand ring <Highlight>Ring of Stagnation</> to <Highlight>62 Gear Level orange quality</>, consuming <Highlight>3</> Spirituality Resonance Stones upon upgrade.\nYou must first possess the pre-upgrade brand equipment; once possessed, click the <Highlight>Gear Level Increase</> button to upgrade. Using this item allows for a quick jump to the pre-upgrade brand equipment."] = "Предмет улучшения фирменного снаряжения. \nМожно улучшить фирменное кольцо золотого качества <Highlight>Ring of Stagnation</> 55-го уровня снаряжения до <Highlight>62 оранжевого качества </> уровня снаряжения, потребляя <Highlight>3</> Камни духовного резонанса при обновлении. \nСначала вам необходимо обладать фирменным снаряжением, предшествующим обновлению; После получения нажмите кнопку <Highlight>Увеличение уровня снаряжения</>, чтобы обновить. Использование этого предмета позволяет быстро перейти к фирменному оборудованию до обновления.",
-    ["特效_传送_猎犬"] = "Effect_Teleport_Hounb",
+    ["特效_传送_猎犬"] = "Эффект_Телепорт_Гончая",
     ["Dog Language"] = "Язык собаки",
     ["Gameplay acquisition"] = "Приобретение игрового процесса",
     ["Now, I want to say loudly to them: 'You're fired!'"] = "Теперь я хочу громко сказать им: «Вы уволены!»",

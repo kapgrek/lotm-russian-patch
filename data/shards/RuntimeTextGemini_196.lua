@@ -202,7 +202,7 @@ return {
     ["秩序之能"] = "Сила Порядка",
     ["立刻获得1个独珍装备自选箱；累计进行10个PVP回合后再获得1个。"] = "Немедленно получите 1 коробку выбора уникального снаряжения; получите еще один после 10 совокупных раундов PVP.",
     ["The 1st wave of enemies is approaching!"] = "Приближается первая волна врагов!",
-    ["第……"] = "...",
+    ["第……"] = "№...",
     ["Second citizen dissipates"] = "Второй гражданин рассеивается",
     ["Defeat a total of 20 enemy chess pieces"] = "Победите в общей сложности 20 шахматных фигур противника.",
     ["Participate in the dungeon <Highlight>Emperor Roselle (Normal)</> in team mode to participate in the distribution and auction of public drops. There is a chance to obtain tradable items."] = "Участвуйте в подземелье <Highlight>Император Розель (Normal)</> в командном режиме, чтобы участвовать в раздаче и аукционе публичных дропов. Есть шанс получить торгуемые предметы.",

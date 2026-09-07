@@ -16,7 +16,7 @@ return {
     ["<h>听侍者介绍茶会</>"] = "<h> Послушайте представление официанта о чаепитии </>",
     ["Hello, {{Sir|Madam}}! Would you like to buy a ticket?"] = "Привет, {{Sir|Madam}}! Хотите купить билет?",
     ["Id(脱手技能)"] = "Идентификатор (отдельный навык).",
-    ["Npc_Frye_Entrance_1"] = "Npc_Frye_Entrance_b",
+    ["Npc_Frye_Entrance_1"] = "NPC_Фрай_Вход_1",
     ["Stop, {{先生|女士}}... Please forgive my rudeness, but you cannot approach here for the time being."] = "Стоп, {{Sir|Madam}}... Прошу прощения за грубость, но подходить сюда пока нельзя.",
     ["Tab Selection Test Configuration - Placeholder"] = "Конфигурация теста выбора вкладки — заполнитель",
     ["{{PlayerName}}，看来你也有当美食评论家的天分。"] = "{{PlayerName}}, кажется, у тебя еще есть талант кулинарного критика.",

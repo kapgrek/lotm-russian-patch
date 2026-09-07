@@ -16,7 +16,7 @@ return {
     ["<Prompt_Red> Club Archive reached level %d </>"] = "Клубный архив <Prompt_Red> достиг уровня %d </>",
     ["<h>Secretly observe</> the blind date"] = "<h>Тайно наблюдать</> на свидании вслепую",
     ["<h>受伤的伦纳德</>"] = "<h>Травмированный Леонард</>",
-    ["Boss_Hound"] = "Boss_Hounb",
+    ["Boss_Hound"] = "Босс_Гончая",
     ["Boss Battle_Viscountess_Initial"] = "БоссБитва_Виконтесса_Начало",
     ["Poi4_LS recipe"] = "Poi4_LS рецепт",
     ["{{PlayerName}}，麻烦过来一下。"] = "{{PlayerName}}, не мог бы ты подойти сюда на минутку?",

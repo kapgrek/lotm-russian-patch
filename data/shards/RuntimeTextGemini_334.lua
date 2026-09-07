@@ -196,7 +196,7 @@ return {
     ["莉丝·埃文斯的邀请信。"] = "Письмо-приглашение от Лисс Эванс.",
     ["Obtain specified item; object sends AI and scene event; player sends quest item."] = "Получить указанный предмет; объект отправляет AI и событие сцены; игрок отправляет квестовый предмет.",
     ["Hide Revolver"] = "Спрятать револьвер",
-    ["Trigger_Ancestor Knight_Performance"] = "Trigger_Ancestor Knight_Performanbb",
+    ["Trigger_Ancestor Knight_Performance"] = "Триггер_Рыцарь Предков_Выступление",
     ["警局已经烂透了，我也不知道该怎么办。"] = "Полицейский участок прогнил насквозь. Я тоже не знаю, что делать.",
     ["Let the Blue Hats sanction you"] = "Пусть «Синие шляпы» накажут вас",
     ["Ask what happened"] = "Спроси, что случилось",
