@@ -408,6 +408,7 @@ namespace LotmRussianPatcher
                                             {
                                                 string parentDir = Path.GetDirectoryName(fullPath);
                                                 if (!Directory.Exists(parentDir)) Directory.CreateDirectory(parentDir);
+                                                EnsureWritable(fullPath);
                                                 using (Stream entryStream = entry.Open())
                                                 using (FileStream fs = new FileStream(fullPath, FileMode.Create, FileAccess.Write, FileShare.None))
                                                 {
@@ -452,6 +453,7 @@ namespace LotmRussianPatcher
                                         {
                                             string parentDir = Path.GetDirectoryName(fullPath);
                                             if (!Directory.Exists(parentDir)) Directory.CreateDirectory(parentDir);
+                                            EnsureWritable(fullPath);
                                             using (Stream entryStream = entry.Open())
                                             using (FileStream fs = new FileStream(fullPath, FileMode.Create, FileAccess.Write, FileShare.None))
                                             {
@@ -490,6 +492,7 @@ namespace LotmRussianPatcher
 
                                 string destDir = Path.GetDirectoryName(dest);
                                 if (!Directory.Exists(destDir)) Directory.CreateDirectory(destDir);
+                                EnsureWritable(dest);
                                 File.Copy(src, dest, true);
                                 Log("Скопирован локальный файл: " + f);
                             }
@@ -502,6 +505,7 @@ namespace LotmRussianPatcher
                             foreach (var shardFile in Directory.GetFiles(localShards, "RuntimeTextGemini_*.lua"))
                             {
                                 string dest = Path.Combine(luaFixesDir, Path.GetFileName(shardFile));
+                                EnsureWritable(dest);
                                 File.Copy(shardFile, dest, true);
                             }
                             Log("Скопированы локальные шарды базы перевода.");
@@ -517,6 +521,7 @@ namespace LotmRussianPatcher
                         string localCpdd = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CPDDTranslation.lua");
                         if (File.Exists(localCpdd))
                         {
+                            EnsureWritable(cpddLua);
                             File.Copy(localCpdd, cpddLua, true);
                             Log("Хук загрузчика скопирован из локального CPDDTranslation.lua");
                         }
@@ -527,6 +532,33 @@ namespace LotmRussianPatcher
                     }
 
                     Log("✔ УСТАНОВКА УСПЕШНО ЗАВЕРШЕНА!");
+                }
+                catch (UnauthorizedAccessException uex)
+                {
+                    Log("ОШИБКА ДОСТУПА: " + uex.Message);
+                    DialogResult res = MessageBox.Show(
+                        "Отказано в доступе к папке с игрой:\n" + uex.Message + "\n\n" +
+                        "Игра установлена в защищённую системную папку (например, C:\\Program Files).\n" +
+                        "Для записи файлов требуются права администратора.\n\n" +
+                        "Перезапустить установщик от имени администратора прямо сейчас?",
+                        "Требуются права администратора",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (res == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            Process.Start(new ProcessStartInfo
+                            {
+                                FileName = Application.ExecutablePath,
+                                UseShellExecute = true,
+                                Verb = "runas"
+                            });
+                            Application.Exit();
+                        }
+                        catch { }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -548,6 +580,7 @@ namespace LotmRussianPatcher
 
             try
             {
+                EnsureWritable(ruFile);
                 string text = File.ReadAllText(ruFile);
                 if (text.Contains("Russian.Enabled = true") || text.Contains("Enabled = true"))
                 {
@@ -580,10 +613,19 @@ namespace LotmRussianPatcher
 
             if (File.Exists(bak))
             {
-                File.Copy(bak, init, true);
-                Log("Исходный файл Init.lua восстановлен из бэкапа!");
-                MessageBox.Show("Исходный английский Init.lua восстановлен!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CheckCurrentStatus();
+                try
+                {
+                    EnsureWritable(init);
+                    File.Copy(bak, init, true);
+                    Log("Исходный файл Init.lua восстановлен из бэкапа!");
+                    MessageBox.Show("Исходный английский Init.lua восстановлен!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CheckCurrentStatus();
+                }
+                catch (Exception ex)
+                {
+                    Log("Ошибка восстановления: " + ex.Message);
+                    MessageBox.Show("Ошибка восстановления: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -616,9 +658,61 @@ namespace LotmRussianPatcher
             btnCheckUpdates.Enabled = true;
         }
 
+        private static bool IsAdministrator()
+        {
+            try
+            {
+                using (var identity = System.Security.Principal.WindowsIdentity.GetCurrent())
+                {
+                    var principal = new System.Security.Principal.WindowsPrincipal(identity);
+                    return principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator);
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static void EnsureWritable(string filePath)
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    var attrs = File.GetAttributes(filePath);
+                    if ((attrs & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
+                    {
+                        File.SetAttributes(filePath, attrs & ~FileAttributes.ReadOnly);
+                    }
+                }
+            }
+            catch { }
+        }
+
         [STAThread]
         public static void Main()
         {
+            if (!IsAdministrator())
+            {
+                try
+                {
+                    ProcessStartInfo proc = new ProcessStartInfo
+                    {
+                        UseShellExecute = true,
+                        WorkingDirectory = Environment.CurrentDirectory,
+                        FileName = Application.ExecutablePath,
+                        Verb = "runas"
+                    };
+                    Process.Start(proc);
+                    return;
+                }
+                catch
+                {
+                    // Пользователь отклонил запрос UAC — запускаем в обычном режиме
+                }
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

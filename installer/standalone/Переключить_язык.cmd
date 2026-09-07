@@ -1,6 +1,13 @@
 @echo off
 chcp 65001 >nul
 title Переключение языка — Lord of the Mysteries
+cd /d "%~dp0"
+
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "Start-Process cmd -ArgumentList '/c \"\"%~f0\"\"' -Verb RunAs"
+    exit /b
+)
 
 set "GAME_DIR="
 set "SCRIPT_DIR=%~dp0"
@@ -9,6 +16,8 @@ if exist "D:\Games\GMZZLauncher\Game\C7" set "GAME_DIR=D:\Games\GMZZLauncher\Gam
 if not defined GAME_DIR if exist "C:\Games\GMZZLauncher\Game\C7" set "GAME_DIR=C:\Games\GMZZLauncher\Game\C7"
 if not defined GAME_DIR if exist "E:\Games\GMZZLauncher\Game\C7" set "GAME_DIR=E:\Games\GMZZLauncher\Game\C7"
 if not defined GAME_DIR if exist "F:\Games\GMZZLauncher\Game\C7" set "GAME_DIR=F:\Games\GMZZLauncher\Game\C7"
+if not defined GAME_DIR if exist "C:\Program Files\GMZZLauncher\Game\C7" set "GAME_DIR=C:\Program Files\GMZZLauncher\Game\C7"
+if not defined GAME_DIR if exist "D:\Program Files\GMZZLauncher\Game\C7" set "GAME_DIR=D:\Program Files\GMZZLauncher\Game\C7"
 if not defined GAME_DIR if exist "%SCRIPT_DIR%Binaries\Win64" set "GAME_DIR=%SCRIPT_DIR%"
 
 if not defined GAME_DIR (

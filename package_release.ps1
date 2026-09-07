@@ -1,5 +1,5 @@
 param (
-    [string]$Version = "v1.32.1"
+    [string]$Version = "v1.32.2"
 )
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -67,6 +67,7 @@ Write-Host "Building clean GUI installer with manifest and metadata..." -Foregro
 & "$projectRoot\installer\build_installer.ps1" -OutDir "$buildDir"
 
 $installerDest = "$buildDir\Lord-of-Mysteries-Russian-Patch.exe"
+Copy-Item $installerDest "$projectRoot\Lord-of-Mysteries-Russian-Patch.exe" -Force
 $exeHash = (Get-FileHash $installerDest -Algorithm SHA256).Hash.ToLower()
 $exeSize = (Get-Item $installerDest).Length
 

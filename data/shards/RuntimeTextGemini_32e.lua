@@ -235,4 +235,5 @@ return {
     ["Night Execution"] = "Казнь Ночи",
     ["Black Shadow Evil Spirit Effect 1"] = "Эффект Злого Духа Черной Тени b",
     ["黑梦领域"] = "Домен Черной Мечты",
+    ["Enter World"] = "Войти",
 }
