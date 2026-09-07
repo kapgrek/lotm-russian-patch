@@ -508,7 +508,7 @@ namespace LotmRussianPatcher
                         }
                     }
 
-                    // 3. Проверка и обеспечение хука в CPDDTranslation.lua
+                    // 3. Проверка хука в CPDDTranslation.lua
                     string binDir = Path.Combine(gamePath, "Binaries", "Win64", "lua", "Launch", "Base");
                     if (!Directory.Exists(binDir)) Directory.CreateDirectory(binDir);
                     string cpddLua = Path.Combine(binDir, "CPDDTranslation.lua");
@@ -518,14 +518,13 @@ namespace LotmRussianPatcher
                         if (File.Exists(localCpdd))
                         {
                             File.Copy(localCpdd, cpddLua, true);
-                        }
-                        else
-                        {
-                            byte[] hookBytes = Convert.FromBase64String("bG9jYWwgb3JpZ2luYWwgPSByZXF1aXJlKCJMYXVuY2guQmFzZS5MYXVuY2hTdHJpbmdFeHQiKQoKbG9jYWwgRmlsZSA9IGltcG9ydCgiTHVhRnVuY3Rpb25MaWJyYXJ5IikKbG9jYWwgcGF0aCA9IEZpbGUuR2V0RmlsZVBhdGgoaW1wb3J0KCJCbHVlcHJpbnRQYXRoc0xpYnJhcnkiKS5Qcm9qZWN0U2F2ZWREaXIoKSkgLi4gIi9Nb2RzL2Jvb3RzdHJhcC5sdWEiCmxvY2FsIHNvdXJjZSA9IEZpbGUuTG9hZEZpbGUocGF0aCkKTGF1bmNoTG9nLkluZm8oIltMT01Nb2RMb2FkZXJdIGJvb3RzdHJhcCBwYXRoPSIgLi4gcGF0aCAuLiAiIGJ5dGVzPSIgLi4gdG9zdHJpbmcoc291cmNlIGFuZCAjc291cmNlIG9yIDApKQppZiBzb3VyY2UgYW5kIHNvdXJjZSAhPSAiIiB0aGVuCiAgICBsb2NhbCBjaHVuaywgbWVzc2FnZSA9IGxvYWQoc291cmNlLCAiQCIgLi4gcGF0aCkKICAgIGlmIGNodW5rIHRoZW4geHBjYWxsKGNodW5rLCBMYXVuY2hMb2cuRXJyb3IpIGVsc2UgTGF1bmNoTG9nLkVycm9yKG1lc3NhZ2UpIGVuZAplbmQKCnJldHVybiBvcmlnaW5hbAo=");
-                            File.WriteAllBytes(cpddLua, hookBytes);
+                            Log("Хук загрузчика скопирован из локального CPDDTranslation.lua");
                         }
                     }
-                    Log("Хук загрузчика настроен в CPDDTranslation.lua");
+                    else
+                    {
+                        Log("Хук загрузчика проверен в CPDDTranslation.lua");
+                    }
 
                     Log("✔ УСТАНОВКА УСПЕШНО ЗАВЕРШЕНА!");
                 }

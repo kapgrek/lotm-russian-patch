@@ -1,5 +1,5 @@
 param (
-    [string]$Version = "v1.8.0"
+    [string]$Version = "v1.32.1"
 )
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -45,16 +45,25 @@ if (Test-Path "$projectRoot\data\shards") {
     Copy-Item "$projectRoot\data\shards\RuntimeTextGemini_*.lua" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\" -Force
 }
 
+if (Test-Path "$projectRoot\installer\standalone") {
+    Write-Host "Adding standalone scripts (Install.cmd, Uninstall.cmd, Readme)..." -ForegroundColor Cyan
+    Copy-Item "$projectRoot\installer\standalone\*" "$staging\" -Force
+}
+
 $zipPath = "$buildDir\lom-russian-patch-data.zip"
-Write-Host "Creating archive $zipPath..."
-[System.IO.Compression.ZipFile]::CreateFromDirectory($staging, $zipPath, [System.IO.Compression.CompressionLevel]::Optimal, $false)
+Write-Host "Creating primary archive $zipPath..."
+[System.IO.Compression.ZipFile]::CreateFromDirectory($staging, $zipPath, [System.IO.Compression.CompressionLevel]::Optimal, $false, [System.Text.Encoding]::UTF8)
+
+$standaloneZip = "$buildDir\lom-russian-patch-$Version.zip"
+Write-Host "Creating standalone release archive $standaloneZip..."
+Copy-Item $zipPath $standaloneZip -Force
 
 Remove-Item $staging -Recurse -Force
 
 $zipHash = (Get-FileHash $zipPath -Algorithm SHA256).Hash.ToLower()
 $zipSize = (Get-Item $zipPath).Length
 
-Write-Host "Building fresh installer with manifest, icon and Authenticode signature..." -ForegroundColor Cyan
+Write-Host "Building clean GUI installer with manifest and metadata..." -ForegroundColor Cyan
 & "$projectRoot\installer\build_installer.ps1" -OutDir "$buildDir"
 
 $installerDest = "$buildDir\Lord-of-Mysteries-Russian-Patch.exe"
@@ -77,12 +86,19 @@ $releaseInfo = @{
         size = $zipSize
         url = "https://github.com/kapgrek/lotm-russian-patch/releases/download/$Version/lom-russian-patch-data.zip"
     }
+    standalone = @{
+        name = "lom-russian-patch-$Version.zip"
+        sha256 = $zipHash
+        size = $zipSize
+        url = "https://github.com/kapgrek/lotm-russian-patch/releases/download/$Version/lom-russian-patch-$Version.zip"
+    }
 }
 
 $jsonContent = $releaseInfo | ConvertTo-Json -Depth 5
 [System.IO.File]::WriteAllText("$buildDir\release.json", $jsonContent, [System.Text.Encoding]::UTF8)
 
 Write-Host "Release package successfully built in $buildDir!" -ForegroundColor Green
-Write-Host "  Data Archive: $zipPath ($([Math]::Round($zipSize/1MB, 2)) MB)"
-Write-Host "  Installer: $installerDest"
-Write-Host "  Manifest: $buildDir\release.json"
+Write-Host "  Data Archive:       $zipPath ($([Math]::Round($zipSize/1MB, 2)) MB)"
+Write-Host "  Standalone Archive: $standaloneZip ($([Math]::Round($zipSize/1MB, 2)) MB)"
+Write-Host "  GUI Installer:      $installerDest"
+Write-Host "  Manifest:           $buildDir\release.json"

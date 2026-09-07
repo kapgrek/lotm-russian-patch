@@ -38,19 +38,17 @@ if ($proc.ExitCode -ne 0) {
 
 Write-Host "Compilation succeeded: $outputExe ($((Get-Item $outputExe).Length) bytes)" -ForegroundColor Green
 
-# Authenticode signature (self-signed with official DigiCert timestamp for PE integrity)
-try {
-    $cert = Get-ChildItem Cert:\CurrentUser\My -CodeSigningCert -ErrorAction SilentlyContinue | Where-Object { $_.Subject -like "*Lord of the Mysteries*" } | Select-Object -First 1
-    if (-not $cert) {
-        Write-Host "Creating local Code Signing certificate..." -ForegroundColor Yellow
-        $cert = New-SelfSignedCertificate -Type CodeSigningCert -Subject "CN=Lord of the Mysteries Russian Patch, O=kapgrek" -CertStoreLocation Cert:\CurrentUser\My -ErrorAction Stop
-    }
-    
-    Write-Host "Signing executable with Authenticode & DigiCert timestamp..." -ForegroundColor Cyan
-    $sig = Set-AuthenticodeSignature -FilePath $outputExe -Certificate $cert -HashAlgorithm SHA256 -TimestampServer "http://timestamp.digicert.com" -ErrorAction SilentlyContinue
+# Authenticode signature (only applied if a valid trusted commercial CA certificate exists)
+$trustedCert = Get-ChildItem Cert:\CurrentUser\My -CodeSigningCert -ErrorAction SilentlyContinue | Where-Object {
+    $_.Subject -ne $_.Issuer -and $_.Verify()
+} | Select-Object -First 1
+
+if ($trustedCert) {
+    Write-Host "Signing executable with trusted certificate: $($trustedCert.Subject)..." -ForegroundColor Cyan
+    $sig = Set-AuthenticodeSignature -FilePath $outputExe -Certificate $trustedCert -HashAlgorithm SHA256 -TimestampServer "http://timestamp.digicert.com" -ErrorAction SilentlyContinue
     Write-Host "Signature status: $($sig.Status)" -ForegroundColor Gray
-} catch {
-    Write-Warning "Could not sign executable: $_"
+} else {
+    Write-Host "No commercial Code Signing certificate found. Building clean, unsigned binary (avoids untrusted root errors on client PCs)." -ForegroundColor Yellow
 }
 
 # Copy to project root if building in installer directory
