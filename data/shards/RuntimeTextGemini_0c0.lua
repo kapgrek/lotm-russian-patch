@@ -138,6 +138,7 @@ return {
     ["Little Butterfly"] = "Маленькая бабочка",
     ["Work is finally settled. Let's treat Melissa to a good meal to celebrate!"] = "Работа наконец решена. Давайте угостим Мелиссу вкусным ужином, чтобы отпраздновать это событие!",
     ["Differential Pupil Instrument"] = "Дифференциальный инструмент ученика",
+    ["Supported with <Champion_H>20</> votes"] = "Поддержано голосами <Champion_H>20</>",
     ["已领取援助，是否添加其为好友？"] = "Помощь получена. Добавить их в друзья?",
     ["Mr. Barney continuously shocks the ground and gains high <img id=\"09\" width=\"40\" height=\"40\"/> Damage Reduction."] = "Мистер Барни постоянно сотрясает землю и получает высокое Снижение урона <img id=\"09\" width=\"40\" height=\"40\"/>.",
     ["布兰登向学生们伸出了手，在触碰到彼此的指尖之前，布兰登和学生们的轮廓都消散在了空气之中，化作无形。"] = "Брэндон потянулся к ученикам, и прежде чем их кончики пальцев соприкоснулись, очертания Брэндона и учеников растворились в воздухе, превратившись в ничто.",
@@ -157,6 +158,7 @@ return {
     ["I can understand you."] = "Я могу тебя понять.",
     ["我这就走，感谢您的帮助和宽容！"] = "Я уйду сейчас. Спасибо за помощь и терпимость!",
     ["或许是那个人的肉味呢？你能不能让我咬一口？"] = "Возможно, дело было во вкусе мяса этого человека? Можете ли вы дать мне перекусить?",
+    ["扮演称谓"] = "Исполняющее обязанности",
     ["Acting level reaches 42"] = "Уровень Лицедейства достигает 42-го",
     ["Find <h>Mr. Franchi</> and ask"] = "Найдите <h>Mr. Franchi</> и спросите",
     ["Accept the <HighLight> Seed of Sighs </> quest, defeat monsters to obtain <HighLight> Scarlet Relics </>, and hand them to the <HighLight> Hunting Butler </> to increase hunting progress and earn rewards!"] = "Примите квест <HighLight> «Семя вздохов» </>, побеждайте монстров, чтобы получить <HighLight> Алые реликвии </>, и передайте их <HighLight> Охотничьему дворецкому </>, чтобы увеличить прогресс охоты и получить награды!",
@@ -266,4 +268,5 @@ return {
     ["Magic Crit Damage Reduction_Value"] = "Уменьшение магического критического урона_Значение",
     ["Listen silently"] = "Слушай молча",
     ["(4) 10 seconds before combat starts, additional 20% Defense;"] = "(4) За 10 секунд до начала боя дополнительно 20% защиты;",
+    ["<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Escort Carriage: 0/3 times\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Rui-Bibber: <Highlight>1</>/3 times\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Clown: <Highlight>1</>/3 times"] = "<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Эскортная карета: 0/3 раза\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Руи-Биббер: <Highlight>1</>/3 раза\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Клоун: <Highlight>1</>/3 раза",
 }

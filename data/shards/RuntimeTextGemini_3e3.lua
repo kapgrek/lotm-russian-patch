@@ -1,6 +1,7 @@
 ﻿-- Generated Russian translation shard 3e3/3ff.
 -- Dual-indexed (CN + EN keys) for instant zero-limit lookup.
 return {
+    ["20 people"] = "20 человек",
     ["41 Clinic"] = "41 Клиника",
     ["5230156   廷根   位面"] = "5230156 Измерение: Тинген",
     ["5230164 Tarot Academy Plane"] = "5230164 Самолет Академии Таро",
@@ -10,6 +11,7 @@ return {
     ["<Assistant_Title1>【真视水晶球】</>\n<Assistant_Title2>描述：</>竞技玩法奖励展台组件\n<Assistant_Title2>使用：</>使用后获得真视水晶球，可点击<Assistant_System>外观-展台</>查看并使用。\n<Assistant_Title2>获取：</>通过<Assistant_System>商城-百货-凯旋商店</>使用凯旋徽章兑换"] = "<Assistant_Title1>【Хрустальный шар True Sight】</>\n<Assistant_Title2>Описание: </>Компонент демонстрационной подставки, полученный в награду за игровой процесс в соревнованиях\n<Assistant_Title2>Использование: </>После использования вы получите Хрустальный шар True Sight. Вы можете нажать <Assistant_System>Внешний вид — Демонстрационный стенд</>, чтобы просмотреть и использовать его. \n<Assistant_Title2>Приобретение: </>Обменять с помощью значков Триумфа в магазине <Assistant_System>Mall — Товары общего назначения — Магазин Триумфа</>.",
     ["<Assistant_Title1>蒸汽赞歌</>\n<Assistant_Title2>成就分类：</>休闲-城堡\n<Assistant_Title2>解锁条件：</>工坊累计生产5000个物产"] = "<Assistant_Title1>Гимн Steam</>\n<Assistant_Title2>Категория достижений: </>LДосуг — Мэйское поместье · Замок\n<Assistant_Title2>Условие разблокировки: </>Мастерские произвели в общей сложности 5000 предметов",
     ["<Highlight>Craft: </>Night Blue Velvet · Magic Uniform\nSome mysteries are hidden in star charts, hidden in the light that refuses to dissipate at the end of the long night."] = "<Highlight>Craft: </>Night Blue Velvet · Волшебная униформа\nНекоторые тайны скрыты в звездных картах, скрыты в свете, который отказывается рассеиваться в конце долгой ночи.",
+    ["<Highlight>Ba Wang Cha Ji franchise:</> Don't play cards, let me go"] = "<Highlight>Ба Ван Ча Джи, франшиза: </> Не играй в карты, отпусти меня.",
     ["<M_Orange>%s </> Club and <M_Orange>%s </> Club have been forcibly merged due to insufficient club funds. We hope all members will unite and develop the new club together!"] = "Клуб </>% <M_Orange>% и Клуб </> <M_Orange>% были принудительно объединены из-за недостаточности клубных средств. Мы надеемся, что все участники объединятся и вместе будут развивать новый клуб!",
     ["<P_Heart>（他刚刚提到的发明笔记，和工厂会有关系吗？）</>"] = "<P_Heart> (Примечания к изобретению, которые он только что упомянул, могут ли они иметь отношение к фабрике?) </>",
     ["<P_Heart> (He doesn't believe at all that he can escape. For him, the greatest hope is to clean the chimneys and get this life-saving money. But going down alone is too dangerous, in that case... ) </>"] = "<P_Heart> (Он вообще не верит, что сможет спастись. Для него самая большая надежда - прочистить дымоходы и получить эти спасительные деньги. Но спускаться в одиночку слишком опасно, в таком случае...) </>",
@@ -74,6 +76,7 @@ return {
     ["六臂灰猩的耳朵"] = "Ухо шестирукой серой обезьяны",
     ["Lanny "] = "Лэнни",
     ["Actually, I am an undercover detective from the Awwa County Police Department. Someone reported that a serial killer is in the area, and I am here to make an arrest."] = "На самом деле я детектив под прикрытием из полицейского управления округа Авва. Кто-то сообщил, что в этом районе находится серийный убийца, и я здесь, чтобы произвести арест.",
+    ["再来"] = "Снова",
     ["Cooldown period"] = "Период восстановления",
     ["Damage Reduction increased."] = "Снижение урона увеличено.",
     ["Preliminary Round"] = "Предварительный раунд",
@@ -155,6 +158,7 @@ return {
     ["Strategy Server"] = "Стратегический сервер",
     ["所有部件升至满级后解锁"] = "Разблокируется после того, как все компоненты достигнут максимального уровня.",
     ["所需道具不足"] = "Недостаточно необходимых предметов.",
+    ["打着打着回血40%"] = "Исцеление 40% во время боя.",
     ["I'm sorry, I..."] = "Мне жаль, я...",
     ["Resistance · Boss"] = "Сопротивление · Босс",
     ["Hug, Hug"] = "Обнимаю, обнимаю",
@@ -209,6 +213,7 @@ return {
     ["Benson: Alright, alright, I'll listen to you two."] = "Бенсон: Хорошо, хорошо, я послушаю вас двоих.",
     ["生命+12500、破防+1700"] = "Здоровье +12500, пробитие брони +1700",
     ["生命教派棋子除获得基础<HighLight>攻击</>和<HighLight>攻速</>外<HighLight>吸血能力最强</>的非生命教派棋子获得相同增益。教派秘仪加持时，全队法术增伤、暴击率提升，获得黑暗视野，小幅缩减技能冷却时间。"] = "Части Школы жизни, помимо получения базовых <HighLight>Attack</> и <HighLight>Скорость атаки</>, также получают самую сильную способность <HighLight>Кража жизни</> для предметов, не относящихся к Школе жизни, которые получают такой же положительный эффект. При благословении ритуалом Школы Мысли урон от заклинаний всей команды и вероятность критического удара увеличиваются, появляется Темное зрение, а время восстановления навыков немного сокращается.",
+    ["Take a high-definition Quest photo at maximum zoom"] = "Сделайте фотографию Quest в высоком разрешении с максимальным увеличением.",
     ["Instant level up to 15"] = "Мгновенный уровень до bb",
     ["相册空间已满，本次拍照将无法保存至诡秘相册，请进行清理，释放空间后继续"] = "Место в альбоме заполнено. Эту фотографию невозможно сохранить в «Таинственный альбом». Пожалуйста, очистите и освободите место, прежде чем продолжить.",
     ["神"] = "Бог",
@@ -224,6 +229,7 @@ return {
     ["The ending is that the sailor experienced a life-and-death ordeal and finally transformed into a ghost-like Count, standing before you all, exercising a right that belongs to him, the most legitimate and precious right—"] = "Концовка такова, что моряк пережил испытание не на жизнь, а на смерть и, наконец, превратился в призрачного графа, стоящего перед всеми вами и осуществляющего принадлежащее ему право, самое законное и драгоценное право —",
     ["而且他真的出手相助，用一种很平淡的方式，就像只是顺手拂去灰尘。"] = "И он действительно потянулся за помощью, очень просто, как будто просто смахнул пыль.",
     ["Victor's Declaration"] = "Декларация Виктора",
+    ["Blend Above Chest"] = "Смешать над грудью",
     ["能够激活乌托邦剧院效果，连接秘偶小镇的特定秘偶。使用后可以获得紫色品质的秘偶，<Highlight>气泡豚</>。"] = "Активирует эффект Театра Утопии, подключаясь к определенной марионетке из Маленького Городка Марионеток. При использовании вы получите марионетку фиолетового качества: <Highlight>Bubble Puffer</>.",
     ["Supreme Breakdance King"] = "Верховный король брейк-данса",
     ["艺术品贩子的打手"] = "Бандит арт-дилера",

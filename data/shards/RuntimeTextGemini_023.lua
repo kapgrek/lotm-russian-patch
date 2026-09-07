@@ -137,7 +137,6 @@ return {
     ["The highest-level hunter often appears in the form of prey. This time, even the alpha wolf cannot escape."] = "Охотник высшего уровня часто появляется в образе добычи. На этот раз даже альфа-волк не сможет сбежать.",
     ["It's nice to be rich... but it's a bit hard to get used to being rich all of a sudden."] = "Приятно быть богатым... но сложно сразу привыкнуть к богатству.",
     ["Round Score"] = "Счет за раунд",
-    ["The tea in the cup\nis almost gone now"] = "Чай в чашке\n почти закончился.",
     ["Check the windmill anomaly"] = "Проверьте аномалию ветряной мельницы",
     ["标记_特莉丝"] = "Марк_Трисси",
     ["标记一个地方，只存在于标记的瞬间；抵达的同时，也是消失的开始。"] = "Маркировка места существует только в момент маркировки; Прибытие — это также начало исчезновения.",
@@ -153,6 +152,7 @@ return {
     ["点击填充非凡物质。"] = "Нажмите, чтобы заполнить материалы Потусторонний.",
     ["Blazing Sun Power"] = "Сила пылающего солнца",
     ["Brand Equipment upgrade item.\nCan upgrade the 60 Gear Level gold quality brand amulet <Highlight>Bright Red Ember</> to <Highlight>62 Gear Level orange quality</>, consuming <Highlight>1</> Memory Crystal upon upgrade.\nYou must first possess the pre-upgrade brand equipment; once possessed, click the <Highlight>Gear Level Increase</> button to upgrade. Using this item allows for a quick jump to the pre-upgrade brand equipment."] = "Предмет улучшения фирменного снаряжения.\nМожно улучшить фирменный амулет золотого качества <Highlight>Bright Red Ember</> 60-го уровня снаряжения до <Highlight>62 оранжевого качества </>, потребляя <Highlight>1</> Кристалл памяти при обновлении.\nСначала вам необходимо обладать фирменным оборудованием, предшествующим обновлению; После получения нажмите кнопку <Highlight>Увеличение уровня снаряжения</>, чтобы обновить. Использование этого предмета позволяет быстро перейти к фирменному оборудованию до обновления.",
+    ["And then that circle needs to be skipped."] = "И тогда этот круг нужно пропустить.",
     ["爆炸桶火焰材质"] = "Материал пламени взрывного ствола",
     ["狙击射击-爆头结算"] = "Снайперский выстрел — разрешение выстрела в голову",
     ["玩家死亡"] = "Игрок мертв",
@@ -211,4 +211,5 @@ return {
     ["Witch and Beast - Restroom and Ring"] = "Ведьма и Чудовище – Туалет и Кольцо",
     ["Black hair, deep blue eyes, a porcelain denture on the left side of his mouth, and a sapphire ring on his right hand."] = "Черные волосы, темно-синие глаза, фарфоровый протез на левой стороне рта и сапфировое кольцо на правой руке.",
     ["(Nods) He actually thought he had already stepped into high society."] = "(Кивает) Он действительно думал, что уже вошел в высшее общество.",
+    ["The tea in the cup\nis almost gone now"] = "Чай в чашке \n уже почти закончился",
 }

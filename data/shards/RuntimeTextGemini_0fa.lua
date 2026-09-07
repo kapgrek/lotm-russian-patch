@@ -3,6 +3,7 @@
 return {
     ["\n一\n次\n机\n会"] = "\nА\n\nШанс",
     ["\nTo the lost lambs and souls seeking shelter:\n\nMy Lord calls himself the Fool. In the past, in the present, and in the future, he is the great master who dominates the Spirit World, the King of Yellow and Black who holds good luck, and the beacon for every living being pursuing eternity.\n\nHe is compassionate, he is merciful, he is the savior of this world... His benevolence is spread among the people, bringing warmth to every household. We turn this care into tangible feedback, spreading the gospel of the Fool across the land...\n\nIf you have a need to listen to the gospel, please visit the <Letter_Highlight>Miracle Mailbox</> in the dead of night according to the map on the back.\n\n<Letter_Normal_HW>Note: Please do not promote the Church of the Fool in public.</>"] = "\nЗаблудшим ягнятам и душам, ищущим приюта:\n\nМой Господь называет себя Дураком. В прошлом, настоящем и будущем он — великий мастер, правящий миром духов, Король Желтого и Чёрного, несущий удачу и маяк для каждого живого существа, стремящегося к вечности.\n\nОн сострадателен, он милосерден, он спаситель этого мира... Его доброжелательность распространяется среди людей, принося тепло в каждый дом. Мы превращаем эту заботу в осязаемую обратную связь, распространяя Евангелие Шута по всей стране...\n\nЕсли у вас есть потребность послушать Евангелие, посетите <Letter_Highlight>Чудесный почтовый ящик</> глубокой ночью, согласно карте на обороте.\n\n<Letter_Normal_HW>Примечание: Пожалуйста, не рекламируйте Церковь Шута публично.</>",
+    ["06 days 12 hours"] = "06 дней 12 часов",
     ["We lost the war on the East Coast of Balam in 1349 simply because your luck was too poor."] = "Мы проиграли войну на восточном побережье Балама в 1349 году просто потому, что вам не повезло.",
     ["5200052   村庄   副本"] = "5200052 Подземелье: Деревня",
     ["5230095   廷根湖   位面"] = "5230095 Измерение: Тинген Озеро",
@@ -33,6 +34,7 @@ return {
     ["Triple Phantom Sound"] = "Тройной фантомный звук",
     ["Undying Power"] = "Бессмертная сила",
     ["Don't worry about it. There are many special people in this world who can always do things others can't, like you..."] = "Не беспокойтесь об этом. В этом мире есть много особенных людей, которые всегда могут сделать то, что другие не могут, как и ты...",
+    ["Don't reject me"] = "Не отвергай меня",
     ["Jungle Waltz · Bottom"] = "Джунглевой вальс · Внизу",
     ["Northeast 16"] = "Северо-восток bb",
     ["Northeast 20"] = "Северо-восток bb",
@@ -138,7 +140,6 @@ return {
     ["暂代灵性之墙"] = "Временная стена духовности",
     ["未解锁该时装，是否前往获取？"] = "Экипировка не разблокирована. Хотите пойти и получить его?",
     ["Jack? Why aren't you saying anything? Jack?"] = "Джек? Почему ты ничего не говоришь? Джек?",
-    ["枝丫秃散\n重现坚韧"] = "Ветви пусты\nвозврат устойчивости",
     ["View Parchment"] = "Посмотреть пергамент",
     ["Looking at Irene's photo..."] = "Глядя на фото Ирины...",
     ["死亡咏叹第三节-安慰芬恩"] = "Реквием смерти, часть 3 - Утешающий Финн",
@@ -241,4 +242,5 @@ return {
     ["A distilled spirit specialty of northern Loen, its violent kick can dispel any biting cold wind."] = "Это дистиллированный спиртной напиток северного Лоена. Его сильный удар способен рассеять любой пронизывающий холодный ветер.",
     ["Iris: Collection"] = "Ирис: Коллекция",
     ["Drummer! I can't hear your drumbeats! Turn up the volume!"] = "Барабанщик! Я не слышу твоего барабанного боя! Увеличьте громкость!",
+    ["枝丫秃散\n重现坚韧"] = "Ветви голые. \n возвращает устойчивость.",
 }

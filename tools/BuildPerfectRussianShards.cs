@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -37,6 +37,10 @@ class BuildPerfectRussianShards
     {
         if (string.IsNullOrEmpty(s)) return "";
         string r = s.Replace("\r\n", "\\n").Replace("\n", "\\n").Replace("\r", "");
+        if (r.Contains("\\\"") && (r.Contains("guildTaskHelp") || r.Contains("Clickable")))
+        {
+            return r.Replace("\\\"", "\\\\\\\"");
+        }
         r = Regex.Replace(r, @"(\\+)\""", "\"");
         r = r.Replace("\"", "\\\"");
         return r;

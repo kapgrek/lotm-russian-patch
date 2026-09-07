@@ -1,0 +1,1124 @@
+﻿========================================================================
+  LORD OF THE MYSTERIES - FULL COMPREHENSIVE TRANSLATION AUDIT (v2.6.0)  
+========================================================================
+Date: 2026-09-07 23:38:42
+Total entries in English 2.6.0: 130528
+Total entries in Old English source: 130522
+Total entries in RuntimeTextRussian.lua: 258134
+Overall Coverage: 130528 / 130528 (100,00%)
+
+------------------------------------------------------------------------
+1. NEWLY ADDED ENTRIES IN ENGLISH 2.6.0 (214):
+------------------------------------------------------------------------
+CN: 斯蒂芬斯街\r\n<LeonSubTitle size="38">Stevens Street</>
+EN: Stevens Street\n<LeonSubTitle size="38">Stevens Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Стивенс-стрит\n<LeonSubTitle size="38">Стивенс-стрит</>
+
+CN: 你\r\n接\r\n下\r\n来\r\n的\r\n表\r\n现
+EN: Your \r\n per\r\nfor\r\nman\r\nce \r\nnext\r\n
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Твоё\r\nследующее\r\nвыступление
+
+CN: 请好好地\r\n跟着我
+EN: Please follow me\r\nclosely.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Пожалуйста, следуй\r\nза мной неотступно.
+
+CN: 在沉寂已久的城堡中重新规划空间，让生活的秩序逐步成形。 \r\n或许，还可以尝试一点小小的奇迹？
+EN: Reorganize the space in the long-silent castle, allowing the order of life to gradually take shape. Perhaps, one could also try a small miracle?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Реорганизуйте пространство в давно замолчавшем замке, позволяя постепенно обрести форму жизни. Может быть, тоже можно попробовать маленькое чудо?
+
+CN: 晚上有2个人在3点吃了4块肉，\r\n5点12分9秒才睡去，\r\n13点14分16秒才醒来
+EN: At night, 2 people ate 4 pieces of meat at 3 o'clock,\ndidn't go to sleep until 5:12:09,\nand didn't wake up until 13:14:16
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Ночью 2 человека съели 4 куска мяса в 3 часа,\n не заснул до 5:12:09,\n и не проснулся до 13:14:16.
+
+CN: 水仙花街\r\n<LeonSubTitle size="38">Daffodil Street</>
+EN: Daffodil Street\r\n<LeonSubTitle size="38">Daffodil Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: улица Нарциссов\r\n<LeonSubTitle size="38">улица Нарциссов</>
+
+CN: 在堕落中，\r\n享受绝对的欢愉
+EN: In depravity, enjoy absolute Pleasure
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: В разврате наслаждайся абсолютным наслаждением
+
+CN: 皮特代号“蒲公英”\r\n是信仰堕落母神的月亮仆从成员\r\n噩梦似乎是他举行仪式的预示
+EN: Pete, codenamed "Dandelion",\nis a Moon Servant who believes in the Mother Goddess of Depravity.\nThe Nightmare seems to be a premonition of the ritual he is performing.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Пит под кодовым именем «Одуванчик», \n — Лунный Слуга, который верит в Богиню-Мать Разврата. \n Кошмар, кажется, является предчувствием ритуала, который он выполняет.
+
+CN: 那边是食物吗？\r\n香香臭臭的，我吃一口……就一口。
+EN: Is that food over there?\nIt smells fragrant yet foul, I'll take a bite... just one bite.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Это там еда? \n Она пахнет ароматно, но противно, я откусю... всего один кусочек.
+
+CN: 好好\r\n看清楚
+EN: Look\r\ncarefully
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Смотри\r\nвнимательно
+
+CN: 接\r\n下\r\n来
+EN: Next\r\n
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Далее\r\n
+
+CN: <Fashion1>风格：</>湖畔风格\r\n<Fashion1>名称：</><Fashion2>枯叶蝶</>\r\n<Fashion1>工艺：</>暗纹蛛丝乔其纱礼服裙\r\n<Fashion1>描述：</>关于服装的简单的一两句话左右的介绍
+EN: <Fashion1>Style:</> Lakeside Style\r\n<Fashion1>Name:</><Fashion2>Dead Leaf Butterfly</>\r\n<Fashion1>Craft:</> Dark Pattern Spider Silk Georgette Gown\r\n<Fashion1>Description:</> A simple one or two-sentence introduction about the clothing
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: <Fashion1>Стиль:</> Стиль на берегу озера\r\n<Fashion1>Название:</><Fashion2>Бабочка из мертвых листьев</>\r\n<Fashion1>Craft:</> Платье из жоржета с темным узором из шелка и паука\r\n<Fashion1>Описание:</> Простое введение в одно или два предложения об одежде.
+
+CN: 时机如轮\r\n切记\r\n
+EN: Time is like a wheel\nRemember this\n
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Время похоже на колесо\nЗапомни это\n
+
+CN: 那便永远\r\n记住我的声音吧。
+EN: Then forever\nremember my voice.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Тогда навсегда\n запомнит мой голос.
+
+CN: 回答我，\r\n爱一个人，需要理由吗？
+EN: Answer me, does loving someone need a reason?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Ответьте мне, нужна ли причина для любви к кому-то?
+
+CN: 嗝，\r\n肚子饱了，赶紧逃命！
+EN: Burp, my stomach is full, time to run for my life!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Бёрп, мой желудок полон, пора бежать, спасая свою жизнь!
+
+CN: 斩断红线\r\n方可击败金狼
+EN: Sever the red thread\nOnly then can you defeat the Golden Wolf
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Разорви красную нить\nТолько тогда ты сможешь победить Золотого Волка.
+
+CN: 失踪者可能携带铜镜\r\n路过三个入口地点 被隐藏踪迹后\r\n被知识皇冠瓦解消散而失踪
+EN: The missing person may be carrying a bronze mirror.\r\nAfter passing through three entry points and having their tracks concealed,\r\nthey were dissolved and vanished by the Crown of Knowledge.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Пропавший мог иметь при себе бронзовое зеркало.\r\nПройдя через три входа и скрыв свои следы,\r\nон был распылён и развеян Венцом Знаний.
+
+CN:     顺序\r\n必将失控
+EN:     Sequence\r\nWill inevitably lead to loss of control
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value:     Sequence\r\nWill inevitably lead to loss of control
+
+CN: 3号佐特兰\r\n射击俱乐部\r\n<LeonSubTitle size="10">Zouteland Shooting Club</>
+EN: No. 3 Zouteland\nShoot Club\n<LeonSubTitle size="10">Zouteland Shooting Club</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: № 3 Стрелковый клуб Зутеленд\nСтрелковый клуб\n<LeonSubTitle size="10">Стрелковый клуб Зутеленд</>
+
+CN: 我拉着她的手走开了，\r\n她也没有拒绝。
+EN: I took her hand and walked away,\r\nand she did not refuse.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я взял ее за руку и пошел прочь,\r\n, и она не отказалась.
+
+CN: 崔佛\r\n酒桶上放了什么！
+EN: Trevor\r\nWhat did you put on the barrel!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Trevor\r\nЧто ты на ствол надел!
+
+CN: 是啊，毕竟收来的租金\r\n都流进他的口袋！
+EN: That's right, after all, the rent collected\nall flows into his pocket!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Правильно, ведь собранная арендная плата \n вся утекает ему в карман!
+
+CN: 但是，女神啊，您知道的……\r\n时间总是会磨平激情！
+EN: But, Goddess, you know... time always wears down passion!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Но, Богиня, ты знаешь... время всегда притупляет страсть!
+
+CN: 希望保险公司能多给些钱\r\n用来抚养我的孩子……
+EN: I hope the insurance company can give more money\r\nso I can raise my children...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я надеюсь, что страховая компания сможет дать больше денег\r\n, чтобы я мог воспитывать своих детей...
+
+CN: 新增职业后需要在这一段\r\n也新增对应的职业采集物
+EN: After adding a new profession, you must also add the corresponding profession collection items in this section.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: После добавления новой профессии необходимо также добавить в этот раздел соответствующие предметы коллекции профессий.
+
+CN: 豪尔斯街\r\n<LeonSubTitle size="38">Howes Street</>
+EN: Howls Street\r\n<LeonSubTitle size="38">Howes Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: улица Хоуэс\r\n<LeonSubTitle size="38">улица Хоуэс</>
+
+CN: 你的伙伴前来助力\r\n恭喜你获得了一次额外的<Highlight>重掷</>机会
+EN: Your Partner has come to assist\nCongratulations, you have gained an extra <Highlight>Reroll</> opportunity
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Ваш партнер пришел на помощь\nПоздравляем, вы получили дополнительную возможность <Highlight>Reroll</>.
+
+CN: 她那天不知怎么的，\r\n似乎特别漂亮……\r\n就好像在等着我似的……
+EN: I don't know what happened that day, but she seemed exceptionally beautiful...\r\nIt was as if she were waiting for me...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Не знаю, что произошло в тот день, но она казалась необыкновенно красивой... \r\n Она как будто ждала меня...
+
+CN: 混乱与秩序的终极答案，\r\n就在其中
+EN: The ultimate answer to Chaos and Order,\r\nlies within.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Окончательный ответ Хаосу и Порядку, \r\n, находится внутри.
+
+CN: 铁十字街\r\n<LeonSubTitle size="38">Iron Cross Street</>
+EN: Iron Cross Street\r\n<LeonSubTitle size="38">Iron Cross Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: улица Железного Креста\r\n<LeonSubTitle size="38">улица Железного Креста</>
+
+CN: 获得持续<Highlight>4</>秒的<img id="04" width="36" height="36"/>防御值<Highlight>400</>,并且对一格以内的我方棋子增加<Highlight>60</>点攻击\r\n<img id="04" width="36" height="36"/><Attribute>防御值</>：<Highlight>400/480/560</>\r\n<img id="03" width="36" height="36"/><Attribute>攻击值：60=</>（<Highlight>20%</>/40%/60%）<Attribute>*苏茜当前攻击值</>
+EN: Gain <Highlight>4</> seconds of <img id="04" width="36" height="36"/> DEF <Highlight>400</>, and increase the ATK of allied pieces within one tile by <Highlight>60</>.\r\n<img id="04" width="36" height="36"/><Attribute>DEF</>: <Highlight>400/480/560</>\r\n<img id="03" width="36" height="36"/><Attribute>ATK: 60=</> (<Highlight>20%</>/40%/60%) <Attribute>* Susie's current ATK</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Получите <Highlight>4</> секунд <img id="04" width="36" height="36"/> DEF <Highlight>400</> и увеличьте АТК союзных фигур в пределах одной клетки на <Highlight>60</>.\r\n<img id="04" width="36" height="36"/><Attribute>DEF</>: <Highlight>400/480/560</>\r\n<img id="03" width="36" height="36"/><Attribute>ATK: 60=</> (<Highlight>20%</>/40%/60%) <Attribute>* Текущий ATK</> Сьюзи
+
+CN: 为\r\n什\r\n么\r\n？
+EN: W\r\nh\r\ny\r\n?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: По\r\nче\r\nму\r\n?
+
+CN: 原来，\r\n你也有狂野的一面
+EN: So, you have a wild side too
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Значит, у тебя тоже есть дикая сторона
+
+CN: 我\r\n很\r\n期\r\n待
+EN: I \r\n am \r\n looking \r\n forward to it
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я \r\n, я \r\n, жду \r\n с нетерпением.
+
+CN: 我要纠正居民的错误习惯，\r\n搭建完整的下水道系统！
+EN: I will correct the residents' bad habits and build a complete sewer system!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я исправлю вредные привычки жителей и построю полноценную канализационную систему!
+
+CN: 我是一个\r\n不负责的母亲
+EN: I am an\r\nirresponsible mother.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я \r\nбезответственная мать.
+
+CN: 支持绿赛艇\r\n三个反馈点位
+EN: Support Green Racing Boat\nThree Feedback Points
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Поддержка Green Racing Boat\nТри точки обратной связи
+
+CN: 生日快乐，我的小天使！\r\n这个八音盒送给你，让它每天为你唱快乐的歌。
+EN: Happy birthday, my little Angel!\nThis music box is for you; let it sing a happy song for you every day.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: С днем ​​рождения, мой маленький ангел!\nЭта музыкальная шкатулка для тебя; пусть он поет вам счастливую песню каждый день.
+
+CN: 掌握占星术、卡牌占卜、灵摆灵视以及类似的占卜能力。\r\n掌握占星术、卡牌占卜、灵摆灵视以及类似的占卜能力。
+EN: Master Astrology, Card divination, pendulum spirit vision, and similar divination abilities.\r\nMaster Astrology, Card divination, pendulum spirit vision, and similar divination abilities.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Мастер астрологии, карточное гадание, духовное видение маятника и аналогичные способности гадания.\r\nМастер астрологии, карточное гадание, духовное видение маятника и аналогичные способности гадания.
+
+CN: 下水道系统已经初步建立，\r\n灭鼠行动也持续进行中。
+EN: The sewer system has been initially established,\r\nand the rat extermination campaign is also in Continuous progress.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Первоначально была установлена ​​канализационная система, \r\n, и кампания по уничтожению крыс также продолжается.
+
+CN: 亲爱的尼尔：\r\n如果我能……
+EN: Dear Niel:\r\nIf I could...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Дорогой Ниэль:\r\nЕсли бы я мог...
+
+CN: 切换露米意识\r\n靠近记忆碎片
+EN: Switch Lumian's consciousness\r\nApproach the memory fragment
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Переключите сознание Люмиана\r\nПодойдите к фрагменту воспоминаний.
+
+CN: 我\r\n喜\r\n欢
+EN: I\nlike\nit
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: I\nлайк\nit
+
+CN: 我从小就不知道他是谁，\r\n只知道我和妈妈需要非常努力才能生活下去。
+EN: I never knew who he was since I was little,\nI only knew that my mother and I had to work very hard to survive.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я никогда не знал, кто он такой, с тех пор, как был маленьким, \n. Я знал только, что нам с мамой приходилось очень много работать, чтобы выжить.
+
+CN: 谁来救救我……\r\n救救我……
+EN: Who can save me...\r\nSave me...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Кто может спасти меня...\r\nСпасите меня...
+
+CN: 绿意不在\r\n重现生机
+EN: The greenery is gone\r\nVitality restored
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Зелени больше нет\r\nЖизненная сила восстановлена
+
+CN: 白天有8只恶灵在7点1分飘到古堡的6处,\r\n11点10分15秒才回到小镇
+EN: During the day, 8 Evil Spirits drifted to location 6 of the ancient castle at 7:01,\nand only returned to the Small Town at 11:10:15
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: В течение дня 8 злых духов переместились в локацию 6 древнего замка в 7:01,\n и вернулись в Маленький город только в 11:10:15.
+
+CN: 玩家名字七个字\r\n<LeonSubTitle size="18">Workers are the foundation of the timesfoundation of the times</>
+EN: Player name seven characters\r\n<LeonSubTitle size="18">Workers are the foundation of the timesfoundation of the times</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Имя игрока семь персонажей\r\n<LeonSubTitle size="18">Рабочие — основа времениоснова времени</>
+
+CN: 你渴望的不止这些，\r\n对吧？
+EN: You crave more than this, don't you?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Ты жаждешь большего, не так ли?
+
+CN: 枝丫秃散\r\n重现坚韧
+EN: The branches are bare\r\nresilience returns
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Ветви голые. \r\n возвращает устойчивость.
+
+CN: 你偶然得到一张泛黄的灵界古卷，上面写着模糊的咒文。它似乎与召唤灵界生物有关。\r\n带着它去找现在的序列3召唤大师埃姆林·怀特，他或许知道这是什么。
+EN: You accidentally obtained a yellowed, ancient scroll from the Spirit World with blurry incantations written on it. It seems to be related to summoning Spirit World creatures.\nTake it to the current Sequence 3 Master of Puppets, Emlyn White; he might know what this is.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Вы случайно получили из Мира Духов пожелтевший древний свиток с размытыми написанными на нем заклинаниями. Похоже, это связано с вызовом существ из Духовного мира. \nTОтнесите это нынешнему Мастеру Марионеток из третьей серии, Эмлин Уайт; он может знать, что это такое.
+
+CN:       小克提前预演了可能发生的剧情，在现实世界中只按照预设的流程行动。\r\n他通过伦纳德，向老爷爷借来时之虫，制作了窃运者符咒。他还安排自己唯一的眷者圣大妮子\r\n\r\n小克提前预演了可能发生的剧情，在现实世界中只按照预设的流程行动。向老爷爷借来时在现实世界中只按照预设的流程行动。提前预演了可能发生的剧情吗哈哈哈\r\n\r\n小克提前预演了可能发生的剧情，在现实世界中只按照预设的流程行动。
+EN:       Xiao Ke rehearsed the potential plot in advance, acting in the real world only according to the preset flow.\r\nHe borrowed the Worm of Time from the old man through Leonard and crafted a Luck Siphon charm. He also arranged for his only Blessed, Saint Danni,\r\n\r\nXiao Ke rehearsed the potential plot in advance, acting in the real world only according to the preset flow. Borrowed the Worm of Time from the old man and acted in the real world only according to the preset flow. Did he rehearse the potential plot in advance? Hahaha\r\n\r\nXiao Ke rehearsed the potential plot in advance, acting in the real world only according to the preset flow.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Сяо Кэ заранее отрепетировал потенциальный сюжет, действуя в реальном мире только по заданному сценарию.\r\nОн позаимствовал Червя Времени у старика через Леонарда и создал талисман Вытягивания Удачи. Он также устроил для своего единственного блаженного, святого Данни,\r\n\r\nСяо Кэ заранее отрепетировал потенциальный сюжет, действуя в реальном мире только по заданному сценарию. Позаимствовал у старика Червя Времени и действовал в реальном мире только по заданному сценарию. Репетировал ли он потенциальный сюжет заранее? Ха-ха-ха\r\n\r\nСяо Кэ заранее отрепетировал потенциальный сюжет, действуя в реальном мире только по заданному сценарию.
+
+CN: 还有这种小巷，\r\n很适合听墙根。
+EN: And this kind of alleyway,\nit's perfect for eavesdropping.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: А этот переулок, \n, идеально подходит для подслушивания.
+
+CN:        真是件神奇的事情，一个异想天开的实验和一个偶然出现的失误，让我发现了一位困于风暴之中、迷失于黑暗深处的可怜家伙，他甚至只能在每个月满月的时候才能稍微靠近现实世界，可依然无法将他的呼喊传递进来。\r\n\r\n       他是幸运的，他遇见了我——这个时代的主角。\r\n\r\n       写完上面这段话，自己读了一遍，忽然有点唏嘘，哪怕是用汉字，也不知不觉带上了浓烈的翻译腔，四十年弹指一挥间啊，以往的记忆真的就像梦一样了。
+EN:        It is truly a miraculous thing. A whimsical experiment and an accidental error led me to discover a poor fellow trapped in a storm, lost in the depths of darkness. He can only approach the real world slightly during the full moon each month, yet he still cannot get his cries to carry through.\r\n\r\n       He is fortunate; he met me—the protagonist of this era.\r\n\r\n       After writing the passage above and reading it to myself, I suddenly felt a bit wistful. Even when using Chinese, I unconsciously adopted a heavy translation tone. Forty years have passed in the blink of an eye; past memories really feel just like a dream.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Это действительно чудесная вещь. Причудливый эксперимент и случайная ошибка привели меня к тому, что я обнаружил беднягу, попавшего в бурю, затерянного в глубинах тьмы. Он может лишь слегка приближаться к реальному миру во время полнолуния каждый месяц, но все равно не может донести свой крик.\r\n\r\n       Ему повезло; он встретил меня — главного героя этой эпохи.\r\n\r\n       Написав приведенный выше отрывок и прочитав его про себя, я внезапно почувствовал легкую задумчивость. Даже когда я говорил по-китайски, я неосознанно использовал тяжелый тон перевода. Сорок лет прошли в мгновение ока; Прошлые воспоминания действительно напоминают сон.
+
+CN: 你们不要过来啊啊啊啊\r\n
+EN: Don't come over here, ahhhhhh\n
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Не приходи сюда, аааа\n
+
+CN: 既然喜欢\r\n追求刺激
+EN: Since you like\nchasing thrills
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Так как тебе нравится \n в погоне за острыми ощущениями
+
+CN: 故事的开始总是源自巧合——\r\n一片静谧的城堡领地，正悄然等待着新的主人。
+EN: The story always begins with a coincidence—\nA quiet castle estate is silently awaiting its new master.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: История всегда начинается со совпадения — тихое замковое поместье \n молча ждет своего нового хозяина.
+
+CN: 那一天，我突然听说……\r\n我父亲的真实身份！
+EN: That day, I suddenly heard... \nthe truth about my father's identity!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: В тот день я внезапно услышал... \nправду о личности моего отца!
+
+CN: 文字基础描述 999\r\n文字基础描述，如攻击力提高，非凡者基础伤害提高等等。文字基础描述，如攻击力提高，非凡者基础伤害提高等等。文字基础描述，如攻击力提高，非凡者基础伤
+EN: Basic text description 999\r\nBasic text description, such as Damage Increased, Beyonder base damage increased, etc. Basic text description, such as Damage Increased, Beyonder base damage increased, etc. Basic text description, such as Damage Increased, Beyonder base dam
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Базовое текстовое описание 999\r\nБазовое текстовое описание, такое как увеличение урона, увеличение базового урона Потусторонний и т. д. Базовое текстовое описание, например увеличение урона, увеличение базового урона Потусторонний и т. д. Базовое текстовое описание, например увеличение урона, базовая плотина Потусторонний.
+
+CN: 一\r\n次\r\n机\r\n会
+EN: One \r\n time \r\n machine \r\n opportunity
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Один раз \r\n Машина \r\n Возможность \r\n
+
+CN: 莎莉丝特是\r\n畏惧春天的胆小鬼
+EN: Celeste is\r\na coward who fears spring
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Селеста — \r\n трусиха, которая боится весны
+
+CN: 与<h>茶会主人</>对话\r\n
+EN: Talk to the <h>Host of the Tea Party</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Поговорите с <h>ведущим чаепития</>
+
+CN: 五月庄园也出现异常   \r\n部分工人失踪\r\n庄园的“夫人”和“管家”\r\n也都是月亮仆从成员
+EN: Abnormalities have also appeared at May Manor. \r\n Some workers have gone missing. \r\n The manor's "Viscountess" and "Butler" \r\n are also members of the Moon Servant.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Аномалии также появились в Мэй-Мэноре. \r\n Некоторые рабочие пропали. \r\n «Виконтесса» и «Дворецкий» поместья \r\n также являются членами Лунного Слуги.
+
+CN: 白天有11位秘术导师在1点传送到古堡6处，\r\n第2天8点10分3秒才回到小镇
+EN: During the day, 11 Mystery Pryers teleported to location 6 of the ancient castle at 1:00,\nand only returned to the Small Town at 8:10:03 on the 2nd day
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: В течение дня 11 Таинственных Жрецов телепортировались в локацию 6 древнего замка в 1:00,\n и вернулись в Маленький город только в 8:10:03 на 2-й день.
+
+CN: 好多话呀……\r\n不行了……
+EN: So many words...\r\nI can't take it anymore...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Столько слов...\r\nЯ больше не могу...
+
+CN: 佐特兰街\r\n<LeonSubTitle size="38">Zouteland Street</>
+EN: Zoutland Street\n<LeonSubTitle size="38">Zoutland Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Улица Заутленд\n<LeonSubTitle size="38">Улица Заутленд</>
+
+CN: 伦纳德先生请你帮他接待一位“故人”的妹妹，在黑荆棘附近寻找一下吧。\r\n
+EN: Mr. Leonard asked you to help him receive the sister of an "old friend." Go look for her near Blackthorn.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Мистер Леонард попросил вас помочь ему принять сестру «старого друга». Отправляйтесь искать ее возле Блэкторна.
+
+CN: <Default_L>剩余时间</>\r\n<Brown_L>00</>小时<Brown_L>00</>分钟
+EN: <Default_L>Remaining Time</>\r\n<Brown_L>00</> hours <Brown_L>00</> minutes
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: <Default_L>Оставшееся время</>\r\n<Brown_L>00</> часов <Brown_L>00</> минут
+
+CN: 莎莉丝特是\r\n言而无信的恋人
+EN: Celeste is\r\na faithless lover
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Селеста — \r\n — неверная любовница.
+
+CN: 有了这个，再配合下水道系统，\r\n就能改变特里尔满街污秽的现状！
+EN: With this, combined with the sewer system,\nwe can change the current state of filth filling the streets of Trier!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Благодаря этому, в сочетании с канализационной системой \n, мы можем изменить нынешнее состояние грязи, заполняющей улицы Трира!
+
+CN: 死者生前曾\r\n受到致命枪伤
+EN: The deceased had suffered\r\na fatal gunshot wound before death
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Перед смертью погибший получил смертельное огнестрельное ранение \r\n.
+
+CN: 如需提前解冻，请缴纳保证金：<Penalty_3>124889金镑</>，缴\r\n纳后7天内，如无再次同类型违规行为，则返还\r\n缴纳的保证金，首次违规100%返还金镑，再次\r\n违规则按照当前寄售汇率折算返还苏勒。\r\n
+EN: To unfreeze early, please pay a security deposit: <Penalty_3>124889 Pounds</>. After payment, if there are no further violations of the same type within 7 days, the security deposit will be returned. For the first violation, 100% of the Pounds will be returned; for subsequent violations, it will be converted and returned in soli based on the current consignment exchange rate.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Чтобы разморозить досрочно, внесите залог: <Penalty_3>124889 Pounds</>. После оплаты, если в течение 7 дней не будет выявлено нарушений того же типа, залог будет возвращен. За первое нарушение будет возвращено 100% фунтов стерлингов; в случае последующих нарушений он будет конвертирован и возвращен в виде соли по текущему обменному курсу партии товара.
+
+CN: 香槟街\r\n<LeonSubTitle size="38">Champagne Street</>
+EN: Champagne Street\r\n<LeonSubTitle size="38">Champagne Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Улица Шампанского\r\n<LeonSubTitle size="38">Улица Шампанского</>
+
+CN: 一段时间以来，未成年人过度使用甚至沉迷网络游戏问题突出，对正常生活学习和健康成长造成不良影响，社会各方面特别是广大家长反映强烈。为进一步严格管理措施，坚决防止未成年人沉迷网络游戏，切实保护未成年人身心健康，现将有关要求通知如下。\r\n\r\n一、严格限制向未成年人提供网络游戏服务的时间。自本通知施行之日起，所有网络游戏企业仅可在周五、周六、周日和法定节假日每日20时至21时向未成年人提供1小时网络游戏服务，其他时间均不得以任何形式向未成年人提供网络游戏服务。\r\n\r\n二、严格落实网络游戏用户账号实名注册和登录要求。所有网络游戏必须接入国家新闻出版署网络游戏防沉迷实名验证系统，所有网络游戏用户必须使用真实有效身份信息进行游戏账号注册并登录网络游戏，网络游戏企业不得以任何形式（含游客体验模式）向未实名注册和登录的用户提供游戏服务。\r\n\r\n三、各级出版管理部门加强对网络游戏企业落实提供网络游戏服务时段时长、实名注册和登录、规范付费等情况的监督检查，加大检查频次和力度，对未严格落实的网络游戏企业，依法依规严肃处理。
+EN: For some time, excessive use of and addiction to online games among minors have become serious problems, adversely affecting their normal lives, studies, and healthy development. These concerns have prompted strong public responses, particularly from parents. To further strengthen management, prevent minors from becoming addicted to online games, and protect their physical and mental health, the following requirements are hereby announced.\r\n\r\nI. Strictly limit the hours during which online gaming services are provided to minors. From the effective date of this notice, all online gaming companies may provide minors with only 1 hour of online gaming services, from 20:00 to 21:00, on Fridays, Saturdays, Sundays, and statutory holidays. At all other times, online gaming services must not be provided to minors in any form.\r\n\r\nII. Strictly enforce real-name registration and login requirements for online gaming accounts. All online games must connect to the National Press and Publication Administration's real-name verification system for preventing online gaming addiction. All users must register and log in using genuine, valid identity information. Online gaming companies must not provide services in any form, including guest trial modes, to users who have not registered and logged in under their real identities.\r\n\r\nIII. Publishing authorities at all levels shall strengthen supervision and inspection of online gaming companies' compliance with service hours and duration limits, real-name registration and login, payment practices, and related requirements. Inspections shall be more frequent and rigorous. Companies that fail to comply strictly shall be dealt with seriously in accordance with applicable laws and regulations.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: С некоторых пор чрезмерное использование и пристрастие к онлайн-играм среди несовершеннолетних стали серьезной проблемой, отрицательно влияющей на их нормальную жизнь, учебу и здоровое развитие. Эти опасения вызвали резкую общественную реакцию, особенно со стороны родителей. В целях дальнейшего усиления управления, предотвращения зависимости несовершеннолетних от онлайн-игр и защиты их физического и психического здоровья настоящим объявляются следующие требования.\r\n\r\nI. Строго ограничить время предоставления игровых онлайн-услуг несовершеннолетним. С даты вступления в силу настоящего уведомления все компании, занимающиеся онлайн-играми, могут предоставлять несовершеннолетним только 1 час услуг онлайн-игр с 20:00 до 21:00 по пятницам, субботам, воскресеньям и в праздничные дни. В остальных случаях игровые онлайн-услуги не должны предоставляться несовершеннолетним в любой форме.\r\n\r\nII. Строго соблюдайте требования к регистрации настоящего имени и входу в систему для учетных записей онлайн-игр. Все онлайн-игры должны подключаться к системе проверки настоящего имени Национального управления печати и публикаций для предотвращения зависимости от онлайн-игр. Все пользователи должны зарегистрироваться и войти в систему, используя подлинную и действительную идентификационную информацию. Компании, занимающиеся онлайн-играми, не должны предоставлять услуги в любой форме, включая гостевые пробные режимы, пользователям, которые не зарегистрировались и не вошли в систему под своим настоящим именем.\r\n\r\nIII. Издательские органы на всех уровнях должны усилить надзор и проверку соблюдения компаниями, занимающимися онлайн-играми, часов и ограничений продолжительности обслуживания, регистрации и входа в систему под настоящим именем, практики оплаты и связанных с ними требований. Проверки должны быть более частыми и тщательными. К компаниям, которые не соблюдают строгие требования, следует относиться серьезно в соответствии с применимыми законами и правилами.
+
+CN: 可不会\r\n这么
+EN: It won't be like this
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Это не будет так
+
+CN: 莎莉丝特是\r\n不称职的女儿
+EN: Celeste is\r\nan incompetent daughter
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Селеста — \r\n, некомпетентная дочь
+
+CN: 夜总会里，邦尼为女孩戴上项链。\r\n她笑得很温柔，说这项链名为“自由”。\r\n女孩浑然不知，“自由”的另一头。\r\n一直攥在邦尼手里。
+EN: In the nightclub, Bonnie puts a necklace on the girl. \r\n She smiles gently and says the necklace is called "Freedom". \r\n The girl is completely unaware that the other end of "Freedom" \r\n has always been held in Bonnie's hand.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: В ночном клубе Бонни надевает на девушку ожерелье. \r\n Она нежно улыбается и говорит, что ожерелье называется «Свобода». \r\n Девушка совершенно не подозревает, что другой конец «Свободы» \r\n всегда находился в руке Бонни.
+
+CN: 杯中茶水\r\n此时所剩无几
+EN: The tea in the cup\r\nis almost gone now
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Чай в чашке \r\n уже почти закончился
+
+CN: 就像这样，\r\n我决定拆散他们的婚姻……
+EN: Just like this,\r\nI decided to break up their marriage...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Вот так \r\nI решили расторгнуть свой брак...
+
+CN: 用灵视找到特殊的茶\r\n
+EN: Use Spirit Vision to find the special tea\r\n
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Используйте Spirit Vision, чтобы найти особый чай\r\n.
+
+CN: 知识皇冠的能力可以将具体事物瓦解为知识洪流\r\n而它的失踪地点很可能就在廷根
+EN: The ability of the Crown of Knowledge can disintegrate concrete objects into a Torrent of Knowledge,\nand its place of disappearance is very likely in Tingen
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Способность Короны Знаний может превращать конкретные объекты в Поток Знаний, \n, и место его исчезновения весьма вероятно в Тингене.
+
+CN: 黑手套首领\r\n胖子·卡拉彭
+EN: Black Glove leader\r\nFatty Kalapong
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Лидер «Черной перчатки»\r\nФатти Калапонг
+
+CN: 询问<h>“月亮”先生</>的调查结果\r\n
+EN: Ask Mr. <h>"The Moon"</> for the investigation results.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Спросите г-на <h>"Луна"</> о результатах расследования.
+
+CN: 红桃K          草花Q\r\n草花Q          黑桃J\r\n 黑桃J          红桃K
+EN: King of Hearts          Queen of Clubs\r\nQueen of Clubs          Jack of Spades\r\n Jack of Spades          King of Hearts
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Король червей Дама треф\r\nДама треф Валет пик\r\n Валет пик Король червей
+
+CN: 接下来我们\r\n再大胆一点
+EN: Let's be a little bolder\r\nnext.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Давайте будем немного смелее\r\nnext.
+
+CN: 轻易地\r\n放过你了
+EN: Easily\r\nlet you go
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Легко\r\nотпустит тебя
+
+CN: 枯萎凋零\r\n重现芬芳
+EN: Withered and dead\r\nfragrance returns
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Withered and Dead\r\nаромат возвращается
+
+CN: 又有地方爆发了瘟疫，\r\n我却找不到源头。
+EN: The plague has broken out in another place, but I cannot find the source.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Чума вспыхнула в другом месте, но я не могу найти источник.
+
+CN: 想独占\r\n我的美貌吗？
+EN: Do you want to monopolize\nmy beauty?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Вы хотите монополизировать \nмою красоту?
+
+CN: 角色攻击 999\r\n文字基础描述，如攻击力提高，非凡者基础伤害提高等等。文字基础描述，如攻击力提高，非凡者基础伤害提高等等。文字基础描述，如攻击力提高，非凡者基础伤害提高等等。
+EN: Character Attack 999\nBasic text description, such as Attack Increased, Beyonder base damage increased, etc. Basic text description, such as Attack Increased, Beyonder base damage increased, etc. Basic text description, such as Attack Increased, Beyonder base damage increased, etc.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Атака персонажа 999\nБазовое текстовое описание, такое как увеличение атаки, увеличение базового урона Потусторонний и т. д. Базовое текстовое описание, например увеличение атаки, увеличение базового урона Потусторонний и т. д. Базовое текстовое описание, например увеличение атаки, увеличение базового урона Потусторонний и т. д.
+
+CN: 爱情总是伴随伤痛，\r\n你更希望受伤的是？
+EN: Love is always accompanied by pain,\r\nwho would you rather see get hurt?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Любовь всегда сопровождается болью, \r\n, кого бы вы предпочли, чтобы ему причинили боль?
+
+CN: 那天他半夜撬我门，\r\n我都忍啦！
+EN: He picked the lock to my door in the middle of the night that day,\nand I even tolerated that!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: В тот день он взломал замок моей двери посреди ночи, \n, и я даже это терпел!
+
+CN: 像这种门，\r\n锁芯从来不换，\r\n撬开一次，\r\n就能打开第二次。
+EN: For a door like this, \r\n the lock core is never changed; \r\n once it's picked, \r\n it can be opened a second time.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Для такой двери \r\n сердцевина замка никогда не меняется; \r\n один раз выбран, \r\n можно открыть второй раз.
+
+CN: 废黜  \r\n驱逐 \r\n谋杀 
+EN: Depose  \r\nExile \r\nMurder 
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Сместить \r\nИзгнание \r\nУбийство
+
+CN: 虽然和梅兰妮结婚之后，\r\n我真的非常爱她……
+EN: Although after marrying Melanie,\r\nI truly loved her very much...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Хотя после женитьбы на Мелани \r\nI действительно очень ее любил...
+
+CN: <h>听侍者介绍茶会</>\r\n
+EN: <h>Listen to the waiter introduce the tea party</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: <h>LПослушайте, как официант представляет чаепитие</>
+
+CN: 我这是，\r\n因为知识的力量变成了老鼠？
+EN: Have I turned into a mouse\r\nbecause of the power of knowledge?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Превратился ли я в мышь \r\n из-за силы знаний?
+
+CN: 学徒扮演\r\n（风景过山车）
+EN: Apprentice Acting\r\n(Scenery Roller Coaster)
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Ученик актерского мастерства\r\n (Пейзажные американские горки)
+
+CN: 晚上有12个居民在9点喝了4杯酒，\r\n5月7日才肯睡去
+EN: At night, 12 residents drank 4 cups of wine at 9 o'clock,\nand didn't go to sleep until May 7th
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Ночью 12 жителей выпили 4 чашки вина в 9 часов,\nи не ложились спать до 7 мая.
+
+CN: 恶龙酒吧\r\n<LeonSubTitle size="28">Evil Dragon Bar</>
+EN: Evil Dragon Bar\n<LeonSubTitle size="28">Evil Dragon Bar</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Бар «Злой дракон»\n<LeonSubTitle size="28">Бар «Злой дракон»</>
+
+CN: 红月亮街\r\n<LeonSubTitle size="38">Red Moonlight Street</>
+EN: Red Moon Street\r\n<LeonSubTitle size="38">Red Moonlight Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Улица Красной Луны\r\n<LeonSubTitle size="38">Улица Красной Луны</>
+
+CN: 三道封印阻挡了通往记忆碎片的入口。\r\n解锁进度：2/3
+EN: Three seals block the entrance to the memory fragment.\r\nUnlock progress: 2/3
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Три печати блокируют вход во фрагмент памяти.\r\nПрогресс разблокировки: 2/b
+
+CN: 他背后传我的事儿，\r\n我从来不计较……
+EN: I never mind the things he says behind my back...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я не обращаю внимания на то, что он говорит за моей спиной...
+
+CN: id:000000 本次测试为保密测试，不代表游戏最终品质。请勿直播、截图、录屏。\r\n\r\n
+EN: id:000000 This test is a confidential test and does not represent the final quality of the game. Please do not stream, take screenshots, or record the screen.\r\n\r\n
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: id:000000 Этот тест является конфиденциальным и не отражает окончательное качество игры. Пожалуйста, не транслируйте, не делайте скриншоты и не записывайте экран.
+
+CN: 罗珊和几位市民 \r\n在中央广场瓦解消散\r\n失踪地点共三个\r\n近期失踪者可能还活着
+EN: Rozanne and several citizens \r\ndisappeared at the Central Plaza \r\n, totaling three locations \r\n. The recent missing persons might still be alive.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Розанна и несколько граждан \r\n исчезли на Центральной площади \r\n, всего в трех местах \r\n. Недавние пропавшие без вести люди, возможно, еще живы.
+
+CN: 他和凯瑟琳\r\n坐在一块喝下午茶。
+EN: He and Catherine\r\nsat together having afternoon tea.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Он и Кэтрин\r\n сидели вместе и пили послеобеденный чай.
+
+CN: 勤洗手洗脸，\r\n不要乱扔垃圾！
+EN: Wash your hands and face often,\r\nand don't litter!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Чаще мойте руки и лицо,\r\n и не мусорите!
+
+CN: 铜镜上有刺客途径的魔法\r\n可以会使携带者隐入阴影\r\n也许还是打开“镜中国度”的钥匙
+EN: The copper mirror possesses magic from the Assassin pathway. It may allow the bearer to fade into shadows. Perhaps it is also the key to opening the "Mirror Realm".
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Медное зеркало обладает магией Пути Ассасина. Это может позволить носителю раствориться в тени. Возможно, это также ключ к открытию «Зеркального Царства».
+
+CN: VIP徽章\r\n在她手里
+EN: VIP badge\r\nIn her hand
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: VIP-значок\r\nВ ее руке
+
+CN: 学院大道\r\n<LeonSubTitle size="38">Academy Avenue</>
+EN: College Avenue\r\n<LeonSubTitle size="38">Academy Avenue</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Колледж-авеню\r\n<LeonSubTitle size="38">Академия-авеню</>
+
+CN: 莉莉和邦尼\r\n进行过一次会谈
+EN: Lily and Bonnie\r\nhad a meeting
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Лили и Бонни\r\n встретились
+
+CN: 中央广场\r\n<LeonSubTitle size="38">Central Square</>
+EN: Central Plaza\r\n<LeonSubTitle size="38">Central Square</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Центральная площадь\r\n<LeonSubTitle size="38">Центральная площадь</>
+
+CN: 被害人曾\r\n遭受致命枪伤
+EN: The victim had\r\nsuffered a fatal gunshot wound.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Пострадавший \r\n получил смертельное огнестрельное ранение.
+
+CN: 嘻哈哈\r\n哈哈哈哈哈...\r\n哈哈哈哈哈哈哈...\r\n哈哈哈哈哈哈哈哈...！
+EN: Hahaha \r\n Hahahaha... \r\n Hahahahahaha... \r\n Hahahahahahaha...! 
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Ха-ха-ха \r\n Ха-ха-ха-ха... \r\n Ха-ха-ха-ха-ха... \r\n Ха-ха-ха-ха-ха-ха...!
+
+CN: 积分 9909\r\n击杀 123
+EN: Points 9909\r\nKills 123
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Очки 9909\r\nУбивает 123
+
+CN: 西大道\r\n<LeonSubTitle size="38">West Avenue</>
+EN: West Avenue\r\n<LeonSubTitle size="38">West Avenue</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Западный проспект\r\n<LeonSubTitle size="38">Западный проспект</>
+
+CN: 这里应该就是茶会会场了。\r\n
+EN: This should be the tea party venue.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Это должно быть место для чаепития.
+
+CN: 新生者，再次新生。\r\n十九次，他/她已在梦中死亡十九次。\r\n<P_Red>这一次，</>是他/她的第二十次噩梦。\r\n他/她翻开本不该出现在此的，安提哥努斯笔记。\r\n然后，死于笔记的力量导致的失控。\r\n新生者，再次新生。\r\n这一次，是他/她的第二十一次噩梦。
+EN: Reborn, reborn once more.\r\nNineteen times, he/she has already died in dreams nineteen times.\r\n<P_Red>This time,</> is his/her twentieth Nightmare.\r\nHe/she opens the Antigonus Notebook, which should not have appeared here.\r\nThen, dies from the loss of control caused by the power of the notebook.\r\nReborn, reborn once more.\r\nThis time, it is his/her twenty-first Nightmare.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Возродиться, возродиться еще раз.\r\nДевятнадцать раз он/она уже девятнадцать раз умирал во сне.\r\n<P_Red>На этот раз </> — его/ее двадцатый кошмар.\r\nОн/она открывает блокнот Антигона, которого здесь не должно было быть.\r\nЗатем умирает от потери управления, вызванной мощностью ноутбука.\r\nВозродиться, возродиться еще раз.\r\nНа этот раз это его/ее двадцать первый Кошмар.
+
+CN: 死者是从\r\n这扇门逃出的
+EN: The deceased escaped\r\nthrough this door
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Покойный сбежал\r\n через эту дверь
+
+CN: 黑荆棘\r\n安保公司
+EN: Blackthorn\r\nSecurity Company
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Чёрный Чертополох\r\nОхранная компания
+
+CN: <img id="Tips" Width="40" Height="40"/>护送马车： 0/3次\r\n<img id="Tips" Width="40" Height="40"/>瑞二比伯：<Highlight>1</>/3次\r\n<img id="Tips" Width="40" Height="40"/>小丑：<Highlight>1</>/3次
+EN: <img id="Tips" Width="40" Height="40"/>Escort Carriage: 0/3 times\r\n<img id="Tips" Width="40" Height="40"/>Rui-Bibber: <Highlight>1</>/3 times\r\n<img id="Tips" Width="40" Height="40"/>Clown: <Highlight>1</>/3 times
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: <img id="Tips" Width="40" Height="40"/>Эскортная карета: 0/3 раза\r\n<img id="Tips" Width="40" Height="40"/>Руи-Биббер: <Highlight>1</>/3 раза\r\n<img id="Tips" Width="40" Height="40"/>Клоун: <Highlight>1</>/3 раза
+
+CN: 失踪者也许进入了“镜中国度”\r\n诵念咒语也可进入——\r\n<Red size="32">以时代的洪流                 叩开镜中的国度</>
+EN: The missing person may have entered the "Mirror Realm".\r\nReciting the incantation can also allow entry—\r\n<Red size="32">With the torrent of the era, knock open the Mirror Realm</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Пропавший человек, возможно, вошел в «Зеркальное царство».\r\nПроизнесение заклинания также может позволить войти — \r\n<Red size="32">Потоком эпохи откройте Зеркальное царствоm</>
+
+CN: 黑荆棘安保公司\r\n<LeonSubTitle size="22">Blackthorn Security Company</>
+EN: Blackthorn Security Company\r\n<LeonSubTitle size="22">Blackthorn Security Company</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Охранная компания Чёрный Чертополох\r\n<LeonSubTitle size="22">Охранная компания Чёрный Чертополох</>
+
+CN: 玫瑰天堂首领\r\n首席·邦尼
+EN: Rose Paradise leader\r\nChief Bonnie
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Лидер Rose Paradise\r\nЧиф Бонни
+
+CN: 应用设置后，将切换位面。\r\n是否确认设置？
+EN: After applying settings, the plane will switch. \r\n Confirm settings?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: После применения настроек самолет переключится. \r\n Подтвердить настройки?
+
+CN: 给你一个机会，\r\n你想离开这里吗？
+EN: I'll give you a chance,\r\ndo you want to leave this place?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я дам тебе шанс, \r\n, ты хочешь покинуть это место?
+
+CN: 有10个黑影在9点飘到5个人的家里，\r\n6点3分2秒才四散开来
+EN: 10 black shadows drifted into 5 people's homes at 9 o'clock,\nand didn't scatter until 6:03:02
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: 10 черных теней вторглись в дома 5 человек в 9 часов,\n и не рассеялись до 6:03:02.
+
+CN: 好好享受\r\n你的自由吧
+EN: Enjoy\r\nyour freedom
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Наслаждайтесь \r\nсвоей свободой
+
+CN: 这种门可能费一点力气，\r\n但是我总想试试手艺……
+EN: This kind of Door might take a bit of effort,\nbut I always like to test my skills...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Создание такой двери может потребовать некоторых усилий, \n, но мне всегда нравится проверять свои навыки...
+
+CN: 永恒\r\n大帝
+EN: Eternal \r\nEmperor
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Вечный \r\nИмператор
+
+CN: 因为我已经对我的丈夫\r\n不抱指望。
+EN: Because I have no hope left for my husband.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Потому что у меня не осталось надежды на мужа.
+
+CN: 议院治安队首领\r\n金狼·查理
+EN: Chief of the Council Security Force\r\nGolden Wolf Charlie
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Начальник Сил безопасности Совета\r\nGolden Wolf Charlib
+
+CN: <Title>标题</>\r\n正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文<Highlight>高亮高亮高亮高亮高亮高亮高亮</>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文<Highlight>高亮高亮高亮高亮高亮高亮高亮</>\r\n<Title>标题</>\r\n正文正文正文正文正文正文正文正文正文正文正                                  
+EN: <Title>Title</>\r\nBody text body text body text body text body text body text body text body text body text body text body text body text body text body text body text body text body text <Highlight>Highlight highlight highlight highlight highlight highlight highlight</> body text body text body text body text body text body text body text body text body text body text body text body text body text body text body text body text <Highlight>Highlight highlight highlight highlight highlight highlight highlight</>\r\n<Title>Title</>\r\nBody text body text body text body text body text body text body text body text body text body text body
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: <Title>Название</>\r\nОсновной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст <Highlight>Выделить выделить выделить выделить выделить выделить выделить </> Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст <Highlight>Выделить выделить выделить выделить выделить выделить выделить </>\r\n<Title>Название</>\r\nОсновной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст
+
+CN: 坐起来很舒适。\r\n伟大的发明，不错的马桶！
+EN: It's comfortable to sit on. A great invention, a nice toilet!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Сидеть удобно. Прекрасное изобретение, хороший унитаз!
+
+CN: <Title>标题</>\r\n正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文<Highlight2>高亮高亮高亮高亮高亮高亮高亮</>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文<Highlight2>高亮高亮高亮高亮高亮高亮高亮</>\r\n<Title>标题</>\r\n正文正文正文正文正文正文正文正文正文正文正                                  
+EN: <Title>Title</>\r\nBody text body text body text body text body text body text body text body text body text body text body text body text body text body text body text body text body text <Highlight2>Highlight highlight highlight highlight highlight highlight highlight</> body text body text body text body text body text body text body text body text body text body text body text body text body text body text body text body text <Highlight2>Highlight highlight highlight highlight highlight highlight highlight</>\r\n<Title>Title</>\r\nBody text body text body text body text body text body text body text body text body text body text body
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: <Title>Название</>\r\nОсновной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст <Highlight2>Выделить выделить выделить выделить выделить выделить выделить </> Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст Основной текст <Highlight2>Выделить выделить выделить выделить выделить выделить выделить </>\r\n<Title>Название</>\r\nОсновной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст основной текст
+
+CN: 那天，我是故意要去\r\n试探山姆的！
+EN: That day, I went to test Sam\non purpose!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: В тот день я специально пошёл тестировать Sam\n!
+
+CN: 莎莉丝特是\r\n默默无闻的梦想家
+EN: Celeste is\r\nan obscure dreamer
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Селеста — \r\n, безвестная мечтательница.
+
+CN: 再\r\n给\r\n你
+EN: Give\r\nyou\r\nagain
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Дайте\r\nyou\r\nснова
+
+CN: 金梧桐大道\r\n<LeonSubTitle size="38">Golden Indus Avenue</>
+EN: Golden Indus Avenue\r\n<LeonSubTitle size="38">Golden Indus Avenue</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Авеню Золотого Инда\r\n<LeonSubTitle size="38">Авеню Золотого Инда</>
+
+CN: 占卜家扮演\r\n（找出正确的门）
+EN: Seer Acting\r\n(Find the correct Door)
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Seer Acting\r\n (Найдите правильную дверь)
+
+CN: 宝贝，爸爸妈妈去工厂了。\r\n和露米一起等我们回来，别害怕。
+EN: Baby, Mommy and Daddy are going to the factory.\r\nWait for us to come back with Lumi, don't be afraid.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Малыш, мама и папа собираются на фабрику.\r\nПодожди, пока мы вернемся с Люми, не бойся.
+
+CN: 还记得，\r\n我的眼瞳是什么颜色吗？
+EN: Do you still remember,\nwhat color my eyes are?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Ты еще помнишь,\n, какого цвета мои глаза?
+
+CN: 卡拉彭有个信条：耗材不需要名字。\r\n枪声从来不是审判，只是屠宰场开工的哨子。\r\n这是条流水线，下一具尸体已经上了传送带。
+EN: Kalapon has a creed: consumables don't need names.\r\nGunshots are never a judgment, just the whistle for the slaughterhouse to start working.\r\nThis is an assembly line, and the next corpse is already on the conveyor belt.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: У Калапона есть кредо: расходным материалам не нужны названия.\r\nВыстрелы никогда не являются приговором, а просто свистком о начале работы скотобойни.\r\nЭто сборочная линия, и следующий труп уже на конвейере.
+
+CN: 我又没管住手！\r\n丹老是告诉我，\r\n溜门撬锁，迟早有一天要被发现……
+EN: I couldn't keep my hands to myself again!\nDan is always telling me that if I keep picking locks,\nI'll be caught sooner or later...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я снова не смог держать руки при себе! \nДэн всегда говорит мне, что если я продолжу взламывать замки, \n меня рано или поздно поймают...
+
+CN: 铜镜来源于罗塞尔戏剧节签名活动的赠品\r\n也可能有其他来源途径\r\n市民应该很容易获取
+EN: The copper mirror originated from a giveaway at the Roselle Drama Festival. It could also have other sources. It should be quite easy for citizens to obtain.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Медное зеркало было получено в результате розыгрыша на фестивале драмы в Розелле. У него могут быть и другие источники. Гражданам должно быть довольно легко его получить.
+
+CN: 支持红赛艇\r\n一个反馈点位
+EN: Support Red Racing Boat\nOne Feedback Point
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Поддержка Red Racing Boat\nОдна точка обратной связи
+
+CN: 所有玩家获得一个<FaintYellow>战神buff</>\r\n每<FaintYellow>X</>秒扣除<FaintYellow>5%</>生命值，持续<FaintYellow>X</>秒\r\n每<FaintYellow>X</>秒扣除<FaintYellow>5%</>生命值，持续<FaintYellow>X</>秒
+EN: All players receive a <FaintYellow>God of Combat buff</>\r\nLose <FaintYellow>5%</> Health every <FaintYellow>X</> seconds, lasting for <FaintYellow>X</> seconds\r\nLose <FaintYellow>5%</> Health every <FaintYellow>X</> seconds, lasting for <FaintYellow>X</> seconds
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Все игроки получают усиление <FaintYellow>Бог Битвы</>.\r\nПотеря <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.\r\nПотеря <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.
+
+CN: 死亡时间是\r\n第二次敲门声响起时
+EN: The time of death was\r\nwhen the second knock sounded
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Время смерти было \r\n, когда прозвучал второй стук.
+
+CN: 就像这样，\r\n我决定先忘记我的婚姻……
+EN: Just like this,\r\nI decided to forget my marriage first...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Вот так \r\nя решил сначала забыть о своем браке...
+
+CN: 三道封印阻挡了通往记忆碎片的入口。\r\n解锁进度：0/3
+EN: Three seals block the entrance to the memory fragment.\r\nUnlock progress: 0/3
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Три печати блокируют вход во фрагмент памяти.\r\nПрогресс разблокировки: 0/b
+
+CN: 两件套\r\n进入战斗时,为自身增加400点格挡,持续3秒
+EN: 2-piece set\nUpon entering combat, gain 400 points of Block for 3 seconds.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Набор из 2 предметов\nВступая в бой, вы получаете 400 очков блока на 3 секунды.
+
+CN: 奥尔斯纳街\r\n<LeonSubTitle size="38">Osna Street</>
+EN: Olsna Street\r\n<LeonSubTitle size="38">Osna Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Улица Ольсна\r\n<LeonSubTitle size="38">Улица Осна</>
+
+CN: 不知道最近有没有非凡案件要处理，回黑荆棘看看吧。\r\n
+EN: I wonder if there are any Beyonder cases to handle recently. Let's go back to Blackthorn and see.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: I wonder if there are any Потусторонний cases to handle recently. Let's go back to Blackthorn and see.
+
+CN: 水仙花街4号\r\n<LeonSubTitle size="8">4 Daffodil Street</>
+EN: 4 Daffodil Street\r\n<LeonSubTitle size="8">4 Daffodil Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: 4 улица Нарциссов\r\n<LeonSubTitle size="8">4 улица Нарциссов</>
+
+CN: 三道封印阻挡了通往记忆碎片的入口。\r\n解锁进度：1/3
+EN: Three seals block the entrance to the memory fragment.\r\nUnlock progress: 1/3
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Три печати блокируют вход во фрагмент памяти.\r\nПрогресс разблокировки: 1/b
+
+CN: 弗拉德街\r\n<LeonSubTitle size="38">Vlad Street</>
+EN: Vlad Street\r\n<LeonSubTitle size="38">Vlad Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Влад Стрит\r\n<LeonSubTitle size="38">Влад Стрит</>
+
+CN: <Default_L>编号</>\r\n<Brown_L>999</>
+EN: <Default_L>Number</>\r\n<Brown_L>999</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: <Default_L>Номер</>\r\n<Brown_L>999</>
+
+CN: 哦，我就看见了\r\n斯嘉丽的花车！
+EN: Oh, I just saw Scarlett's float!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: О, я только что видел поплавок Скарлетт!
+
+CN: 亲爱的尼尔：\r\n我还想……
+EN: Dear Niel:\r\nI still want to...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Дорогой Ниэль: \r\n, я все еще хочу...
+
+CN: 你偶然得到一片散发着微光的羽毛。它轻若无物，却蕴含着难以言喻的灵性。\r\n带着它去找埃姆林·怀特，他或许知道这是什么。
+EN: You accidentally obtained a feather that emits a faint glow. It is as light as nothing, yet it contains an indescribable spirituality.\nTake it to Emlyn White; he might know what this is.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Вы случайно получили перо, которое излучает слабое свечение. Он легкий, как ничто, но в нем заключена неописуемая духовность.\nTОтнесите его Эмлин Уайт; он может знать, что это такое.
+
+CN: 以诡秘之主的名义\r\n                      我们再次宣誓
+EN: In the name of the Lord of Mysteries\n                      We swear again
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: In the name of the Повелитель Тайн\n                      We swear again
+
+CN: 我已\r\n化为\r\n黑影......！
+EN: I have\nturned into\na shadow...!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: У меня \n превратился в тень \n...!
+
+CN: 用梦境……装下……\r\n它们……
+EN: Use dreams... to contain...\nthem...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Используйте сны... чтобы сдержать...\nих...
+
+CN: 占卜家俱乐部\r\n<LeonSubTitle size="31">Divination Club</>
+EN: Divination Club\r\n<LeonSubTitle size="31">Divination Club</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Клуб гаданий\r\n<LeonSubTitle size="31">Клуб гаданий</>
+
+CN: 把握瞬间\r\n
+EN: Seize the moment\r\n
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Лови момент\r\n
+
+CN: <img id="Tips" width="46" height="46"/><Title>标题</>\r\n<Quality_4>正文</><Quality_5>正文</><Quality_6>正文</><Quality_7>正文</>正文正文正文正文正文正文正文正文正文<Highlight>高亮高亮高亮高亮高亮高亮高亮</>
+EN: <img id="Tips" width="46" height="46"/><Title>Title</>\r\n<Quality_4>Body</><Quality_5>Body</><Quality_6>Body</><Quality_7>Body</>Body Body Body Body Body Body Body Body Body <Highlight>Highlight Highlight Highlight Highlight Highlight Highlight Highlight</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: <img id="Tips" width="46" height="46"/><Title>Название</>\r\n<Quality_4>Body</><Quality_5>Body</><Quality_6>Body</><Quality_7>Body</>Body Body Body Body Body Body Body <Highlight>Выделить Выделить Выделить Выделить Выделить Выделить Выделить </>
+
+CN: 铁十字街右街\r\n<LeonSubTitle size="38">Iron Cross Right Street</>
+EN: Iron Cross Right Street\r\n<LeonSubTitle size="38">Iron Cross Right Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Железный Крест, правая улица\r\n<LeonSubTitle size="38">Железный Крест, правая улица</>
+
+CN: 序列之路遵循\r\n妄图跨越者
+EN: The Sequence path follows\r\nthose who attempt to transcend
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Путь Последовательности следует за \r\n теми, кто пытается превзойти
+
+CN: 推荐\r\n推荐
+EN: Recommended\r\nRecommended
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Рекомендуется\r\nРекомендуется
+
+CN: 南区大道\r\n<LeonSubTitle size="38">South Borough Avenue</>
+EN: South District Avenue\r\n<LeonSubTitle size="38">South Borough Avenue</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Южный район авеню\r\n<LeonSubTitle size="38">Южный районный авеню</>
+
+CN: 更多\r\n奖励
+EN: More\r\nRewards
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Подробнее\r\nНаграды
+
+CN: 贝西克街\r\n<LeonSubTitle size="38">Besik Street</>
+EN: Besik Street\r\n<LeonSubTitle size="38">Besik Street</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Улица Бесика\r\n<LeonSubTitle size="38">Улица Бесика</>
+
+CN: 女神啊……我向您忏悔……\r\n我应该不是唯一一个\r\n为两个女人心动的人吧？
+EN: Oh Goddess... I confess to You...\r\nI shouldn't be the only one\r\nwho has felt heart-fluttering for two women, right?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: О, Богиня... Я признаюсь Тебе... \r\nЯ не должна быть единственной, \r\n, у которой трепетало сердце из-за двух женщин, верно?
+
+CN: 被害人是从\r\n小巷深处逃出的
+EN: The victim escaped from\r\nthe depths of the alley.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Пострадавший сбежал из \r\n в глубину переулка.
+
+CN: 支持红赛艇\r\n三个反馈点位
+EN: Support Red Racing Boat\nThree Feedback Points
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Поддержка Red Racing Boat\nТри точки обратной связи
+
+CN: 好饿……\r\n再不吃点东西，好像要晕过去了。
+EN: So hungry...\r\nIf I don't eat something soon, I feel like I'm going to faint.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Такой голодный...\r\nЕсли я не съем что-нибудь в ближайшее время, мне кажется, что я упаду в обморок.
+
+CN: 我可不真偷东西，\r\n玩两天都送回去……
+EN: I don't actually steal things,\nI return them after playing with them for two days...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: На самом деле я ничего не краду, \nI возвращаю их после двухдневной игры...
+
+CN: 请尽情地\r\n向我展现
+EN: Please show me\r\nto your heart's content.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Пожалуйста, покажите мне \r\n, сколько душе угодно.
+
+CN: 女神啊，请原谅我的\r\n自以为是……
+EN: Oh Goddess, please forgive my\r\nself-righteousness...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: О Богиня, пожалуйста, прости мою \r\n самоуверенность...
+
+CN: 而我和我孩子的体面衣服，\r\n都已经是半年前买的……
+EN: And the decent clothes for me and my child\r\nwere all bought half a year ago...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: А приличная одежда для меня и моего ребенка \r\n была куплена еще полгода назад...
+
+CN: 手握大剑进行旋转，瞬间将怪物拖拽至身前并嘲讽。随后产生强劲的罡风对周身敌方每<HighLight>0.4</>秒造成<Highlight>444</>点物理伤害。旋转最多持续<HighLight>4</>秒，过程中可移动，自身受到伤害减少<Highlight>15%</>，移速提高<Highlight>15%</>，旋转<HighLight>1.5</>秒后再次按下按键可以提前打断技能，并返还一定的技能冷却时间。\r\n\r\n<FaintYellow>威压</>\r\n旋转过程中会持续对怪物向自身方向进行牵引。\r\n<FaintYellow>永恒烙印</>\r\n旋转过程中每秒获得1个黄昏刻印。\r\n<FaintYellow>迟缓风障</>\r\n使处于旋风范围内的敌方玩家移动速度减少<Highlight>60%</>，控制抗性降低<Highlight>30%</>。
+EN: Spin with your greatsword, instantly pulling monsters in front of you and taunting them. Then, every <HighLight>0.4</> seconds, powerful winds deal <Highlight>444</> Physical Damage to surrounding enemies. The spin lasts up to <HighLight>4</> seconds. You can move during it, take <Highlight>15%</> less damage, and gain <Highlight>15%</> Movement Speed. After spinning for <HighLight>1.5</> seconds, press the button again to end the skill early and recover part of its cooldown.\r\n\r\n<FaintYellow>Intimidation</>\r\nContinually pulls monsters toward you while spinning.\r\n<FaintYellow>Eternal Brand</>\r\nGain 1 Twilight Mark every second while spinning.\r\n<FaintYellow>Slowing Wind Barrier</>\r\nEnemy players within the whirlwind have their Movement Speed reduced by <Highlight>60%</> and Control Resistance reduced by <Highlight>30%</>.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Вращайтесь своим двуручным мечом, мгновенно притягивая к себе монстров и насмехаясь над ними. Затем каждые <HighLight>0,4</> секунды мощный ветер наносит <Highlight>444</> физического урона окружающим врагам. Вращение длится до <HighLight>4</> секунд. Во время него вы можете двигаться, получать на <Highlight>15%</> меньше урона и увеличивать скорость передвижения на <Highlight>15%</>. После вращения в течение <HighLight>1,5</> секунд нажмите кнопку еще раз, чтобы досрочно завершить умение и восстановить часть его времени восстановления.\r\n\r\n<FaintYellow>Запугивание</>\r\nПостоянно притягивает к себе монстров во время вращения.\r\n<FaintYellow>Вечный бренд</>\r\nПолучайте 1 Сумеречную метку каждую секунду во время вращения.\r\n<FaintYellow>Замедляющий ветровой барьер</>\r\nСкорость передвижения вражеских игроков в вихре снижается на <Highlight>60%</>, а сопротивление контролю снижается на <Highlight>30%</>.
+
+CN: id :1234567890\r\n玩家名字七个字 123****0000
+EN: id :1234567890\r\nPlayer Name Seven Chars 123****0000
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: [Семь символов]
+
+CN: 我们坐在长凳上，\r\n倾诉了好一会儿衷情！
+EN: We sat on the bench\nand poured our hearts out for quite a while!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Мы сидели на скамейке \n и долго изливали душу!
+
+CN: 歌颂者扮演\r\n⬇️
+EN: Bard Acting\r\n⬇️
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Действующий бард\r\n⬇️
+
+CN: 金梧桐大道\r\n<LeonSubTitle size="11">Golden Indus Avenue</>
+EN: Golden Indus Avenue\n<LeonSubTitle size="11">Golden Indus Avenue</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Авеню Золотого Инда\n<LeonSubTitle size="11">Авеню Золотого Инда</>
+
+CN: 再也没有回来\r\n……
+EN: Never returned\r\n...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Никогда не возвращался \r\n...
+
+CN: 旧城区的小巷四处都被垃圾堵塞，无法落脚。\r\n只有变成【】才能自由穿梭吧！
+EN: The alleys in the Old City are blocked everywhere by trash, with nowhere to set foot.\nOnly by becoming 【】 can one move about freely!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Переулки Старого города повсюду завалены мусором, и ступить некуда.\nТолько став 【】, можно свободно передвигаться!
+
+CN: 他喋喋不休地抱怨梅兰妮，\r\n可真是个糟糕的男人。
+EN: He kept complaining about Melanie incessantly,\r\nwhat a terrible man.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Он постоянно жаловался на Мелани: \r\n, какой ужасный человек.
+
+CN: 下水道系统需要持续建设，\r\n使用【】，\r\n才能真正缓解城市污染。
+EN: The sewer system requires Continuous construction,\r\nusing【】,\r\nto truly alleviate the city's corruption.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Канализационная система требует непрерывного строительства, \r\n с использованием【】, \r\n, чтобы действительно уменьшить коррупцию в городе.
+
+CN: 水仙花街2号\r\n莫雷蒂家
+EN: 2 Daffodil Street\r\nMoretti Residence
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: 2 улица Нарциссов\r\nMoretti Residence
+
+CN: 可是有一天，我和露米等啊等，\r\n爸爸妈妈却再也没有回来。
+EN: But one day, Lumi and I waited and waited, but Mom and Dad never came back.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Но однажды мы с Люми ждали и ждали, но мама и папа так и не вернулись.
+
+CN: 像这种窗子，\r\n关得不严实，\r\n趴在窗沿底下，\r\n就很容易听见……
+EN: Windows like this, \r\n aren't closed tightly, \r\n lying under the window sill, \r\n can easily hear...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Окна такие, \r\n закрыт неплотно, \r\n лежит под подоконником, \r\n легко слышно...
+
+CN: 该如何记住你，用乐曲，用回忆。\r\n月色朦胧，琴音静谧，\r\n今夜悄无声息。
+EN: How should I remember you? With music, with memories.\nThe moonlight is hazy, the piano notes are quiet,\nTonight, everything is silent.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Как мне тебя запомнить? С музыкой, с воспоминаниями.\nЛунный свет туманен, тихие ноты фортепиано,\nСегодня ночью все тихо.
+
+CN: 在诊所随便看看\r\n<h>几封未寄的信</>
+EN: Take a look around the clinic.\n<h>Several unsent letters</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Осмотрите клинику.\n<h>Несколько неотправленных писем</>
+
+CN: 我只传小八卦，\r\n大事情我哪敢听呀……
+EN: I only spread small gossip,\nI wouldn't dare listen to big matters...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я распространяю только мелкие сплетни, \n, я бы не осмелился слушать о больших вещах...
+
+CN: 我又没管住嘴……\r\n奈特又要说我天天背后传别人闲话啦！ 
+EN: I couldn't keep my mouth shut again...\nKnight is going to say I'm gossiping behind people's backs every day again!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я снова не смог держать рот на замке... \nKnight снова скажет, что я каждый день сплетничаю за спиной людей!
+
+CN: 观众扮演\r\n（心理暗示）
+EN: Spectator Acting\r\n(Psychological Suggestion)
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Зрительская игра \r\n (Психологическое внушение)
+
+CN: 那天我正垂头丧气地走在路上，\r\n想着我和梅兰妮白天吵的架。
+EN: That day I was walking down the street, feeling dejected,\nthinking about the argument I had with Melanie during the day.
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: В тот день я шел по улице, чувствуя себя подавленным, \n, думая о ссоре, которая произошла у меня с Мелани в течение дня.
+
+CN: 【半神】\r\n描述：序列4及以上、序列1及以下，圣者和天使的统称。生命和精神质变，获得50%神性，能力完全超出人范畴。半神可继续晋升成真神。继续细分，半神又包含圣者，天使。而序200%序列1之上)被称为真神。\r\n真神：序列0。有完整神话生物形态\r\n位置：可打开菜单-序列进行提升\r\n相关推荐：角色培养我要变强
+EN: 【Demigod】\r\nDescription: A collective term for Sequence 4 and above, and Sequence 1 and below, including Saints and Angels. Life and spirit undergo a qualitative change, gaining 50% divinity, with abilities completely beyond the human scope. Demigods can continue to advance to become True Gods. Further subdivided, Demigods include Saints and Angels. Those above Sequence 1 (200%) are called True Gods.\r\n True God: Sequence 0. Possesses a complete mythical creature form\r\n Location: Can open Menu - Sequence to upgrade\r\n Related Recommendations: Character Cultivation, I Want to Become Stronger
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: 【Полубог】\r\nОписание: Собирательный термин для Последовательности 4 и выше и Последовательности 1 и ниже, включая Святых и Ангелов. Жизнь и дух претерпевают качественные изменения, обретая 50% божественности, а способности полностью выходят за рамки человеческих возможностей. Полубоги могут продолжать продвигаться вперед, чтобы стать Истинными Богами. Далее, полубоги включают Святых и Ангелов. Тех, кто выше Последовательности 1 (200%), называют Истинными Богами.\r\n Истинный Бог: Последовательность 0. Обладает полной формой мифического существа.\r\n Расположение: можно открыть меню — последовательность обновления.\r\n Рекомендации по теме: Развитие персонажа, хочу стать сильнее
+
+CN:     所有人都会......\r\n 包括我
+EN:     Everyone will......\r\n Including me
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Все будут......\r\n Включая меня
+
+CN: 金狼一挥手，台下数千人同时起立。\r\n提线早已勒进喉咙。\r\n这些站起来的，已经不是人了。\r\n"你们想要安全，就把意识交给我，\r\n这是双赢的买卖。"
+EN: Golden Wolf waved his hand, and thousands of people in the audience stood up at once. \r\n The puppet strings were already tightened around their throats. \r\n Those who stood up were no longer human. \r\n "If you want safety, hand your consciousness over to me, \r\n this is a win-win deal."
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Золотой Волк махнул рукой, и тысячи людей в зале одновременно встали. \r\n Кукольные ниточки уже были натянуты на их горлах. \r\n Те, кто встал, уже не были людьми. \r\n «Если тебе нужна безопасность, передай мне свое сознание, \r\n, это беспроигрышная сделка».
+
+CN: 多么诚实的\r\n贪婪……\r\n
+EN: Such honest\r\ngreed...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Такая честная\r\nжадность...
+
+CN: 这就是，\r\n你的答案么？
+EN: Is this,\nyour answer?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Это твой ответ, \n?
+
+CN: 我未能尽到\r\n一个母亲的责任……
+EN: I have failed to fulfill\r\nmy duties as a mother...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Я не выполнила\r\nсвои материнские обязанности...
+
+CN: 我的，眼瞳，\r\n到底是什么颜色？
+EN: What color,\r\nexactly, are my eyes?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Какого цвета, \r\n, мои глаза?
+
+CN: 亲爱的尼尔：\r\n我不想……
+EN: Dear Niel:\r\nI don't want to...
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Дорогой Ниэль:\r\nЯ не хочу...
+
+CN: 工人是时代的基础\r\n<LeonSubTitle size="18">Workers are the foundation of the timesfoundation of the times</>
+EN: Workers are the foundation of the times\r\n<LeonSubTitle size="18">Workers are the foundation of the timesfoundation of the times</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Рабочие – основа времени\r\n<LeonSubTitle size="18">Рабочие – основа времениоснова времени</>
+
+CN: 真\r\n贪\r\n心
+EN: So\nGreedy
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Как\nже\nжадно
+
+CN: 真可惜，\r\n快乐的时光总是短暂的
+EN: What a pity,\nhappy times are always short-lived
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Как жаль,\nсчастливые времена всегда недолговечны
+
+CN: 和<h>“月亮”先生</>聊一聊\r\n
+EN: Chat with Mr. <h>"The Moon"</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Пообщайтесь с г-ном <h>"Луной" </>
+
+CN: 莫雷蒂旧居\r\n<LeonSubTitle size="10">Moretti former Residence</>
+EN: Moretti Former Residence\r\n<LeonSubTitle size="10">Moretti former Residence</>
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Бывшая резиденция Моретти\r\n<LeonSubTitle size="10">Бывшая резиденция Моретти</>
+
+CN: 亲爱的非凡者：\r\n欢迎来到诡秘世界，本次更新内容如下礼包内容如下！亲爱的非凡者：\r\n欢迎来到诡秘世界，本次更新内容如下礼包内容如下！亲爱的非凡者：\r\n欢迎来到诡秘世界，本次更新内容如下礼包内容如下！
+EN: Dear Beyonder:\nWelcome to the world of Lord of Mysteries. The content of this update is as follows, and the gift pack content is as follows! Dear Beyonder:\nWelcome to the world of Lord of Mysteries. The content of this update is as follows, and the gift pack content is as follows! Dear Beyonder:\nWelcome to the world of Lord of Mysteries. The content of this update is as follows, and the gift pack content is as follows!
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Дорогой Потусторонний:\nДобро пожаловать в мир Повелителя Тайн. Содержание этого обновления следующее, а содержимое подарочного пакета следующее! Дорогой Потусторонний:\nДобро пожаловать в мир Повелителя Тайн. Содержание этого обновления следующее, а содержимое подарочного пакета следующее! Дорогой Потусторонний:\nДобро пожаловать в мир Повелителя Тайн. Содержание этого обновления следующее, а содержимое подарочного пакета следующее!
+
+CN: 喜欢玩点\r\n不一样的吗？
+EN: Do you like to play something different?
+RU Status: CN_in_RU=True, EN_in_RU=True
+RU Value: Вам нравится играть во что-то другое?
+
+------------------------------------------------------------------------
+2. MODIFIED TRANSLATIONS IN ENGLISH 2.6.0 (6):
+------------------------------------------------------------------------
+CN:     你的伙伴前来助力\n恭喜你获得了一次额外的<Highlight>重掷</>机会
+Old EN: Your Partner has come to assist\nCongratulations, you have gained an extra <Highlight>Reroll</> opportunity
+New EN: Your partner has arrived to assist \n Congratulations on obtaining an extra <Highlight> Reroll </> opportunity
+RU Val: Ваш партнер пришел на помощь\nПоздравляем, вы получили дополнительную возможность <Highlight>Reroll</>.
+
+CN:     在诊所随便看看\n<h>几封未寄的信</>
+Old EN: Take a look around the clinic.\n<h>Several unsent letters</>
+New EN: Look around the clinic \n<h> a few unsent letters </>
+RU Val: Осмотрите клинику.\n<h>Несколько неотправленных писем</>
+
+CN:     应用设置后，将切换位面。\n是否确认设置？
+Old EN: After applying settings, the plane will switch. \n Confirm settings?
+New EN: Applying settings will switch the plane. \n Confirm settings?
+RU Val: После применения настроек самолет переключится. \n Подтвердить настройки?
+
+CN:     在沉寂已久的城堡中重新规划空间，让生活的秩序逐步成形。 \n或许，还可以尝试一点小小的奇迹？
+Old EN: Reorganize the space in the long-silent castle, allowing the order of life to gradually take shape. Perhaps, one could also try a small miracle?
+New EN: Reorganize the space in the long-silent castle, letting the order of life gradually take shape. \nPerhaps, you could also try a small miracle?
+RU Val: Реорганизуйте пространство в давно замолчавшем замке, позволяя постепенно обрести форму жизни. Может быть, тоже можно попробовать маленькое чудо?
+
+CN:     你偶然得到一张泛黄的灵界古卷，上面写着模糊的咒文。它似乎与召唤灵界生物有关。\n带着它去找现在的序列3召唤大师埃姆林·怀特，他或许知道这是什么。
+Old EN: You accidentally obtained a yellowed, ancient scroll from the Spirit World with blurry incantations written on it. It seems to be related to summoning Spirit World creatures.\nTake it to the current Sequence 3 Master of Puppets, Emlyn White; he might know what this is.
+New EN: You accidentally obtained an ancient, yellowed Spirit World scroll with blurred incantations written on it. It seems to be related to summoning Spirit World creatures. \nTake it to the current Sequence 3 Summoning Master, Emlyn White; he might know what this is.
+RU Val: Вы случайно получили из Мира Духов пожелтевший древний свиток с размытыми написанными на нем заклинаниями. Похоже, это связано с вызовом существ из Духовного мира. \nTОтнесите это нынешнему Мастеру Марионеток из третьей серии, Эмлин Уайт; он может знать, что это такое.
+
+CN:     你偶然得到一片散发着微光的羽毛。它轻若无物，却蕴含着难以言喻的灵性。\n带着它去找埃姆林·怀特，他或许知道这是什么。
+Old EN: You accidentally obtained a feather that emits a faint glow. It is as light as nothing, yet it contains an indescribable spirituality.\nTake it to Emlyn White; he might know what this is.
+New EN: You accidentally obtained a feather emitting a faint glow. It is as light as nothing, yet contains indescribable spirituality. \nTake it to Emlyn White; he might know what this is.
+RU Val: Вы случайно получили перо, которое излучает слабое свечение. Он легкий, как ничто, но в нем заключена неописуемая духовность.\nTОтнесите его Эмлин Уайт; он может знать, что это такое.
+
+------------------------------------------------------------------------
+3. FULLY UNTRANSLATED ENTRIES IN 2.6.0 (0):
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+4. MISSING EN KEYS (CN is translated, but exact EN key not in RU) (0):
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+5. MISSING CN KEYS (EN is in RU, but exact CN key not in RU) (0):
+------------------------------------------------------------------------

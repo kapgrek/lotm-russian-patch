@@ -1,6 +1,7 @@
 ﻿-- Generated Russian translation shard 1ae/3ff.
 -- Dual-indexed (CN + EN keys) for instant zero-limit lookup.
 return {
+    [" Not brothers anymore."] = "Больше не братья.",
     [" 你以前是律师？"] = "Вы раньше были юристом?",
     ["#CanMove击溃#"] = "Поражение",
     ["*f**减伤，且受到治疗增幅提高*f**"] = "*f** Снижение урона и получаемое исцеление увеличивается на *f**.",
@@ -20,7 +21,7 @@ return {
     ["<P_Heart>(Next...)</>"] = "<P_Heart>(Далее...)</>",
     ["<P_Heart>（诊费好贵啊，快点治好吧。）</>"] = "<P_Heart> (Плата за консультацию очень дорогая, надеюсь, мне скоро станет лучше.) </>",
     ["<Yellow>Transfer Damage</>: If you take damage exceeding <Yellow>30%</> of your maximum Health within a short period, you gain the Frame ability for <Yellow>5 seconds</>. After casting Frame on a selected hostile target, <Yellow>{CheckStar(Type=\"sealed\",ID=2085014)=1?70%}{CheckStar(Type=\"sealed\",ID=2085014)=2?80%}{CheckStar(Type=\"sealed\",ID=2085014)=3?90%}</> of the direct damage you take over the next <Yellow>8 seconds</> will be transferred to that target. The total transferred damage cannot exceed <Yellow>2</> times your maximum Health and will be invalidated if the target is too far away. The Frame ability can be obtained at most once every <Yellow>30 seconds</>. \n<Yellow>Danger Intuition</>: When about to be controlled, you have a <Yellow>100%</> base probability to evade the control effect. If this is triggered <Yellow>3 times</> within a short period (3 seconds), it will enter a <Yellow>10-second</> Cooldown."] = "<Yellow>Transfer Damage</>: If you take damage exceeding <Yellow>30%</> of your maximum Health within a short period, you gain the Frame ability for <Yellow>5 seconds</>. After casting Frame on a selected hostile target, <Yellow>{CheckStar(Type=\"sealed\",ID=2085014)=1?70%}{CheckStar(Type=\"sealed\",ID=2085014)=2?80%}{CheckStar(Type=\"sealed\",ID=2085014)=3?90%}</> of the direct damage you take over the next <Yellow>8 seconds</> will be transferred to that target. The total transferred damage cannot exceed <Yellow>2</> times your maximum Health and will be invalidated if the target is too far away. The Frame ability can be obtained at most once every <Yellow>30 seconds</>. \n<Yellow>Danger Intuition</>: When about to be controlled, you have a <Yellow>100%</> base probability to evade the control effect. If this is triggered <Yellow>3 times</> within a short period (3 seconds), it will enter a <Yellow>10-second</> Перезарядка.",
-    ["<h>听侍者介绍茶会</>\n"] = "<h>LПослушайте, как официант представляет чаепитие</>",
+    ["Tier IV"] = "Уровень IV",
     ["Itr_开关内"] = "Переключатель Itr_Insibb",
     ["Last time after praying to the Lord of the Washroom, a policeman {{sir|madam}} descended from the sky and helped us solve the diarrhea problem. If we pray again, could it resurrect 'Caramel Bomb'?"] = "В прошлый раз после молитвы Лорду Умывальной с неба спустился полицейский {{sir|madam}} и помог нам решить проблему с диареей. Если мы помолимся еще раз, сможет ли это воскресить «Карамельную бомбу»?",
     ["LuaList(Id(Trap))."] = "LuaList(Id(Ловушка)).",
@@ -49,6 +50,8 @@ return {
     ["传送陷阱buff"] = "Усиление телепортационной ловушки",
     ["伦纳德，你还好吗？"] = "Леонард, ты в порядке?",
     ["Fors Teleport F"] = "Форс Телепорт F",
+    ["Aren't you a healer?"] = "Вы не целитель?",
+    ["Aren't you going to beat up the stunner?"] = "Ты не собираешься избить станнера?",
     ["You all know that he is..."] = "Вы все знаете, что он...",
     ["你的失控值增加到%d点。耳畔响起一些未曾听过的声音。"] = "Значение вашей потери контроля увеличилось до баллов %d. Какие-то неслыханные голоса эхом отдавались в твоих ушах.",
     ["Your pieces gain 15% Attack Speed and 15% Max Health."] = "Скорость атаки ваших фигур увеличивается на 15%, а максимальное здоровье — на 15%.",
@@ -59,6 +62,7 @@ return {
     ["先生们，女士们，要来份报纸吗？"] = "Господа, дамы, хотите газету?",
     ["光之坚壁"] = "Стена Света",
     ["Chloe"] = "Хлоя",
+    ["公会联赛成就"] = "Достижения Лиги Гильдий",
     ["关于会长"] = "О Президенте",
     ["关于占卜"] = "О гадании",
     ["冬礼日告示"] = "Уведомление о Зимнем фестивале",
@@ -83,6 +87,7 @@ return {
     ["哈姆扎·"] = "Хамза",
     ["啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"] = "АААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААА",
     ["喝水"] = "Пить воду",
+    ["Hmm? Why are there still so many that won't be scared away... and the Golden Wolf's shield is still there..."] = "Хм? Почему еще так много тех, кого не испугаешь... и щит Золотого Волка все еще там...",
     ["噩梦吗……谢谢，我会小心的。"] = "Кошмары... Спасибо, я буду осторожен.",
     ["在黑夜女神的见证下，一场神圣的赠予仪式将在教会广场举行。<HighLight_L>%s</>赠予<HighLight_L>%s</>一份珍贵的礼物，欢迎共同见证"] = "Под свидетельством Богини Вечной Ночи на церковной площади пройдет священная церемония дарения. <HighLight_L>%s</> дарит <HighLight_L>%s</> драгоценный подарок, приглашаем вас стать свидетелями этого вместе",
     ["Tarot - Maid Tier 7"] = "Таро - Горничная Уровень 7",
@@ -153,6 +158,7 @@ return {
     ["最近很有名的那首诗？只抄了一半……难道不小心把草稿纸寄过来了？"] = "Это стихотворение, которое было очень популярно в последнее время? Он скопировал только половину... он случайно не прислал черновик?",
     ["有呼吸小黛西"] = "Дыхание маленькой Дейзи",
     ["Yes, that bastard Old Tuller didn't even have peace after he died, he crawled out of the graveyard again."] = "Да, этому ублюдку Старому Таллеру даже покоя после смерти не было, он снова выполз с кладбища.",
+    ["服装名称六字"] = "Шестизначное имя наряда",
     ["Descent of the Doomsday Giant"] = "Нисхождение гиганта Судного дня",
     ["Mechanism 2 - Sprint Dancer 1 - Mark Buff"] = "Механизм 2 — Танцор спринта 1 — Марк Бафф",
     ["The projection of the Groselle's Travels grants you the ability to enter the pages of the book. Click the menu to view it."] = "Проекция «Путешествий Грозель» дает вам возможность попасть на страницы книги. Нажмите на меню, чтобы просмотреть его.",
@@ -208,6 +214,7 @@ return {
     ["萨米拉·"] = "Самира",
     ["蘑菇河豚标识3"] = "Грибной знак фугу 3",
     ["表明身份"] = "Государственная идентичность",
+    ["被害人是从\n小巷深处逃出的"] = "Пострадавший сбежал из \n глубины переулка.",
     ["观众抵抗"] = "Зрительское сопротивление",
     ["Record: Mystery Pry"] = "Запись: Взор тайновидца",
     ["Mystery Ball"] = "Таинственный шар",
@@ -250,4 +257,5 @@ return {
     ["Will flowers appear from the hat?"] = "Появятся ли цветы из шляпы?",
     ["Black-Haired Middle-Aged Man of the Church of the Evernight"] = "Черноволосый мужчина средних лет из Церкви Вечной Ночи",
     ["黛丝是前来占卜的顾客吗？"] = "Дейзи — покупательница, пришедшая на гадание?",
+    ["<h>听侍者介绍茶会</>\n"] = "<h>LПослушайте, как официант представляет чаепитие</>",
 }
