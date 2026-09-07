@@ -597,6 +597,11 @@
     - `CheckOverridesCoverage.exe`: **0 missing** (125 stringConst, 156 exactOverrides).
     - `FindInvalidEscapes.exe`: **0 ошибок** синтаксиса и экранирования.
     - `AnalyzePatch26Comprehensive.exe`: **130 528 из 130 528 (100.00%)** строк переведено, **0 untranslated**!
+### 🛡️ Регламентное обновление (07.09.2026): Абсолютный запрет накатывания патчей на клиент игры пользователя
+- **Суть изменения:** В регламенты [`AGENTS.md`](file:///d:/gameDev/translate%20lotm/AGENTS.md), [`GEMINI.md`](file:///d:/gameDev/translate%20lotm/GEMINI.md) и [`TRANSLATION_GUIDE.md`](file:///d:/gameDev/translate%20lotm/TRANSLATION_GUIDE.md) внесено строгое золотое правило:
+  - Любым агентам и автоматическим скриптам **КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО** накатывать новые патчи, запускать установку или копировать какие-либо файлы (шарды, скрипты `Init.lua`, `RussianLocalization.lua`, библиотеки) в клиент игры пользователя (`D:\Games\...` или любой другой путь на диске).
+  - Устранена устаревшая инструкция из шага 3 и раздела 5, ранее предлагавшая копировать файлы в `D:\Games\...`.
+  - Вся работа ведётся **ИСКЛЮЧИТЕЛЬНО** внутри репозитория проекта (`data/`, `mod_base/`, `build/`). Пользователь управляет обновлением и тестированием своей установленной игры исключительно самостоятельно.
 
 ---
 
@@ -604,25 +609,38 @@
 
 Когда вы (агент) приступаете к работе:
 
-1. **Проверьте этот файл:** Убедитесь, что вы берете следующий незавершенный пакет из Плана выше.
+1. 🛑 **КАТЕГОРИЧЕСКИЙ ЗАПРЕТ НАКАТЫВАНИЯ НА КЛИЕНТ ИГРЫ ПОЛЬЗОВАТЕЛЯ:**
+   - **СТРОГО ЗАПРЕЩЕНО** накатывать новые патчи, запускать установку или копировать какие-либо файлы (шарды, скрипты, библиотеки) в установленную версию игры пользователя (`D:\Games\...` или любой другой путь к игре на диске).
+   - Все изменения, генерация шардов и сборка релизов производятся **ИСКЛЮЧИТЕЛЬНО** внутри папок репозитория (`data/`, `mod_base/`, `build/`, `tools/`). Пользователь управляет своей копией игры и установкой обновлений исключительно самостоятельно!
+
 2. **Как выполнять перевод:**
-   - Если переводите через агентский контекст: читайте блоки из [`source_en/RuntimeTextGemini.lua`](file:///d:/gameDev/translate%20lotm/source_en/RuntimeTextGemini.lua), переводите с учетом глоссария в [`AGENTS.md`](file:///d:/gameDev/translate%20lotm/AGENTS.md), и добавляйте пары `["Оригинальный ключ"] = "Русский перевод"` в [`RuntimeTextRussian.lua`](file:///d:/gameDev/translate%20lotm/RuntimeTextRussian.lua).
-   - Если запускаете инструмент `tools/LotmTranslator.cs`:
+   - Читайте блоки из [`source_en/RuntimeTextGemini.lua`](file:///d:/gameDev/translate%20lotm/source_en/RuntimeTextGemini.lua), переводите с учетом глоссария в [`AGENTS.md`](file:///d:/gameDev/translate%20lotm/AGENTS.md) и [`TRANSLATION_GUIDE.md`](file:///d:/gameDev/translate%20lotm/TRANSLATION_GUIDE.md), и добавляйте пары `["Оригинальный ключ"] = "Русский перевод"` в [`RuntimeTextRussian.lua`](file:///d:/gameDev/translate%20lotm/RuntimeTextRussian.lua).
+
+3. **Синхронизация и генерация шардов:**
+   - **СТРОГО ЗАПРЕЩЕНО** копировать монолитный `RuntimeTextRussian.lua` (46 МБ) в `data/RuntimeTextRussian.lua`! Это вызовет немедленный краш LuaJIT (`LJ_MAX_CONSTS 65536`). Файл `data/RuntimeTextRussian.lua` ОБЯЗАН оставаться легковесным стабом `return {}`.
+   - **ОБЯЗАТЕЛЬНО** перегенерируйте 1 024 шарда только внутри репозитория:
      ```powershell
-     # Сборка транслятора
-     C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /target:exe /optimize+ /out:"tools\LotmTranslator.exe" "tools\LotmTranslator.cs"
-     # Запуск на 500 строк
-     .\tools\LotmTranslator.exe --count 500 --mode all
+     powershell -Command "& 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe' /nologo /out:tools\BuildPerfectRussianShards.exe tools\BuildPerfectRussianShards.cs; .\tools\BuildPerfectRussianShards.exe"
      ```
-3. **Синхронизация:**
-   - После изменения `RuntimeTextRussian.lua` скопируйте его в `data/RuntimeTextRussian.lua`:
+   - Скопируйте `RussianLocalization.lua` в `data/` и `mod_base/`:
      ```powershell
-     Copy-Item "RuntimeTextRussian.lua" "data\RuntimeTextRussian.lua" -Force
-     Copy-Item "RuntimeTextRussian.lua" "D:\Games\GMZZLauncher\Game\C7\Saved\Mods\lua\mods\cpdd_runtime_fixes\RuntimeTextRussian.lua" -Force -ErrorAction SilentlyContinue
+     Copy-Item "RussianLocalization.lua" "data\RussianLocalization.lua" -Force
+     Copy-Item "RussianLocalization.lua" "mod_base\Saved\Mods\lua\mods\cpdd_runtime_fixes\RussianLocalization.lua" -Force
      ```
-4. **Обновление дневника:**
+
+4. **Валидация:**
+   - Запустите проверку покрытия формульных навыков и целостности шардов:
+     ```powershell
+     .\tools\VerifySkillCoverage.exe
+     ```
+     *(Критерий успешности: 1024/1024 шардов, 0 missing).*
+
+5. **Обновление дневника:**
    - Обновите таблицу в разделе **1. Текущий общий прогресс** и добавьте запись в **3. Хроника разработки**.
-5. **Фиксация в Git:**
+
+6. **Фиксация в Git и сборка релиза:**
    - `git add .`
    - `git commit -m "feat(translate): batch #... [описание]"`
+   - Сборка релиза: `powershell -ExecutionPolicy Bypass -File .\package_release.ps1 -Version "v1.X.X"`
+   - Собранные файлы остаются в `build/` для загрузки на GitHub Releases через `gh release upload`. Запускать установку на клиент игры пользователя **ЗАПРЕЩЕНО**.
 

@@ -1,12 +1,11 @@
-﻿param (
+param (
     [int]$BatchCount = 100
 )
 
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-$gameMods = "D:\Games\GMZZLauncher\Game\C7\Saved\Mods\lua\mods\cpdd_runtime_fixes"
-$geminiFile = "$gameMods\RuntimeTextGemini.lua"
-$russianFile = "$gameMods\RuntimeTextRussian.lua"
+$geminiFile = "$PSScriptRoot\source_en\RuntimeTextGemini.lua"
+$russianFile = "$PSScriptRoot\RuntimeTextRussian.lua"
 
 Write-Host "=====================================================" -ForegroundColor Cyan
 Write-Host "   Lord of the Mysteries - Пакетный Переводчик Текста" -ForegroundColor Yellow

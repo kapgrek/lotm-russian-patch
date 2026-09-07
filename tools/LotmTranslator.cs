@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
@@ -309,17 +309,9 @@ namespace LotmTranslator
                 existingRu[kvp.Key] = kvp.Value;
             }
 
-            // 6. Запись и валидация
+            // 6. Запись словаря репозитория
             SaveAndValidate(LocalRuPath, existingRu);
-            if (File.Exists(RussianPath) || Directory.Exists(Path.GetDirectoryName(RussianPath)))
-            {
-                try { File.Copy(LocalRuPath, RussianPath, true); } catch { }
-            }
-            if (Directory.Exists(Path.GetDirectoryName(LocalDataRuPath)))
-            {
-                try { File.Copy(LocalRuPath, LocalDataRuPath, true); } catch { }
-            }
-            Console.WriteLine("Словарь успешно синхронизирован с репозиторием и игрой!");
+            Console.WriteLine("Словарь успешно обновлен в корне репозитория! Запустите BuildPerfectRussianShards для генерации шардов.");
         }
 
         static bool IsUiText(string en, string cn)

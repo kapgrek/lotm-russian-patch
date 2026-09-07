@@ -256,10 +256,12 @@
      powershell -Command "& 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe' /nologo /out:tools\BuildPerfectRussianShards.exe tools\BuildPerfectRussianShards.cs; .\tools\BuildPerfectRussianShards.exe"
      ```
    * Утилита автоматически обновит 1 024 файла в `data/shards/` и `mod_base/...` с двухиндексной привязкой CN+EN.
-   * `RussianLocalization.lua` из корня скопируйте в `data/`:
+   * `RussianLocalization.lua` из корня скопируйте в `data/` и `mod_base/`:
      ```powershell
      Copy-Item "RussianLocalization.lua" "data\RussianLocalization.lua" -Force
+     Copy-Item "RussianLocalization.lua" "mod_base\Saved\Mods\lua\mods\cpdd_runtime_fixes\RussianLocalization.lua" -Force
      ```
+   * 🛑 **СТРОЖАЙШИЙ ЗАПРЕТ НАКАТЫВАНИЯ НА КЛИЕНТ ИГРЫ ПОЛЬЗОВАТЕЛЯ:** Категорически запрещено копировать сгенерированные шарды, скрипты или накатывать патчи в каталог установленной игры пользователя (`D:\Games\...` или любой другой путь). Все файлы мода остаются строго внутри репозитория (`data/`, `mod_base/`). Пользователь накатывает обновления на свою игру исключительно самостоятельно.
 3. **Валидация синтаксиса и покрытия:**
    Запустите проверку покрытия навыков и целостности шардов:
    ```powershell

@@ -13,24 +13,12 @@ $staging = "$buildDir\staging"
 New-Item -ItemType Directory -Path "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes" -Force | Out-Null
 New-Item -ItemType Directory -Path "$staging\Binaries\Win64\lua\Launch\Base" -Force | Out-Null
 
-$gameDir = "D:\Games\GMZZLauncher\Game\C7"
-
 Write-Host "Copying mod files..."
-# Сначала базовый шаблон из mod_base
+# Базовый шаблон из mod_base (полностью автономный)
 if (Test-Path "$projectRoot\mod_base\Saved\Mods") {
     Write-Host "Using mod_base templates..." -ForegroundColor Cyan
     Copy-Item "$projectRoot\mod_base\Saved\Mods\*" "$staging\Saved\Mods\" -Recurse -Force
     Copy-Item "$projectRoot\mod_base\Binaries\Win64\lua\Launch\Base\*" "$staging\Binaries\Win64\lua\Launch\Base\" -Recurse -Force
-}
-
-# Если есть живая папка игры, дополняем файлы
-if (Test-Path "$gameDir\Saved\Mods") {
-    if (Test-Path "$gameDir\Saved\Mods\translation-overrides.state.json") {
-        Copy-Item "$gameDir\Saved\Mods\translation-overrides.state.json" "$staging\Saved\Mods\" -Force
-    }
-    if (Test-Path "$gameDir\Saved\Mods\lua\cpdd_translation") {
-        Copy-Item "$gameDir\Saved\Mods\lua\cpdd_translation" "$staging\Saved\Mods\lua\" -Recurse -Force
-    }
 }
 
 # Гарантия: файлы русификатора из data/ имеют абсолютный приоритет

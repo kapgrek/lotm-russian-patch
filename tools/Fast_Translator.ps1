@@ -1,12 +1,12 @@
-﻿param (
+param (
     [int]$Count = 500
 )
 
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-$gameMods = "D:\Games\GMZZLauncher\Game\C7\Saved\Mods\lua\mods\cpdd_runtime_fixes"
-$geminiFile = "$gameMods\RuntimeTextGemini.lua"
-$russianFile = "$gameMods\RuntimeTextRussian.lua"
+$projectRoot = (Get-Item $PSScriptRoot).Parent.FullName
+$geminiFile = "$projectRoot\source_en\RuntimeTextGemini.lua"
+$russianFile = "$projectRoot\RuntimeTextRussian.lua"
 
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "   Lord of the Mysteries — Высокоскоростной Переводчик    " -ForegroundColor Yellow
@@ -192,8 +192,5 @@ foreach ($key in $existingRu.Keys) {
 }
 $writer.WriteLine("}")
 $writer.Close()
-
-# Синхронизация в папку загрузок пользователя
-Copy-Item $russianFile "C:\Users\yapug\Downloads\lotm translate\RuntimeTextRussian.lua" -Force -ErrorAction SilentlyContinue
 
 Write-Host "УСПЕХ! Добавлено $added новых записей. Всего в словаре: $($existingRu.Count) ключей." -ForegroundColor Green
