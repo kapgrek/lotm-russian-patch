@@ -28,18 +28,22 @@ D:\gameDev\translate lotm\
 ├── data\                          # Файлы мода, упаковываемые в релизный zip-архив
 │   ├── Init.lua                   # Главный хук: шрифты (-50 spacing), перехват локализации
 │   ├── RussianLocalization.lua    # Ядро русского интерфейса, меню, теги, стойки, регулярки
-│   └── RuntimeTextRussian.lua     # Базовый runtime-словарь перевода
+│   ├── RuntimeTextRussian.lua     # Заглушка-стаб (return {}), предотвращающая краш LuaJIT LJ_MAX_CONSTS
+│   └── shards\                    # 1 024 нативных шардов перевода (RuntimeTextGemini_000..3ff.lua)
 ├── installer\                     # Исходники графического установщика на C# WinForms
 │   └── Program.cs                 # Скачивает релиз с GitHub, распаковывает, управляет версиями
 ├── tools\                         # Инструменты автоматизации и пакетного перевода
+│   ├── BuildPerfectRussianShards.cs # Генератор и синхронизатор 1 024 шардов
+│   ├── VerifySkillCoverage.exe    # Валидатор покрытия боевых формул и шардов
+│   ├── CheckOverridesCoverage.exe # Валидатор переопределений Init.lua
 │   ├── LotmTranslator.cs          # Высокоскоростной C# компилируемый транслятор
 │   ├── Batch_Translator.ps1       # Пакетный переводчик на PowerShell
 │   ├── Fast_Translator.ps1        # Быстрый переводчик с защитой тегов
 │   ├── Switch_Language.ps1        # Переключатель языков RU/EN на лету
 │   └── Switch_Language.bat        # Запуск переключателя в один клик
 ├── build\                         # Папка сборки релизов (создаётся автоматически)
-├── RussianLocalization.lua        # Копия в корне для удобства работы и версионирования
-├── RuntimeTextRussian.lua         # Копия словаря в корне (12,566+ строк)
+├── RussianLocalization.lua        # Копия ядра интерфейса в корне для удобства версионирования
+├── RuntimeTextRussian.lua         # Мастер-справочник перевода в корне (250 000+ строк для тулинга)
 ├── package_release.ps1            # Скрипт сборки zip-архива, SHA256 и release.json
 ├── TRANSLATION_GUIDE.md           # ГЛОССАРИЙ, СТИЛЬ (TONE OF VOICE) И ТЕХТРЕБОВАНИЯ
 ├── TRANSLATION_LOG.md             # ДНЕВНИК РАЗРАБОТКИ И ТРЕКЕР ПРОГРЕССА
@@ -118,10 +122,16 @@ D:\gameDev\translate lotm\
    - Сохраняйте все разметки: `<InvHighlight>`, `<Mark id="...">`, `<Highlight>`, `<Note_Normal_HW>`, `<Hide>...</Hide>`, `<Tips...>`, а также токены подстановки (`%s`, `%d`, `%i`).
    - Экранируйте кавычки: `\"` внутри значений строк Lua.
 
-3. **Синхронизация файлов:**
-   - При обновлении `RuntimeTextRussian.lua` в корне — **ОБЯЗАТЕЛЬНО** скопируйте его в `data/RuntimeTextRussian.lua` и в тестовую установку игры:
-     `D:\Games\GMZZLauncher\Game\C7\Saved\Mods\lua\mods\cpdd_runtime_fixes\RuntimeTextRussian.lua` (если игра установлена).
-   - То же самое касается `RussianLocalization.lua` и `data/RussianLocalization.lua`.
+3. **Синхронизация файлов и генерация шардов (КРИТИЧЕСКИ ВАЖНО):**
+   - **СТРОГО ЗАПРЕЩЕНО** копировать монолитный `RuntimeTextRussian.lua` (46 МБ) в `data/RuntimeTextRussian.lua`! Это вызовет немедленный краш движка LuaJIT из-за лимита констант (`LJ_MAX_CONSTS 65536`). Файл `data/RuntimeTextRussian.lua` ОБЯЗАН оставаться легковесным стабом `return {}`.
+   - При добавлении/обновлении строк в мастер-словаре `RuntimeTextRussian.lua` в корне:
+     **ОБЯЗАТЕЛЬНО** перегенерируйте 1 024 шарда с помощью компилируемой утилиты:
+     ```powershell
+     powershell -Command "& 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe' /nologo /out:tools\BuildPerfectRussianShards.exe tools\BuildPerfectRussianShards.cs; .\tools\BuildPerfectRussianShards.exe"
+     ```
+     Утилита автоматически распределит все фразы (с двухиндексным CN+EN маппингом) по 1 024 файлам в `data/shards/` и `mod_base/Saved/Mods/lua/mods/cpdd_runtime_fixes/`.
+   - При изменении `RussianLocalization.lua` в корне — скопируйте его в `data/RussianLocalization.lua` и в `mod_base/Saved/Mods/lua/mods/cpdd_runtime_fixes/RussianLocalization.lua`.
+   - Если игра установлена в тестовой папке `D:\Games\...`, скопируйте обновлённые шарды и `RussianLocalization.lua` туда.
 
 4. **Валидация:**
    - Убедитесь, что синтаксис Lua корректен (нет незакрытых кавычек, битых скобок или сломанных переносов строк).

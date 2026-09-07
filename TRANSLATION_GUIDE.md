@@ -246,27 +246,28 @@
   ```
   Это гарантирует, что независимо от момента перехвата строки движком (до английского перевода или после него) игра отобразит русский текст!
 
-### 4.2. Порядок сохранения и валидации
+### 4.2. Порядок сохранения и валидации (Шардовая архитектура 1 024 файлов)
 
-1. **Редактирование:** Изменения вносятся в корень: [`RuntimeTextRussian.lua`](file:///d:/gameDev/translate%20lotm/RuntimeTextRussian.lua) или [`RussianLocalization.lua`](file:///d:/gameDev/translate%20lotm/RussianLocalization.lua).
-2. **Синхронизация:** Обязательно скопировать файлы в папку мода `data/`:
-   ```powershell
-   Copy-Item "RuntimeTextRussian.lua" "data\RuntimeTextRussian.lua" -Force
-   Copy-Item "RussianLocalization.lua" "data\RussianLocalization.lua" -Force
-   ```
-   *(Если игра установлена на ПК переводчика в `D:\Games\...`, скопировать также и туда).*
+1. **Редактирование:** Новые переводы добавляются в корень: в мастер-словарь [`RuntimeTextRussian.lua`](file:///d:/gameDev/translate%20lotm/RuntimeTextRussian.lua) или кураторский UI [`RussianLocalization.lua`](file:///d:/gameDev/translate%20lotm/RussianLocalization.lua).
+2. **Генерация шардов и синхронизация (КРИТИЧЕСКИ ВАЖНО):**
+   * **СТРОГО ЗАПРЕЩЕНО** копировать монолитный `RuntimeTextRussian.lua` в `data/RuntimeTextRussian.lua`! Это приведет к ошибке переполнения констант LuaJIT (`LJ_MAX_CONSTS 65536`) и отключит перевод во всей игре.
+   * Для генерации 1 024 нативных шардов запустите:
+     ```powershell
+     powershell -Command "& 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe' /nologo /out:tools\BuildPerfectRussianShards.exe tools\BuildPerfectRussianShards.cs; .\tools\BuildPerfectRussianShards.exe"
+     ```
+   * Утилита автоматически обновит 1 024 файла в `data/shards/` и `mod_base/...` с двухиндексной привязкой CN+EN.
+   * `RussianLocalization.lua` из корня скопируйте в `data/`:
+     ```powershell
+     Copy-Item "RussianLocalization.lua" "data\RussianLocalization.lua" -Force
+     ```
 3. **Валидация синтаксиса и покрытия:**
-   Запустите проверку корректности Lua и покрытия навыков:
+   Запустите проверку покрытия навыков и целостности шардов:
    ```powershell
    .\tools\VerifySkillCoverage.exe
    ```
-   *(Критерий успешности: 0 пропущенных формул и 100% покрытие).*
+   *(Критерий успешности: 1024/1024 шардов, 0 пропущенных формул и 100% покрытие).*
 4. **Обновление журнала [`TRANSLATION_LOG.md`](file:///d:/gameDev/translate%20lotm/TRANSLATION_LOG.md):**
-   * Пересчитайте количество строк:
-     ```powershell
-     (Select-String -Path "RuntimeTextRussian.lua" -Pattern '^\s*\["').Count
-     ```
-   * Зафиксируйте в логе дату, номер пакета и что конкретно переведено.
+   * Зафиксируйте в логе дату, номер пакета, точное число переведенных строк и что конкретно переведено.
 5. **Фиксация в Git:**
    * `git add .`
    * `git commit -m "feat(translate): batch #... [краткое описание]"`

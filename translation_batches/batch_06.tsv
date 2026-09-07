@@ -1,0 +1,251 @@
+﻿ID	CN	EN	RU_TRANSLATION
+1251	{\"第%i个子弹的额外Yaw角\"}	{\"Extra Yaw angle for the %ist bullet\"}	
+1252	{\"第%i个属性名\"}	{\"Name of the %ist attribute\"}	
+1253	{\"第%i个法术场ID\"}	{\"ID of the %ist Spell Field\"}	
+1254	{\"第%i批子弹发射时间点\"}	{\"Firing time of the %ist batch of bullets\"}	
+1255	{\"类型%i\"}	{\"Type %i\"}	
+1256	{\"陷阱ID%i\"}	{\"Trap ID%i\"}	
+1257	{\"默认为false。若为true，上面4个限制无效，但白名单生效\"}	{\"Defaults to false. If true, the 4 restrictions above are invalid, but the whitelist takes effect\"}	
+1258	{{\"BuffID%i\",\"Buff层数%i\",\"Buff时长%i\"}}	{{\"BuffID%i\",\"Buff Stacks%i\",\"Buff Duration%i\"}}	
+1259	{{\"子弹%iX偏移cm\",\"子弹%iY偏移cm\",\"子弹%iZ偏移cm\"}}	{{ \"Bullet %i X offset cm\", \"Bullet %i Y offset cm\", \"Bullet %i Z offset cm\" }}	
+1260	{{\"技能ID%i\",\"增加等级\"}}	{{\"Skill ID%i\", \"Level Increase\"}}	
+1261	{{\"技能Type（参看悬停注释）\",\"增加等级\"}}	{{\"Skill Type (see hover note)\", \"Increase Level\"}}	
+1262	{{\"第%i个子弹的X偏移cm\",\"第%i个子弹的Y偏移cm\",\"第%i个子弹的Z偏移cm\"}}	{{\"X offset of the %ind bullet in cm\", \"Y offset of the %ird bullet in cm\", \"Z offset of the %ith bullet in cm\"}}	
+1263	{{\"第%i个属性名\",\"修改值\"}}	{{\"Attribute Name #%i\", \"Modified Value\"}}	
+1264	{{\"第%i个按键的资源名\",\"对应的技能ID\",\"对应的键盘按键（仅可填Q/W/E/R/A/S/D/F之一）\"}}	{{\"Resource name of the %ind button\", \"Corresponding Skill ID\", \"Corresponding keyboard key (can only be Q/W/E/R/A/S/D/F)\"}}	
+1265	{{PlayerName}} ，走吧，天快亮了，我带你看看拉姆德城堡的日出。	{{PlayerName}}, let's go. Dawn is almost here; let me show you the sunrise at Lamud Castle.	
+1266	{{PlayerName}}，看来你也有当美食评论家的天分。	{{PlayerName}}, it seems you also have a talent for being a food critic.	
+1267	{{player.name}} 掷骰<Chat_Highlight>两连大成功！</>，森严的概率法则在他面前俯首认输。	{{player.name}} rolled <Chat_Highlight>two consecutive critical successes!</> The stern laws of probability bow and concede before him.	
+1268	{{player.name}}从FowChart触发了事件，啊啊啊啊啊啊啊啊啊	{{player.name}} triggered an event from FowChart, ahhhhhhhhhhhhh	
+1269	{{player.name}}对{{targetPlayer.name}}进行了安魂，仪式进行得有板有眼，但无事发生。双方面面相觑。 	{{player.name}} performed a Requiem on {{targetPlayer.name}}. The ritual was conducted by the book, but nothing happened. Both parties stared at each other in silence.	
+1270	{{player.name}}的“神降”仪式获得了“愚者”先生的恩赐——<Chat_Highlight>君临·火焰</>！赞美祂！<HyperLink stylename=\"Chat_Hyperlink\" u=\"luxuryNavigation={{eventMessageParams.worldID}},444460680\">[前往赞美]</>	{{player.name}}'s \"Divine Descent\" ritual has received Mr. Fool's blessing—<Chat_Highlight>Monarch's Flame</>! Praise Him! <HyperLink stylename=\"Chat_Hyperlink\" u=\"luxuryNavigation={{eventMessageParams.worldID}},444460680\">[Go to Praise]</>	
+1271	{{player.name}}的“神降”仪式获得黑夜女神的恩赐——<Chat_Highlight>隐秘之拥</>！赞美祂！<HyperLink stylename=\"Chat_Hyperlink\" u=\"luxuryNavigation={{eventMessageParams.worldID}},227295011\">[前往赞美]</>	{{player.name}}'s \"Divine Descent\" ritual has received the Evernight Goddess's blessing—<Chat_Highlight>Embrace of Concealment</>! Praise Her! <HyperLink stylename=\"Chat_Hyperlink\" u=\"luxuryNavigation={{eventMessageParams.worldID}},227295011\">[Go to Praise]</>	
+1272	{{player.name}}释放了“破空裂隙”，召唤出了<Chat_Highlight>名流之殿</>！	{{player.name}} released a \"Space-Breaking Rift\" and summoned the <Chat_Highlight>Hall of Fame</>!	
+1273	{{《少男密会警长》|《警长密会神秘女》}}? 'Breaking! University Student Arrested'? 'Carnivore Raids Restaurant at Night, Tremors Felt in Residential Building'?	{{《Young Man Secretly Meets Sheriff》|《Sheriff Secretly Meets Mysterious Woman》}}? 'Breaking! University Student Arrested'? 'Carnivore Raids Restaurant at Night, Tremors Felt in Residential Building'?	
+1274	{{他|她}}怎么冲上去了，不会也想猎龙吧？	{{He|She}} charged up there—don't tell me {{he|she}} wants to hunt dragons too?	
+1275	{{先生|女士}} Look, it's truly magical	{{Sir|Madam}} Look, it's truly magical	
+1276	{{先生|女士}} 能请您再点燃一根火柴吗	{{ Mr.| Ms.}}, could you please light another match for me?	
+1277	{{年轻人，嘴还挺甜。但是光说没用，等你看她们看腻了，也请我一杯酒，如何？|你嘴真甜。可惜，这里的灯火，从来不等待任何人。 }}	{{Young man, you have a sweet tongue. But talk is cheap. When you get tired of looking at them, how about buying me a drink? |You have a sweet tongue. It's a pity, the lights here never wait for anyone. }}	
+1278	{{这位英俊的先生，你听错了。|这位尊贵的女士，你听错了。}}	{{This handsome gentleman, you heard wrong. |This noble lady, you heard wrong. }}	
+1279	{缺省就是crazy表的数据；如果填写了会覆写表格中的数据}	{Default is the data from the crazy table; if filled, it will overwrite the data in the table}	
+1280	——上午——\n8：00-10：30   工作\n10：30-10：40  休息\n10：40-11：00 广播体操\n11：00-12：00  吃饭\n——午休——\n12：00-13：00\n——下午——\n13：00-15：30  工作\n15：30-15：40  休息\n15：40-16：00 跑操\n16：00-18：00  工作\n18：00后  晚餐（可外带）	——Morning—— \n 8:00-10:30 Work \n 10:30-10:40 Rest \n 10:40-11:00 Radio Calisthenics \n 11:00-12:00 Meal \n ——Lunch Break—— \n 12:00-13:00 \n ——Afternoon—— \n 13:00-15:30 Work \n 15:30-15:40 Rest \n 15:40-16:00 Running Exercise \n 16:00-18:00 Work \n After 18:00 Dinner (Takeout allowed)	
+1281	——摘录于宫廷诗会集，1859页。\n经典的罗塞尔式韵律，形象地表达了知识的沉重，让在场的所有人沉默。	—Excerpted from the Court Poetry Collection, page 1859.\nThe classic Roselle-style rhythm vividly expresses the weight of knowledge, leaving everyone present in silence.	
+1282	“1184年1月1日，盛大的新年晚会，弗洛纳尔夫人真是一个尤物啊。”	\"January 1st, 1184. A grand New Year's party. Mrs. Flonal is truly a stunner.\"	
+1283	“11月18日。真是件神奇的事情，一个异想天开的实验，我发现了一位困于风暴之中、迷失于黑暗深处的可怜家伙。”	\"November 18th. What a magical thing. Through a whimsical experiment, I discovered a poor fellow trapped in a storm and lost in the depths of darkness.\"	
+1284	“死亡执政官”向你投来注视。	The Death Archon is casting his gaze upon you.	
+1285	“点燃深眠花梗驱邪”……一些神秘学偏方？	\"Light the Deep Sleep Flower stalk to exorcise evil\"… Some occult folk remedies?	
+1286	“看见了真实造物主的清晰形象 受到了巨大的伤害……”	\"Saw the clear image of the True Creator and suffered immense damage……\"	
+1287	“知识与智慧之神”向你投来注视。	The God of Knowledge and Wisdom is casting his gaze upon you.	
+1288	“神降”仪式	\"Divine Descent\" ritual	
+1289	“神降”仪式的材料都准备好后，我将陪同你一起开启仪式，见证奇迹般神降之时。	After the materials for the “divine descent” ritual are all prepared, I will accompany you to start the ritual and witness the miraculous moment of divine descent.	
+1290	“神降”仪式进度	\"Divine Descent\" ritual progress	
+1291	“神降”仪式进度 %s%%	\"Divine Descent\" ritual progress %s %%	
+1292	“神降”仪式进度 %s%%\n%s	\"Divine Descent\" ritual progress %s %% \n %s	
+1293	“绝望魔镜”卷宗	\"Magic Mirror of Despair\" dossier	
+1294	“赛琳娜，生日快乐，这是给你的礼物。”伊丽莎白将护符递给生日宴会的主角，赛琳娜立刻将它戴在了脖颈上。\n“谢谢你，伊丽莎白！我太喜欢这个护身符了。”赛琳娜握住了好朋友的手，高兴地摇晃着，“我现在感觉很放松，身体好像更健康了！”\n“你喜欢就好。”伊丽莎白微笑起来，然后陪好友一起去门口迎接客人。\n她想着，有机会一定要谢谢地下市场那位神秘的绅士，是他帮助自己挑选了这个最好的礼物。	'Selina, happy birthday, this is a gift for you.' Elizabeth handed the amulet to the protagonist of the birthday party, and Selina immediately put it around her neck. \n 'Thank you, Elizabeth! I love this amulet so much.' Selina held her best friend's hand and shook it happily, 'I feel very relaxed now, my body seems to be healthier!' \n 'As long as you like it.' Elizabeth smiled, then accompanied her friend to the door to greet guests. \n She thought that if she had the chance, she must thank the mysterious gentleman in the underground market; it was he who helped her choose this best gift.	
+1295	“这就是魔法的力量。”	\"This is the power of magic.\"	
+1296	“这样的币制简直违背直觉，它一定是世界上最愚蠢的币制之一。”克莱恩困惑地调侃鲁恩的货币体质。\n“不，没有之一。”班森严肃纠正，“你应该明白，要制定合理又简单的币制需要一个前提，那就是懂得数数！可惜，在那些大人物里面，这样的人才太稀少了。”	'Such a currency system is simply counter-intuitive; it must be one of the stupidest currency systems in the world.' Klein teased the Loen currency system in confusion. \n 'No, not one of.' Benson corrected seriously, 'You should understand that to formulate a reasonable and simple currency system, there is a prerequisite, which is knowing how to count! Unfortunately, among those big shots, such talents are too rare.'	
+1297	“门”已经打开，“正义”女士，你准备好对他心理治疗了吗？	The \"Door\" has been opened. Ms. Justice, are you ready to provide him with psychological therapy?	
+1298	“门”领域对致命伤害的封印锁链缠绕你的心脏。单次受伤造成的生命值损失不得超过最大生命值的25%。	\"Door\" domain seals of fatal damage wrap around your heart. Single-instance damage cannot exceed 25% of your maximum HP.	
+1299	“闪现”的极致是“无处不在”。	The ultimate form of Flash is \"omnipresence.\"	
+1300	“黑皇帝”向你投来注视。	The Black Emperor is casting his gaze upon you.	
+1301	……<P_Heart>（沉默了许久）</>因为我要为我的朋友复仇，所以选择了离开这里，去成长，去变强。	……<P_Heart>(Silent for a long time)</>Because I want to take revenge for my friend, so I chose to leave here, to grow, to become stronger.	
+1302	……你投到过吗？	...Have you ever cast it?	
+1303	……原本它已经被封印了，妥善保管的情况下不会造成新的损害，但，我和同伴受到了它们的蛊惑……	…Originally it had already been sealed, and it wouldn't have caused any new damage if kept properly, but my companions and I were bewitched by them…	
+1304	……好吧。我有个朋友患上<P_Yellow>沉睡症</>，我要用“心脏”调配药剂治疗她。	……Alright. I have a friend suffering from <P_Yellow>Somnolence Disorder</>, and I need to use a “Heart” to concoct a potion to treat her.	
+1305	……必须……挣脱……不然……会死……	……Must……break free……otherwise……I will die……	
+1306	……感谢你的聆听，休息时间结束，我要继续演奏了。	...Thank you for listening, break time is over, I have to continue playing.	
+1307	……我准备在你身上尝试一个新的仪式魔法了，你这个恶心的小家伙！	...I am preparing to try a new Ritual Magic on you, you disgusting little thing!	
+1308	……我必须确认，湖灵会造成什么危害？它是否损伤过你们的身体或精神？	...I must confirm, what harm does the Lake Spirit cause? Has it damaged your body or mind?	
+1309	……我的琴声能让人分手？	……My piano playing can make people break up?	
+1310	……我知道要怎么越狱了，原来这么简单！	...I know how to break out of prison now, it's actually so simple!	
+1311	……我被驯兽师占卜了命运？	...Was my fate divined by a Beast Tamer?	
+1312	……战争带来的伤害仍未平息。	……The damage caused by the war has yet to subside.	
+1313	……殿下，这是一种血肉魔法，通过被吞食的方式让灵体寄生于他人体内，并逐渐控制吞食者的身体，达到灵体永生的目的……	...Your Highness, this is a type of Flesh Magic. By being consumed, a spirit parasite enters another's body and gradually takes control of the host, achieving the goal of eternal life for the spirit...	
+1314	……然后我们全体冲上去，和龙大战了三百回合！	...And then we all charge up and fight the dragon for three hundred rounds!	
+1315	……疯狂地追逐着我……	…Madly chasing after me…	
+1316	……真有这么神奇？	...Is it really that magical?	
+1317	……都免费，全部免费，一便士都不会收的，请放心。	...It's all free, completely free, not a single penny will be charged, please rest assured.	
+1318	　　\n\n　　知识是被扛在肩上的，它有重量，会消耗体力，背负者必须为它付出代价。\n　　这个古老民族或许比后世许多哲学体系更早地触及了一个真相——知道得越多，承受得越重。\n　　遗憾的是，现存文献大多残损。本书所能依赖的，仅有零星出土的陶片刻铭、后世抄本中的引述，以及邻近语族中若干可疑的同源词。这些材料足以暗示方向，却不足以支撑定论。\n　　笔者如实呈现证据的匮乏，而非用推测填补空白——在语源学这门学科里，承认无知本身就是一种诚实。	 \n \n Knowledge is carried on the shoulders; it has weight and consumes physical strength, and the bearer must pay a price for it. \n This ancient nation perhaps touched a truth earlier than many later philosophical systems—the more you know, the heavier you bear. \n Regrettably, most existing documents are damaged. What this book can rely on are only sporadic inscriptions on unearthed pottery shards, citations in later manuscripts, and several suspicious cognate words in neighboring language families. These materials are enough to suggest a direction, but not enough to support a conclusion. \n The author presents the lack of evidence truthfully, rather than filling the gaps with speculation—in the discipline of etymology, admitting ignorance itself is a kind of honesty.	
+1319	　　\n　　……人类理性在其知识的某个门类里有一种特殊的命运，就是为一些它无法摆脱的问题所困扰。因为这些问题是由理性自身的本性向自己提出来的，但它又不能回答它们。因为它超越了人类理性的一切能力。\n　　这种困境并非源于无知，而是源于理性自身的冲动——它渴望超越经验的界限，去追问那些无法被感官验证的终极。于是理性陷入了永久的自我撕裂：它既不能停止追问，又无法给出确证的答案。	 \n ...Human reason has a special fate in a certain category of its knowledge, which is that it is troubled by some problems it cannot escape. Because these problems are proposed to it by the nature of reason itself, yet it cannot answer them. Because they transcend all the capabilities of human reason. \n This predicament does not stem from ignorance, but from the impulse of reason itself—it longs to transcend the boundaries of experience and question those ultimates that cannot be verified by the senses. Thus, reason falls into a permanent self-tearing: it can neither stop questioning nor provide a confirmed answer.	
+1320	　　<InvDefault_HW>这一年的最后一天，森林遭遇了百年未遇的暴雪，猫头鹰长老召集起了一场紧急会议。</>\n\n　　<InvDefault_HW>“北边山洞上方的积雪发生了崩塌，那里面还住着冬眠的蝙蝠一家，我们不能放着它们不管。”</>\n\n　　<InvDefault_HW>所有的动物都沉默了，它们基本不和蝙蝠来往，只有邓恩在去年春天去过那个洞穴，但它早就忘记里面什么样了。</>	　　<InvDefault_HW>On the last day of that year, the forest encountered a blizzard unseen in a century. The Owl Elder convened an emergency meeting.</>\n\n　　<InvDefault_HW>\"The snow above the cave in the north has collapsed. The bat family that hibernates there is still inside; we cannot leave them to their fate.\"</>\n\n　　<InvDefault_HW>All the animals fell into silence. They basically didn't interact with the bats. Only Dunn had been to that cave last spring, but it had long since forgotten what it looked like inside.</>	
+1321	　　<InvDefault_HW>邓恩和戴莉认识之后，戴莉就以“自己的羽毛掉光了，好冷”为理由在邓恩头上筑了巢，并为他重复每个被遗忘的信息；邓恩则载着它巡视森林，用厚厚的灰色皮毛为它挡风，用鹿角为它摘下最高处的浆果。</>\n\n　　<InvDefault_HW>戴莉喜欢趴在它脑袋靠后一些的位置，时常抱怨它额前的毛发不够厚实。</>	　　<InvDefault_HW>After Dunn and Daly got to know each other, Daly built a nest on Dunn's head under the pretext that \"my feathers have all fallen out, I'm so cold,\" and repeated every forgotten piece of information to him; Dunn would carry her to patrol the forest, using its thick gray fur to shield her from the wind and its antlers to pick berries from the highest branches.</>\n\n　　<InvDefault_HW>Daly liked to lie on the back of its head, often complaining that the fur on its forehead wasn't thick enough.</>	
+1322	　　“不要在意什么‘毒素专家’，我是一个很友好的人，只要不面对那些该死的家伙！我最大的爱好是研究土壤、作物和品种杂交技术，相信我，这才是人类的未来。”\n　　“但大地母神教会的人不相信。”嘉德丽雅用非常隐蔽的方式为克莱恩做了介绍。\n　　原本是大地母神的人？品种杂交技术挺好的啊，只有产量提升，才能养活更多的人类，让贫困的底限变高……克莱恩看向弗兰克·李，半是礼貌半是真心地平静说道：\n　　“这是好事。”\n　　“……你果然是一位不在乎世俗观点的冒险家！非常棒，非常棒！这个世界上就是你这样的人太少了！”弗兰克·李蓝色的眼睛里露出明显的惊喜，“我只是试图把公牛、母牛和小麦杂交在一起，让小牛可以像麦子一样长出来，就差点被母神教会的人送上审判庭，仁慈的母亲啊，他们根本没有真正理解您的意志！”\n　　公牛、母牛和小麦杂交……你这个恶魔……克莱恩这才发现自己理解的品种杂交技术和对方口中的完全不是一回事情。\n\n　　——第三卷《旅行家》第一百五十六章 毒素专家	 \"Don't mind the 'Poison Expert' thing; I am a very friendly person, as long as I'm not facing those damn guys! My biggest hobby is researching soil, crops, and cross-breeding technology. Believe me, this is the future of humanity.\" \n \"But the people of the Earth Mother Church don't believe it.\" Cattleya introduced Klein in a very subtle way. \n Originally from the Earth Mother Church? Cross-breeding technology is quite good. Only by increasing production can we feed more people, raise the bottom line of poverty... Klein looked at Frank Lee and said calmly, half-politely and half-sincerely: \n \"This is a good thing.\" \n \"...You really are an adventurer who doesn't care about worldly views! Very good, very good! There are too few people like you in this world!\" Frank Lee's blue eyes showed obvious surprise. \"I just tried to cross-breed bulls, cows, and wheat together so that calves could grow like wheat, and I was almost sent to the tribunal by the Mother Church. Merciful Mother, they didn't really understand your will at all!\" \n Cross-breeding bulls, cows, and wheat... You devil... Klein only then realized that the cross-breeding technology he understood was completely different from what the other party was talking about. \n \n —— Volume 3 \"Traveler\", Chapter 156, Poison Expert	
+1323	　　“发生了什么事情？”克莱恩心头咯噔了一下。\n　　他害怕这个疯狂的“杂交学家”的实验出了问题，导致“未来号”众人陷入可怕的生态灾难里。\n　　弗兰克呆滞摇头道：\n　　“我不是给你说过那些小东西吗？\n　　“它们原本需要安眠一段时间才有可能生长和繁殖，结果……”\n　　“结果什么？”克莱恩的脸色已变得凝重。\n　　蹲着的弗兰克抬头上望道：\n　　“它们刚才完成了大规模的繁殖，还发生了异变。\n　　“这，这简直是神迹！”\n　　“然后呢？它们去了哪里？还在你的‘实验室’内吗？”克莱恩直觉地认为这不是好事。\n　　弗兰克用两秒钟的时间消化了问题，挽起袖子，露出体毛浓密的手臂。\n　　他敲了敲面前的甲板，露出疑惑的笑容道。\n　　“它们钻进了这里，好像在，在改造‘未来号’……”\n　　沉闷的敲击声中，甲板上突然涌出了一股疑似牛奶的乳白喷泉，溅了弗兰克·李满头满脸。\n　　他舔了嘴边的液体一口，惊喜出声道：\n　　“‘未来号’，‘未来号’产奶了！”\n\n　　——第三卷《旅行家》第一百七十四章 疯狂的异变	“What happened?” Klein’s heart skipped a beat. \n He was afraid that this crazy “Hybridizer’s” experiment had gone wrong, causing the people on the Future to fall into a terrifying ecological disaster. \n Frank shook his head dully and said: \n “Didn’t I tell you about those little things? \n They originally needed to slumber for a period of time before they could grow and reproduce, but as a result…” \n “As a result of what?” Klein’s expression had become grave. \n Frank, who was squatting, looked up and said: \n “They just completed large-scale reproduction, and a mutation occurred. \n This, this is simply a miracle!” \n “Then what? Where did they go? Are they still in your ‘laboratory’?” Klein intuitively felt that this was not a good thing. \n Frank took two seconds to digest the question, rolled up his sleeves, and revealed his hairy arms. \n He knocked on the deck in front of him and said with a puzzled smile. \n “They drilled in here, it seems they are, they are modifying the Future…” \n Amidst the dull knocking sound, a milky white fountain suspected to be milk suddenly gushed out from the deck, splashing Frank Lee all over his head and face. \n He licked the liquid by his mouth and said in surprise: \n “The Future, the Future is producing milk!” \n \n —— Volume 3: Traveler, Chapter 174: Crazy Mutation	
+1324	　　……\n\n　　使用银制 <Mark id=\"#159\">仪式匕首</>，取<InvHighlight>双腕鲜血少许</>、混合后涂抹于仪式法阵之上，坚定以自身意志主动束缚灵魂的决心……服下不朽苔的汁液，念诵：“躯壳暂归永夜，真名藏于灰烬。” \n\n　　……<Tips stylename=\"Letter_Highlight\" id=\"#160\">躯体呈现所有死亡表征</>，七日后恢复如常。	... \n \n Use a silver <Mark id=\"#159\"> Ritual Dagger, </> take <InvHighlight> a little blood from both wrists, </> mix it, and smear it on the ritual magic circle, firming the determination to actively bind the soul with one's own will... Take the juice of the Immortal Moss and chant: \"The shell temporarily returns to the eternal night, the true name is hidden in the ashes.\" \n \n ... <Tips stylename=\"Letter_Highlight\" id=\"#160\"> The body presents all the signs of death, </> and returns to normal after seven days.	
+1325	　　……\n\n　　取受术者发丝与施术者 <Mark id=\"#159\">发丝纠缠</>，用双生草根须榨取的汁液1:1混合<InvHighlight>施术者掌心血</>，浸泡整夜。日出前取该液体绘制法阵，念诵：“彼此照映的星星啊，离开既定的轨道。此星晦暗，彼星长明。”\n\n　　……命运错轨，<Tips stylename=\"Letter_Highlight\" id=\"#160\">必死者重获新生</>。 	... \n \n Take the hair of the subject and the <Mark id=\"#159\"> hair </> of the caster, mix it 1:1 with the juice extracted from the roots of the Twin Grass and <InvHighlight> the blood from the caster's palm, </> and soak it overnight. Before sunrise, use this liquid to draw a magic circle and chant: \"Oh, stars that reflect each other, leave the established orbit. This star is dim, that star shines long.\" \n \n ... The fate is derailed, <Tips stylename=\"Letter_Highlight\" id=\"#160\"> and the one who must die is reborn. </>	
+1326	　　……\n　　6月13日\n　　<InvHighlight>金梧桐区</>五十户居民家中<Mark id=\"#159\">下水道</>堵塞，清理时发现管道被<Mark id=\"#159\">植物藤蔓</>塞满。\n\n　　6月14日\n　　富商米格尔死于<InvHighlight>金梧桐区</>的玻璃花房，被发现时身上结满紫红色葡萄。\n\n　　6月18日\n　　纺织工人贝丝在<InvHighlight>南区</>捡到三根蜡烛和一段木头手臂，现场有<Mark id=\"#159\">邪恶仪式</>的痕迹。\n　　……	... \n June 13th \n <InvHighlight> North Borough </> In the homes of fifty residents <Mark id=\"#159\"> sewers </> were blocked, and during cleaning, it was discovered that the pipes were stuffed with <Mark id=\"#159\"> plant vines </>. \n \n June 14th \n Wealthy merchant Miguel died in a <InvHighlight> glass conservatory in the North Borough </>, and when discovered, his body was covered in purple-red grapes. \n \n June 18th \n Textile worker Beth found three candles and a wooden arm in the <InvHighlight> South District </>, and there were traces of an <Mark id=\"#159\"> evil ritual </> at the scene. \n ...	
+1327	　　不知道还能不能回伦堡，鲁恩的天气太阴沉了，雨水多不适合作物生长。\n\n\n　　主教让我负责后勤保障，顺带研究一下怎么加速魔药消化。\n\n\n　　消化丰收祭司的魔药……要不我在临时据点里种点什么？	I don't know if I can ever return to Lenburg. The weather in Loen is too gloomy, and the rain is not suitable for crop growth. \n \n \n The Bishop asked me to be responsible for logistics and, by the way, research how to accelerate potion digestion. \n \n \n Digesting the Harvest Priest potion... Should I plant something in the temporary stronghold?	
+1328	　　今双方协定，将名下小型城堡领地完整让渡于<TarotTextCurrent> {{PlayerName}} </>：\n\n　　自本契约签署之日起，<TarotTextCurrent> {{PlayerName}} </>即取得该领地的完全所有权、排他使用权与自主经营管理权。\n\n　　领地归<TarotTextCurrent> {{PlayerName}} </>永久持有并自由支配；领地所产生的一切收益、产出及未来增值，均归受<TarotTextCurrent> {{PlayerName}} </>独享。\n\n　　本契约为永久让渡，一经双方签署即生效，具有不可撤销之法律效力。	Both parties hereby agree to the complete transfer of the small castle territory under the name to <TarotTextCurrent> {{PlayerName}} </>: \n\n From the date of signing this contract, <TarotTextCurrent> {{PlayerName}} </> shall obtain full ownership, exclusive usage rights, and autonomous management rights of the territory. \n\n The territory shall be held permanently and freely disposed of by <TarotTextCurrent> {{PlayerName}} </>; all income, output, and future appreciation generated by the territory shall belong exclusively to <TarotTextCurrent> {{PlayerName}} </>. \n\n This contract is a permanent transfer, effective upon signing by both parties, and holds irrevocable legal force.	
+1329	　　今天我在那个遗迹里找到一本旧书！\n　　书上提到一种起死回生的魔法，说是要通过仪式向神祈祷，借助丰饶之树的力量什么的。\n　　神指的是女神吗？仪式需要的东西倒是很简单，用平时攒下的零花钱就能买全了！\n　　等着吧，小云，你回来后，我一定给你摘最甜的树莓吃！\n　　这事可不能告诉妈妈，唉，她太爱大惊小怪。\n　　等我把小云带回家，她肯定会吓一大跳吧，嘿嘿。	Today I found an old book in those ruins! \n The book mentions a magic to bring the dead back to life, saying it requires praying to a god through a ritual, using the power of the Tree of Abundance or something. \n Does the god refer to the Goddess? The things needed for the ritual are quite simple; I can buy them all with the pocket money I've saved up! \n Just you wait, Little Cloud, when you come back, I will definitely pick the sweetest raspberries for you to eat! \n I can't tell Mom about this; sigh, she is too prone to making a fuss. \n When I bring Little Cloud home, she will definitely be shocked, hehe.	
+1330	　　他们竟然在事先没找我商量的情况下，决定让我和阿贝尔家族的玛蒂尔达订婚！\n　　天啊，我甚至都还没有见过她！\n　　不行，我要拒绝！\n　　我就算离家出走，就算从此自力更生，受尽打压，也要反抗这桩包办婚姻！	They actually decided to have me engaged to Matilda of the Abel Family without discussing it with me beforehand! \n God, I haven't even met her! \n No, I refuse! \n Even if I run away from home, even if I have to make a living on my own and suffer suppression, I will resist this arranged marriage!	
+1331	　　近日，金秋湖连续出现多起少女死亡事件。所有死者颈部均留有清晰的穿刺创口。\n　　案发现场均呈现诡异的一致性：屋内散落着银质烛台与大量枯萎的玫瑰花瓣，似乎被刻意布置成古典婚礼现场。据调查，这些少女生前均热衷阅读《暮色之城》《惊情德古拉》等<Highlight>吸血鬼</>爱情小说。	　　Recently, there have been a series of deaths of young girls at Golden Autumn Lake. All the victims had clear puncture wounds on their necks. \n　　The crime scenes all displayed an eerie consistency: silver candlesticks and a large number of withered rose petals were scattered throughout the rooms, as if they had been deliberately arranged to resemble a classical wedding scene. According to the investigation, all these young girls were avid readers of vampire romance novels such as \"City of Twilight\" and \"Dracula\" before their deaths. <Highlight>vampire</>	
+1332	　　还在为不会说话而烦恼吗？\n\n　　搜罗上百条因蒂斯传奇帝王罗塞尔·古斯塔夫的名言，数十名社会评论家联袂推荐，本书将为你解答罗塞尔大帝的说话之道！	　　Are you still troubled by not knowing how to speak? \n\n　　Collecting hundreds of quotes from the legendary Intis Emperor Roselle Gustav, recommended by dozens of social critics, this book will answer the art of conversation of Emperor Roselle for you!	
+1333	　　这一年的最后一天，森林遭遇了百年未遇的暴雪，猫头鹰长老召集起了一场紧急会议。\n\n　　 “北边山洞上方的积雪发生了崩塌，那里面还住着冬眠的蝙蝠一家，我们不能放着它们不管。”\n\n　　所有的动物都沉默了，它们基本不和蝙蝠来往，只有邓恩在去年春天去过那个洞穴，但它早就忘记里面什么样了。\n\n　　“我们去吧！”戴莉跳到了鹿角顶端，“就算你在里面迷失了方向，我的歌声也能把我们带到正确的道路上。”\n\n　　它们就这样进入了洞穴，里面结构错综复杂，邓恩和戴莉费了不少力气才找到受伤的蝙蝠一家。就在它们准备离开洞穴的时候，外面狂风大作，无数雪花被风裹挟而来，挡住了所有的光。邓恩又尝试了几个方向，比找不到出口更令人绝望的是蝙蝠一家越来越微弱的呼吸。\n\n　　戴莉飞到了它耳边开始歌唱，金色的旋律指引抚平了邓恩有些焦躁的心情，他沿着音符亮起的方向走去。十米，五十米，一百米……眼前仍然没有出现洞口的光亮，戴莉意识到前往出口的代价可能比想象中更多。\n\n　　没有犹豫。\n\n　　它飞得更高了，飞到邓恩根本看不清的地方，歌唱到背上的羽毛所剩无几，她开始下坠。\n\n　　眼前还是没有出现光亮。	On the last day of the year, the forest encountered a blizzard unseen in a century, and the Owl Elder called an emergency meeting. \n\n \"The snow above the northern cave has collapsed, and a family of hibernating bats lives inside. We cannot leave them be.\" \n\n All the animals fell silent; they generally did not associate with bats. Only Dunn had visited that cave last spring, but he had long forgotten what it looked like inside. \n\n \"Let's go!\" Daly jumped onto the tips of the antlers. \"Even if you lose your way inside, my singing can lead us to the right path.\" \n\n They entered the cave just like that. The structure inside was intricate and complex, and it took Dunn and Daly quite some effort to find the injured bat family. Just as they were preparing to leave the cave, a gale blew outside, and countless snowflakes were carried by the wind, blocking all light. Dunn tried several more directions. More desperate than not finding the exit was the increasingly weak breathing of the bat family. \n\n Daly flew to his ear and began to sing. The golden melody guided and soothed Dunn's somewhat restless mood, and he walked along the direction where the notes lit up. Ten meters, fifty meters, one hundred meters... There was still no light from the cave entrance in sight. Daly realized that the price of reaching the exit might be higher than imagined. \n\n Without hesitation. \n\n She flew higher, to a place where Dunn couldn't see clearly, singing until there were few feathers left on her back, and she began to fall. \n\n There was still no light in sight.	
+1334	　　邓恩和戴莉认识之后，戴莉就以“自己的羽毛掉光了，好冷”为理由在邓恩头上筑了巢，并为他重复每个被遗忘的信息；邓恩则载着它巡视森林，用厚厚的灰色皮毛为它挡风，用鹿角为它摘下最高处的浆果。\n\n　　戴莉喜欢趴在它脑袋靠后一些的位置，并时常抱怨它额前的毛发不够厚实。\n\n　　一天，戴莉发现邓恩从地上捡起来什么东西，固定在角上后它发现是自己掉落的羽毛。\n\n 　　“这些羽毛太美了，我舍不得它们就这样被遗忘。”邓恩甩了甩头，“即使我明天就会忘记为什么要这么做，但我的角会记得这种发痒的感觉。”\n\n　　戴莉的心轻轻颤动，她激动地盘旋在邓恩的两角之间，准备一展歌喉抖落几根崭新的羽毛。邓恩阻止了它这种会让自己更冷的行为，请它帮忙整理那些收集好的羽毛。戴莉将它们和一个个木牌挂在一起，让它们在风雪中碰撞，与鹿蹄声和鸟鸣声组成森林的曲调。	    After Dunn and Daly met, Daly built a nest on Dunn's head, using the excuse that 'my feathers have all fallen out, it's so cold,' and repeated every forgotten piece of information to him; Dunn carried it while patrolling the forest, shielding it from the wind with his thick gray fur and picking berries from the highest branches with his antlers. \n\n    Daly liked to lie on the back of his head and often complained that the fur on his forehead wasn't thick enough. \n\n    One day, Daly noticed Dunn picking something up from the ground and fixing it to his antlers, only to realize it was its own fallen feathers. \n\n     'These feathers are too beautiful, I can't bear to let them be forgotten like this.' Dunn shook his head. 'Even if I forget why I'm doing this tomorrow, my antlers will remember this itching sensation.' \n\n    Daly's heart fluttered gently. It circled excitedly between Dunn's two antlers, preparing to show off its voice and shake off a few brand-new feathers. Dunn stopped it from doing something that would make it even colder and asked it to help organize the collected feathers. Daly hung them together with wooden tags, letting them collide in the wind and snow, composing the forest's melody with the sound of deer hooves and bird calls.	
+1335	　　银雾森林迎来了今年的第一场雪，东边的雾气也越发浓厚，掉落了不少羽毛的戴莉在窝里冻得直发抖。枝头小小的巢穴无法抵御寒冷，顶上抖落的一坨雪将巢穴砸落下去，戴莉还没来得及发出叫声，就发现自己被温暖的灰色皮毛包裹——它落在了一只灰麋鹿的头顶。\n\n 　　“我察觉到这里有动物需要帮助，是你吗？”那只灰麋鹿这么说道。\n\n 　　“如果你是来给我带来温暖的，那确实是我。”恢复了体温的戴莉在麋鹿的头顶蹦跶了几下，继续说道：“我叫戴莉， 你的名字是什么？”\n\n　　 “我是……抱歉，我忘记了我的名字。”\n\n　　戴莉这才注意到，麋鹿的角上挂着许多小木牌，上面写着“我叫邓恩”、我是森林的守护者”、“每天巡逻看谁需要帮助”……\n\n　　 “你叫邓恩，”戴莉轻声说，她听树洞里的松鼠一家提起过这头每到冬天就会失忆的麋鹿，曾一天给他们送了三次松子，“你是银雾森林的守护者。”	The Silver Mist Forest welcomed its first snow of the year, and the mist in the east became thicker. Daly, having lost many feathers, shivered in the nest. The small nest on the branch could not resist the cold, and a lump of snow shaken from above knocked the nest down. Before Daly could even make a sound, she found herself wrapped in warm gray fur—it had landed on the head of a gray elk. \n\n \"I sensed that an animal here needed help, is it you?\" the gray elk said. \n\n \"If you are here to bring me warmth, then it is indeed me.\" Having regained her body temperature, Daly hopped a few times on the elk's head and continued: \"My name is Daly, what is your name?\" \n\n \"I am... sorry, I forgot my name.\" \n\n Daly then noticed that the elk's antlers were hung with many small wooden signs, which read \"My name is Dunn\", \"I am the guardian of the forest\", \"Patrol every day to see who needs help\"... \n\n \"Your name is Dunn,\" Daly said softly. She had heard the squirrel family in the tree hole mention this elk that would lose its memory every winter, who had once delivered pine nuts to them three times in one day, \"You are the guardian of the Silver Mist Forest.\"	
+1336	　　阿尔杰再次发问：\n        “你觉得‘牧羊人’洛薇雅长老有可能会对白银城造成危害吗？只用回答是或者否，不要解释。”\n        “……是。”戴里克最终还是无法欺骗自己。\n        阿尔杰轻笑了一声道：\n        “所以，你是唯一知道这件事情，却暂时找不到办法提醒六人议事团其他长老的人，对吧？”\n        “嗯。”戴里克的神情逐渐变得凝重。\n        阿尔杰改变了下坐姿，往后微靠道：“那个任务的风险极大，这一点，你是知道的，如果你死在了那座半毁的神庙里，谁还能想办法揭露‘牧羊人’洛薇雅的古怪？谁还能让白银城免于灾难？‘堕落造物主’可是一位真正的邪神！”\n        “你不是因为自私才假装失控，欺骗其他人，你是为了拯救白银城！”\n\n       ——第五卷《红祭司》第一百二十九章 “老油条”阿尔杰	Alger asked again:\n \"Do you think Shepherd Elder Lovia might pose a threat to the City of Silver? Just answer yes or no, don't explain.\"\n \"...Yes.\" Derrick ultimately could not deceive himself.\n Alger chuckled and said:\n \"So, you are the only one who knows about this, but you can't find a way to warn the other elders of the Six-Member Council for the time being, right?\"\n \"Yeah.\" Derrick's expression gradually became solemn.\n Alger changed his sitting posture and leaned back: \"The risk of that mission is extremely high. You know this. If you die in that half-destroyed temple, who else can find a way to expose Shepherd Lovia's strangeness? Who else can save the City of Silver from disaster? The 'Fallen Creator' is a true evil god!\"\n \"You aren't pretending to lose control and deceiving others out of selfishness; you are doing it to save the City of Silver!\"\n\n — Volume 5: Red Priest, Chapter 129: \"Old Fox\" Alger	
+1337	《仪式魔法进阶——向神明祈求之术》	Advanced Ritual Magic: Techniques for Praying to Deities	
+1338	《关于“血族”与“吸血鬼”的区分声明》	\"Declaration on the Distinction Between 'Sanguine' and 'Vampire'\"	
+1339	《占星入门》、《手相大全》、《三天学会塔罗》，都是些不入流的书。	\"Introduction to Astrology\", \"Complete Guide to Palmistry\", \"Learn Tarot in Three Days\"; all are low-quality books.	
+1340	《变态开膛手杰克》……这出戏里的受害者最让人心疼了，您觉得怎么样？	《Jack the Ripper》... The victim in this play is the most heartbreaking. What do you think?	
+1341	《惊情德古拉》？是本吸血鬼爱情小说。	\"Dracula\"? It's a vampire romance novel.	
+1342	《神秘学入门》《符咒大全》《第四纪秘史》，好多书……	Introduction to Mysticism, Encyclopedia of Charms, Secret History of the Fourth Epoch, so many books...	
+1343	《纯粹理性批判》	《Critique of Pure Reason》	
+1344	《终极扑克速成指南》	《Ultimate Poker Crash Course Guide》	
+1345	《震惊，熟食店老板娘竟然在肉中加了那个东西》，这标题让人忍不住想看正文。	《Shocking: Delicatessen Owner Adds That Thing to the Meat》—this headline makes one unable to resist reading the full article.	
+1346	「市场」是获取城堡资产的重要途径。	\"Market\" is an important way to acquire castle assets.	
+1347	【02】拆散	【02】 Break Up	
+1348	【17】拆散婚姻	【17】 Break up a marriage	
+1349	【20】主动搭话	【20】Initiate Conversation	
+1350	【44】虚伪丈夫	【44】 Hypocritical Husband	
+1351	【62】体能	[62] Physical fitness	
+1352	【C占位】一个灵体的妇女出现，在糊制着火柴盒。\n妇女：胸好闷……\n慈善医疗虽然是免费的……但要花费一天时间……算了，今天不干活，明天就没饭吃了……	[C Placeholder] A spiritual woman appears, pasting matchboxes. \n Woman: My chest feels so tight... \n Although charity medical care is free... it takes a whole day... forget it, if I don't work today, I won't have food tomorrow...	
+1353	【Rogue】意识操纵-法术代理	[Rogue] Consciousness Manipulation - Spell Proxy	
+1354	【Rogue】戏法演绎-法术代理	[Rogue] Trick Performance - Spell Proxy	
+1355	【Rogue】放逐-法术代理	[Rogue] Exile - Spell Proxy	
+1356	【Rogue】放逐-终结	[Rogue] Exile - Finish	
+1357	【Rogue】星云咏叹-法术代理	[Rogue] Nebula Aria - Spell Proxy	
+1358	【Rogue】漫游者铭刻-周期伤害	[Rogue] Wanderer Inscription - Periodic Damage	
+1359	【Rougue】戏法演绎-法术代理	[Roguelike] Trick Performance - Spell Proxy	
+1360	【Rougue】放逐-法术代理	[Roguelike] Exile - Spell Proxy	
+1361	【Rougue】星云咏叹-法术代理	[Roguelike] Nebula Aria - Spell Proxy	
+1362	【Rougue】漫游者铭刻-周期伤害	[Roguelike] Wanderer Inscription - Periodic Damage	
+1363	【】使人健康	【】makes people healthy	
+1364	【临时】克莱恩伸手触摸灰雾空间中的红色星辰，忽然身上涌出水纹，深红星辰爆发出红色的光芒。\n在神弃之地，戴里克悲伤地跪着，面对着水晶球祈祷着。\n“伟大的神灵啊，请重新将目光投向这个被您遗弃的地方。”\n“伟大的神灵啊，请让我们这些黑暗之民摆脱那宿命的诅咒。”\n正当他要绝望时，水晶球中爆发的一团深红将画面淹没。高大的戴里克出现在灰雾之上，他抬头看着青铜长桌对面被灰雾笼罩的克莱恩。	[Placeholder] Klein reached out to touch the red star in the gray fog space, and suddenly water ripples surged on his body; the deep red star erupted with red light. \n In the Forsaken Land of the Gods, Derrick knelt in sadness, praying while facing a crystal ball. \n \"Great God, please cast your gaze once again upon this place abandoned by you.\" \n \"Great God, please let us, the people of darkness, be rid of that fated Curse.\" \n Just as he was about to despair, a mass of deep red erupting from the crystal ball drowned the scene. The tall Derrick appeared above the gray fog, and he looked up at Klein, who was shrouded in gray fog across the long bronze table.	
+1365	【临时占位】“她的花一夜开到天明\n但待到白昼睁开了眼睛\n被凝视羞得无处可躲\n她便在眩晕中蔫萎掉落……”	[Placeholder] \"Her flowers bloom overnight until dawn \n But when the day opens its eyes \n Ashamed of being under the Gaze, with nowhere to hide \n She withers and falls in a Stun...\"	
+1366	【临时占位】克莱恩下定决心，干脆地一口喝下了魔药。\n很快他不由自主地抽搐起来，眼前迅速变得模糊。	[Placeholder] Klein made up his mind and decisively drank the potion in one gulp. \n Soon, he began to twitch uncontrollably, and his vision rapidly blurred.	
+1367	【五月庄园-简单】召唤管家幻影召唤锁头小狗-筛任意1人加buff	[May Manor-Simple] Summon Butler Phantom to Summon Locking Dog - Filter Any 1, Add Buff	
+1368	【五月庄园-简单】召唤管家幻影召唤锁头小狗-筛任意未被猎犬追踪且没有铃铛的1人加buff	[May Manor-Simple] Summon Butler Phantom to Summon Locking Dog - Filter 1 Not Tracked by Hound, No Bell, Add Buff	
+1369	【五月庄园-简单】召唤管家幻影召唤锁头小狗-筛非T且未被猎犬追踪且没有铃铛的1人加buff	[May Manor-Simple] Summon Butler Phantom to Summon Locking Dog - Filter 1 Non-T, Not Tracked by Hound, No Bell, Add Buff	
+1370	【五月庄园】-【一号信徒】- 123木头人标记buff	[May Manor] - [Believer Number One] - Become Wood! Mark Buff	
+1371	【五月庄园】-【一号信徒】- 分担预警buff	[May Manor] - [Believer Number One] - Shared Damage Warning Buff	
+1372	【五月庄园】-【一号信徒】- 变身仓鼠击倒	[May Manor]-[Believer Number One]- Transform into Hamster Knockdown	
+1373	【五月庄园】-【一号信徒】- 变身小象击倒	[May Manor] - [Believer Number One] - Transform into Little Elephant Knockdown	
+1374	【五月庄园】-【一号信徒】- 小女孩二阶段周身特效buff	[May Manor] - [Believer Number One] - Little Girl Phase 2 Body Effect Buff	
+1375	【五月庄园】-【一号信徒】- 延迟伤害buff	[May Manor] - [Believer Number One] - Delayed Damage Buff	
+1376	【五月庄园】-【一号信徒】- 延迟伤害buff2	[May Manor] - [Believer Number One] - Delayed Damage Buff 2	
+1377	【五月庄园】-【一号信徒】- 恐惧技能buff	[May Manor] - [Believer Number One] - Horror Skill Buff	
+1378	【五月庄园】-【一号信徒】- 移动护盾打碎buff	[May Manor] - [Believer Number One] - Moving Shield Break Buff	
+1379	【五月庄园】-【一号信徒】- 蝴蝶外观buff	[May Manor] - [Believer Number One] - Butterfly Appearance Buff	
+1380	【五月庄园】-【一号信徒】- 连线打断buff1	[May Manor] - [Believer Number One] - Connection Interruption Buff 1	
+1381	【五月庄园】-【一号信徒】- 连线打断buff2	[May Manor] - [Believer Number One] - Connection Interruption Buff 2	
+1382	【五月庄园】一号信徒-小女孩-延迟伤害分配对象-随机6个人	[May Manor] Believer Number One - Little Girl - Delayed Damage Allocation Target - Random 6 People	
+1383	【五月庄园】一号信徒-小女孩-延迟伤害分配对象-随机三个N+DPS	[May Manor] Believer Number One - Little Girl - Delayed Damage Allocation Target - Random Three N+DPS	
+1384	【五月庄园】管家-囚笼-非奶T	[May Manor] Butler - Cage - Non-Healer/T	
+1385	【五月庄园副本】先祖铠甲-奶可被治疗标记	【May Manor Dungeon】Ancestor Armor - Healable mark	
+1386	【五月庄园普通】管家-囚笼-非奶T	[May Manor Normal] Butler - Cage - Non-Healer/T	
+1387	【冒险】米尔贡根盾（4/4）	[Adventure] Milgongen Shield (4/4)	
+1388	【切断】秩序之网的能量源，捡回困在网中的混乱大剑	【Sever】 the energy source of the Web of Order and retrieve the Chaos Greatsword trapped in the web	
+1389	【副本】五月庄园·城堡,1250309	【Dungeon】May Manor · Castle, 1250309	
+1390	【副本】五月庄园·城堡·困难,1250311	【Dungeon】May Manor · Castle · Hard, 1250311	
+1391	【副本】五月庄园·城堡·子爵夫人,1250309	【Dungeon】May Manor · Castle · Viscountess, 1250309	
+1392	【副本】五月庄园·城堡·普通,1250309	【Dungeon】May Manor · Castle · Normal, 1250309	
+1393	【副本系统buff】占编号81002000-81002099	[Dungeon System Buff] Occupies IDs 81002000-81002099	
+1394	【副本系统buff】占编号81002050-81002099	[Dungeon System buff] Occupies ID 81002050-81002099.	
+1395	【占】玩家和弗莱来到路口，半空的建筑从天而降，二人接连躲闪，被迫分开。	[Placeholder] The player and Frye arrive at the intersection, and buildings from mid-air fall from the sky. The two dodge repeatedly and are forced to separate.	
+1396	【占】玩家对受伤的子爵夫人开枪，绝望魔镜替子爵夫人挡住致命的子弹。\n绝望魔镜：唔……再见……海伦……娜……	[Placeholder] The player fires at the injured Viscountess, and the Magic Mirror of Despair blocks the fatal bullet for her.\n Magic Mirror of Despair: Ugh... goodbye... Helena...	
+1397	【占】玩家终于甩开了绯色洪流，到达了中央广场，弗莱已经在这里等候。\n绯红月色下，教授正在举行献祭仪式，疯狂的市民涌向广场中央，化作信息洪流献祭给母神。	[Placeholder] The player finally shakes off the crimson torrent and reaches the Central Plaza, where Frye is already waiting.\n Under the crimson moonlight, the professor is holding a sacrifice ritual, and the crazed citizens are pouring into the center of the plaza, turning into a torrent of information to be sacrificed to the Mother Goddess.	
+1398	【占】魔镜碎裂之际，子爵夫人出现。\n子爵夫人：不得无礼！	[Placeholder] As the magic mirror shatters, the Viscountess appears.\n Viscountess: Do not be rude!	
+1399	【占位-动画】接着，他飞快地点燃蜡烛、激活了净化仪式。	[Placeholder-Animation] Next, he quickly lights the candles and activates the purification ritual.	
+1400	【占位-动画】调配魔药动画	[Placeholder-Animation] Potion brewing animation.	
+1401	【右摇杆模式1】对选取范围内所有敌人造成多次不同效果的伤害	【Right Stick Mode 1】 Deals multiple types of damage with different effects to all enemies within the selected range.	
+1402	【右摇杆模式3】模板7技能的连击，以自身为圆心对前方扇形造成效果，并击退	[Right Stick Mode 3] A combo of Template 7 skill, dealing effects to a fan-shaped area in front with self as the center, and knocks back.	
+1403	【右摇杆模式3】模板7技能的连击，以自身为圆心对前方扇形造成效果，并挑飞	[Right Stick Mode 3] A combo of Template 7 skill, using self as the center to deal effects to a sector in front and knock enemies into the air.	
+1404	【右摇杆模式4】对身前矩形范围内敌人攻击。	[Right Stick Mode 4] Attack enemies in a rectangle in front.	
+1405	【右摇杆模式4】对身前矩形范围内敌人攻击。注意目标筛选的长宽参数与右摇杆模式预警参数是相关的。	[Right Stick Mode 4] Attacks enemies within a rectangular range in front. Note that the target filtering length and width parameters are related to the Right Stick Mode warning parameters.	
+1406	【右摇杆模式7】对身前圆形范围内敌人攻击。注意目标筛选的偏移和半径参数与右摇杆模式预警参数是相关的。	[Right Stick Mode 7] Attacks enemies within a circular range in front. Note that the target filtering offset and radius parameters are related to the Right Stick Mode warning parameters.	
+1407	【塔罗学院氛围】会议室-浮雕	[Tarot Academy Atmosphere] Meeting Room - Relief	
+1408	【塔罗学院氛围】屏障碎片	[Tarot Academy Atmosphere] Barrier Fragment	
+1409	【塔罗学院氛围】屏障碎片-彩窗	[Tarot Academy Atmosphere] Barrier Fragment - Stained Glass	
+1410	【塔罗学院氛围】生命之脉	[Tarot Academy Atmosphere] Pulse of Life	
+1411	【增强】对<HighLight>3</>格内敌方持续施加<HighLight>25%</>防御削减。	[Enhanced] Continuously inflict <HighLight>25%</> Defense reduction on enemies within <HighLight>3</> tiles.	
+1412	【增强】对生命值高于<HighLight>50%</>的目标，造成的伤害加深<HighLight>15%</>。	[Enhanced] Deals <HighLight>15%</> increased damage to targets with higher than <HighLight>50%</> Health.	
+1413	【增强】战斗开始时获得相当于<HighLight>30%</>最大生命值的护盾，持续<HighLight>8</>秒。	[Enhanced] Gain a Shield equal to <HighLight>30%</> Max Health for <HighLight>8</> seconds at the start of combat.	
+1414	【增强】战斗开始时获得相当于<HighLight>35%</>最大生命值的护盾，持续<HighLight>8</>秒。	[Enhanced] Gain a Shield equal to <HighLight>35%</> Max Health for <HighLight>8</> seconds at the start of combat.	
+1415	【增强】攻击和技能造成持续<HighLight>5</>秒的<HighLight>1.5%</>灼烧和<HighLight>50%</>重伤效果。	[Enhanced] Attack and skill damage inflict <HighLight>5</> seconds of <HighLight>1.5%</> Burn and <HighLight>50%</> Grievous Injury.	
+1416	【增强】攻击或技能造成伤害后，使目标防御降低<HighLight>45%</>，持续<HighLight>3</>秒。	[Enhanced] After dealing damage with an attack or skill, reduce the target's Defense by <HighLight>45%</> for <HighLight>3</> seconds.	
+1417	【增强】暴击后有额外<HighLight>50%</>暴击伤害，持续<HighLight>3</>秒。	[Enhanced] Critical hits deal an additional <HighLight>50%</> Critical Damage for <HighLight>3</> seconds.	
+1418	【增强】暴击提供持续<HighLight>5</>秒的<HighLight>5%</>伤害加深，可叠加至多<HighLight>4</>次。	[Enhanced] Critical hits provide <HighLight>5</> seconds of <HighLight>5%</> increased damage, stacking up to <HighLight>4</> times.	
+1419	【增强】每秒恢复<HighLight>4</>点生命值。	[Enhanced] Restores <HighLight>4</> Health per second.	
+1420	【增强】生命值低于<HighLight>40%</>时，获得相当于<HighLight>35%</>最大生命值的护盾，持续<HighLight>5</>秒。	[Enhanced] When Health is below <HighLight>40%</>, gain a Shield equal to <HighLight>35%</> Max Health for <HighLight>5</> seconds.	
+1421	【增强】造成或承受伤害时获得<HighLight>2%</>攻击加成，最高叠加<HighLight>15</>层。	[Enhanced] Gain <HighLight>2%</> Attack bonus when dealing or taking damage, stacking up to <HighLight>15</> times.	
+1422	【实证】仪式魔法造成的伤害增加30%。	[Proof] Damage caused by Ritual Magic increased by 30%.	
+1423	【实证】仪式魔法造成的伤害增加40%。	[Proof] Damage caused by Ritual Magic increased by 40%.	
+1424	【实证】回复量增加10%，不超过施法者血量上限22%。	[Empirical] Recovery amount increased by 10%, not exceeding 22% of the caster's maximum health.	
+1425	【实证】引爆暗影能量的伤害提高20%。	[Proof] Damage from detonating shadow energy increased by 20%.	
+1426	【实证】明灯的护盾量增加10%，爆炸伤害增加30%。	[Proof] Beacon's Shield amount increased by 10%, Explosion damage increased by 30%.	
+1427	【实证】死亡之握的伤害额外增加30%。	[Proof] Damage of Grasp of Death. increased by an additional 30%.	
+1428	【实证】每次叠加扭曲效果时会同时造成一次伤害，若目标身上有护盾，则伤害变为1.5倍。	[Proof] Each time a Distortion effect is stacked, it simultaneously deals damage. If the target has a Shield, the damage becomes 1.5 times.	
+1429	【实证】灰雾加持时间内，释放技能自身体力值额外增加2点。	[Proof] During the gray fog Blessing duration, releasing a skill increases own Health by an additional 2 points.	
+1430	【实证】电流效果持续时间加1秒，伤害增加5%。	[Proof] Current effect duration increased by 1 second, damage increased by 5%.	
+1431	【实证】诗意光环持续时间增加1秒。	[Proof] Poetic aura duration increased by 1 second.	
+1432	【家族副本】【火龙】冲击波预警	[Family Dungeon] [Fire Dragon] Shockwave Warning	
+1433	【家族副本】【火龙】太阳能量	[Family Dungeon][Fire Dragon] Solar Energy	
+1434	【家族副本】【火龙】毒爪点名	【Family Dungeon】【Fire Dragon】Poison Claw Target	
+1435	【常驻触发】报纸	[Permanent Trigger] Newspaper	
+1436	【常驻触发】采集物	[Permanent Trigger] Collectible	
+1437	【扮演占卜师】	[Act as Diviner]	
+1438	【放置】红月塔罗牌	[Place] Red Moon Tarot Card	
+1439	【文字】生命	[Text] Health	
+1440	【暂代】有人突然高举双手，有人的躯体僵硬地扭曲，开始攻击周围人。人群发出尖叫，四散开来。	[Placeholder] Someone suddenly raises their hands, while others' bodies twist stiffly and begin to attack those around them. The crowd screams and scatters.	
+1441	【替代3D检视】法阵的中央空着一块，要把什么摆上去呢？	[Alternative 3D Inspection] The center of the magic circle is empty. What should be placed there?	
+1442	【最后一页】触发	【Last Page】Trigger	
+1443	【本相】仪式魔法在第3次伤害时，对于有死亡侵蚀效果的目标伤害额外提升150%，对于无死亡侵蚀的目标有16%概率附加死亡侵蚀效果。	[True Form] On the 3rd hit of Ritual Magic, damage is increased by an additional 150% for targets with the Death Erosion effect, and there is a 16% chance to apply Death Erosion to targets without it.	
+1444	【本相】友方离开通灵仪式范围后可以额外保留2秒加速效果。敌方离开通灵仪式范围内时减速效果额外保留2秒。	[True Form] Allies can retain the Acceleration effect for an additional 2 seconds after leaving the Spirit Mediumship Ritual range. Enemies retain the Slow effect for an additional 2 seconds after leaving the Spirit Mediumship Ritual range.	
+1445	【本相】插下旗帜的同时，帝国旗帜对范围内敌方目标造成一定伤害，对范围的其他旗帜或有护盾的目标额外造成50%的伤害。	[True Form] Upon planting the flag, the Imperial Flag deals a certain amount of damage to enemy targets within range, and deals an additional 50% damage to other flags or targets with Shields within range.	
+1446	【本相】新增二段—合奏诗篇：释放后获得合奏效果：若自身和合奏效果的友方对同一个目标造成伤害，则额外造成目标已损失血量10%的伤害（不超过自身攻击23.7%），同一个目标2秒只能触发1次，持续10秒。	[True Form] Adds a second-stage skill—Ensemble Poem: After release, gain the Ensemble effect: If self and allies with the Ensemble effect deal damage to the same target, deal an additional 10% of the target's lost Health as damage (not exceeding 23.7% of own Attack). The same target can only trigger this once every 2 seconds, lasting 10 seconds.	
+1447	【本相】电流持续期间目标脚下会生成一个跟随目标的静电立场，对范围内的敌人持续造成伤害，持续5秒。	[True Form] During the Current duration, a static field following the target is generated at the target's feet, continuously dealing damage to enemies within range for 5 seconds.	
+1448	【本相】释放灰雾加持或者灰雾压制时，使身上具有历史明灯标志的友方额外获得护盾，但是会移除历史明灯标志，该护盾结束时不会对周围目标造成伤害。	[True Form] When releasing gray fog Blessing or gray fog Suppression, allies with the Historical Beacon mark gain an additional Shield, but the Historical Beacon mark is removed. This Shield does not deal damage to surrounding targets when it ends.	
+1449	【模型】家-仪式蜡烛	[Model] Home - Ritual Candle	
+1450	【模型】风车-仪式	[Model] Windmill-Ritual	
+1451	【死亡教派】(3) 全队 +10%攻击力	【Death Sect】(3) Entire team +10% Attack Power	
+1452	【死神装备】额外提升<HighLight>10%</>攻击。	[Death Equipment] provides an additional <HighLight>10%</> Attack.	
+1453	【死神镰刀】+10%攻击力	【Death Scythe】+10% Attack Power	
+1454	【浅见】宁静光环内的友方和自身每次攻击目标可以回复少量生命，1秒最多触发1次，诗意光环半径增加2米。	[Insight] Allies and self within the Tranquility aura can recover a small amount of Health with each attack on a target, triggering at most once per second. The Poetic aura radius is increased by 2 meters.	
+1455	【浅见】帝国旗帜对范围内的目标每4秒叠加1层扭曲效果（扭曲：降低控制抵抗），最多3层。	[Insight] The Imperial Flag stacks 1 layer of Distortion effect on targets within range every 4 seconds (Distortion: reduces Control resistance), up to 3 layers.	
+1456	【浅见】明灯的护盾结束时造成一次爆炸，对护盾周围至多2个目标造成伤害。	[Insight] When the Beacon's Shield ends, it causes an Explosion, dealing damage to up to 2 targets around the Shield.	
+1457	【浅见】暗影能量爆炸命中的玩家目标30%概率附加恐惧，持续时间为1.2秒，恐惧效果实际命中率和时长受眩晕相关属性影响。	[Insight] Player targets hit by the shadow energy explosion have a 30% chance to be inflicted with Horror for 1.2 seconds. The actual hit rate and duration of the Horror effect are affected by Stun-related attributes.	
+1458	【浅见】死亡之爪生成的仪式魔法会附加5%减速和30%重伤效果，持续4秒。减速效果可以叠加。	[Insight] The Ritual Magic generated by Grasp of Death applies a 5% Slow and 30% Grievous Injury effect for 4 seconds. The Slow effect can stack.	
+1459	【浅见】死亡侵蚀期间目标获得66%重伤。	[Insight] During Death Erosion, the target gains 66% Grievous Injury.	
+1460	【浅见】电流期间目标受到的电流伤害有概率产生波动，波动区间为100%-150%。	[Insight] During the Current effect, the Current damage dealt to the target has a chance to fluctuate, with a fluctuation range of 100%-150%.	
+1461	【浅见】释放二段技能灰雾加持或者灰雾压制后，10秒内提升自身控制抵挡。	[Insight] After releasing the second-stage skill gray fog Blessing or gray fog Suppression, increase own Control resistance for 10 seconds.	
+1462	【浅见】释放通灵仪式时（仅释放瞬间）驱散范围内友方身上的减速效果。	[Insight] When releasing the Spirit Mediumship Ritual (only at the moment of release), dispel Slow effects on allies within range.	
+1463	【特效】家-仪式魔法	【Effect】 Home-Ritual Magic	
+1464	【特效】风车-仪式魔法	[Special Effect] Windmill-Ritual Magic	
+1465	【秘辛】仪式魔法造成的伤害增加30%。	[Secret] Damage caused by Ritual Magic increased by 30%.	
+1466	【秘辛】仪式魔法造成的伤害增加40%。	[Secret] Damage caused by Ritual Magic increased by 40%.	
+1467	【秘辛】回复量增加10%，不超过施法者血量上限24%。	[Secret Lore] Recovery amount increased by 10%, not exceeding 24% of the caster's Max HP.	
+1468	【秘辛】引爆暗影能量的伤害提高20%。	[Secret] Damage from detonating shadow energy increased by 20%.	
+1469	【秘辛】明灯的护盾量增加10%，爆炸伤害增加30%。	[Secret] Beacon's Shield amount increased by 10%, Explosion damage increased by 30%.	
+1470	【秘辛】死亡之握的伤害额外增加30%。	[Secret] Damage of Grasp of Death. increased by an additional 30%.	
+1471	【秘辛】每次叠加扭曲效果时造成的伤害增加30%。	[Secret] Damage dealt each time a Distortion effect is stacked increased by 30%.	
+1472	【秘辛】灰雾加持时间内，释放技能自身体力值额外增加2点。	[Secret] During the gray fog Blessing duration, releasing a skill increases own Health by an additional 2 points.	
+1473	【秘辛】电流的伤害提高10%。	[Secret] Current damage increased by 10%.	
+1474	【自走棋】-\"审判官\"布莱克-裂地子技能	[Auto Chess] - \"Inquisitor\" Blake - Ground Fracture Sub-skill	
+1475	【自走棋】-五月庄园侍女-技能1-连续挥砍	[Auto Chess] - May Manor Maid - Skill 1 - Continuous Slash	
+1476	【自走棋】-奥黛丽-巨龙吐息伤害	[Auto-Chess] - Audrey - Dragon Breath Damage	
+1477	【自走棋】-子嗣守护-团队护盾	[Auto Chess] - Offspring Protection - Team Shield	
+1478	【自走棋】-子爵夫人-双段圆斩-AOE1-新技能案例-主技能	[Auto Chess] - Viscountess - Dual Circular Slash - AOE 1 - New Skill Case - Main Skill	
+1479	【自走棋】-子爵夫人-双段圆斩-AOE2-新技能案例-子技能	[Auto Chess] - Viscountess - Dual Circular Slash - AOE 2 - New Skill Case - Sub Skill	
+1480	【自走棋】-巨龙传承羁绊-全屏伤害200	[Auto-Chess] - Giant Dragon Inheritance Bond - Full-screen Damage 200	
+1481	【自走棋】-巨龙传承羁绊-全屏伤害350	[Auto-Chess] - Giant Dragon Inheritance Bond - Full-screen Damage 350	
+1482	【自走棋】-巨龙传承羁绊-全屏伤害500	[Auto-Chess] - Giant Dragon Inheritance Bond - Full-screen Damage 500	
+1483	【自走棋】-巨龙传承羁绊-全屏伤害700	[Auto-Chess] - Giant Dragon Inheritance Bond - Full-screen Damage 700	
+1484	【自走棋】-巨龙传承羁绊-龙息追伤	[Auto-Chess] - Giant Dragon Inheritance Bond - Dragon Breath Bonus Damage	
+1485	【自走棋】-弓箭骑士-蓄力射击	[Auto Chess] - Archer Knight - Charged Shot	
+1486	【自走棋】-弗兰克-区域友军治疗	[Auto Chess] - Frank - Area Ally Healing	
+1487	【自走棋】-弗兰克·李-神奇蘑菇	[Auto-Chess] - Frank Lee - Magic Mushroom	
+1488	【自走棋】-怪物纹章-1格每秒最大生命AoE	[Auto-Chess] - Monster Emblem - 1 Grid Per Second Max Health AoE	
+1489	【自走棋】-戴莉·西蒙妮-通灵仪式	[Auto-Chess] - Daly Simone - Spirit Mediumship Ritual	
+1490	【自走棋】-戴里克-友军治疗	[Auto Chess] - Derrick - Ally Healing	
+1491	【自走棋】-戴里克-延迟伤害	[Auto Chess] - Derrick - Delayed Damage	
+1492	【自走棋】-斯维因-雷潮终结	[Auto Chess] - Swain - Thunder Tide Finish	
+1493	【自走棋】-梅丽莎-部署友军护盾	[Auto Chess] - Melissa - Deploy Ally Shield	
+1494	【自走棋】-梅林-区域友军护盾	[Auto Chess] - Merlin - Area Ally Shield	
+1495	【自走棋】-玩偶兔-必中攻击	[Auto-Chess] - Doll Rabbit - Guaranteed Hit Attack	
+1496	【自走棋】-玩偶兔-连续砸地伤害1	[Auto-Chess] - Doll Rabbit - Continuous Ground Smash Damage 1	
+1497	【自走棋】-玩偶兔-连续砸地伤害2	[Auto-Chess] - Doll Rabbit - Continuous Ground Smash Damage 2	
+1498	【自走棋】-班森-邻近友军恢复与防御	[Auto Chess] - Benson - Nearby Ally Recovery and Defense	
+1499	【自走棋】-苏茜-区域友军治疗	[Auto-Chess] - Susie - Area Ally Healing	
+1500	【自走棋】-邪神子嗣-闪现攻击2	[Auto-Chess] - Child of the Evil God - Flash Attack 2	
