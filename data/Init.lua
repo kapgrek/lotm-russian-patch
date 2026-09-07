@@ -892,6 +892,10 @@ do
         if RussianMod.shortMenuLabels then
             for k, v in pairs(RussianMod.shortMenuLabels) do shortMenuLabels[k] = v end
         end
+        if RussianMod.shortEquipLabels then
+            runtimeFixes.shortEquipLabels = runtimeFixes.shortEquipLabels or {}
+            for k, v in pairs(RussianMod.shortEquipLabels) do runtimeFixes.shortEquipLabels[k] = v end
+        end
         if RussianMod.marionetteEnglishNames then
             for k, v in pairs(RussianMod.marionetteEnglishNames) do marionetteEnglishNames[k] = v end
         end
@@ -1014,6 +1018,76 @@ runtimeFixes.stringCharLength = function(value)
     return count
 end
 
+local function detectFontCategory(font, widget, wName)
+    local parts = {}
+    local function inspectFont(f)
+        if f == nil then return end
+        pcall(function()
+            if f.FontObject ~= nil then
+                local fo = f.FontObject
+                if type(fo.GetPathName) == "function" then
+                    table.insert(parts, tostring(fo:GetPathName()))
+                elseif type(fo.GetName) == "function" then
+                    table.insert(parts, tostring(fo:GetName()))
+                end
+                table.insert(parts, tostring(fo))
+            end
+        end)
+        pcall(function()
+            if f.TypefaceFontName ~= nil then
+                table.insert(parts, tostring(f.TypefaceFontName))
+            end
+        end)
+        pcall(function()
+            if f.FontMaterial ~= nil then
+                table.insert(parts, tostring(f.FontMaterial))
+            end
+        end)
+    end
+
+    inspectFont(font)
+    if widget ~= nil then
+        pcall(function()
+            if widget.DefaultTextStyleOverride and widget.DefaultTextStyleOverride.Font then
+                inspectFont(widget.DefaultTextStyleOverride.Font)
+            end
+        end)
+        pcall(function()
+            if widget.GetDefaultTextStyleOverride ~= nil then
+                local s = widget:GetDefaultTextStyleOverride()
+                if s and s.Font then inspectFont(s.Font) end
+            end
+        end)
+    end
+
+    local fontStr = string.lower(table.concat(parts, " "))
+    if fontStr:find("sourcehansans") or fontStr:find("sourcehan") then
+        return "text"
+    end
+    if fontStr:find("aleo") or fontStr:find("hyqihei") or fontStr:find("zhuzi") or fontStr:find("fzfw") then
+        return "title"
+    end
+
+    local lowerName = string.lower(wName or "")
+    if lowerName:find("title") or lowerName:find("head") or lowerName:find("banner") then
+        return "title"
+    end
+    if lowerName:find("desc") or lowerName:find("content") or lowerName:find("talk")
+        or lowerName:find("tips") or lowerName:find("detail") or lowerName:find("brief")
+        or lowerName:find("dialogue") or lowerName:find("chat") or lowerName:find("msg") then
+        return "text"
+    end
+
+    local fontSize = font and font.Size
+    if fontSize and tonumber(fontSize) and tonumber(fontSize) >= 24 then
+        return "title"
+    end
+
+    return "text"
+end
+
+runtimeFixes.detectFontCategory = detectFontCategory
+
 runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
     if widget == nil then return end
     pcall(function()
@@ -1028,37 +1102,116 @@ runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
         pcall(function()
             if widget.GetText ~= nil then
                 local t = widget:GetText()
-                wText = type(t) == "string" and t or tostring(t)
-            elseif widget.Text ~= nil then
+                local s = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
+                if s ~= "" then wText = s end
+            end
+            if wText == "" and widget.Text ~= nil then
                 local t = widget.Text
-                wText = type(t) == "string" and t or tostring(t)
+                local s = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
+                if s ~= "" then wText = s end
+            end
+            if wText == "" and widget.GetPlainText ~= nil then
+                local t = widget:GetPlainText()
+                local s = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
+                if s ~= "" then wText = s end
+            end
+            if wText == "" and widget.Content ~= nil then
+                local t = widget.Content
+                local s = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
+                if s ~= "" then wText = s end
+            end
+            if wText == "" and widget.GetContent ~= nil then
+                local t = widget:GetContent()
+                local s = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
+                if s ~= "" then wText = s end
             end
         end)
-        local hasCyrillic = wText:find("[\208\209]") ~= nil
-        local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
-        local letterSpacing = (hasCyrillic or (isRussian and wText == "")) and -220 or -30
 
-        local font = widget.Font or (widget.GetFont and widget:GetFont())
-        if font ~= nil then
-            font.LetterSpacing = letterSpacing
-            if targetSize == nil then
-                local isButtonLike = wName:find("Btn") or wName:find("Button") or wName:find("Tab")
-                    or wName:find("Title") or wName:find("Item") or wName:find("Sequence")
-                    or wName:find("Transfer") or wName:find("Dec") or wName:find("Node")
-                    or wName:find("Choice") or wName:find("Option")
-                if not isButtonLike then
-                    pcall(function()
-                        local parent = widget.GetParent and widget:GetParent()
-                        if parent ~= nil then
-                            local pName = tostring(parent:GetName())
-                            if pName:find("Btn") or pName:find("Button") or pName:find("Tab") or pName:find("Item") then
-                                isButtonLike = true
-                            end
-                        end
-                    end)
+        local font = nil
+        pcall(function()
+            if widget.GetFont ~= nil then
+                font = widget:GetFont()
+            elseif widget.Font ~= nil then
+                font = widget.Font
+            end
+        end)
+        if font == nil and widget.DefaultTextStyleOverride ~= nil and widget.DefaultTextStyleOverride.Font ~= nil then
+            font = widget.DefaultTextStyleOverride.Font
+        end
+
+        local fontCategory = detectFontCategory(font, widget, wName)
+        local hasCyrillic = wText:find("[\208\209]") ~= nil
+
+        -- Intelligent letter spacing:
+        -- Titles with CJK-step Cyrillic (Aleo, HYQiHei, ~1000 width) need moderate -120 to achieve ~600 step.
+        -- Body/dialogue text (SourceHanSans, ~560 width) needs 0.
+        -- Latin/English ([A-Za-z]) or empty text (wText == "") must NEVER receive -220; always 0.
+        local letterSpacing = 0
+        if hasCyrillic then
+            if fontCategory == "title" then
+                letterSpacing = -120
+            else
+                letterSpacing = 0
+            end
+        else
+            letterSpacing = 0
+        end
+
+        -- Check for narrow slots, cards, or cells (Equip, Slot, Item, List, Node, Cell, Card)
+        local isNarrowSlot = wName:find("Equip") or wName:find("Slot") or wName:find("Item")
+            or wName:find("List") or wName:find("Node") or wName:find("Cell") or wName:find("Card")
+        if not isNarrowSlot then
+            pcall(function()
+                local parent = widget.GetParent and widget:GetParent()
+                if parent ~= nil then
+                    local pName = tostring(parent:GetName())
+                    if pName:find("Equip") or pName:find("Slot") or pName:find("Item")
+                        or pName:find("List") or pName:find("Node") or pName:find("Cell") or pName:find("Card") then
+                        isNarrowSlot = true
+                    end
                 end
-                if isButtonLike and not wText:find("\n") then
-                    local charLen = runtimeFixes.stringCharLength(wText)
+            end)
+        end
+
+        -- Substitute compact label for narrow equipment slots if configured
+        if isNarrowSlot and wText ~= "" and runtimeFixes.shortEquipLabels then
+            local compact = runtimeFixes.shortEquipLabels[wText]
+            if compact and compact ~= wText then
+                pcall(function()
+                    if widget.SetText ~= nil then widget:SetText(compact) end
+                    widget.Text = compact
+                    wText = compact
+                end)
+            end
+        end
+
+        if targetSize == nil then
+            local isButtonLike = isNarrowSlot or wName:find("Btn") or wName:find("Button") or wName:find("Tab")
+                or wName:find("Title") or wName:find("Sequence")
+                or wName:find("Transfer") or wName:find("Dec") or wName:find("Node")
+                or wName:find("Choice") or wName:find("Option")
+            if not isButtonLike then
+                pcall(function()
+                    local parent = widget.GetParent and widget:GetParent()
+                    if parent ~= nil then
+                        local pName = tostring(parent:GetName())
+                        if pName:find("Btn") or pName:find("Button") or pName:find("Tab") or pName:find("Item") then
+                            isButtonLike = true
+                        end
+                    end
+                end)
+            end
+            if isButtonLike and not wText:find("\n") then
+                local charLen = runtimeFixes.stringCharLength(wText)
+                if isNarrowSlot then
+                    if charLen > 14 then
+                        targetSize = 11
+                    elseif charLen > 8 then
+                        targetSize = 12
+                    elseif charLen > 6 then
+                        targetSize = 13
+                    end
+                else
                     if charLen >= 14 then
                         targetSize = 12
                     elseif charLen >= 10 then
@@ -1068,6 +1221,10 @@ runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
                     end
                 end
             end
+        end
+
+        if font ~= nil then
+            font.LetterSpacing = letterSpacing
             if targetSize ~= nil and font.Size ~= nil and font.Size > targetSize then
                 font.Size = targetSize
             end
@@ -1083,6 +1240,9 @@ runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
                 local style = widget.DefaultTextStyleOverride
                 if style.Font ~= nil then
                     style.Font.LetterSpacing = letterSpacing
+                    if targetSize ~= nil and style.Font.Size ~= nil and style.Font.Size > targetSize then
+                        style.Font.Size = targetSize
+                    end
                     if widget.SetDefaultTextStyleOverride ~= nil then
                         widget:SetDefaultTextStyleOverride(style)
                     else
@@ -1102,6 +1262,7 @@ runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
         end)
     end)
 end
+
 
 Loader.Telemetry = Loader.Telemetry or {}
 Loader.Telemetry.Runtime = runtimeMetrics
@@ -2168,6 +2329,11 @@ runtimeFixes.VisibleWidgetNames = {
     "Text_LoadingTitle", "Text_LoadingTips", "Text_Loading",
     "Text_NPCName", "Text_NPCSubName", "Text_Speaker", "Text_RoleName",
     "RichText_Content", "RichText_Tips", "RichText_Desc", "RichText_Message",
+    -- Scheme nodes, Arcane Offering & Equip Strengthen / Enhance widgets
+    "Text_NodeName", "Text_NodeDesc", "Text_StrengthenLevel", "Text_EnhanceLevel",
+    "Text_AttrName", "Text_AttrVal", "Text_AttrTips", "Text_Cost", "Text_Consume",
+    "Text_Requirement", "Text_OfferingTitle", "Text_OfferingDesc",
+    "Text_Award", "Text_Reward", "Text_RewardTitle", "Text_Score", "Text_Progress",
 }
 
 local function translateViewTextWidgets(view, userWidget, discoveryContext, component, sharedVisited)
@@ -5425,14 +5591,17 @@ runtimeFixes.repairSequencePromotionPanelButtons = function(self)
         return false
     end
     local changed = pcall(function()
-        local currentSize = tonumber(font.Size) or 18
-        font.Size = math.min(currentSize, 14)
-        if font.LetterSpacing ~= nil then font.LetterSpacing = -220 end
-        widget.Font = font
-        if widget.SetFont ~= nil then widget:SetFont(font) end
-        if widget.SynchronizeProperties ~= nil then widget:SynchronizeProperties() end
-        if widget.InvalidateLayoutAndVolatility ~= nil then
-            widget:InvalidateLayoutAndVolatility()
+        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+            runtimeFixes.adjustWidgetLetterSpacing(widget, 14)
+        else
+            local currentSize = tonumber(font.Size) or 18
+            font.Size = math.min(currentSize, 14)
+            widget.Font = font
+            if widget.SetFont ~= nil then widget:SetFont(font) end
+            if widget.SynchronizeProperties ~= nil then widget:SynchronizeProperties() end
+            if widget.InvalidateLayoutAndVolatility ~= nil then
+                widget:InvalidateLayoutAndVolatility()
+            end
         end
     end)
     return changed
@@ -6756,6 +6925,32 @@ local taskBoardWidgetNames = {
     "RichText_Hint01",
     "RichText_Hint02",
     "RichText_Path",
+    -- Верхний баннер наград (TaskBoardPanel upper reward banner)
+    "Text_Reward",
+    "Text_RewardTitle",
+    "Text_RewardTips",
+    "Text_RewardDesc",
+    "Text_Award",
+    "Text_AwardTitle",
+    "Text_Title",
+    "Text_Banner",
+    "Text_BannerTitle",
+    "Text_Score",
+    "Text_Progress",
+    "Text_Points",
+    "Text_Point",
+    "Text_DailyReward",
+    "Text_TotalReward",
+    "Text_StageReward",
+    "Text_Chest",
+    "Text_Box",
+    "Text_Get",
+    "Text_Status",
+    "RichText_Reward",
+    "RichText_Desc",
+    "RichText_Tips",
+    "Text_Count",
+    "Text_Num",
 }
 
 local taskInfoRepairReports = setmetatable({}, { __mode = "k" })
@@ -6865,6 +7060,26 @@ local function repairTaskBoardLabelsNow(self)
                 visitedWidgets[widget] = true
                 foundCount = foundCount + 1
                 repaired = repaired + translateTextWidget(widget)
+                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                    runtimeFixes.adjustWidgetLetterSpacing(widget)
+                end
+            end
+        end
+        for _, bannerContainerName in ipairs({
+            "WBP_TaskBoard_Reward", "RewardBanner", "TopBanner",
+            "Canvas_Reward", "Canvas_Top", "HB_Reward", "VB_Reward"
+        }) do
+            local banner = getNamedWidget(view, bannerContainerName) or getNamedWidget(root, bannerContainerName)
+            if banner ~= nil then
+                walkWidgetDescendants(banner, visitedWidgets, function(bw)
+                    if bw ~= nil and (bw.GetText ~= nil or bw.Text ~= nil) then
+                        foundCount = foundCount + 1
+                        repaired = repaired + translateTextWidget(bw)
+                        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                            runtimeFixes.adjustWidgetLetterSpacing(bw)
+                        end
+                    end
+                end)
             end
         end
         if type(children) == "table" then
@@ -7842,6 +8057,18 @@ local dynamicPanelRescanUids = {
     Shops_Panel = true,
     Sequence_Panel = true,
     TrainTrade_Hud_Panel = true,
+    -- Panels requiring dynamic rescan for scheme nodes, buttons, and headers
+    ArcaneOffering = true,
+    ArcaneOffering_Panel = true,
+    Guild_ArcaneOffering_Panel = true,
+    GuildArcaneOffering_Panel = true,
+    EquipStrengthen = true,
+    EquipStrengthen_Panel = true,
+    EquipmentStrengthen_Panel = true,
+    EquipEnhance = true,
+    EquipEnhance_Panel = true,
+    EquipmentEnhance_Panel = true,
+    TaskBoardPanel = true,
 }
 
 local extendedPanelRepairDelays = {
@@ -7851,6 +8078,17 @@ local extendedPanelRepairDelays = {
     Sealed_Fuse_Select_Panel = { 0.25, 0.75, 1.50 },
     Sequence_Panel = { 0.50, 1.50, 3.00, 6.00, 10.00, 20.00 },
     Shops_Panel = { 0.25, 0.50, 1.00, 2.00 },
+    ArcaneOffering = { 0.15, 0.50, 1.20 },
+    ArcaneOffering_Panel = { 0.15, 0.50, 1.20 },
+    Guild_ArcaneOffering_Panel = { 0.15, 0.50, 1.20 },
+    GuildArcaneOffering_Panel = { 0.15, 0.50, 1.20 },
+    EquipStrengthen = { 0.15, 0.50, 1.20 },
+    EquipStrengthen_Panel = { 0.15, 0.50, 1.20 },
+    EquipmentStrengthen_Panel = { 0.15, 0.50, 1.20 },
+    EquipEnhance = { 0.15, 0.50, 1.20 },
+    EquipEnhance_Panel = { 0.15, 0.50, 1.20 },
+    EquipmentEnhance_Panel = { 0.15, 0.50, 1.20 },
+    TaskBoardPanel = { 0.15, 0.50, 1.20 },
 }
 
 -- Current-session telemetry showed that these panels translated useful text
@@ -7933,6 +8171,24 @@ function panelTextRepair:Repair(component, reason)
                 rootWidget
             )
         end
+        local uidStr = tostring(componentUid or "")
+        if uidStr:find("ArcaneOffering") or uidStr:find("EquipStrengthen") or uidStr:find("EquipEnhance")
+            or uidStr:find("EquipmentStrengthen") or uidStr:find("EquipmentEnhance") then
+            pcall(function()
+                local targetOwner = rootWidget or current.view
+                if targetOwner ~= nil then
+                    local panelVisited = setmetatable({}, { __mode = "k" })
+                    walkWidgetDescendants(targetOwner, panelVisited, function(candidate)
+                        if candidate ~= nil and (candidate.GetText ~= nil or candidate.Text ~= nil or candidate.DefaultTextStyleOverride ~= nil) then
+                            translateTextWidget(candidate, discoveryContext)
+                            if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                                runtimeFixes.adjustWidgetLetterSpacing(candidate)
+                            end
+                        end
+                    end)
+                end
+            end)
+        end
 
         -- Child UIComponents and cached subviews own independent UWidgetTrees.
         -- Walking them is the important coverage difference from the old panel
@@ -7998,6 +8254,9 @@ function panelTextRepair:ProcessOnce(component, reason)
     end
     local uid = component.uid or component.UID or component.__cname
     if tostring(uid) == "TaskBoardPanel" then
+        if runtimeFixes and runtimeFixes.repairTaskBoardLabels then
+            runtimeFixes.repairTaskBoardLabels(component)
+        end
         runtimeMetrics.TargetedPanelSkips = runtimeMetrics.TargetedPanelSkips + 1
         return 0
     end
