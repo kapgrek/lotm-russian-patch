@@ -248,4 +248,5 @@ return {
     ["Defaults to False, meaning forced execution. Setting to True means a series of condition checks (prerequisites, state conflicts, post-swing, etc.) will be performed, and it also supports Combo skills."] = "По умолчанию установлено значение False, что означает принудительное выполнение. Установка значения True означает, что будет выполнена серия проверок условий (предварительные условия, конфликты состояний, пост-качели и т. д.), а также поддерживаются комбо-навыки.",
     ["鼓掌"] = "Аплодировать",
     ["(No Equipment Required)"] = "(Оборудование не требуется)",
+    ["войти в потусторонний мир"] = "Войти",
 }

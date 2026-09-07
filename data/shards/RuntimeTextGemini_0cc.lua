@@ -239,4 +239,5 @@ return {
     ["Falling golden hair"] = "Падающие золотые волосы",
     ["Blackthorn Event 3_5200205_Leader_Filter Thug"] = "Чёрный Чертополох Event 3_5200205_Leader_Filter Thug",
     ["默认空气墙"] = "Воздушная стена по умолчанию",
+    ["Войти в потусторонний мир"] = "Войти",
 }

@@ -326,11 +326,22 @@ local stringConstOverrides = {
 local QUEST_CHAT_PASSWORD_EN = "The storm is stronger than spirits"
 local QUEST_CHAT_PASSWORD_ZH = "风暴比烈酒更烈"
 local ENTER_WORLD_LABEL_LONG = "Enter the Extraordinary World"
-local ENTER_WORLD_LABEL_SHORT = "Enter World"
+local ENTER_WORLD_LABEL_SHORT = "Войти"
+local ENTER_WORLD_LABELS = {
+    ["Enter the Extraordinary World"] = true,
+    ["进入非凡世界"] = true,
+    ["Enter World"] = true,
+    ["Войдите в необыкновенный мир"] = true,
+    ["Войти в необыкновенный мир"] = true,
+    ["Войти в потусторонний мир"] = true,
+    ["войти в потусторонний мир"] = true,
+    ["Войти в мир"] = true,
+}
 
 local function shortenEnterWorldLabel(value)
-    if value == ENTER_WORLD_LABEL_LONG then
-        return ENTER_WORLD_LABEL_SHORT
+    if ENTER_WORLD_LABELS[value] or value == ENTER_WORLD_LABEL_LONG then
+        local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
+        return isRussian and "Войти" or "Enter World"
     end
     return value
 end
@@ -993,14 +1004,26 @@ runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
         end
     end)
     pcall(function()
+        local wName = ""
+        pcall(function() wName = tostring(widget:GetName()) end)
+        local wText = ""
+        pcall(function()
+            if widget.GetText ~= nil then
+                local t = widget:GetText()
+                wText = type(t) == "string" and t or tostring(t)
+            elseif widget.Text ~= nil then
+                local t = widget.Text
+                wText = type(t) == "string" and t or tostring(t)
+            end
+        end)
+        local hasCyrillic = wText:find("[\208\209]") ~= nil
+        local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
+        local letterSpacing = (hasCyrillic or (isRussian and wText == "")) and -220 or -30
+
         local font = widget.Font or (widget.GetFont and widget:GetFont())
         if font ~= nil then
-            font.LetterSpacing = -50
+            font.LetterSpacing = letterSpacing
             if targetSize == nil then
-                local wName = ""
-                pcall(function() wName = tostring(widget:GetName()) end)
-                local wText = ""
-                pcall(function() wText = tostring(widget:GetText()) end)
                 local isButtonLike = wName:find("Btn") or wName:find("Button") or wName:find("Tab")
                     or wName:find("Title") or wName:find("Item") or wName:find("Sequence")
                     or wName:find("Transfer") or wName:find("Dec") or wName:find("Node")
@@ -1035,15 +1058,30 @@ runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
             else
                 widget.Font = font
             end
-            pcall(function()
-                if widget.SynchronizeProperties ~= nil then
-                    widget:SynchronizeProperties()
-                end
-                if widget.InvalidateLayoutAndVolatility ~= nil then
-                    widget:InvalidateLayoutAndVolatility()
-                end
-            end)
         end
+
+        pcall(function()
+            if widget.DefaultTextStyleOverride ~= nil then
+                local style = widget.DefaultTextStyleOverride
+                if style.Font ~= nil then
+                    style.Font.LetterSpacing = letterSpacing
+                    if widget.SetDefaultTextStyleOverride ~= nil then
+                        widget:SetDefaultTextStyleOverride(style)
+                    else
+                        widget.DefaultTextStyleOverride = style
+                    end
+                end
+            end
+        end)
+
+        pcall(function()
+            if widget.SynchronizeProperties ~= nil then
+                widget:SynchronizeProperties()
+            end
+            if widget.InvalidateLayoutAndVolatility ~= nil then
+                widget:InvalidateLayoutAndVolatility()
+            end
+        end)
     end)
 end
 
@@ -1914,7 +1952,11 @@ local function translateTextWidget(widget, discoveryContext)
     local getText = nil
     local methodOk = pcall(function() getText = widget.GetText end)
     if not methodOk or type(getText) ~= "function" then
-        return 0
+        local propOk, propVal = pcall(function() return widget.Text end)
+        if not propOk or propVal == nil then
+            return 0
+        end
+        getText = function(w) return w.Text end
     end
     local ok, current = pcall(getText, widget)
     if not ok or current == nil then
@@ -1931,7 +1973,9 @@ local function translateTextWidget(widget, discoveryContext)
     local repairedCount = 0
     if translated ~= currentText then
         local changed = pcall(function()
-            widget:SetText(translated)
+            if widget.SetText ~= nil then
+                widget:SetText(translated)
+            end
         end)
         -- KGTextBlock can repaint its serialized Text property after a
         -- Blueprint state change. Keep the property and Slate value aligned.
@@ -1975,6 +2019,9 @@ local criticalWidgetProbeNames = {
     "Text_Use", "Text_Used", "TextUsing", "Text_State", "Text_Status",
     "Text_Apply", "Text_Equip", "RichText_Use", "Button_Text",
     "Text_Name", "Text_Title", "Text_Content", "Text_Tips", "Text_BtnName",
+    "Text_Notice", "Text_Confirm", "Text_Cancel", "Text_Desc", "Text_Message",
+    "Text_LoadingTitle", "Text_LoadingTips", "Text_Loading",
+    "Text_NPCName", "Text_NPCSubName", "Text_Speaker", "RichText_Content",
 }
 local generatedWidgetProbeNames = nil
 local generatedWidgetProbeUnavailable = false
@@ -2091,6 +2138,12 @@ runtimeFixes.VisibleWidgetNames = {
     "Text_Recommend", "Text_Extra", "Text_BeStrong", "Text_Reset",
     "Text_Equip", "Text_Tips", "Text_BtnName", "Text_Plan",
     "Text_Content", "TextUsing", "TB_Word",
+    "Text_Notice", "Text_Confirm", "Text_Cancel", "Text_Desc", "Text_Message",
+    "Text_Prompt", "Text_Detail", "Text_SubTitle", "Text_Button", "Text_Btn",
+    "Text_Sure", "Text_Ok", "Text_Close", "Text_Dialog",
+    "Text_LoadingTitle", "Text_LoadingTips", "Text_Loading",
+    "Text_NPCName", "Text_NPCSubName", "Text_Speaker", "Text_RoleName",
+    "RichText_Content", "RichText_Tips", "RichText_Desc", "RichText_Message",
 }
 
 local function translateViewTextWidgets(view, userWidget, discoveryContext, component, sharedVisited)
@@ -4783,6 +4836,9 @@ local function revealDialogueRows(self)
                 if widget.SetAutoWrapText ~= nil then
                     widget:SetAutoWrapText(false)
                 end
+                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                    runtimeFixes.adjustWidgetLetterSpacing(widget)
+                end
                 changed = true
             end
         end)
@@ -4879,6 +4935,10 @@ local function bindDialogueRows(self)
         widgets[index] = getNamedWidget(talkWidget, widgetName)
         if widgets[index] == nil then
             missing[#missing + 1] = widgetName
+        else
+            if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                runtimeFixes.adjustWidgetLetterSpacing(widgets[index])
+            end
         end
     end
 
@@ -4965,6 +5025,23 @@ local function installDialogueTalkRepair(value, environment)
         revealDialogueRows(self)
         scheduleRepairBurst(self, revealDialogueRows, 0.50)
         scheduleRepairAfter(self, 0.55, reportDialogueThirdRowState)
+        pcall(function()
+            local talkWidget = self and (self.userWidget or self.widget)
+            for _, name in ipairs({
+                "RTB_TalkContent_Back_lua", "RTB_TalkContent_lua",
+                "RTB_TalkContent2_Back_lua", "RTB_TalkContent2_lua",
+                "RTB_TalkContent3_Back_lua", "RTB_TalkContent3_lua",
+                "Text_NPCName", "Text_NPCSubName", "Text_Name", "Text_Speaker", "Text_Title",
+            }) do
+                local w = getNamedWidget(talkWidget, name) or getNamedWidget(self and self.view, name)
+                if w ~= nil then
+                    translateTextWidget(w)
+                    if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                        runtimeFixes.adjustWidgetLetterSpacing(w)
+                    end
+                end
+            end
+        end)
         if self.__cpddDialogueVisibleTextRepaired ~= VERSION then
             translateViewTextWidgets(self and self.view, self and self.userWidget)
             self.__cpddDialogueVisibleTextRepaired = VERSION
@@ -4987,21 +5064,26 @@ local function setLayeredDialogueLabel(owner, text)
         owner:SetText(text)
     end)
     changed = changed or ok
+    pcall(function()
+        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+            runtimeFixes.adjustWidgetLetterSpacing(owner)
+        end
+    end)
 
     for _, fieldName in ipairs({ "Text_lua", "Text2_lua" }) do
         local fieldOk = pcall(function()
             local widget = owner[fieldName]
             if widget ~= nil then
                 widget:SetText(text)
+                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
+                    runtimeFixes.adjustWidgetLetterSpacing(widget)
+                end
                 changed = true
             end
         end)
         changed = changed or fieldOk
     end
 
-    -- These Blueprint components can contain additional nested labels. Run
-    -- the normal bootstrap text pass as well so no other Chinese caption is
-    -- left behind when the component refreshes.
     translateViewTextWidgets(nil, owner)
     return changed
 end
@@ -5317,7 +5399,7 @@ runtimeFixes.repairSequencePromotionPanelButtons = function(self)
     local changed = pcall(function()
         local currentSize = tonumber(font.Size) or 18
         font.Size = math.min(currentSize, 14)
-        if font.LetterSpacing ~= nil then font.LetterSpacing = -50 end
+        if font.LetterSpacing ~= nil then font.LetterSpacing = -220 end
         widget.Font = font
         if widget.SetFont ~= nil then widget:SetFont(font) end
         if widget.SynchronizeProperties ~= nil then widget:SynchronizeProperties() end
@@ -6079,15 +6161,23 @@ local function repairDialoguePanelLabels(self)
         return
     end
 
-    setLayeredDialogueLabel(view.WBP_NPCReviewBtn, "Review")
+    local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
+    local reviewText = isRussian and "История" or "Review"
+    local skipText = isRussian and "Пропустить" or "Skip"
+
+    setLayeredDialogueLabel(view.WBP_NPCReviewBtn, reviewText)
 
     local skipOwner = view.WBP_Skip
     if skipOwner ~= nil then
         local ok, nested = pcall(function()
             return skipOwner.WBP_NPCBtnText_lua
         end)
-        setLayeredDialogueLabel(ok and nested or skipOwner, "Skip")
+        setLayeredDialogueLabel(ok and nested or skipOwner, skipText)
     end
+
+    pcall(function()
+        translateViewTextWidgets(view, self and (self.userWidget or self.widget))
+    end)
 end
 
 local function repairDialogueSkipLabels(self)
@@ -6095,7 +6185,9 @@ local function repairDialogueSkipLabels(self)
     if type(view) ~= "table" then
         return
     end
-    setLayeredDialogueLabel(view.WBP_NPCBtnText_lua, "Skip")
+    local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
+    local skipText = isRussian and "Пропустить" or "Skip"
+    setLayeredDialogueLabel(view.WBP_NPCBtnText_lua, skipText)
 end
 
 local function installDialogueControlRepair(value, environment, symbolName, methodNames, repair, source)
@@ -7631,6 +7723,35 @@ Loader.AfterLoad("Gameplay.LogicSystem.NPC.Dialogue.Dialogue_NPCBtnSkip", functi
     )
     return value
 end, 1000000, "cpdd.runtime-fix.dialogue-skip-controls")
+
+do
+    for _, loadingModule in ipairs({
+        "Gameplay.LogicSystem.Loading.CommonLoadingSpinner_Panel",
+        "Gameplay.LogicSystem.Loading.CreateRoleLoadingPanel",
+        "Gameplay.LogicSystem.Loading.ReconnectLoading_Panel",
+    }) do
+        Loader.AfterLoad(loadingModule, function(value, environment)
+            local shortName = loadingModule:match("%.([^%.]+)$") or loadingModule
+            local class = getSymbol(value, environment, shortName) or value
+            if type(class) == "table" then
+                for _, methodName in ipairs({ "InitUIView", "OnRefresh", "OnOpen", "OnShow", "Refresh" }) do
+                    local original = class[methodName]
+                    if type(original) == "function" and not class["__cpddLoadingRepair_" .. methodName] then
+                        class["__cpddLoadingRepair_" .. methodName] = true
+                        class[methodName] = function(self, ...)
+                            local results = { original(self, ...) }
+                            pcall(function()
+                                translateViewTextWidgets(self and self.view, self and (self.userWidget or self.widget))
+                            end)
+                            return unpack(results)
+                        end
+                    end
+                end
+            end
+            return value
+        end, 1000000, "cpdd.runtime-fix.loading-" .. loadingModule)
+    end
+end
 
 do
 local function installShortMenuLabels(value, environment)
