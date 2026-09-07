@@ -269,8 +269,10 @@ namespace LotmRussianPatcher
         private bool IsValidGameFolder(string path)
         {
             if (string.IsNullOrWhiteSpace(path) || !Directory.Exists(path)) return false;
-            if (File.Exists(Path.Combine(path, "Lord of Mysteries.exe"))) return true;
             if (Directory.Exists(Path.Combine(path, "Binaries", "Win64"))) return true;
+            if (File.Exists(Path.Combine(path, "Content", "Paks", "pakchunk0-Windows.pak"))) return true;
+            if (File.Exists(Path.Combine(path, "Lord of Mysteries.exe"))) return true;
+            if (File.Exists(Path.Combine(path, "..", "Lord of Mysteries.exe"))) return true;
             if (File.Exists(Path.Combine(path, "..", "GamePackageConfig.txt"))) return true;
             return false;
         }
@@ -278,6 +280,23 @@ namespace LotmRussianPatcher
         private void CheckCurrentStatus()
         {
             string path = txtGamePath.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(path) && Directory.Exists(path))
+            {
+                if (!path.EndsWith("C7", StringComparison.OrdinalIgnoreCase))
+                {
+                    if (Directory.Exists(Path.Combine(path, "C7")))
+                    {
+                        path = Path.Combine(path, "C7");
+                        txtGamePath.Text = path;
+                    }
+                    else if (Directory.Exists(Path.Combine(path, "Game", "C7")))
+                    {
+                        path = Path.Combine(path, "Game", "C7");
+                        txtGamePath.Text = path;
+                    }
+                }
+            }
+
             if (!IsValidGameFolder(path))
             {
                 lblStatus.Text = "Статус: Укажите корректную папку Game\\C7";
@@ -330,9 +349,16 @@ namespace LotmRussianPatcher
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
                     string selected = fbd.SelectedPath;
-                    if (!selected.EndsWith("C7", StringComparison.OrdinalIgnoreCase) && Directory.Exists(Path.Combine(selected, "Game", "C7")))
+                    if (!selected.EndsWith("C7", StringComparison.OrdinalIgnoreCase))
                     {
-                        selected = Path.Combine(selected, "Game", "C7");
+                        if (Directory.Exists(Path.Combine(selected, "C7")))
+                        {
+                            selected = Path.Combine(selected, "C7");
+                        }
+                        else if (Directory.Exists(Path.Combine(selected, "Game", "C7")))
+                        {
+                            selected = Path.Combine(selected, "Game", "C7");
+                        }
                     }
                     txtGamePath.Text = selected;
                 }
@@ -531,6 +557,9 @@ namespace LotmRussianPatcher
                         Log("Хук загрузчика проверен в CPDDTranslation.lua");
                     }
 
+                    // 4. Проверка и установка нативного хука в pakchunk0-Windows.pak
+                    PatchPakLaunchHook(gamePath);
+
                     Log("✔ УСТАНОВКА УСПЕШНО ЗАВЕРШЕНА!");
                 }
                 catch (UnauthorizedAccessException uex)
@@ -607,6 +636,7 @@ namespace LotmRussianPatcher
         private void BtnRestore_Click(object sender, EventArgs e)
         {
             string gamePath = txtGamePath.Text.Trim();
+            RestorePakLaunchHook(gamePath);
             string fixesDir = Path.Combine(gamePath, "Saved", "Mods", "lua", "mods", "cpdd_runtime_fixes");
             string bak = Path.Combine(fixesDir, "Init.lua.bak_orig");
             string init = Path.Combine(fixesDir, "Init.lua");
@@ -656,6 +686,134 @@ namespace LotmRussianPatcher
                 }
             });
             btnCheckUpdates.Enabled = true;
+        }
+
+        private const long PAK_HOOK_OFFSET = 427225161L;
+        private const int PAK_HOOK_SIZE = 4660;
+        private const string PAK_HOOK_SHA256 = "c031726986e09358bb18ff8a2b8ee5f0b4e65ce8ae8331eed2d7575c80b7efa9";
+
+        private static string ComputeSha256(byte[] data)
+        {
+            using (var sha = System.Security.Cryptography.SHA256.Create())
+            {
+                byte[] hash = sha.ComputeHash(data);
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                foreach (byte b in hash) sb.Append(b.ToString("x2"));
+                return sb.ToString();
+            }
+        }
+
+        private bool PatchPakLaunchHook(string gamePath)
+        {
+            try
+            {
+                string pakPath = Path.Combine(gamePath, "Content", "Paks", "pakchunk0-Windows.pak");
+                if (!File.Exists(pakPath))
+                {
+                    Log("Внимание: Файл pakchunk0-Windows.pak не найден в Content\\Paks.");
+                    return false;
+                }
+
+                byte[] hookPayload = null;
+                string[] candidates = new string[]
+                {
+                    Path.Combine(gamePath, "LaunchInstance.native-bridge.padded.oodle"),
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LaunchInstance.native-bridge.padded.oodle"),
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "LaunchInstance.native-bridge.padded.oodle"),
+                };
+                foreach (var p in candidates)
+                {
+                    if (File.Exists(p) && new FileInfo(p).Length == PAK_HOOK_SIZE)
+                    {
+                        hookPayload = File.ReadAllBytes(p);
+                        break;
+                    }
+                }
+
+                if (hookPayload == null || hookPayload.Length != PAK_HOOK_SIZE)
+                {
+                    Log("Внимание: Файл хука LaunchInstance.native-bridge.padded.oodle не найден.");
+                    return false;
+                }
+
+                EnsureWritable(pakPath);
+                using (FileStream fs = new FileStream(pakPath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite))
+                {
+                    if (fs.Length < PAK_HOOK_OFFSET + PAK_HOOK_SIZE)
+                    {
+                        Log("Ошибка: pakchunk0-Windows.pak имеет неподдерживаемый размер.");
+                        return false;
+                    }
+
+                    fs.Seek(PAK_HOOK_OFFSET, SeekOrigin.Begin);
+                    byte[] currentBytes = new byte[PAK_HOOK_SIZE];
+                    fs.Read(currentBytes, 0, PAK_HOOK_SIZE);
+
+                    string currentSha = ComputeSha256(currentBytes);
+                    if (currentSha.Equals(PAK_HOOK_SHA256, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Log("Хук загрузчика в pakchunk0-Windows.pak уже активен.");
+                    }
+                    else
+                    {
+                        string backupBlock = Path.Combine(gamePath, "Content", "Paks", "pakchunk0-Windows.pak.orig_block");
+                        if (!File.Exists(backupBlock))
+                        {
+                            File.WriteAllBytes(backupBlock, currentBytes);
+                            Log("Создана резервная копия оригинального блока игры: pakchunk0-Windows.pak.orig_block");
+                        }
+
+                        fs.Seek(PAK_HOOK_OFFSET, SeekOrigin.Begin);
+                        fs.Write(hookPayload, 0, PAK_HOOK_SIZE);
+                        fs.Flush();
+                        Log("✔ Нативный хук успешно внедрён в pakchunk0-Windows.pak! (Автономный режим активен)");
+                    }
+                }
+
+                string looseHook = Path.Combine(gamePath, "LaunchInstance.native-bridge.padded.oodle");
+                if (File.Exists(looseHook))
+                {
+                    try { File.Delete(looseHook); } catch { }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Log("Ошибка при настройке pakchunk0-Windows.pak: " + ex.Message);
+                return false;
+            }
+        }
+
+        private bool RestorePakLaunchHook(string gamePath)
+        {
+            try
+            {
+                string pakPath = Path.Combine(gamePath, "Content", "Paks", "pakchunk0-Windows.pak");
+                string backupBlock = Path.Combine(gamePath, "Content", "Paks", "pakchunk0-Windows.pak.orig_block");
+                if (File.Exists(backupBlock) && File.Exists(pakPath))
+                {
+                    byte[] origBytes = File.ReadAllBytes(backupBlock);
+                    if (origBytes.Length == PAK_HOOK_SIZE)
+                    {
+                        EnsureWritable(pakPath);
+                        using (FileStream fs = new FileStream(pakPath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite))
+                        {
+                            fs.Seek(PAK_HOOK_OFFSET, SeekOrigin.Begin);
+                            fs.Write(origBytes, 0, PAK_HOOK_SIZE);
+                            fs.Flush();
+                        }
+                        File.Delete(backupBlock);
+                        Log("Оригинальный блок pakchunk0-Windows.pak успешно восстановлен!");
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("Ошибка восстановления блока pakchunk0-Windows.pak: " + ex.Message);
+            }
+            return false;
         }
 
         private static bool IsAdministrator()

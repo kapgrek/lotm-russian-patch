@@ -52,6 +52,14 @@ if exist "%FIXES_DIR%\RussianLocalization.lua" (
     powershell -NoProfile -Command "(Get-Content '%FIXES_DIR%\RussianLocalization.lua') -replace 'Russian.Enabled = true', 'Russian.Enabled = false' -replace 'Enabled = true', 'Enabled = false' | Set-Content '%FIXES_DIR%\RussianLocalization.lua' -Encoding UTF8" 2>nul
 )
 
+set "PAK_FILE=%GAME_DIR%\Content\Paks\pakchunk0-Windows.pak"
+set "BAK_FILE=%GAME_DIR%\Content\Paks\pakchunk0-Windows.pak.orig_block"
+
+if exist "%BAK_FILE%" if exist "%PAK_FILE%" (
+    echo [*] Восстановление оригинального блока pakchunk0-Windows.pak...
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$pak = $env:PAK_FILE; $bak = $env:BAK_FILE; $orig = [System.IO.File]::ReadAllBytes($bak); if ($orig.Length -eq 4660) { $fs = [System.IO.File]::Open($pak, [System.IO.FileMode]::Open, [System.IO.FileAccess]::ReadWrite, [System.IO.FileShare]::ReadWrite); $fs.Seek(427225161L, [System.IO.SeekOrigin]::Begin) | Out-Null; $fs.Write($orig, 0, 4660); $fs.Flush(); $fs.Close(); $fs.Dispose(); Remove-Item $bak -Force -ErrorAction SilentlyContinue; Write-Host '    ✔ Оригинальный блок pakchunk0-Windows.pak восстановлен.' -ForegroundColor Green }" 2>nul
+)
+
 echo.
 echo ======================================================================
 echo    ✔ Русификатор отключен. Исходная конфигурация восстановлена.

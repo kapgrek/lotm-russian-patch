@@ -1,5 +1,5 @@
 param (
-    [string]$Version = "v1.32.2"
+    [string]$Version = "v1.33.0"
 )
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -16,18 +16,21 @@ New-Item -ItemType Directory -Path "$staging\Binaries\Win64\lua\Launch\Base" -Fo
 $gameDir = "D:\Games\GMZZLauncher\Game\C7"
 
 Write-Host "Copying mod files..."
-if (Test-Path "$gameDir\Saved\Mods") {
-    Copy-Item "$gameDir\Saved\Mods\bootstrap.lua" "$staging\Saved\Mods\" -Force
-    Copy-Item "$gameDir\Saved\Mods\manifest.lua" "$staging\Saved\Mods\" -Force
-    Copy-Item "$gameDir\Saved\Mods\translation-overrides.lua" "$staging\Saved\Mods\" -Force
-    Copy-Item "$gameDir\Saved\Mods\lua\mods\cpdd_runtime_fixes\*" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\" -Recurse -Force
-    Copy-Item "$gameDir\Binaries\Win64\lua\Launch\Base\CPDDTranslation.lua" "$staging\Binaries\Win64\lua\Launch\Base\" -Force
-} elseif (Test-Path "$projectRoot\mod_base\Saved\Mods") {
-    Write-Host "Using mod_base fallback template..." -ForegroundColor Yellow
+# Сначала базовый шаблон из mod_base
+if (Test-Path "$projectRoot\mod_base\Saved\Mods") {
+    Write-Host "Using mod_base templates..." -ForegroundColor Cyan
     Copy-Item "$projectRoot\mod_base\Saved\Mods\*" "$staging\Saved\Mods\" -Recurse -Force
     Copy-Item "$projectRoot\mod_base\Binaries\Win64\lua\Launch\Base\*" "$staging\Binaries\Win64\lua\Launch\Base\" -Recurse -Force
-} else {
-    throw "Base mod files not found in game directory ($gameDir) or in mod_base template."
+}
+
+# Если есть живая папка игры, дополняем файлы
+if (Test-Path "$gameDir\Saved\Mods") {
+    if (Test-Path "$gameDir\Saved\Mods\translation-overrides.state.json") {
+        Copy-Item "$gameDir\Saved\Mods\translation-overrides.state.json" "$staging\Saved\Mods\" -Force
+    }
+    if (Test-Path "$gameDir\Saved\Mods\lua\cpdd_translation") {
+        Copy-Item "$gameDir\Saved\Mods\lua\cpdd_translation" "$staging\Saved\Mods\lua\" -Recurse -Force
+    }
 }
 
 # Гарантия: файлы русификатора из data/ имеют абсолютный приоритет
@@ -39,6 +42,9 @@ if (Test-Path "$projectRoot\data\EnglishToRussian.lua") {
 }
 if (Test-Path "$projectRoot\data\CPDDTranslation.lua") {
     Copy-Item "$projectRoot\data\CPDDTranslation.lua" "$staging\Binaries\Win64\lua\Launch\Base\CPDDTranslation.lua" -Force
+}
+if (Test-Path "$projectRoot\data\LaunchInstance.native-bridge.padded.oodle") {
+    Copy-Item "$projectRoot\data\LaunchInstance.native-bridge.padded.oodle" "$staging\LaunchInstance.native-bridge.padded.oodle" -Force
 }
 if (Test-Path "$projectRoot\data\shards") {
     Write-Host "Copying Russian translation shards (1,024 shards)..." -ForegroundColor Green

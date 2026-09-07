@@ -115,7 +115,17 @@ if exist "%SCRIPT_DIR%Binaries" (
     xcopy /E /Y /I /Q "%SCRIPT_DIR%Binaries" "%GAME_DIR%\Binaries" >nul
 )
 
-:: 6. Снятие блокировки файлов Zone.Identifier (Mark-of-the-Web)
+:: 6. Настройка нативного загрузчика в pakchunk0-Windows.pak (Автономный запуск)
+set "PAK_FILE=%GAME_DIR%\Content\Paks\pakchunk0-Windows.pak"
+set "HOOK_FILE=%SCRIPT_DIR%LaunchInstance.native-bridge.padded.oodle"
+if not exist "%HOOK_FILE%" set "HOOK_FILE=%GAME_DIR%\LaunchInstance.native-bridge.padded.oodle"
+
+if exist "%HOOK_FILE%" if exist "%PAK_FILE%" (
+    echo     - Настройка хука загрузчика в pakchunk0-Windows.pak...
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$pak = $env:PAK_FILE; $hook = $env:HOOK_FILE; $hBytes = [System.IO.File]::ReadAllBytes($hook); if ($hBytes.Length -eq 4660) { $fs = [System.IO.File]::Open($pak, [System.IO.FileMode]::Open, [System.IO.FileAccess]::ReadWrite, [System.IO.FileShare]::ReadWrite); $offset = 427225161L; if ($fs.Length -ge ($offset + 4660)) { $fs.Seek($offset, [System.IO.SeekOrigin]::Begin) | Out-Null; $cur = New-Object byte[] 4660; $fs.Read($cur, 0, 4660) | Out-Null; $sha = [System.Security.Cryptography.SHA256]::Create(); $hash = [BitConverter]::ToString($sha.ComputeHash($cur)).Replace('-','').ToLower(); if ($hash -ne 'c031726986e09358bb18ff8a2b8ee5f0b4e65ce8ae8331eed2d7575c80b7efa9') { $bak = Join-Path (Split-Path $pak -Parent) 'pakchunk0-Windows.pak.orig_block'; if (-not (Test-Path $bak)) { [System.IO.File]::WriteAllBytes($bak, $cur) }; $fs.Seek($offset, [System.IO.SeekOrigin]::Begin) | Out-Null; $fs.Write($hBytes, 0, 4660); $fs.Flush(); Write-Host '      ✔ Нативный хук загрузчика успешно активирован!' -ForegroundColor Green } else { Write-Host '      ✔ Нативный хук загрузчика уже активен.' -ForegroundColor Green } }; $fs.Close(); $fs.Dispose() }" 2>nul
+)
+
+:: 7. Снятие блокировки файлов Zone.Identifier (Mark-of-the-Web)
 echo [*] Разблокировка установленных файлов в системе безопасности Windows...
 powershell -NoProfile -Command "Get-ChildItem -Path '%GAME_DIR%\Saved\Mods' -Recurse -ErrorAction SilentlyContinue | Unblock-File" 2>nul
 

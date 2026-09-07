@@ -326,24 +326,11 @@ local stringConstOverrides = {
 local QUEST_CHAT_PASSWORD_EN = "The storm is stronger than spirits"
 local QUEST_CHAT_PASSWORD_ZH = "风暴比烈酒更烈"
 local ENTER_WORLD_LABEL_LONG = "Enter the Extraordinary World"
-local ENTER_WORLD_LABEL_SHORT = "Войти"
-local ENTER_WORLD_LABELS = {
-    ["Enter the Extraordinary World"] = true,
-    ["进入非凡世界"] = true,
-    ["Enter World"] = true,
-    ["Войдите в необыкновенный мир"] = true,
-    ["Войти в необыкновенный мир"] = true,
-    ["Войти в потусторонний мир"] = true,
-    ["войти в потусторонний мир"] = true,
-    ["Войти в мир"] = true,
-}
-
-local runtimeFixes = {}
+local ENTER_WORLD_LABEL_SHORT = "Enter World"
 
 local function shortenEnterWorldLabel(value)
-    if ENTER_WORLD_LABELS[value] or value == ENTER_WORLD_LABEL_LONG then
-        local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
-        return isRussian and "Войти" or "Enter World"
+    if value == ENTER_WORLD_LABEL_LONG then
+        return ENTER_WORLD_LABEL_SHORT
     end
     return value
 end
@@ -362,6 +349,10 @@ end
 -- aggregate entry for 米 (which legitimately means "Rice" in chat/filter
 -- data) is not changed globally.
 local visibleTextExactOverrides = {
+    ["命运道标"] = "Bacon of Destiny",
+    ["Beacon of Destiny"] = "Bacon of Destiny",
+    ["“正义”和“倒吊人”开始默写记忆中的文字……"] =
+        "\"Justice\" and \"The Hanged Man\" begin writing down the words from memory...",
     ["两位先生离开了，不知何时才能看到这充满风采的照片……"] =
         "The two gentlemen have left. Who knows when I'll get to see this splendid photograph...",
     ["机动"] = "Mobility",
@@ -719,15 +710,10 @@ visibleTextExactOverrides.__translateBrassBookBounty = function(value)
     local plain = value:gsub("（", "("):gsub("）", ")"):gsub("　", " "):gsub(" ", " ")
     local current, target = plain:match("^获取城市暗面玩法悬赏值%s*([%d,]+)/([%d,]+)。%s*%(黄铜书挑战开启后计数%)%s*$")
     if current == nil then return value end
-    local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
-    if isRussian then
-        return "Заработайте " .. current .. "/" .. target
-            .. " очков наград в Городе Теней. (Засчитывается после начала испытания Жёлтой Книги.)"
-    else
-        return "Earn " .. current .. "/" .. target
-            .. " bounty points in City of Shadows. (Counted after the Brass Book Challenge begins.)"
-    end
+    return "Earn " .. current .. "/" .. target
+        .. " bounty points in City of Shadows. (Counted after the Brass Book Challenge begins.)"
 end
+
 
 local visibleTextReplacements = {
     {
@@ -871,48 +857,6 @@ local shortMenuLabels = {
     QuitGame = "Exit",
 }
 
--- runtimeFixes declared above
-
-do
-    local okRussian, RussianMod = pcall(require, "mods.cpdd_runtime_fixes.RussianLocalization")
-    if okRussian and type(RussianMod) == "table" and RussianMod.Enabled then
-        runtimeFixes.RussianMod = RussianMod
-        if RussianMod.stringConstOverrides then
-            for k, v in pairs(RussianMod.stringConstOverrides) do stringConstOverrides[k] = v end
-        end
-        if RussianMod.englishToRussian then
-            for k, v in pairs(RussianMod.englishToRussian) do visibleTextExactOverrides[k] = v end
-        end
-        if RussianMod.chineseToRussian then
-            for k, v in pairs(RussianMod.chineseToRussian) do visibleTextExactOverrides[k] = v end
-        end
-        if RussianMod.visibleTextExactOverrides then
-            for k, v in pairs(RussianMod.visibleTextExactOverrides) do visibleTextExactOverrides[k] = v end
-        end
-        if RussianMod.shortMenuLabels then
-            for k, v in pairs(RussianMod.shortMenuLabels) do shortMenuLabels[k] = v end
-        end
-        if RussianMod.marionetteEnglishNames then
-            for k, v in pairs(RussianMod.marionetteEnglishNames) do marionetteEnglishNames[k] = v end
-        end
-        if RussianMod.visibleTextReplacements then
-            for _, rep in ipairs(RussianMod.visibleTextReplacements) do
-                table.insert(visibleTextReplacements, 1, rep)
-            end
-        end
-    end
-
-    local okEng, EnglishMod = pcall(require, "mods.cpdd_runtime_fixes.EnglishToRussian")
-    if okEng and type(EnglishMod) == "table" and type(EnglishMod.exact) == "table" then
-        runtimeFixes.EnglishMod = EnglishMod
-        for k, v in pairs(EnglishMod.exact) do
-            if visibleTextExactOverrides[k] == nil then
-                visibleTextExactOverrides[k] = v
-            end
-        end
-    end
-end
-
 local directTables = {}
 local MISSING_DIRECT_TABLE = {}
 local function report(message)
@@ -966,7 +910,7 @@ local runtimeMetrics = {
     UnresolvedCjkWriteFailures = 0,
     CaptureDataAssignmentsEnabled = false,
 }
--- runtimeFixes declared above
+local runtimeFixes = {}
 -- These IDs describe confirmed, distinct player attributes. Numeric IDs from
 -- downloaded localization data are normally treated as non-authoritative, but
 -- these overrides may safely win when the live value still matches one of the
@@ -1005,104 +949,6 @@ function runtimeFixes.normalizeDefenseBreakTerminology(value)
     value = value:gsub("Magic Armor Break", "Magic Defense Break")
     return value
 end
-
-runtimeFixes.stringCharLength = function(value)
-    if type(value) ~= "string" then return 0 end
-    local ok, len = pcall(function() return utf8 and utf8.len and utf8.len(value) end)
-    if ok and len ~= nil then return len end
-    local _, count = value:gsub("[^\128-\191]", "")
-    return count
-end
-
-runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
-    if widget == nil then return end
-    pcall(function()
-        if widget.SetLetterSpacing ~= nil then
-            widget:SetLetterSpacing(0)
-        end
-    end)
-    pcall(function()
-        local wName = ""
-        pcall(function() wName = tostring(widget:GetName()) end)
-        local wText = ""
-        pcall(function()
-            if widget.GetText ~= nil then
-                local t = widget:GetText()
-                wText = type(t) == "string" and t or tostring(t)
-            elseif widget.Text ~= nil then
-                local t = widget.Text
-                wText = type(t) == "string" and t or tostring(t)
-            end
-        end)
-        local hasCyrillic = wText:find("[\208\209]") ~= nil
-        local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
-        local letterSpacing = (hasCyrillic or (isRussian and wText == "")) and -220 or -30
-
-        local font = widget.Font or (widget.GetFont and widget:GetFont())
-        if font ~= nil then
-            font.LetterSpacing = letterSpacing
-            if targetSize == nil then
-                local isButtonLike = wName:find("Btn") or wName:find("Button") or wName:find("Tab")
-                    or wName:find("Title") or wName:find("Item") or wName:find("Sequence")
-                    or wName:find("Transfer") or wName:find("Dec") or wName:find("Node")
-                    or wName:find("Choice") or wName:find("Option")
-                if not isButtonLike then
-                    pcall(function()
-                        local parent = widget.GetParent and widget:GetParent()
-                        if parent ~= nil then
-                            local pName = tostring(parent:GetName())
-                            if pName:find("Btn") or pName:find("Button") or pName:find("Tab") or pName:find("Item") then
-                                isButtonLike = true
-                            end
-                        end
-                    end)
-                end
-                if isButtonLike and not wText:find("\n") then
-                    local charLen = runtimeFixes.stringCharLength(wText)
-                    if charLen >= 14 then
-                        targetSize = 12
-                    elseif charLen >= 10 then
-                        targetSize = 13
-                    elseif charLen >= 7 then
-                        targetSize = 14
-                    end
-                end
-            end
-            if targetSize ~= nil and font.Size ~= nil and font.Size > targetSize then
-                font.Size = targetSize
-            end
-            if widget.SetFont ~= nil then
-                widget:SetFont(font)
-            else
-                widget.Font = font
-            end
-        end
-
-        pcall(function()
-            if widget.DefaultTextStyleOverride ~= nil then
-                local style = widget.DefaultTextStyleOverride
-                if style.Font ~= nil then
-                    style.Font.LetterSpacing = letterSpacing
-                    if widget.SetDefaultTextStyleOverride ~= nil then
-                        widget:SetDefaultTextStyleOverride(style)
-                    else
-                        widget.DefaultTextStyleOverride = style
-                    end
-                end
-            end
-        end)
-
-        pcall(function()
-            if widget.SynchronizeProperties ~= nil then
-                widget:SynchronizeProperties()
-            end
-            if widget.InvalidateLayoutAndVolatility ~= nil then
-                widget:InvalidateLayoutAndVolatility()
-            end
-        end)
-    end)
-end
-
 Loader.Telemetry = Loader.Telemetry or {}
 Loader.Telemetry.Runtime = runtimeMetrics
 
@@ -1216,7 +1062,7 @@ local function cacheGeminiLookup(value, translated)
         geminiTextCache.LookupWriteIndex % geminiTextCache.LookupLimit + 1
 end
 
-local function rawLookupGeminiText(value)
+local function lookupGeminiText(value)
     if type(value) ~= "string" then return nil end
     local cached = geminiTextCache.Lookups[value]
     if cached ~= nil then
@@ -1261,23 +1107,6 @@ local function rawLookupGeminiText(value)
     local translated = shard[value]
     cacheGeminiLookup(value, translated)
     return translated
-end
-
-local function lookupGeminiText(value)
-    local RussianMod = runtimeFixes.RussianMod
-    if RussianMod and RussianMod.lookupRussianText then
-        local ru = RussianMod.lookupRussianText(value)
-        if ru ~= nil then
-            return ru
-        end
-    end
-    return rawLookupGeminiText(value)
-end
-
-runtimeFixes.rawLookupGeminiText = rawLookupGeminiText
-runtimeFixes.lookupGeminiText = lookupGeminiText
-if runtimeFixes.RussianMod then
-    runtimeFixes.RussianMod.lookupGeminiText = rawLookupGeminiText
 end
 
 -- TextControlSentenceData uses #CanMove...# as executable puzzle markup, not
@@ -1689,22 +1518,6 @@ local function translateVisibleText(value)
         visibleTextCache[value] = reviewedExact
         return reviewedExact
     end
-    local RussianMod = runtimeFixes.RussianMod
-    if RussianMod and RussianMod.lookupRussianText then
-        local ru = RussianMod.lookupRussianText(value)
-        if ru ~= nil then
-            visibleTextCache[value] = ru
-            return ru
-        end
-    end
-    local EnglishMod = runtimeFixes.EnglishMod
-    if EnglishMod and EnglishMod.translate then
-        local ruEng = EnglishMod.translate(value)
-        if ruEng ~= nil then
-            visibleTextCache[value] = ruEng
-            return ruEng
-        end
-    end
     local normalizedLargeNumber = runtimeFixes.normalizeLocalizedLargeNumbers(value)
     if normalizedLargeNumber ~= value
         and (not hasCjk or not hasCjk(normalizedLargeNumber))
@@ -1976,11 +1789,7 @@ local function translateTextWidget(widget, discoveryContext)
     local getText = nil
     local methodOk = pcall(function() getText = widget.GetText end)
     if not methodOk or type(getText) ~= "function" then
-        local propOk, propVal = pcall(function() return widget.Text end)
-        if not propOk or propVal == nil then
-            return 0
-        end
-        getText = function(w) return w.Text end
+        return 0
     end
     local ok, current = pcall(getText, widget)
     if not ok or current == nil then
@@ -1997,9 +1806,7 @@ local function translateTextWidget(widget, discoveryContext)
     local repairedCount = 0
     if translated ~= currentText then
         local changed = pcall(function()
-            if widget.SetText ~= nil then
-                widget:SetText(translated)
-            end
+            widget:SetText(translated)
         end)
         -- KGTextBlock can repaint its serialized Text property after a
         -- Blueprint state change. Keep the property and Slate value aligned.
@@ -2012,26 +1819,13 @@ local function translateTextWidget(widget, discoveryContext)
             end
         end)
         pcall(function()
-            if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                runtimeFixes.adjustWidgetLetterSpacing(widget)
-            end
-        end)
-        pcall(function()
             if widget.InvalidateLayoutAndVolatility ~= nil then
                 widget:InvalidateLayoutAndVolatility()
             end
         end)
         repairedCount = changed and 1 or 0
-    else
-        if currentText and (currentText:find("[\208\209]") ~= nil or currentText:find("[A-Za-z]") ~= nil) then
-            pcall(function()
-                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                    runtimeFixes.adjustWidgetLetterSpacing(widget)
-                end
-            end)
-        end
     end
-    return repairedCount
+        return repairedCount
 end
 
 -- The reference translation runtime generates a global list of text-like
@@ -2043,9 +1837,6 @@ local criticalWidgetProbeNames = {
     "Text_Use", "Text_Used", "TextUsing", "Text_State", "Text_Status",
     "Text_Apply", "Text_Equip", "RichText_Use", "Button_Text",
     "Text_Name", "Text_Title", "Text_Content", "Text_Tips", "Text_BtnName",
-    "Text_Notice", "Text_Confirm", "Text_Cancel", "Text_Desc", "Text_Message",
-    "Text_LoadingTitle", "Text_LoadingTips", "Text_Loading",
-    "Text_NPCName", "Text_NPCSubName", "Text_Speaker", "RichText_Content",
 }
 local generatedWidgetProbeNames = nil
 local generatedWidgetProbeUnavailable = false
@@ -2162,12 +1953,6 @@ runtimeFixes.VisibleWidgetNames = {
     "Text_Recommend", "Text_Extra", "Text_BeStrong", "Text_Reset",
     "Text_Equip", "Text_Tips", "Text_BtnName", "Text_Plan",
     "Text_Content", "TextUsing", "TB_Word",
-    "Text_Notice", "Text_Confirm", "Text_Cancel", "Text_Desc", "Text_Message",
-    "Text_Prompt", "Text_Detail", "Text_SubTitle", "Text_Button", "Text_Btn",
-    "Text_Sure", "Text_Ok", "Text_Close", "Text_Dialog",
-    "Text_LoadingTitle", "Text_LoadingTips", "Text_Loading",
-    "Text_NPCName", "Text_NPCSubName", "Text_Speaker", "Text_RoleName",
-    "RichText_Content", "RichText_Tips", "RichText_Desc", "RichText_Message",
 }
 
 local function translateViewTextWidgets(view, userWidget, discoveryContext, component, sharedVisited)
@@ -2531,20 +2316,6 @@ local function returnLiveRepairResult(tableName, rowKey, fieldPath, original, re
 end
 
 repairLiveString = function(tableName, rowKey, fieldPath, value)
-    local RussianMod = runtimeFixes.RussianMod
-    if RussianMod and RussianMod.lookupRussianText then
-        local ru = RussianMod.lookupRussianText(value)
-        if ru ~= nil then
-            return ru
-        end
-    end
-    local EnglishMod = runtimeFixes.EnglishMod
-    if EnglishMod and EnglishMod.translate then
-        local ruEng = EnglishMod.translate(value)
-        if ruEng ~= nil then
-            return ruEng
-        end
-    end
     local enterWorldShortened = shortenEnterWorldLabel(value)
     if enterWorldShortened ~= value then
         return enterWorldShortened
@@ -3592,32 +3363,30 @@ local function needsTallEnglishSceneText(value)
         return false
     end
     local plain = value:gsub("<.->", "")
-    local hasAlphabet = plain:find("[A-Za-z]") ~= nil or plain:find("[\208\209]") ~= nil
-    local charLen = runtimeFixes.stringCharLength(plain)
-    return hasAlphabet and (charLen > SCENE_TEXT_PRIMARY_ROW_MAX or plain:find("[\r\n]") ~= nil)
+    return plain:find("[A-Za-z]") ~= nil
+        and (#plain > SCENE_TEXT_PRIMARY_ROW_MAX or plain:find("[\r\n]") ~= nil)
 end
 
 local function isPlainAsciiSceneTitle(value)
-    if type(value) ~= "string" or value == "" then
-        return false
-    end
-    local charLen = runtimeFixes.stringCharLength(value)
-    if charLen > SCENE_TEXT_TITLE_MAX then
+    if type(value) ~= "string" or value == "" or #value > SCENE_TEXT_TITLE_MAX then
         return false
     end
     if value:find("[\r\n]") or value:find("<", 1, true) or value:find(">", 1, true) then
         return false
     end
-    if value:find("[\228-\239]") ~= nil then
-        return false
+    for index = 1, #value do
+        local byte = value:byte(index)
+        if byte < 32 or byte > 126 then
+            return false
+        end
     end
-    return value:find("[A-Za-z0-9]") ~= nil or value:find("[\208\209]") ~= nil
+    return true
 end
 
 local function reflowEnglishSceneTitle(displayText, leonSubTitle)
     if not isPlainAsciiSceneTitle(displayText)
         or (leonSubTitle ~= nil and leonSubTitle ~= "")
-        or runtimeFixes.stringCharLength(displayText) <= SCENE_TEXT_PRIMARY_ROW_MAX then
+        or #displayText <= SCENE_TEXT_PRIMARY_ROW_MAX then
         return displayText, leonSubTitle
     end
 
@@ -3634,10 +3403,8 @@ local function reflowEnglishSceneTitle(displayText, leonSubTitle)
     for index = 1, #words - 1 do
         local primary = table.concat(words, " ", 1, index)
         local continuation = table.concat(words, " ", index + 1)
-        local pLen = runtimeFixes.stringCharLength(primary)
-        local cLen = runtimeFixes.stringCharLength(continuation)
-        local overflow = math.max(0, pLen - SCENE_TEXT_PRIMARY_ROW_MAX)
-        local score = overflow * 100 + math.abs(pLen - cLen)
+        local overflow = math.max(0, #primary - SCENE_TEXT_PRIMARY_ROW_MAX)
+        local score = overflow * 100 + math.abs(#primary - #continuation)
         if bestScore == nil or score < bestScore then
             bestIndex = index
             bestScore = score
@@ -3657,15 +3424,11 @@ local function longestPlainAsciiSceneLine(value)
         return nil
     end
     local longest
-    local longestLen = 0
     for line in value:gmatch("[^\r\n]+") do
         local plain = line:gsub("<.->", "")
-        if isPlainAsciiSceneTitle(plain) then
-            local charLen = runtimeFixes.stringCharLength(plain)
-            if longest == nil or charLen > longestLen then
-                longest = plain
-                longestLen = charLen
-            end
+        if isPlainAsciiSceneTitle(plain)
+            and (longest == nil or #plain > #longest) then
+            longest = plain
         end
     end
     return longest
@@ -3775,16 +3538,15 @@ local function fitEnglishSceneTextFont(self)
         return false
     end
     local targetSize = baseSize
-    local lineLen = runtimeFixes.stringCharLength(longestLine)
-    if lineLen > SCENE_TEXT_PRIMARY_ROW_MAX then
+    if #longestLine > SCENE_TEXT_PRIMARY_ROW_MAX then
         targetSize = math.min(targetSize, SCENE_TEXT_MAX_ENGLISH_FONT_SIZE)
-        if lineLen > SCENE_TEXT_MAIN_LINE_CHAR_BUDGET then
+        if #longestLine > SCENE_TEXT_MAIN_LINE_CHAR_BUDGET then
             targetSize = math.min(
                 targetSize,
                 math.max(
                     SCENE_TEXT_MIN_FONT_SIZE,
                     math.floor(
-                        baseSize * SCENE_TEXT_MAIN_LINE_CHAR_BUDGET / lineLen + 0.5
+                        baseSize * SCENE_TEXT_MAIN_LINE_CHAR_BUDGET / #longestLine + 0.5
                     )
                 )
             )
@@ -4351,13 +4113,6 @@ Loader.AfterLoad("Gameplay.LogicSystem.SkillCustomizer.SkillBuffDescUtils", func
     end
 
     function utils:AssembleDescString(inString, values, rtbOverWrite, id, level, descType, originalType, descContext)
-        local RussianMod = runtimeFixes.RussianMod
-        if type(inString) == "string" and RussianMod and RussianMod.lookupRussianText then
-            local ruIn = RussianMod.lookupRussianText(inString)
-            if ruIn ~= nil then
-                inString = ruIn
-            end
-        end
         local original = originalAssembleDescString(
             self, inString, values, rtbOverWrite, id, level,
             descType, originalType, descContext
@@ -4404,20 +4159,6 @@ Loader.AfterLoad("Gameplay.LogicSystem.SkillCustomizer.DescFormulaHelper", funct
         )
         return translated
     end
-
-    local originalGenerateDesc = helper.GenerateDesc
-    if type(originalGenerateDesc) == "function" then
-        helper.GenerateDesc = function(...)
-            local original = originalGenerateDesc(...)
-            if type(original) ~= "string" then
-                return original
-            end
-            return repairLiveString(
-                "DescFormulaHelper", select(1, ...),
-                "GenerateDesc.return", original
-            )
-        end
-    end
     helper.__cpddGeneratedTipsRepair = VERSION
     report("installed shared generated equipment-tip translation")
     return value
@@ -4430,44 +4171,17 @@ local function installSkillDescriptionRepair(value, environment)
     end
 
     local wrapped = 0
-    local targetMethods = {
-        "GenerateSkillDesc",
+    for _, methodName in ipairs({
         "GenerateSkillDescNoRichText",
         "GenerateSkillBriefDesc",
         "GenerateSkillDecoText",
-        "GenerateSkillDetailDesc",
-        "GenerateSkillNextDesc",
-        "GetSkillDesc",
-        "GetSkillBriefDesc",
-        "GetSkillDetailDesc",
-        "GenerateNextLevelDesc",
-        "GetNextLevelDesc",
-    }
-    local seen = {}
-    for _, methodName in ipairs(targetMethods) do
-        seen[methodName] = true
+    }) do
         local original = skillSystem[methodName]
         if type(original) == "function" then
             skillSystem[methodName] = function(self, ...)
                 local results = { original(self, ...) }
                 if type(results[1]) == "string" then
                     results[1] = repairLiveString("SkillCustomSystem", select(1, ...), methodName, results[1])
-                end
-                return unpack(results)
-            end
-            wrapped = wrapped + 1
-        end
-    end
-
-    for k, v in pairs(skillSystem) do
-        if not seen[k] and type(k) == "string" and type(v) == "function" and (
-            k:find("SkillDesc") or k:find("SkillBrief") or k:find("SkillDeco") or k:find("SkillDetail") or k:find("Desc")
-        ) then
-            local original = v
-            skillSystem[k] = function(self, ...)
-                local results = { original(self, ...) }
-                if type(results[1]) == "string" then
-                    results[1] = repairLiveString("SkillCustomSystem", select(1, ...), k, results[1])
                 end
                 return unpack(results)
             end
@@ -4864,9 +4578,6 @@ local function revealDialogueRows(self)
                 if widget.SetAutoWrapText ~= nil then
                     widget:SetAutoWrapText(false)
                 end
-                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                    runtimeFixes.adjustWidgetLetterSpacing(widget)
-                end
                 changed = true
             end
         end)
@@ -4963,10 +4674,6 @@ local function bindDialogueRows(self)
         widgets[index] = getNamedWidget(talkWidget, widgetName)
         if widgets[index] == nil then
             missing[#missing + 1] = widgetName
-        else
-            if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                runtimeFixes.adjustWidgetLetterSpacing(widgets[index])
-            end
         end
     end
 
@@ -5053,23 +4760,6 @@ local function installDialogueTalkRepair(value, environment)
         revealDialogueRows(self)
         scheduleRepairBurst(self, revealDialogueRows, 0.50)
         scheduleRepairAfter(self, 0.55, reportDialogueThirdRowState)
-        pcall(function()
-            local talkWidget = self and (self.userWidget or self.widget)
-            for _, name in ipairs({
-                "RTB_TalkContent_Back_lua", "RTB_TalkContent_lua",
-                "RTB_TalkContent2_Back_lua", "RTB_TalkContent2_lua",
-                "RTB_TalkContent3_Back_lua", "RTB_TalkContent3_lua",
-                "Text_NPCName", "Text_NPCSubName", "Text_Name", "Text_Speaker", "Text_Title",
-            }) do
-                local w = getNamedWidget(talkWidget, name) or getNamedWidget(self and self.view, name)
-                if w ~= nil then
-                    translateTextWidget(w)
-                    if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                        runtimeFixes.adjustWidgetLetterSpacing(w)
-                    end
-                end
-            end
-        end)
         if self.__cpddDialogueVisibleTextRepaired ~= VERSION then
             translateViewTextWidgets(self and self.view, self and self.userWidget)
             self.__cpddDialogueVisibleTextRepaired = VERSION
@@ -5092,26 +4782,21 @@ local function setLayeredDialogueLabel(owner, text)
         owner:SetText(text)
     end)
     changed = changed or ok
-    pcall(function()
-        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-            runtimeFixes.adjustWidgetLetterSpacing(owner)
-        end
-    end)
 
     for _, fieldName in ipairs({ "Text_lua", "Text2_lua" }) do
         local fieldOk = pcall(function()
             local widget = owner[fieldName]
             if widget ~= nil then
                 widget:SetText(text)
-                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                    runtimeFixes.adjustWidgetLetterSpacing(widget)
-                end
                 changed = true
             end
         end)
         changed = changed or fieldOk
     end
 
+    -- These Blueprint components can contain additional nested labels. Run
+    -- the normal bootstrap text pass as well so no other Chinese caption is
+    -- left behind when the component refreshes.
     translateViewTextWidgets(nil, owner)
     return changed
 end
@@ -5141,11 +4826,6 @@ runtimeFixes.setNamedWidgetText = function(owner, widgetName, text)
     pcall(function()
         if widget.SynchronizeProperties ~= nil then
             widget:SynchronizeProperties()
-        end
-    end)
-    pcall(function()
-        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-            runtimeFixes.adjustWidgetLetterSpacing(widget)
         end
     end)
     pcall(function()
@@ -5384,28 +5064,7 @@ runtimeFixes.repairSequencePromotionChangeLayout = function(self)
     return runtimeFixes.fitSequencePromotionChangeText(widget)
 end
 
-runtimeFixes.repairSequencePromotionRoot = function(self)
-    local root = self and (self.view or self.userWidget or self.widget)
-    if root ~= nil then
-        pcall(function()
-            local visited = setmetatable({}, { __mode = "k" })
-            walkWidgetDescendants(root, visited, function(candidate)
-                pcall(function()
-                    if candidate ~= nil and (candidate.GetText ~= nil or candidate.Text ~= nil) then
-                        translateTextWidget(candidate)
-                        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                            runtimeFixes.adjustWidgetLetterSpacing(candidate)
-                        end
-                    end
-                end)
-            end)
-        end)
-    end
-    return true
-end
-
 runtimeFixes.repairSequencePromotionPanelButtons = function(self)
-    runtimeFixes.repairSequencePromotionRoot(self)
     local button = self and self.WBP_ConditionBtnCom
     local widget = getNamedWidget(button and button.view, "Text_Name")
         or getNamedWidget(button and (button.userWidget or button.widget), "Text_Name")
@@ -5426,8 +5085,7 @@ runtimeFixes.repairSequencePromotionPanelButtons = function(self)
     end
     local changed = pcall(function()
         local currentSize = tonumber(font.Size) or 18
-        font.Size = math.min(currentSize, 14)
-        if font.LetterSpacing ~= nil then font.LetterSpacing = -220 end
+        font.Size = math.min(currentSize, 18)
         widget.Font = font
         if widget.SetFont ~= nil then widget:SetFont(font) end
         if widget.SynchronizeProperties ~= nil then widget:SynchronizeProperties() end
@@ -5559,19 +5217,18 @@ runtimeFixes.repairSkillCommonLabels = function(self)
 
     -- These two footer labels belong to the parent panel, not to the
     -- Skill_BeStrong_Btn component.
-    runtimeFixes.setNamedWidgetText(view, "Text_WoodenPost", "Манекен")
+    runtimeFixes.setNamedWidgetText(view, "Text_WoodenPost", "Training Dummy")
     local oneClickPage = nil
     pcall(function()
         oneClickPage = view.WBP_Skill_OneClick_Page
     end)
-    runtimeFixes.setNamedWidgetText(oneClickPage, "Text_Content", "Помощник")
+    runtimeFixes.setNamedWidgetText(oneClickPage, "Text_Content", "One-Click Assist")
 
     -- BP_SetType on the embedded header can refresh all three captions after
     -- its Lua component returns. Repair the nested UserWidget from the parent
     -- as the final owner as well as through the component hook.
     runtimeFixes.repairEmbeddedSkillHeaderLabels(self)
     runtimeFixes.repairSkillHeaderLabels(self and self.WBP_Skill_BeStrong_BtnCom)
-    translateViewTextWidgets(view, self.userWidget or self.widget)
 end
 
 runtimeFixes.repairTalentLabels = function(self)
@@ -6189,23 +5846,15 @@ local function repairDialoguePanelLabels(self)
         return
     end
 
-    local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
-    local reviewText = isRussian and "История" or "Review"
-    local skipText = isRussian and "Пропустить" or "Skip"
-
-    setLayeredDialogueLabel(view.WBP_NPCReviewBtn, reviewText)
+    setLayeredDialogueLabel(view.WBP_NPCReviewBtn, "Review")
 
     local skipOwner = view.WBP_Skip
     if skipOwner ~= nil then
         local ok, nested = pcall(function()
             return skipOwner.WBP_NPCBtnText_lua
         end)
-        setLayeredDialogueLabel(ok and nested or skipOwner, skipText)
+        setLayeredDialogueLabel(ok and nested or skipOwner, "Skip")
     end
-
-    pcall(function()
-        translateViewTextWidgets(view, self and (self.userWidget or self.widget))
-    end)
 end
 
 local function repairDialogueSkipLabels(self)
@@ -6213,9 +5862,7 @@ local function repairDialogueSkipLabels(self)
     if type(view) ~= "table" then
         return
     end
-    local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
-    local skipText = isRussian and "Пропустить" or "Skip"
-    setLayeredDialogueLabel(view.WBP_NPCBtnText_lua, skipText)
+    setLayeredDialogueLabel(view.WBP_NPCBtnText_lua, "Skip")
 end
 
 local function installDialogueControlRepair(value, environment, symbolName, methodNames, repair, source)
@@ -6589,7 +6236,7 @@ end
 -- subtitle. The former PAK fix edited those two WidgetBlueprint assets. Do
 -- the equivalent on the live widgets so bootstrap-only installs retain the
 -- full choices without shipping cooked asset replacements.
-local creatorChoiceLabels = (runtimeFixes.RussianMod and runtimeFixes.RussianMod.creatorChoiceLabels) or {
+local creatorChoiceLabels = {
     [1] = { "Madness", "Sanity" },
     [2] = { "Wisdom", "Power" },
     [3] = { "Glory", "Emotion" },
@@ -6748,7 +6395,6 @@ local function installSettingsPresetLayoutRepair(value, environment)
     return true
 end
 
-do
 local taskBoardWidgetNames = {
     "Text_TargetDesc",
     "Text_Name",
@@ -6928,10 +6574,6 @@ local function repairTaskBoardLabels(self)
     end
     return repaired
 end
-runtimeFixes.repairTaskInfoLabels = repairTaskInfoLabels
-runtimeFixes.repairTaskListItemLabels = repairTaskListItemLabels
-runtimeFixes.repairTaskBoardLabels = repairTaskBoardLabels
-end
 
 local viewRepairSpecs = {
     {
@@ -6957,6 +6599,37 @@ local viewRepairSpecs = {
 }
 
 local exactWidgetRepairSpecs = {
+    -- Brass Tome writes freshly formatted descriptions directly on each refresh.
+    {
+        "Gameplay.LogicSystem.BrassTome.BrassTomeTask_Item",
+        "BrassTomeTask_Item",
+        { "OnRefresh" },
+        function(self)
+            translateTextWidget(getNamedWidget(self and self.view, "Text_Content"))
+        end,
+        true,
+    },
+    -- Server names arrive with login data, including recycled list rows.
+    {
+        "Gameplay.LogicSystem.Login.LoginServerItem",
+        "LoginServerItem",
+        { "OnRefresh" },
+        function(self)
+            local view = self and self.view
+            translateTextWidget(getNamedWidget(view, "Server_Name_Text"))
+            translateTextWidget(getNamedWidget(view, "Server_Name_Text1"))
+        end,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.Login.LoginPanel",
+        "LoginPanel",
+        { "setServerInfoUI" },
+        function(self)
+            translateTextWidget(getNamedWidget(self and self.view, "Text_ServerName"))
+        end,
+        true,
+    },
     {
         "Gameplay.LogicSystem.NPC.Dialogue.DialogueScreenTextComp",
         "DialogueScreenTextComp",
@@ -7086,14 +6759,14 @@ local exactWidgetRepairSpecs = {
         "Gameplay.LogicSystem.Task.New.Task_List_Item",
         "Task_List_Item",
         { "OnRefresh" },
-        runtimeFixes.repairTaskListItemLabels,
+        repairTaskListItemLabels,
         true,
     },
     {
         "Gameplay.LogicSystem.Task.New.Task_Info",
         "Task_Info",
         { "RefreshInfo" },
-        runtimeFixes.repairTaskInfoLabels,
+        repairTaskInfoLabels,
         true,
     },
     {
@@ -7101,13 +6774,6 @@ local exactWidgetRepairSpecs = {
         "GuildInside_Announce_Preview_Item",
         { "OnRefresh" },
         runtimeFixes.repairGuildEventPreviewLayout,
-        true,
-    },
-    {
-        "Gameplay.LogicSystem.SequencePromotion.SequencePromotion_Panel.SequencePromotion_Panel",
-        "SequencePromotion_Panel",
-        { "InitUIView", "OnRefresh", "Refresh" },
-        runtimeFixes.repairSequencePromotionRoot,
         true,
     },
     {
@@ -7752,36 +7418,6 @@ Loader.AfterLoad("Gameplay.LogicSystem.NPC.Dialogue.Dialogue_NPCBtnSkip", functi
     return value
 end, 1000000, "cpdd.runtime-fix.dialogue-skip-controls")
 
-do
-    for _, loadingModule in ipairs({
-        "Gameplay.LogicSystem.Loading.CommonLoadingSpinner_Panel",
-        "Gameplay.LogicSystem.Loading.CreateRoleLoadingPanel",
-        "Gameplay.LogicSystem.Loading.ReconnectLoading_Panel",
-    }) do
-        Loader.AfterLoad(loadingModule, function(value, environment)
-            local shortName = loadingModule:match("%.([^%.]+)$") or loadingModule
-            local class = getSymbol(value, environment, shortName) or value
-            if type(class) == "table" then
-                for _, methodName in ipairs({ "InitUIView", "OnRefresh", "OnOpen", "OnShow", "Refresh" }) do
-                    local original = class[methodName]
-                    if type(original) == "function" and not class["__cpddLoadingRepair_" .. methodName] then
-                        class["__cpddLoadingRepair_" .. methodName] = true
-                        class[methodName] = function(self, ...)
-                            local results = { original(self, ...) }
-                            pcall(function()
-                                translateViewTextWidgets(self and self.view, self and (self.userWidget or self.widget))
-                            end)
-                            return unpack(results)
-                        end
-                    end
-                end
-            end
-            return value
-        end, 1000000, "cpdd.runtime-fix.loading-" .. loadingModule)
-    end
-end
-
-do
 local function installShortMenuLabels(value, environment)
     local class = getSymbol(value, environment, "MenuBtn_Item")
     if type(class) ~= "table" or type(class.OnRefresh) ~= "function" then
@@ -7794,27 +7430,19 @@ local function installShortMenuLabels(value, environment)
     local originalRefresh = class.OnRefresh
     class.OnRefresh = function(self, params)
         local results = { originalRefresh(self, params) }
-        pcall(function()
-            local menuId = self.MenuID
-            local menuData = menuId and Game and Game.TableData and Game.TableData.GetMenuDataRow(menuId)
-            local label = menuData and shortMenuLabels[menuData.ButtonEnum]
-            if label and self.view then
-                -- KGTextBlock can repaint its serialized long translation after
-                -- OnRefresh. Persist the compact value in both the widget property
-                -- and the live Slate text so later menu refreshes cannot restore it.
-                if runtimeFixes and runtimeFixes.setNamedWidgetText then
-                    runtimeFixes.setNamedWidgetText(self.view, "Text_Name", label)
-                end
-                local textWidget = getNamedWidget(self.view, "Text_Name")
-                if textWidget and runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                    runtimeFixes.adjustWidgetLetterSpacing(textWidget, 13)
-                end
-            end
-        end)
+        local menuId = self.MenuID
+        local menuData = menuId and Game and Game.TableData and Game.TableData.GetMenuDataRow(menuId)
+        local label = menuData and shortMenuLabels[menuData.ButtonEnum]
+        if label and self.view then
+            -- KGTextBlock can repaint its serialized long translation after
+            -- OnRefresh. Persist the compact value in both the widget property
+            -- and the live Slate text so later menu refreshes cannot restore it.
+            runtimeFixes.setNamedWidgetText(self.view, "Text_Name", label)
+        end
         return unpack(results)
     end
     class.__cpddShortMenuLabels = true
-    report("installed compact Russian menu labels")
+    report("installed compact English menu labels")
     return true
 end
 
@@ -7827,12 +7455,10 @@ Loader.AfterLoad(
     1000000,
     "cpdd.runtime-fix.short-menu-labels"
 )
-end
 
 -- Item tooltips are reused for subsequent hovered items without closing their
 -- UIComponent. Rescan only this proven dynamic panel on Refresh; the pending
 -- delayed pass coalesces bursts so this does not restore the global sweep.
-do
 local dynamicPanelRescanUids = {
     ActivityMain_Panel = true,
     FashionStation_Details_Panel = true,
@@ -7861,7 +7487,7 @@ runtimeFixes.SinglePassPanelUids = {
     GuildInside_Panel = true,
     Menu_Panel = true,
     Sealed_Equip_Panel = true,
-    SequencePromotion_Panel = false,
+    SequencePromotion_Panel = true,
 }
 
 -- These high-frequency panels have dedicated data/view hooks above. A generic
@@ -7884,7 +7510,6 @@ local panelTextRepair = {
     States = setmetatable({}, { __mode = "k" }),
     Reports = {},
 }
-runtimeFixes.panelTextRepair = panelTextRepair
 
 function panelTextRepair:StateKey(component)
     if component == nil then return nil end
@@ -8134,9 +7759,7 @@ Loader.AfterLoad(
     1000000,
     "cpdd.runtime-fix.event-driven-panels"
 )
-end
 
-do
 local function statisticsEverywhereEnabled()
     local loader = rawget(_G, "LOMModLoader")
     local features = loader and loader.Features
@@ -8201,15 +7824,12 @@ local function setStatisticsEverywhere(enabled)
     return loader.Features.StatisticsEverywhere
 end
 
-runtimeFixes.setStatisticsEverywhere = setStatisticsEverywhere
-runtimeFixes.statisticsEverywhereEnabled = statisticsEverywhereEnabled
 Loader.AfterLoad(
     "Gameplay.LogicSystem.HUD.HUD_MiddleBtnContent.HUDMiddleMenuCheck",
     installStatisticsEverywhere,
     1000000,
     "cpdd.runtime-fix.statistics-everywhere"
 )
-end
 
 Loader.On("after_main", function()
     -- Hooks apply immediately to already-loaded modules and through the loader
@@ -8235,9 +7855,9 @@ return {
     IsRuntimeRowRepairEnabled = runtimeRowRepairEnabled,
     SetRuntimeUIRepair = setRuntimeUIRepair,
     IsRuntimeUIRepairEnabled = runtimeUIRepairEnabled,
-    SetStatisticsEverywhere = runtimeFixes.setStatisticsEverywhere,
-    IsStatisticsEverywhereEnabled = runtimeFixes.statisticsEverywhereEnabled,
+    SetStatisticsEverywhere = setStatisticsEverywhere,
+    IsStatisticsEverywhereEnabled = statisticsEverywhereEnabled,
     ResolveAuthoritativeAggregate = runtimeFixes.authoritativeAggregateLookup,
     PerformanceMetrics = runtimeMetrics,
-    RepairPanel = function(component) return runtimeFixes.panelTextRepair and runtimeFixes.panelTextRepair:Repair(component, "manual") or 0 end,
+    RepairPanel = function(component) return panelTextRepair:Repair(component, "manual") end,
         }
