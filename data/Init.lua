@@ -362,6 +362,74 @@ end
 -- aggregate entry for 米 (which legitimately means "Rice" in chat/filter
 -- data) is not changed globally.
 local visibleTextExactOverrides = {
+    -- Вкладки журнала квестов (TaskPanel)
+    ["Main Quest"] = "Сюжет",
+    ["Main quest"] = "Сюжет",
+    ["main quest"] = "Сюжет",
+    ["Основное задание"] = "Сюжет",
+    ["Основной квест"] = "Сюжет",
+    ["Основное"] = "Сюжет",
+    ["主线"] = "Сюжет",
+    ["主线任务"] = "Сюжет",
+
+    ["Original Work"] = "Новелла",
+    ["Original work"] = "Новелла",
+    ["original work"] = "Новелла",
+    ["Original Work Quest"] = "Новелла",
+    ["Оригинальная работа"] = "Новелла",
+    ["Оригинальный квест"] = "Новелла",
+    ["Оригинальный рабочий квест"] = "Новелла",
+    ["Оригинал"] = "Новелла",
+    ["Канон"] = "Новелла",
+    ["原著"] = "Новелла",
+    ["原著任务"] = "Новелла",
+
+    ["Side Quest"] = "Побочные",
+    ["Side quest"] = "Побочные",
+    ["side quest"] = "Побочные",
+    ["Побочное задание"] = "Побочные",
+    ["Побочный квест"] = "Побочные",
+    ["Побочные"] = "Побочные",
+    ["Побочное"] = "Побочные",
+    ["支线"] = "Побочные",
+    ["支线任务"] = "Побочные",
+
+    ["System"] = "Система",
+    ["system"] = "Система",
+    ["System Quest"] = "Система",
+    ["Системное задание"] = "Система",
+    ["Системный квест"] = "Система",
+    ["Система"] = "Система",
+    ["系统"] = "Система",
+    ["系统任务"] = "Система",
+
+    ["Era"] = "Эра",
+    ["era"] = "Эра",
+    ["Era Quest"] = "Эра",
+    ["Era Quests"] = "Эра",
+    ["Задание эры"] = "Эра",
+    ["Квест эры"] = "Эра",
+    ["Задания эпохи"] = "Эра",
+    ["Эра"] = "Эра",
+    ["时代"] = "Эра",
+    ["时代任务"] = "Эра",
+
+    ["All"] = "Все",
+    ["all"] = "Все",
+    ["All Quests"] = "Все",
+    ["All Tasks"] = "Все",
+    ["Все задания"] = "Все",
+    ["Все квесты"] = "Все",
+    ["Все"] = "Все",
+    ["全部"] = "Все",
+    ["全部任务"] = "Все",
+
+    ["Daily Quest"] = "Ежедневные",
+    ["Weekly Quest"] = "Еженедельные",
+    ["Ежедневное задание"] = "Ежедневные",
+    ["Еженедельное задание"] = "Еженедельные",
+    ["Странствие"] = "Странствия",
+    ["Странствия"] = "Странствия",
     ["两位先生离开了，不知何时才能看到这充满风采的照片……"] =
         "The two gentlemen have left. Who knows when I'll get to see this splendid photograph...",
     ["机动"] = "Mobility",
@@ -812,16 +880,16 @@ local marionetteSkillLocalization = {
 }
 
 local marionetteEnglishNames = {
-    [87303350] = "Dawn Arrival",
-    [87303360] = "Arbitration Brand",
-    [87303370] = "Mystery Pry Gaze",
-    [87303380] = "Morning Light Protection",
-    [87303390] = "Knight's Oath",
-    [87303400] = "Butterfly Spirit Possession",
-    [87303410] = "Descending Shadow",
-    [87303420] = "Death Knell Echo",
-    [87303430] = "Alpha Wolf Claw Combo",
-    [87303440] = "Drill Protection",
+    [87303350] = "Пришествие\nрассвета",
+    [87303360] = "Клеймо\nарбитража",
+    [87303370] = "Взор\nтайновидца",
+    [87303380] = "Защита\nутр. света",
+    [87303390] = "Клятва\nрыцаря",
+    [87303400] = "Одержимость\nдухом бабочки",
+    [87303410] = "Нисходящая\nтень",
+    [87303420] = "Эхо погреб.\nзвона",
+    [87303430] = "Серия когтей\nвожака",
+    [87303440] = "Защита\nбура",
 }
 
 local marionetteSkillIdByIconNumber = {
@@ -898,6 +966,20 @@ do
         end
         if RussianMod.marionetteEnglishNames then
             for k, v in pairs(RussianMod.marionetteEnglishNames) do marionetteEnglishNames[k] = v end
+        end
+        if RussianMod.twoLineSkillNames then
+            runtimeFixes.twoLineSkillNames = runtimeFixes.twoLineSkillNames or {}
+            for k, v in pairs(RussianMod.twoLineSkillNames) do
+                runtimeFixes.twoLineSkillNames[k] = v
+                visibleTextExactOverrides[k] = v
+            end
+        end
+        if RussianMod.skillTwoLineNames then
+            runtimeFixes.skillTwoLineNames = runtimeFixes.skillTwoLineNames or {}
+            for k, v in pairs(RussianMod.skillTwoLineNames) do
+                runtimeFixes.skillTwoLineNames[k] = v
+                visibleTextExactOverrides[k] = v
+            end
         end
         if RussianMod.visibleTextReplacements then
             for _, rep in ipairs(RussianMod.visibleTextReplacements) do
@@ -1018,75 +1100,93 @@ runtimeFixes.stringCharLength = function(value)
     return count
 end
 
-local function detectFontCategory(font, widget, wName)
-    local parts = {}
-    local function inspectFont(f)
-        if f == nil then return end
-        pcall(function()
-            if f.FontObject ~= nil then
-                local fo = f.FontObject
-                if type(fo.GetPathName) == "function" then
-                    table.insert(parts, tostring(fo:GetPathName()))
-                elseif type(fo.GetName) == "function" then
-                    table.insert(parts, tostring(fo:GetName()))
+runtimeFixes.detectFontCategory = function() return "text" end
+
+runtimeFixes.formatSkillNameToTwoLines = function(name, widget)
+    if type(name) ~= "string" or name == "" then
+        return name
+    end
+
+    local result = nil
+
+    -- 1. Сначала проверить точное совпадение в словаре Russian.skillTwoLineNames[name]. Если найдено — вернуть.
+    local dict = (runtimeFixes.RussianMod and runtimeFixes.RussianMod.skillTwoLineNames)
+        or runtimeFixes.skillTwoLineNames
+        or (runtimeFixes.RussianMod and runtimeFixes.RussianMod.twoLineSkillNames)
+        or runtimeFixes.twoLineSkillNames
+    if dict and dict[name] then
+        result = dict[name]
+    end
+
+    -- 2. Если в строке уже есть \n — вернуть без изменений.
+    if not result and name:find("\n", 1, true) then
+        result = name
+    end
+
+    -- 3. Если есть двоеточие (: или ：), делить по нему: Запись:\nСновидение.
+    if not result then
+        local colonPos = name:find(":", 1, true)
+        local colonLen = 1
+        if not colonPos then
+            colonPos = name:find("：", 1, true)
+            if colonPos then
+                colonLen = #"："
+            end
+        end
+        if colonPos and colonPos > 0 and colonPos < #name then
+            local part1 = name:sub(1, colonPos - 1 + colonLen)
+            local part2 = name:sub(colonPos + colonLen)
+            part2 = part2:gsub("^%s+", "")
+            if part2 ~= "" then
+                result = part1 .. "\n" .. part2
+            end
+        end
+    end
+
+    -- 4. Если длина > 8 символов и есть пробел — делить по пробелу, наиболее близкому к середине строки (math.abs(pos - len/2)).
+    if not result then
+        local chars = {}
+        for uchar in name:gmatch("[%z\1-\127\194-\244][\128-\191]*") do
+            table.insert(chars, uchar)
+        end
+        local charCount = #chars
+        if charCount > 8 then
+            local bestIdx = nil
+            local bestDist = 999999
+            local mid = charCount / 2
+            for i, ch in ipairs(chars) do
+                if ch == " " then
+                    local dist = math.abs(i - mid)
+                    if dist < bestDist then
+                        bestDist = dist
+                        bestIdx = i
+                    end
                 end
-                table.insert(parts, tostring(fo))
             end
-        end)
+            if bestIdx then
+                local p1 = table.concat(chars, "", 1, bestIdx - 1)
+                local p2 = table.concat(chars, "", bestIdx + 1)
+                result = p1 .. "\n" .. p2
+            end
+        end
+    end
+
+    if not result then
+        result = name
+    end
+
+    -- 5. Если строка слишком длинная (> 16 символов) — принудительно выставлять размер шрифта 11 pt.
+    local finalLen = runtimeFixes.stringCharLength and runtimeFixes.stringCharLength(result) or #result
+    if widget ~= nil and finalLen > 16 then
         pcall(function()
-            if f.TypefaceFontName ~= nil then
-                table.insert(parts, tostring(f.TypefaceFontName))
-            end
-        end)
-        pcall(function()
-            if f.FontMaterial ~= nil then
-                table.insert(parts, tostring(f.FontMaterial))
+            if runtimeFixes.adjustWidgetLetterSpacing then
+                runtimeFixes.adjustWidgetLetterSpacing(widget, 11)
             end
         end)
     end
 
-    inspectFont(font)
-    if widget ~= nil then
-        pcall(function()
-            if widget.DefaultTextStyleOverride and widget.DefaultTextStyleOverride.Font then
-                inspectFont(widget.DefaultTextStyleOverride.Font)
-            end
-        end)
-        pcall(function()
-            if widget.GetDefaultTextStyleOverride ~= nil then
-                local s = widget:GetDefaultTextStyleOverride()
-                if s and s.Font then inspectFont(s.Font) end
-            end
-        end)
-    end
-
-    local fontStr = string.lower(table.concat(parts, " "))
-    if fontStr:find("sourcehansans") or fontStr:find("sourcehan") then
-        return "text"
-    end
-    if fontStr:find("aleo") or fontStr:find("hyqihei") or fontStr:find("zhuzi") or fontStr:find("fzfw") then
-        return "title"
-    end
-
-    local lowerName = string.lower(wName or "")
-    if lowerName:find("title") or lowerName:find("head") or lowerName:find("banner") then
-        return "title"
-    end
-    if lowerName:find("desc") or lowerName:find("content") or lowerName:find("talk")
-        or lowerName:find("tips") or lowerName:find("detail") or lowerName:find("brief")
-        or lowerName:find("dialogue") or lowerName:find("chat") or lowerName:find("msg") then
-        return "text"
-    end
-
-    local fontSize = font and font.Size
-    if fontSize and tonumber(fontSize) and tonumber(fontSize) >= 24 then
-        return "title"
-    end
-
-    return "text"
+    return result
 end
-
-runtimeFixes.detectFontCategory = detectFontCategory
 
 runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
     if widget == nil then return end
@@ -1139,38 +1239,62 @@ runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
             font = widget.DefaultTextStyleOverride.Font
         end
 
-        local fontCategory = detectFontCategory(font, widget, wName)
         local hasCyrillic = wText:find("[\208\209]") ~= nil
+        local hasLatin = wText:find("[A-Za-z]") ~= nil
 
         -- Intelligent letter spacing:
-        -- Titles with CJK-step Cyrillic (Aleo, HYQiHei, ~1000 width) need moderate -120 to achieve ~600 step.
-        -- Body/dialogue text (SourceHanSans, ~560 width) needs 0.
-        -- Latin/English ([A-Za-z]) or empty text (wText == "") must NEVER receive -220; always 0.
+        -- Titles and UI widgets with CJK-step Cyrillic (Aleo, HYQiHei, ~1000 width) need -170 (1000 - 170 = 830).
+        -- Multi-line RichText paragraphs (SourceHanSans / descriptions, dialogue) need -50.
+        -- Latin/English or empty text at initialization receives 0.
         local letterSpacing = 0
         if hasCyrillic then
-            if fontCategory == "title" then
-                letterSpacing = -120
+            local isRichParagraph = wName:find("Desc") or wName:find("Content") or wName:find("Detail") or wName:find("Talk")
+            if isRichParagraph and (widget.DefaultTextStyleOverride ~= nil or wText:find("\n") or #wText > 60) then
+                letterSpacing = -50
             else
-                letterSpacing = 0
+                letterSpacing = -170
             end
         else
             letterSpacing = 0
         end
 
-        -- Check for narrow slots, cards, or cells (Equip, Slot, Item, List, Node, Cell, Card)
+        -- Check for narrow slots, cards, or cells (Equip, Slot, Item, List, Node, Cell, Card, Skill, Partner, Puppet)
         local isNarrowSlot = wName:find("Equip") or wName:find("Slot") or wName:find("Item")
             or wName:find("List") or wName:find("Node") or wName:find("Cell") or wName:find("Card")
-        if not isNarrowSlot then
+            or wName:find("Skill") or wName:find("Partner") or wName:find("Puppet")
+        local isTab = wName:find("Tab") ~= nil or wName:find("Category") ~= nil or wName:find("TaskType") ~= nil
+        if not isNarrowSlot or not isTab then
             pcall(function()
                 local parent = widget.GetParent and widget:GetParent()
                 if parent ~= nil then
                     local pName = tostring(parent:GetName())
-                    if pName:find("Equip") or pName:find("Slot") or pName:find("Item")
-                        or pName:find("List") or pName:find("Node") or pName:find("Cell") or pName:find("Card") then
+                    if not isNarrowSlot and (pName:find("Equip") or pName:find("Slot") or pName:find("Item")
+                        or pName:find("List") or pName:find("Node") or pName:find("Cell") or pName:find("Card")
+                        or pName:find("Skill") or pName:find("Partner") or pName:find("Puppet")) then
                         isNarrowSlot = true
+                    end
+                    if not isTab and (pName:find("Tab") or pName:find("Category") or pName:find("TaskType") or pName:find("Task")) then
+                        isTab = true
                     end
                 end
             end)
+        end
+
+        -- Dynamic two-line formatting for skills (Puppets, Sequence, Skill slots)
+        if wText ~= "" and (isNarrowSlot or wName:find("Skill") or wName:find("Partner") or wName:find("Puppet") or wName:find("Node")) then
+            local twoLine = nil
+            if runtimeFixes.formatSkillNameToTwoLines then
+                twoLine = runtimeFixes.formatSkillNameToTwoLines(wText, widget)
+            elseif runtimeFixes.twoLineSkillNames then
+                twoLine = runtimeFixes.twoLineSkillNames[wText]
+            end
+            if twoLine and twoLine ~= wText then
+                pcall(function()
+                    if widget.SetText ~= nil then widget:SetText(twoLine) end
+                    widget.Text = twoLine
+                    wText = twoLine
+                end)
+            end
         end
 
         -- Substitute compact label for narrow equipment slots if configured
@@ -1186,42 +1310,70 @@ runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
         end
 
         if targetSize == nil then
-            local isButtonLike = isNarrowSlot or wName:find("Btn") or wName:find("Button") or wName:find("Tab")
-                or wName:find("Title") or wName:find("Sequence")
-                or wName:find("Transfer") or wName:find("Dec") or wName:find("Node")
-                or wName:find("Choice") or wName:find("Option")
-            if not isButtonLike then
-                pcall(function()
-                    local parent = widget.GetParent and widget:GetParent()
-                    if parent ~= nil then
-                        local pName = tostring(parent:GetName())
-                        if pName:find("Btn") or pName:find("Button") or pName:find("Tab") or pName:find("Item") then
-                            isButtonLike = true
-                        end
-                    end
-                end)
-            end
-            if isButtonLike and not wText:find("\n") then
-                local charLen = runtimeFixes.stringCharLength(wText)
-                if isNarrowSlot then
-                    if charLen > 14 then
-                        targetSize = 11
-                    elseif charLen > 8 then
-                        targetSize = 12
-                    elseif charLen > 6 then
-                        targetSize = 13
-                    end
+            local fullCharLen = runtimeFixes.stringCharLength(wText)
+            local isSkillComp = isNarrowSlot or wName:find("Skill") or wName:find("Puppet") or wName:find("Partner") or wName:find("Talent")
+            if isSkillComp and fullCharLen > 16 then
+                targetSize = 11
+            elseif isTab then
+                if fullCharLen > 6 then
+                    targetSize = 11
                 else
-                    if charLen >= 14 then
-                        targetSize = 12
-                    elseif charLen >= 10 then
-                        targetSize = 13
-                    elseif charLen >= 7 then
-                        targetSize = 14
+                    targetSize = 12
+                end
+            else
+                local isButtonLike = isNarrowSlot or wName:find("Btn") or wName:find("Button")
+                    or wName:find("Title") or wName:find("Sequence")
+                    or wName:find("Transfer") or wName:find("Dec") or wName:find("Node")
+                    or wName:find("Choice") or wName:find("Option")
+                if not isButtonLike then
+                    pcall(function()
+                        local parent = widget.GetParent and widget:GetParent()
+                        if parent ~= nil then
+                            local pName = tostring(parent:GetName())
+                            if pName:find("Btn") or pName:find("Button") or pName:find("Item") then
+                                isButtonLike = true
+                            end
+                        end
+                    end)
+                end
+                if isButtonLike then
+                    local firstLine = wText:match("^[^\r\n]+") or wText
+                    local charLen = runtimeFixes.stringCharLength(firstLine)
+                    if isNarrowSlot then
+                        if wText:find("\n") then
+                            if charLen > 10 then
+                                targetSize = 10
+                            else
+                                targetSize = 11
+                            end
+                        else
+                            if charLen > 14 then
+                                targetSize = 11
+                            elseif charLen > 8 then
+                                targetSize = 12
+                            elseif charLen > 6 then
+                                targetSize = 13
+                            end
+                        end
+                    else
+                        if charLen >= 14 then
+                            targetSize = 12
+                        elseif charLen >= 10 then
+                            targetSize = 13
+                        elseif charLen >= 7 then
+                            targetSize = 14
+                        end
                     end
                 end
             end
         end
+
+        -- Mandatory UMG letter spacing reset before setting font properties
+        pcall(function()
+            if widget.SetLetterSpacing ~= nil then
+                widget:SetLetterSpacing(0)
+            end
+        end)
 
         if font ~= nil then
             font.LetterSpacing = letterSpacing
@@ -2155,6 +2307,40 @@ local function translateTextWidget(widget, discoveryContext)
     end)
     local translated = repairLiveString and repairLiveString("WidgetText", widgetName, widgetName, currentText)
         or translateVisibleText(currentText)
+
+    local isSkillWidget = false
+    if widgetName:find("Skill") then
+        isSkillWidget = true
+    else
+        pcall(function()
+            local parent = widget.GetParent and widget:GetParent()
+            local depth = 0
+            while parent ~= nil and depth < 6 do
+                local pName = tostring(parent:GetName())
+                if pName:find("Skill") or pName:find("Puppet") or pName:find("Partner")
+                    or pName:find("Talent") or pName:find("Sequence") or pName:find("Promotion") then
+                    isSkillWidget = true
+                    break
+                end
+                parent = parent.GetParent and parent:GetParent()
+                depth = depth + 1
+            end
+        end)
+    end
+    if not isSkillWidget and type(discoveryContext) == "string" then
+        if discoveryContext:find("Skill") or discoveryContext:find("Puppet") or discoveryContext:find("Partner")
+            or discoveryContext:find("Talent") or discoveryContext:find("Sequence") then
+            isSkillWidget = true
+        end
+    end
+
+    if isSkillWidget and runtimeFixes and runtimeFixes.formatSkillNameToTwoLines then
+        local formatted = runtimeFixes.formatSkillNameToTwoLines(translated, widget)
+        if formatted and formatted ~= "" then
+            translated = formatted
+        end
+    end
+
     local repairedCount = 0
     if translated ~= currentText then
         local changed = pcall(function()
@@ -2174,7 +2360,12 @@ local function translateTextWidget(widget, discoveryContext)
         end)
         pcall(function()
             if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                runtimeFixes.adjustWidgetLetterSpacing(widget)
+                local targetSize = nil
+                local charLen = runtimeFixes.stringCharLength and runtimeFixes.stringCharLength(translated) or #translated
+                if isSkillWidget and charLen > 16 then
+                    targetSize = 11
+                end
+                runtimeFixes.adjustWidgetLetterSpacing(widget, targetSize)
             end
         end)
         pcall(function()
@@ -2187,7 +2378,12 @@ local function translateTextWidget(widget, discoveryContext)
         if currentText and (currentText:find("[\208\209]") ~= nil or currentText:find("[A-Za-z]") ~= nil) then
             pcall(function()
                 if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                    runtimeFixes.adjustWidgetLetterSpacing(widget)
+                    local targetSize = nil
+                    local charLen = runtimeFixes.stringCharLength and runtimeFixes.stringCharLength(currentText) or #currentText
+                    if isSkillWidget and charLen > 16 then
+                        targetSize = 11
+                    end
+                    runtimeFixes.adjustWidgetLetterSpacing(widget, targetSize)
                 end
             end)
         end
@@ -3212,6 +3408,11 @@ end
 local function repairMarionetteSkillRow(row, skillId)
     local keys, isBaseRow, mappedSkillId = getMarionetteSkillLocalization(skillId, row)
     if type(row) ~= "table" or not keys then
+        if type(row) == "table" and row.Name and runtimeFixes and runtimeFixes.formatSkillNameToTwoLines then
+            pcall(function()
+                row.Name = runtimeFixes.formatSkillNameToTwoLines(row.Name)
+            end)
+        end
         return row
     end
 
@@ -3227,6 +3428,11 @@ local function repairMarionetteSkillRow(row, skillId)
         fillLocalizedField(row, "BriefDescription", keys[2], "skill3", true)
         fillLocalizedField(row, "SkillDisc", keys[3], "skill3", true)
         fillLocalizedField(row, "Tag", keys[4], nil, true)
+    end
+    if row.Name and runtimeFixes and runtimeFixes.formatSkillNameToTwoLines then
+        pcall(function()
+            row.Name = runtimeFixes.formatSkillNameToTwoLines(row.Name)
+        end)
     end
     return row
 end
@@ -3444,6 +3650,13 @@ local function wrapGeneratedRowHelper(helperName, original)
 
         if helperName == "GetSkillDataNewRow" then
             row = repairMarionetteSkillRow(row, rowKey)
+            if row ~= nil and runtimeFixes and runtimeFixes.formatSkillNameToTwoLines then
+                pcall(function()
+                    if row.Name then
+                        row.Name = runtimeFixes.formatSkillNameToTwoLines(row.Name)
+                    end
+                end)
+            end
         elseif helperName == "GetBuffDataNewRow" and rowKey == 82071030 and type(row) == "table" then
             fillLocalizedField(row, "BuffName", 211107038233344, "buffdata")
             fillLocalizedField(row, "BuffName1", 211107038233344, "buffappear")
