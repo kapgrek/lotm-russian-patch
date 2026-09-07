@@ -24,6 +24,7 @@ namespace LotmRussianPatcher
         private RichTextBox rtbLog;
 
         private const string GITHUB_REPO = "kapgrek/lotm-russian-patch";
+        private const string GITHUB_DIRECT_DOWNLOAD_URL = "https://github.com/" + GITHUB_REPO + "/releases/latest/download/lom-russian-patch-data.zip";
         private const string GITHUB_API_URL = "https://api.github.com/repos/" + GITHUB_REPO + "/releases/latest";
 
         public MainForm()
@@ -397,66 +398,131 @@ namespace LotmRussianPatcher
                     string luaFixesDir = Path.Combine(modsDir, "lua", "mods", "cpdd_runtime_fixes");
                     if (!Directory.Exists(luaFixesDir)) Directory.CreateDirectory(luaFixesDir);
 
-                    // 1. Попытка загрузить последний релиз с GitHub
+                    // 1. Попытка прямой загрузки актуального пакета с GitHub Releases
                     bool downloadedFromGitHub = false;
+                    string tempZip = Path.Combine(Path.GetTempPath(), "lom-russian-patch-data.zip");
+
                     try
                     {
-                        Log("Проверка актуальных файлов на GitHub (" + GITHUB_REPO + ")...");
+                        Log("Загрузка актуального пакета данных с GitHub...");
                         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                         using (WebClient wc = new WebClient())
                         {
                             wc.Headers.Add("User-Agent", "Lotm-Russian-Patcher");
-                            string json = wc.DownloadString(GITHUB_API_URL);
-                            // Простой парсинг browser_download_url для lom-russian-patch-data.zip
-                            int zipIdx = json.IndexOf("lom-russian-patch-data.zip");
-                            if (zipIdx > 0)
-                            {
-                                int urlStart = json.LastIndexOf("https://", zipIdx);
-                                int urlEnd = json.IndexOf("\"", urlStart);
-                                if (urlStart > 0 && urlEnd > urlStart)
-                                {
-                                    string downloadUrl = json.Substring(urlStart, urlEnd - urlStart);
-                                    Log("Скачивание актуального пакета с GitHub: " + downloadUrl);
-                                    string tempZip = Path.Combine(Path.GetTempPath(), "lom-russian-patch-data.zip");
-                                    wc.DownloadFile(downloadUrl, tempZip);
+                            if (File.Exists(tempZip)) File.Delete(tempZip);
+                            wc.DownloadFile(GITHUB_DIRECT_DOWNLOAD_URL, tempZip);
 
-                                    Log("Распаковка обновления...");
-                                    using (ZipArchive archive = ZipFile.OpenRead(tempZip))
-                                    {
-                                        foreach (ZipArchiveEntry entry in archive.Entries)
-                                        {
-                                            string fullPath = Path.Combine(gamePath, entry.FullName);
-                                            if (string.IsNullOrEmpty(entry.Name))
-                                            {
-                                                Directory.CreateDirectory(fullPath);
-                                            }
-                                            else
-                                            {
-                                                string parentDir = Path.GetDirectoryName(fullPath);
-                                                if (!Directory.Exists(parentDir)) Directory.CreateDirectory(parentDir);
-                                                EnsureWritable(fullPath);
-                                                using (Stream entryStream = entry.Open())
-                                                using (FileStream fs = new FileStream(fullPath, FileMode.Create, FileAccess.Write, FileShare.None))
-                                                {
-                                                    entryStream.CopyTo(fs);
-                                                }
-                                            }
-                                        }
-                                    }
-                                    File.Delete(tempZip);
-                                    downloadedFromGitHub = true;
-                                    Log("Файлы успешно загружены и распакованы с GitHub!");
-                                }
+                            FileInfo fi = new FileInfo(tempZip);
+                            if (fi.Exists && fi.Length > 5 * 1024 * 1024)
+                            {
+                                downloadedFromGitHub = true;
+                                Log(string.Format("Пакет успешно загружен ({0:F1} МБ).", fi.Length / (1024.0 * 1024.0)));
+                            }
+                            else
+                            {
+                                if (File.Exists(tempZip)) File.Delete(tempZip);
+                                Log("Прямая загрузка вернула некорректный размер, пробуем API...");
                             }
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception exDirect)
                     {
-                        Log("GitHub релиз недоступен или еще не создан: " + ex.Message);
-                        Log("Используем локальные файлы русификатора...");
+                        Log("Прямая загрузка недоступна (" + exDirect.Message + "), опрос GitHub API...");
                     }
 
-                    // 2. Проверка локального архива пакета данных (если запуск без интернета)
+                    // 2. Резерв: если прямой URL не сработал, опрашиваем GitHub API
+                    if (!downloadedFromGitHub)
+                    {
+                        try
+                        {
+                            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                            using (WebClient wc = new WebClient())
+                            {
+                                wc.Headers.Add("User-Agent", "Lotm-Russian-Patcher");
+                                string json = wc.DownloadString(GITHUB_API_URL);
+
+                                string assetName = "lom-russian-patch-data.zip";
+                                string targetKey = "\"browser_download_url\":";
+                                string downloadUrl = null;
+                                int bdlIdx = 0;
+                                while ((bdlIdx = json.IndexOf(targetKey, bdlIdx)) != -1)
+                                {
+                                    int urlStart = json.IndexOf("https://", bdlIdx);
+                                    int urlEnd = json.IndexOf("\"", urlStart);
+                                    if (urlStart > 0 && urlEnd > urlStart)
+                                    {
+                                        string url = json.Substring(urlStart, urlEnd - urlStart);
+                                        if (url.EndsWith("/" + assetName, StringComparison.OrdinalIgnoreCase) || url.IndexOf(assetName, StringComparison.OrdinalIgnoreCase) != -1)
+                                        {
+                                            downloadUrl = url;
+                                            break;
+                                        }
+                                    }
+                                    bdlIdx += targetKey.Length;
+                                }
+
+                                if (!string.IsNullOrEmpty(downloadUrl))
+                                {
+                                    Log("Скачивание пакета через API URL: " + downloadUrl);
+                                    if (File.Exists(tempZip)) File.Delete(tempZip);
+                                    wc.DownloadFile(downloadUrl, tempZip);
+
+                                    FileInfo fi = new FileInfo(tempZip);
+                                    if (fi.Exists && fi.Length > 5 * 1024 * 1024)
+                                    {
+                                        downloadedFromGitHub = true;
+                                        Log(string.Format("Пакет успешно загружен через API ({0:F1} МБ).", fi.Length / (1024.0 * 1024.0)));
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception exApi)
+                        {
+                            Log("Загрузка через GitHub API не удалась: " + exApi.Message);
+                        }
+                    }
+
+                    // Распаковка скачанного с GitHub архива
+                    if (downloadedFromGitHub)
+                    {
+                        try
+                        {
+                            Log("Распаковка обновления...");
+                            using (ZipArchive archive = ZipFile.OpenRead(tempZip))
+                            {
+                                foreach (ZipArchiveEntry entry in archive.Entries)
+                                {
+                                    string fullPath = Path.Combine(gamePath, entry.FullName);
+                                    if (string.IsNullOrEmpty(entry.Name))
+                                    {
+                                        Directory.CreateDirectory(fullPath);
+                                    }
+                                    else
+                                    {
+                                        string parentDir = Path.GetDirectoryName(fullPath);
+                                        if (!Directory.Exists(parentDir)) Directory.CreateDirectory(parentDir);
+                                        EnsureWritable(fullPath);
+                                        using (Stream entryStream = entry.Open())
+                                        using (FileStream fs = new FileStream(fullPath, FileMode.Create, FileAccess.Write, FileShare.None))
+                                        {
+                                            entryStream.CopyTo(fs);
+                                        }
+                                    }
+                                }
+                            }
+                            File.Delete(tempZip);
+                            Log("Файлы русификатора успешно распакованы в игру!");
+                        }
+                        catch (Exception exZip)
+                        {
+                            downloadedFromGitHub = false;
+                            Log("Ошибка распаковки архива: " + exZip.Message);
+                        }
+                    }
+
+                    bool installedLocally = false;
+
+                    // 3. Проверка локального архива пакета данных (если запуск без интернета)
                     if (!downloadedFromGitHub)
                     {
                         string localZip = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "lom-russian-patch-data.zip");
@@ -488,7 +554,7 @@ namespace LotmRussianPatcher
                                         }
                                     }
                                 }
-                                downloadedFromGitHub = true;
+                                installedLocally = true;
                                 Log("Локальный пакет данных успешно распакован!");
                             }
                             catch (Exception ex)
@@ -498,11 +564,12 @@ namespace LotmRussianPatcher
                         }
                     }
 
-                    // 3. Если архив не найден, копируем отдельные локальные файлы мода
-                    if (!downloadedFromGitHub)
+                    // 4. Если архив не найден, копируем отдельные локальные файлы мода
+                    if (!downloadedFromGitHub && !installedLocally)
                     {
                         string localSource = AppDomain.CurrentDomain.BaseDirectory;
                         string[] filesToCopy = new string[] { "RussianLocalization.lua", "RuntimeTextRussian.lua", "Init.lua", "bootstrap.lua", "manifest.lua", "translation-overrides.lua", "CPDDTranslation.lua", "EnglishToRussian.lua" };
+                        int copiedCount = 0;
                         foreach (var f in filesToCopy)
                         {
                             string src = Path.Combine(localSource, f);
@@ -520,6 +587,7 @@ namespace LotmRussianPatcher
                                 if (!Directory.Exists(destDir)) Directory.CreateDirectory(destDir);
                                 EnsureWritable(dest);
                                 File.Copy(src, dest, true);
+                                copiedCount++;
                                 Log("Скопирован локальный файл: " + f);
                             }
                         }
@@ -533,12 +601,29 @@ namespace LotmRussianPatcher
                                 string dest = Path.Combine(luaFixesDir, Path.GetFileName(shardFile));
                                 EnsureWritable(dest);
                                 File.Copy(shardFile, dest, true);
+                                copiedCount++;
                             }
                             Log("Скопированы локальные шарды базы перевода.");
                         }
+
+                        if (copiedCount > 0)
+                        {
+                            installedLocally = true;
+                        }
                     }
 
-                    // 3. Проверка хука в CPDDTranslation.lua
+                    // 5. Проверка: были ли вообще установлены файлы
+                    if (!downloadedFromGitHub && !installedLocally)
+                    {
+                        Log("ОШИБКА: Не удалось загрузить файлы с GitHub и не найдены локальные файлы русификатора!");
+                        MessageBox.Show(
+                            "Не удалось загрузить файлы русификатора с GitHub, и локальные файлы не найдены рядом с установщиком.\n\n" +
+                            "Пожалуйста, проверьте подключение к интернету или скачайте архив вручную из релизов GitHub.",
+                            "Ошибка установки", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // 6. Проверка и гарантия наличия хука в CPDDTranslation.lua
                     string binDir = Path.Combine(gamePath, "Binaries", "Win64", "lua", "Launch", "Base");
                     if (!Directory.Exists(binDir)) Directory.CreateDirectory(binDir);
                     string cpddLua = Path.Combine(binDir, "CPDDTranslation.lua");
@@ -551,13 +636,21 @@ namespace LotmRussianPatcher
                             File.Copy(localCpdd, cpddLua, true);
                             Log("Хук загрузчика скопирован из локального CPDDTranslation.lua");
                         }
+                        else
+                        {
+                            string cpddContent = "local original = require(\"Launch.Base.LaunchStringExt\")\r\n\r\nlocal File = import(\"LuaFunctionLibrary\")\r\nlocal path = File.GetFilePath(import(\"BlueprintPathsLibrary\").ProjectSavedDir()) .. \"/Mods/bootstrap.lua\"\r\nlocal source = File.LoadFile(path)\r\nLaunchLog.Info(\"[LOMModLoader] bootstrap path=\" .. path .. \" bytes=\" .. tostring(source and #source or 0))\r\nif source and source ~= \"\" then\r\n    local chunk, message = load(source, \"@\" .. path)\r\n    if chunk then xpcall(chunk, LaunchLog.Error) else LaunchLog.Error(message) end\r\nend\r\n\r\nreturn original\r\n";
+                            EnsureWritable(cpddLua);
+                            File.WriteAllText(cpddLua, cpddContent, System.Text.Encoding.UTF8);
+                            Log("Создан файл загрузчика CPDDTranslation.lua в Binaries");
+                        }
                     }
                     else
                     {
                         Log("Хук загрузчика проверен в CPDDTranslation.lua");
                     }
 
-                    // 4. Проверка и установка нативного хука в pakchunk0-Windows.pak
+                    
+// 4. Проверка и установка нативного хука в pakchunk0-Windows.pak
                     PatchPakLaunchHook(gamePath);
 
                     Log("✔ УСТАНОВКА УСПЕШНО ЗАВЕРШЕНА!");
@@ -691,6 +784,7 @@ namespace LotmRussianPatcher
         private const long PAK_HOOK_OFFSET = 427225161L;
         private const int PAK_HOOK_SIZE = 4660;
         private const string PAK_HOOK_SHA256 = "c031726986e09358bb18ff8a2b8ee5f0b4e65ce8ae8331eed2d7575c80b7efa9";
+        private const string EmbeddedPakHookBase64 = "jAYAEh6IEhwbTEqCCDZALkBHoA/yisbIq9P0mpSf5M+lLJbKW8z0JOWn2rlL7Vn3OnzklgECEkn/6f+n0/4Cuz077fb/UdWeeAnSQKZgGgLOBwCXAvv7vJgaSSOKToufRvvU0cCGUsPoJD5oFXmKpSODfwQx/LQf6wuoU054zokMSdEdmY/jn9hu8yJO9p+EZof6guU/sK3mMh4blAQ2FHyYTSdpMtlPCVTbH2WEi/hrpyAyXCosHTQ7IaabhB8uHacaNflAYwqF5m53vVh1eBj1dolY9WjMhiCAyqSV9P2rOiHDdQbaTLhVJ/jNQ2GqtcIgCzgVOrdZufVZRtw5g8qgCzaqC/fWejWmuAdzl1sxFFaHFrFyEbRH+8lpj2a74niH3vAMKS9YudjvfN2vb+/rQLUtY22WZftFYw7TwjoFiescx2kVDqv7Hu7PRy+7lef+pNQtCA220ZVISlz7UmA2DKhbX74HzOakLmgD5LoEqs+UkXVDBFSa1Nm9k3iLGx1fmha7u25oR5lGTkACi4NxsWlG6hHPZZjuHMU4sW7SbDuKpEvQAkAEEP1cqDIf9DsPfKOeikjhZd2vv8jch1X7BpBQI3KnYkf16ezNawcsXiuFaVXcC7N/lu9qpKSO6HHtZ/viVf/pCvqUGc6vMTwJUX6h4eYby07YTPVji3i/4+tnxXpbInsCz3J0JBY7ht0661llz4vLVhFiN6dB9e/g5GNHDm6vrgD51rYLCEB7j2GFxQRrDYFr5TrkdRZGEATIDgyWy9wnRJvamVc+UphaM41JYrvZCx7wzELV0aQxrWNMlMaYeh/oVqVAfML6hPoJCucqaMwARzDFU+XjTa52hYG5Nye9qtGFSRPyau5s4vG4lxHW4cOo/zzAmiQrb24OrLU4mRKoViigd2WSNgzAlETKnq9C2yqtwaV6K1iZFje+rLztaaFclPPfcpcdD6gqPUJKd8aFViPFE6agMN4JTFPTnNOdOMmcAvsptizS/bRYHreG7JhunRxzQqjZZeg4OVgKdPfw30YZIOs2x5+yBKg2rpYqHbjuJ4KVl77knfDcwV+Z57b/KFh5kcalqcDeiY3nlo4ax9Nkk8mI/Ky2Hww9vtTrEfJokO3xLTB4NetP9wgtItfo96F0715pxowgYdvU3UD4c7FkkFlUcQDwyZHMScWM2z67JpgNlb+sGFOORREzllwlswLdgAX0pVzBiHWZUxUtFR1aRJ28f4yjhEYjc5VuD+DPm3RmhLhHTK8+PQ7OmvXhfHN3+soNFKwrHu9vB+NTx6ZFtn2fM2pIzcaKcXRDQJvejadHOTAsSMoOT3e2A1IsEkvFT6QsX/MFDrqz/sRLy7cBbHINGqv0q1kGr6FFW/b0yasxcJga1sFq28O4N+qIiPitnRW5s3Scv0LD2eWNVd8VdQx+4QxFGX/jYGeGGU02fRMQYULu/+Ph1IJSUqIRiUWH0b/Ue/4oW3dC77mcfBPDQWLLIgOguouwrDjt0azMoUH17Eu4f5Sj7JXFJKFlPY/bd5f4zd2a3KANvakc41+FF433PN3MRqQvKCHFtqmLeEYUlrX9QKgyH4zGU56bWEGXUjx9j6udkM4CqIB1cIB9uBiqCUoOEvqBQaNw4VenRShudq7JCQ0RNhpNKVde5zUVdDigBJzeHaRSU5vNh9YGwAr0gt6Lk+LQPN2KB5yw2fUxDdtffxOQt5/aYiueHB5q3z3evwK4wuiHqLxQVe/Ba5ltFWFVWFS+UBCZOTAW6yUFcWWIVePDxJwiyGBcOjojj7tNkXqpHeweGZwa7FPGTgEyVTGNExVrUg1sZsPDiTjqqJlHzFu7Dk03xlN+8whhPj547NGcEYH0WOoKIW1gq2cEh6Do/6mCAQFMe0jw6/CAp0ZOxpbHh/PwuPOgzvQTaQtO25+sbWpCRM34LOVx/rd5QEDk+1SJX78FGgNHv7+7PjXEVuAvU5DiHe6I8ImaY+O++37HSb6msDpsmEchzReZ5TzR0JxHRQ8KMFIv4PMkLTku2slvMhUyuRthDtaVwVZNXuI7UO08beLIidEmfKPyldUaHoB3G2ZXZ3QLEmhFzeoXK3Q8sfeWMxherV90TmvtTfRRMLv5jR5bleQQbBrdDTKIV/o5TRBjKqDsnq4BR3AuWG8+vSaru2ttV3J9ZkFZzPPVGZeXZ2HRlxLNSgDnkdJq0Kav+Snzz9yOh8se2QZOhezuiTO758v7Vn8hseJzh+kgT9/j2TYWFpHCpHap54TuaYbVaO29Eqr9ValUTyaYApJdjETWfJO2VAUIH9LZ6RXbLtPGnhOY7E7ohh+RJspcAaYajdlJTDbSw0Yc1BNhCMWM4UaK5QDvHR9ZSRBGFmKKvPAdGG6q9wa3SXXdBXAOy1XXXyFATKogtm4GyNLNMyFqYfEX4pKUQcZEbEZMCprbE97D/DQBKVGyjPPVReu9xxeVt3nJZculbkNE/X1+OBRXjxMYIAftyfIyh0n1jeOTxnTAnu1LalDnWg+JU5eGKq1KrUaEOOY85j9Ogj4VvxA2IugXVuuvZ1y1AsWt7eCKnPm25Dz7mnXq0Ibp/g1Rg2dSndn13RCABntZlDZTt3jKUOoSagIlI42fY0Y/MpKuPQVY3Kk8YPHTRk+a887EZsCp86PnpLR5eESpd8y7QrFPjgvkdLimfyfbTYkcempQBB4VLm3yy6D4rcdJSj6Nwy+Ba/qF3qJlyu4wicH10pQ/vtm49imPV/yE/rNvBxP4bF4pFootx5doe9R7cuWgAtPlkOzXOi3mbR7ue8lmfz549uLPOQIwKVQf01qrbLIDOS1GMz5wFhUGFb6DYkdrNxW7ussM62AThRqFoXqGRVWHANOKNs0DcnjXFRqTpi9M/oCyqZUhmOkeI0gkcXaGq6ZVpwV5S8vfWWC59rBawldbBXY+GJ7oHMAUqvu/+3BSz4SmAMkO+a/i/ZcOw1SWh8Pgf2RbaaZgPg4DwSPy6eCicKAGYtu3FqK0EXu/yKl05qRNvgUqTMrU6QQgOsFxcn1byzpguUzhAv1BumUm2YnIj/ntvwisL+JmXgfuPw/4JUcFxsB88tLi3lolO4Ii3pk+qKwaiiWcgxqfh6DhIIy428+udxbdwKiLaeV4qRoD5Wy3LzSeDw4WSXnlWnZlWNGwWC7tgFUXisGVmRxESK670Y+1FRanVkOX+x5CDcHz61txjzr91IR4/7fZcZPPiTVW5NLcfkjFziY3rX6nvUxO5CTzIpsejJ46zZb75Wg4Jetvg7s1/+6+f2u2Od/0HL4mJf/Oscqk3j2FdggBL61oVCiQyBCEK0iuCiZkLjszOqeJ0AvLdhvR8IS3sDCMV1tKQah33qJ34og9+XIQUwwFIdc5JO/EPvf2pUS+SWJvqxtbmzR9zZfo20AQq614fCGyXKHJRDeGL+K79t0tVimnxLvOUXRftBBbzkIVdPqgpwKEGs6sitXhglC5VqSczH53WMX0Lh49Pz57hYcFQ17jXAU5BrcvJrhm0ZxuabcRCo9EHJmiDLhO3mBa7MR35MyvFDdIoKMx1EYKBPK5cnfAc1CmWZmV7/wOM/h8hNw68pWP97J22lIqa5IfrLVLDEjXbh5k0ID7DAGWxohuLievtE80KtfWBVtB4frLn37zm19+sOex9aQSgDXpyB10AeNma2MYjVYEnvGFo6xnxPhXHTbMa3e7PtbKGSWhcGDFrPJyU7t6WnblVk0rOiHvKEkgJIxZmLF8UD5+xoejzXuFnaP9X4ya3ekgGr0SU4394MH3DJvgzKYOxqFDz9ZZ/736XKY7lpXOqlXVijNus22iQDFf78ekVzWFzL9xNJscjJa8+BCINalxo1Uexk4ogaF2D6N7BxaZHNl4LnUsxyDavF+illUCUpGntXWds4asVe+tcH5FiS2P8hUMYOv84YCxaIySbJOwnNtJSPT/SPE8jY3fxTnmcKJO1MfL/u7grt3LsA9BVhwfU82mYg0q3thxpGS17cJ7cvueVM1p8LVDnWg7kmsOsZuUOrWF4UpAQLwh6nW6XLK8uLt1HSwzxyuA6kGh0kHg/Cj70Wbl6a8pJH7SezE5QGT9snzxYLbFnXoQ5+/Q+2v2x0fLsWc2/CDVOkL94L/h/jjOTmXj40ktyXZ9R9H6dCzQG0MydCZ0qLefxZr/bLKbzCSwt+bdeuVDB9Ftnyc6el2Daa38/Spg2tZ8KhrV9Ir9dG1Ve+lE4Iml4NIM2hTP9SRxK3Y8sktBJ24xmqGlUvSHDpjZ67Q+rXBcr/TCvkODzPx2zE/POE78NGfsgVl5Kk7OOI5fzjv7aHA870wXowwzFJaLmXRx/vnj9f287t36ST0G8JjPBGjog0+jB61TUsohwGTQIA7zpVzpVjl3rNlaQuvMncnVMQNqdpYyw303OPR49wgWhoOFktkNYVtnhb0963Tbs1HbUDq0a4rCngrDNkCg7fHpRe/bfU5tdNlO7NPqR5sDfr8OKTXraO5J7cAVHlm259PlKmgDNuvlahTcSp3vaoHAcyRcn4/ng137O7cvCZvUH3/+h9//8AeqO5WqBxuzGcorPrAyENQLNd5jJ8Wa6bry1Ql+d9v7/5fr/gOPO+7vWtQFv0ls6d2wX95c3J38rcpMt4LbbsAH+qmgHMvLo/thzQ8qiZv5ChsTGA1uQXLZ1c4EWCQXi8aP5oMoDr6Sj8eY0HTqQgoAc9SnRZI1xZFqfW0A0BUhKLUSftyqwUuGndoEUeKDGToBL1ZciTmQO4nFp2YNH8/5duYgNCmAoEqO3a/vHR4biTyndgcVmNkQnYKu5H0q5qrxDejmV6L2naI3ibjSKG7D0zHISm338c+QPg4fIt5gXzzb7+KUl3THQh9HLzAoS3bH+IORXU/+L/nIu/24JsH3a3j2rIHDk5eTpebTAnqQbT6gujdgF0pBXUjbCai7IXFgjWbrio8Zl2DLXtrkyfqIFSvS3fsLXxO+O2hhs4AP5yXs8MFrUfkejljVUP9uWbvHHli644pjGH940mFnseKvpK/4lJ2OjYnI8qpO9OTJlHrs+K3eUs439NeCo7ehyA2Nn1aGWysZzznEdfqSlb1cUrUy2RxjW516oWYkmZwdoIwvaVwURkFdyB3DGTazY+twURs5R1HCDCBaGAWtZp0dgIJjsT1G7UZPDN9bsUkSDD9rkML1Ew+f1JjdoOv8zfYdnz4fX7FDcgW1XaADM6CD4dNvipUVpyzotghVSrqPBqD7xkJmWPI6/1ptzIC09lh8hNAHic8W61wnYn7++miRr3q1u/fLPue4TIvY3S7dhyDa3TQIjix7cJvZqPkxRVypznk7oYRSp3ywoobiDvmNN9N7J30cB1Uc5JUk+pQdDpiOKmEDgwomNX7ecKIHWVlSf5wK280yuw2KFnzTrhOPUZLzQa4OlV2W2dS3qougoHAn5FB5Ycyq+WoNW+pF5iojduaKXZrXwnEb/c8AANMLA88LCwMTAwPLCzjLywMDz9NDy4c42x44PccBzzjSAwPbHjg99TgPOP8DA9PXxwMFBwPPOMvLLtYLOAcDzsc1A9MHzzsLzMvGEuP/Pcvj09fHAcfHxwFBQ/fTzxPTxPsHCwfb0wvPONFSC9PHyvAPA9ODxwMDAgPHA8cJAQUFBwcPONNCSNvT08fT08fTy8/HBQXHxwLLAwPGRcfH08fT0csDx9PMx8fHBQUFBQUFBQUFBQUFBQUFBQUFBQUFBcfHy9PHz8fW0dGD19PT29PLx5PnAABnCB8PJwAXFx4NAhsTDicoCBYvIQYhAS4wBxk/PyIxGzoIIhoqExE9KzoRKws9Oz01JhQ7Lj0TFhMhCCIWMDIiFggmOCcbAC04MggpIAgtQikgQjooCCAiPDM5CBgzPTAIOzMoCEIrOwAAjg0W1g8hH10Obq4DURkKDhoMKQgcFCKQIQIZYg0WHwcQGf8oJAACFRZpGgEECi0LBxcNAwQVIFoNACcbBxYMKQAEGD8NIgAQFgAAA20JAQUBDSEBAQUIIwIHBCMCBgICAhYLBS8ODAAMDDUKAjoDFQY1PgRKDRQBABAHpQJMHA0vIS1lOhcEGgQTDw9KAhUquuIpCyuKmFL8KFo+JTNoCl62nuEvxNalo8iEKthEXFyl3paHMqDAgmsJhAzvZ158JES7oskgdFlI5gaKt5H4RqXVYRQKbedlJhVVAAAAAAAAAAAAAAAAAAAAAA==";
 
         private static string ComputeSha256(byte[] data)
         {
@@ -715,18 +809,34 @@ namespace LotmRussianPatcher
                 }
 
                 byte[] hookPayload = null;
-                string[] candidates = new string[]
+
+                // 1. Встроенный Base64 пейлоад (гарантирует автономную работу без внешних файлов)
+                if (!string.IsNullOrEmpty(EmbeddedPakHookBase64))
                 {
-                    Path.Combine(gamePath, "LaunchInstance.native-bridge.padded.oodle"),
-                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LaunchInstance.native-bridge.padded.oodle"),
-                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "LaunchInstance.native-bridge.padded.oodle"),
-                };
-                foreach (var p in candidates)
-                {
-                    if (File.Exists(p) && new FileInfo(p).Length == PAK_HOOK_SIZE)
+                    try
                     {
-                        hookPayload = File.ReadAllBytes(p);
-                        break;
+                        byte[] b = Convert.FromBase64String(EmbeddedPakHookBase64);
+                        if (b.Length == PAK_HOOK_SIZE) hookPayload = b;
+                    }
+                    catch { }
+                }
+
+                // 2. Резервный поиск внешнего файла хука
+                if (hookPayload == null)
+                {
+                    string[] candidates = new string[]
+                    {
+                        Path.Combine(gamePath, "LaunchInstance.native-bridge.padded.oodle"),
+                        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LaunchInstance.native-bridge.padded.oodle"),
+                        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "LaunchInstance.native-bridge.padded.oodle"),
+                    };
+                    foreach (var p in candidates)
+                    {
+                        if (File.Exists(p) && new FileInfo(p).Length == PAK_HOOK_SIZE)
+                        {
+                            hookPayload = File.ReadAllBytes(p);
+                            break;
+                        }
                     }
                 }
 
@@ -749,8 +859,13 @@ namespace LotmRussianPatcher
                     byte[] currentBytes = new byte[PAK_HOOK_SIZE];
                     fs.Read(currentBytes, 0, PAK_HOOK_SIZE);
 
-                    string currentSha = ComputeSha256(currentBytes);
-                    if (currentSha.Equals(PAK_HOOK_SHA256, StringComparison.OrdinalIgnoreCase))
+                    bool alreadyActive = true;
+                    for (int i = 0; i < PAK_HOOK_SIZE; i++)
+                    {
+                        if (currentBytes[i] != hookPayload[i]) { alreadyActive = false; break; }
+                    }
+
+                    if (alreadyActive)
                     {
                         Log("Хук загрузчика в pakchunk0-Windows.pak уже активен.");
                     }
@@ -759,6 +874,7 @@ namespace LotmRussianPatcher
                         string backupBlock = Path.Combine(gamePath, "Content", "Paks", "pakchunk0-Windows.pak.orig_block");
                         if (!File.Exists(backupBlock))
                         {
+                            EnsureWritable(backupBlock);
                             File.WriteAllBytes(backupBlock, currentBytes);
                             Log("Создана резервная копия оригинального блока игры: pakchunk0-Windows.pak.orig_block");
                         }
@@ -785,7 +901,8 @@ namespace LotmRussianPatcher
             }
         }
 
-        private bool RestorePakLaunchHook(string gamePath)
+        
+private bool RestorePakLaunchHook(string gamePath)
         {
             try
             {

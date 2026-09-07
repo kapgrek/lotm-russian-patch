@@ -1,5 +1,5 @@
 param (
-    [string]$Version = "v1.33.0"
+    [string]$Version = "v1.33.1"
 )
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -51,8 +51,13 @@ if (Test-Path "$projectRoot\data\shards") {
     Copy-Item "$projectRoot\data\shards\RuntimeTextGemini_*.lua" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\" -Force
 }
 
+if (Test-Path "$projectRoot\tools\PakHook.cs") {
+    Write-Host "Compiling standalone PakHook.exe..." -ForegroundColor Cyan
+    & "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe" /nologo /optimize+ /out:"$projectRoot\installer\standalone\PakHook.exe" "$projectRoot\tools\PakHook.cs"
+}
+
 if (Test-Path "$projectRoot\installer\standalone") {
-    Write-Host "Adding standalone scripts (Install.cmd, Uninstall.cmd, Readme)..." -ForegroundColor Cyan
+    Write-Host "Adding standalone scripts (Install.cmd, Uninstall.cmd, PakHook.exe, Readme)..." -ForegroundColor Cyan
     Copy-Item "$projectRoot\installer\standalone\*" "$staging\" -Force
 }
 
