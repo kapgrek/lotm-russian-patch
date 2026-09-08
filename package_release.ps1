@@ -1,5 +1,5 @@
 param (
-    [string]$Version = "v2.0.0"
+    [string]$Version = "v2.0.1"
 )
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem

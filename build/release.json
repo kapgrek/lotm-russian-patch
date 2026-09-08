@@ -1,22 +1,22 @@
 ﻿{
     "patcher_asset":  {
-                          "sha256":  "ec0560b9fa697b4712a642dfc90c7d359df2bb7874e94c3243c0292ed65c2fec",
+                          "sha256":  "34a4957bce1ba0d2f06677e9ec312832de5900919961343d10b1110d9b5156b3",
                           "name":  "Lord-of-Mysteries-Russian-Patch.exe",
                           "size":  61952
                       },
     "payload":  {
-                    "url":  "https://github.com/kapgrek/lotm-russian-patch/releases/download/v2.0.0/lom-russian-patch-data.zip",
-                    "sha256":  "0fc51c7e7e4773e8741b2a4a506e39c0c03a6a514cbd337cacc5d35848b7745d",
+                    "url":  "https://github.com/kapgrek/lotm-russian-patch/releases/download/v2.0.1/lom-russian-patch-data.zip",
+                    "sha256":  "9982e002fa01e3432317b183739b4bd9cf2257e2b760f19d1f497787a54bf46b",
                     "name":  "lom-russian-patch-data.zip",
-                    "size":  28065231
+                    "size":  28066731
                 },
     "format_version":  2,
-    "release_tag":  "v2.0.0",
-    "release_version":  "v2.0.0",
+    "release_tag":  "v2.0.1",
+    "release_version":  "v2.0.1",
     "standalone":  {
-                       "url":  "https://github.com/kapgrek/lotm-russian-patch/releases/download/v2.0.0/lom-russian-patch-v2.0.0.zip",
-                       "sha256":  "0fc51c7e7e4773e8741b2a4a506e39c0c03a6a514cbd337cacc5d35848b7745d",
-                       "name":  "lom-russian-patch-v2.0.0.zip",
-                       "size":  28065231
+                       "url":  "https://github.com/kapgrek/lotm-russian-patch/releases/download/v2.0.1/lom-russian-patch-v2.0.1.zip",
+                       "sha256":  "9982e002fa01e3432317b183739b4bd9cf2257e2b760f19d1f497787a54bf46b",
+                       "name":  "lom-russian-patch-v2.0.1.zip",
+                       "size":  28066731
                    }
 }
