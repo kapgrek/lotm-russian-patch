@@ -441,7 +441,6 @@ namespace LotmRussianPatcher
                                 wc.Headers.Add("User-Agent", "Lotm-Russian-Patcher");
                                 string json = wc.DownloadString(GITHUB_API_URL);
 
-                                string assetName = "lom-russian-patch-data.zip";
                                 string targetKey = "\"browser_download_url\":";
                                 string downloadUrl = null;
                                 int bdlIdx = 0;
@@ -452,10 +451,13 @@ namespace LotmRussianPatcher
                                     if (urlStart > 0 && urlEnd > urlStart)
                                     {
                                         string url = json.Substring(urlStart, urlEnd - urlStart);
-                                        if (url.EndsWith("/" + assetName, StringComparison.OrdinalIgnoreCase) || url.IndexOf(assetName, StringComparison.OrdinalIgnoreCase) != -1)
+                                        if (url.EndsWith(".zip", StringComparison.OrdinalIgnoreCase) && url.IndexOf("russian-patch", StringComparison.OrdinalIgnoreCase) != -1)
                                         {
                                             downloadUrl = url;
-                                            break;
+                                            if (url.EndsWith("lom-russian-patch-data.zip", StringComparison.OrdinalIgnoreCase))
+                                            {
+                                                break;
+                                            }
                                         }
                                     }
                                     bdlIdx += targetKey.Length;
@@ -526,11 +528,29 @@ namespace LotmRussianPatcher
                     if (!downloadedFromGitHub)
                     {
                         string localZip = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "lom-russian-patch-data.zip");
+                        if (!File.Exists(localZip))
+                        {
+                            string[] candidates = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*russian-patch*.zip");
+                            if (candidates.Length > 0)
+                            {
+                                localZip = candidates[0];
+                            }
+                            else
+                            {
+                                string buildDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "build");
+                                if (Directory.Exists(buildDir))
+                                {
+                                    candidates = Directory.GetFiles(buildDir, "*russian-patch*.zip");
+                                    if (candidates.Length > 0) localZip = candidates[0];
+                                }
+                            }
+                        }
+
                         if (File.Exists(localZip))
                         {
                             try
                             {
-                                Log("Найден локальный архив пакета данных: " + localZip);
+                                Log("Найден локальный архив пакета данных: " + Path.GetFileName(localZip));
                                 Log("Распаковка локального пакета...");
                                 using (ZipArchive archive = ZipFile.OpenRead(localZip))
                                 {
@@ -567,43 +587,51 @@ namespace LotmRussianPatcher
                     // 4. Если архив не найден, копируем отдельные локальные файлы мода
                     if (!downloadedFromGitHub && !installedLocally)
                     {
-                        string localSource = AppDomain.CurrentDomain.BaseDirectory;
+                        string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                        System.Collections.Generic.List<string> sourceDirs = new System.Collections.Generic.List<string> { baseDir };
+                        string subData = Path.Combine(baseDir, "data");
+                        if (Directory.Exists(subData)) sourceDirs.Add(subData);
+
                         string[] filesToCopy = new string[] { "RussianLocalization.lua", "RuntimeTextRussian.lua", "Init.lua", "bootstrap.lua", "manifest.lua", "translation-overrides.lua", "CPDDTranslation.lua", "EnglishToRussian.lua" };
                         int copiedCount = 0;
-                        foreach (var f in filesToCopy)
-                        {
-                            string src = Path.Combine(localSource, f);
-                            if (File.Exists(src))
-                            {
-                                string dest;
-                                if (f == "bootstrap.lua" || f == "manifest.lua" || f == "translation-overrides.lua")
-                                    dest = Path.Combine(modsDir, f);
-                                else if (f == "CPDDTranslation.lua")
-                                    dest = Path.Combine(Path.Combine(gamePath, "Binaries", "Win64", "lua", "Launch", "Base"), f);
-                                else
-                                    dest = Path.Combine(luaFixesDir, f);
 
-                                string destDir = Path.GetDirectoryName(dest);
-                                if (!Directory.Exists(destDir)) Directory.CreateDirectory(destDir);
-                                EnsureWritable(dest);
-                                File.Copy(src, dest, true);
-                                copiedCount++;
-                                Log("Скопирован локальный файл: " + f);
-                            }
-                        }
-
-                        // Если рядом есть папка shards, копируем все 1024 шарда
-                        string localShards = Path.Combine(localSource, "shards");
-                        if (Directory.Exists(localShards))
+                        foreach (var localSource in sourceDirs)
                         {
-                            foreach (var shardFile in Directory.GetFiles(localShards, "RuntimeTextGemini_*.lua"))
+                            foreach (var f in filesToCopy)
                             {
-                                string dest = Path.Combine(luaFixesDir, Path.GetFileName(shardFile));
-                                EnsureWritable(dest);
-                                File.Copy(shardFile, dest, true);
-                                copiedCount++;
+                                string src = Path.Combine(localSource, f);
+                                if (File.Exists(src))
+                                {
+                                    string dest;
+                                    if (f == "bootstrap.lua" || f == "manifest.lua" || f == "translation-overrides.lua")
+                                        dest = Path.Combine(modsDir, f);
+                                    else if (f == "CPDDTranslation.lua")
+                                        dest = Path.Combine(Path.Combine(gamePath, "Binaries", "Win64", "lua", "Launch", "Base"), f);
+                                    else
+                                        dest = Path.Combine(luaFixesDir, f);
+
+                                    string destDir = Path.GetDirectoryName(dest);
+                                    if (!Directory.Exists(destDir)) Directory.CreateDirectory(destDir);
+                                    EnsureWritable(dest);
+                                    File.Copy(src, dest, true);
+                                    copiedCount++;
+                                    Log("Скопирован локальный файл: " + f);
+                                }
                             }
-                            Log("Скопированы локальные шарды базы перевода.");
+
+                            // Если рядом есть папка shards, копируем все 1024 шарда
+                            string localShards = Path.Combine(localSource, "shards");
+                            if (Directory.Exists(localShards))
+                            {
+                                foreach (var shardFile in Directory.GetFiles(localShards, "RuntimeTextGemini_*.lua"))
+                                {
+                                    string dest = Path.Combine(luaFixesDir, Path.GetFileName(shardFile));
+                                    EnsureWritable(dest);
+                                    File.Copy(shardFile, dest, true);
+                                    copiedCount++;
+                                }
+                                Log("Скопированы локальные шарды базы перевода.");
+                            }
                         }
 
                         if (copiedCount > 0)
