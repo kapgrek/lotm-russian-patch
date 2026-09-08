@@ -29,7 +29,7 @@ return {
     ["三个月前，水手说她的丈夫在有了新的生活，不回来了。"] = "Три месяца назад моряк сказал, что у ее мужа началась новая жизнь и он не вернется.",
     ["上马"] = "Гора Хорс",
     ["You're welcome, King."] = "Пожалуйста, король.",
-    ["I wonder if this \"it\" is still here today...\\n<P_Yellow> (Obtained clue and added to inventory: Diary Fragment)</>"] = "I wonder if this \"it\" is still here today...\\n<P_Yellow> (Obtained clue and added to inventory: Diary Fragment)</>",
+    ["I wonder if this \"it\" is still here today...\\\n<P_Yellow> (Obtained clue and added to inventory: Diary Fragment)</>"] = "Интересно, осталось ли это «оно» здесь и сегодня...\\\n<P_Yellow> (Получена зацепка и добавлена в сумку: Фрагмент дневника)</>",
     ["Pass through all tiles without repeating to reach the prayer altar and chant the incantation"] = "Пройдите через все плитки, не повторяя, чтобы добраться до молитвенного алтаря и произнести заклинание.",
     ["临沂"] = "Линьи",
     ["主石……是红色尖晶石。"] = "Главный камень... - красная шпинель.",
@@ -268,7 +268,6 @@ return {
     ["霸体"] = "Суперброня",
     ["The Beyonder world is strange and dangerous. Be more careful in the future..."] = "Мир Потусторонний странен и опасен. Впредь будьте осторожнее...",
     ["Approach the glowing spirit to restore health!"] = "Подойдите к светящемуся духу, чтобы восстановить здоровье!",
-    ["Black Glove leader\nFatty Kalapong"] = "Лидер «Черной перчатки»\nЖирный Калапонг",
+    ["Black Glove leader\nFatty Kalapong"] = "Лидер «Черной перчатки»\nФатти Калапонг",
     ["黑色曼陀罗汁液"] = "Сок черной мандрагоры",
-    ["杯中茶水\n此时所剩无几"] = "Чай в чашке \n уже почти закончился",
 }

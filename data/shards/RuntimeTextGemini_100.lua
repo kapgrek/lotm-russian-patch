@@ -255,5 +255,4 @@ return {
     ["黄南藏族自治州"] = "Хуаннань-Тибетский автономный округ",
     ["默认both"] = "По умолчанию оба",
     ["...I know, let me be alone, {Mr.{Ms.|}}."] = "...Я знаю, оставь меня одного, {{мистер|мисс}}.",
-    ["2 Daffodil Street\nMoretti Residence"] = "2 улица Нарциссов\nMoretti Residence",
 }

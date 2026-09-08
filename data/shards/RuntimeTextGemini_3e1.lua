@@ -270,5 +270,4 @@ return {
     ["Brass Page · Competition"] = "Медный паж · Конкурс",
     ["黑荆棘事件3_5200205_首领_筛选打手"] = "Чёрный Чертополох Event 3_5200205_Leader_Filter Thug",
     ["(Frowning) Let's go to the cemetery square first to take a look."] = "(Нахмурившись) Давайте сначала пойдём на кладбищенскую площадь, посмотрим.",
-    ["真\n贪\n心"] = "Как\nже\nжадно",
 }

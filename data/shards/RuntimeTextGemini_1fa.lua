@@ -256,7 +256,7 @@ return {
     ["Collectable Caesar the Great"] = "Коллекционный Цезарь Великий",
     ["金梧桐大道马车站脚踏车蓝"] = "Велосипед Golden Indus Avenue Carriage Station (синий)",
     ["钥匙1"] = "Ключ b",
-    ["铁十字街\n<LeonSubTitle size=\"38\">Iron Cross Street</>"] = "Улица Железного Креста\n<LeonSubTitle size=\"38\">Улица Железного Креста</>",
+    ["铁十字街\n<LeonSubTitle size=\"38\">Iron Cross Street</>"] = "улица Железного Креста\n<LeonSubTitle size=\"38\">улица Железного Креста</>",
     ["A key material for forging a Mythical-quality brooch<Highlight> (Adventure-oriented)</>.\n\nForging requires 15<Highlight></> units of gray fog dust to obtain a level 64<Highlight> Adventure-oriented</> Mythical-quality brooch.\nAs the season progresses, Gear Level Increase for Adventure-oriented Mythical brooches will be unlocked, which will consume a certain amount of <Highlight>gray fog dust</>.\n\nYou can directly obtain<Highlight> up to</> 3<Highlight></> units of gray fog dust per week through party dungeons, raid dungeons, and world adventure treasures. Unobtained amounts can be accumulated for the following week, up to a maximum of 15<Highlight></> units."] = "Ключевой материал для ковки броши Мифического качества<Highlight> (Приключенческий)</>.\n\nДля ковки требуется 15<Highlight></> единиц серой туманной пыли, чтобы получить брошь мифического качества 64<Highlight>, ориентированную на приключения.</>.\nПо ходу сезона будет разблокировано повышение уровня снаряжения для мифических брошей, ориентированных на приключения, для чего потребуется определенное количество <Highlight>серой туманной пыли</>.\n\nВы можете напрямую получать от <Highlight> до </> 3<Highlight></> единиц серой туманной пыли в неделю через групповые подземелья, рейдовые подземелья и сокровища мировых приключений. Неполученные суммы можно накопить на следующей неделе, максимум до 15<Highlight></> единиц.",
     ["Read <h>Marlow's knowledge</>"] = "Прочитайте знания <h>Марлоу</>",
     ["Reading puzzle 12/20, enter the correct option area within the time limit!"] = "Читая головоломку 12/20, введите правильную область выбора в течение отведенного времени!",
@@ -275,6 +275,4 @@ return {
     ["Black Thorn Incident Book 4-Level 2-Knockback Safe Zone Maintenance buff"] = "Книга происшествий Black Thorn, 4 уровня, 2 уровня, усиление безопасной зоны с отбрасыванием",
     ["Miss Daisy's house is on the <P_Yellow> west side of the flower field </>, please follow me."] = "Дом мисс Дейзи находится на западной стороне <P_Yellow> от цветочного поля </>, пожалуйста, следуйте за мной.",
     ["（进入占卜俱乐部）"] = "(Вход в клуб гадания)",
-    ["中央广场\n<LeonSubTitle size=\"38\">Central Square</>"] = "Центральная площадь\n<LeonSubTitle size=\"38\">Центральная площадь</>",
-    ["被害人曾\n遭受致命枪伤"] = "Пострадавший \n получил смертельное огнестрельное ранение.",
 }

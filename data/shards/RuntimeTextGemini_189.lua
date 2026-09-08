@@ -221,7 +221,7 @@ return {
     ["Memories that are profound enough sometimes remain in unexpected ways. They may save you at a specific moment or push you into the abyss."] = "Достаточно глубокие воспоминания иногда сохраняются самым неожиданным образом. Они могут спасти вас в определенный момент или столкнуть в пропасть.",
     ["路过的好心人呐，帮帮可怜的老头吧。"] = "Добрый прохожий, помогите, пожалуйста, бедному старику.",
     ["跳砸禁锢"] = "Jump Smash Заключение",
-    ["踏入那片未知的转角阴影，这位可怜的猎物走入了<P_Yellow>哪儿</>？故事在<P_Yellow>何时</>走向终局？\\n又会有<P_Yellow>谁</>的到来？"] = "Stepping into the shadow around that unknown corner, <P_Yellow>where</> did this poor prey go? <P_Yellow>When</> will the story reach its end?\\nAnd <P_Yellow>who</> will arrive?",
+    ["踏入那片未知的转角阴影，这位可怜的猎物走入了<P_Yellow>哪儿</>？故事在<P_Yellow>何时</>走向终局？\\\n又会有<P_Yellow>谁</>的到来？"] = "Шагнув в тень за тем неведомым поворотом, <P_Yellow>куда</> же направилась эта бедная добыча? <P_Yellow>Когда</> эта история подойдёт к концу?\\\nИ <P_Yellow>кто</> же появится?",
     ["还有别的事"] = "Что-нибудь еще?",
     ["Not that fast yet, wait a little longer... Why don't you look at this 'Ten Unsolved Mysteries of the Second Epoch' first? It's full of occult stories."] = "Еще не так быстро, подожди еще немного... Почему бы тебе сначала не посмотреть «Десять неразгаданных загадок Второй Эпохи»? Там полно оккультных историй.",
     ["这些食材过去只进贡给宫廷，如今您可以尽情品尝。"] = "Когда-то эти ингредиенты предназначались исключительно для королевского двора, но теперь вы можете наслаждаться ими в свое удовольствие.",

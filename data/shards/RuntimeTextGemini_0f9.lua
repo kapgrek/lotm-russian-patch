@@ -87,7 +87,7 @@ return {
     ["Night Emperor Arrow 4"] = "Император Ночи Стрела b",
     ["天赋再高，还不是为了做点娱乐的小玩意离家出走？看看她现在做的药剂！"] = "Каким бы высоким ни был талант, не сбегала ли она из дома, чтобы сделать какие-нибудь занимательные безделушки? Посмотрите, какие зелья она сейчас готовит!",
     ["夫人，应该先找酒店入住……"] = "Мадам, сначала нам нужно найти отель, чтобы заселиться...",
-    ["Oh Goddess, please forgive my\nself-righteousness..."] = "О Богиня, пожалуйста, прости мою\nсамоправедность...",
+    ["Oh Goddess, please forgive my\nself-righteousness..."] = "О Богиня, пожалуйста, прости мою \n самоуверенность...",
     ["Good, then the theme of the lecture will be 'Starting from the Details of Life: How Ice Cream Assisted in Solving the Case.' Prepare well, I have high hopes for you!"] = "Хорошо, тогда тема лекции будет «Начиная с подробностей жизни: как мороженое помогло раскрыть дело». Готовьтесь, я возлагаю на вас большие надежды!",
     ["If the next stop <LightHighlight> is the [Food Shop] </>, the quantity of <HyperLink stylename=\"Underline\" u=\"trainTradeItem=30108\"> [Premium Mist Champagne] </> currently held increases by <LightHighlight> 150% </>; otherwise, the selling price of goods is -40%."] = "Если следующей остановкой <LightHighlight> является [Продовольственный магазин] </>, количество <HyperLink stylename=\"Underline\" u=\"trainTradeItem=30108\"> [Шампанское премиум-класса] </>, имеющееся на данный момент, увеличивается на <LightHighlight> 150% </>; в противном случае отпускная цена товара составляет -40%.",
     ["Yanshi"] = "Янши",

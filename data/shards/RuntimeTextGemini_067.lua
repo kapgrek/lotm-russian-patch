@@ -260,6 +260,5 @@ return {
     ["Blackthorn Incident Log 4 - Level 4 - EXP buff"] = "Журнал происшествий в Блэкторне 4 — уровень 4 — усиление опыта",
     ["Default"] = "По умолчанию",
     ["(A mysterious existence has applied a small miracle to this check; this check is guaranteed to succeed.)"] = "(Таинственное существо сотворило с этой проверкой маленькое чудо; эта проверка гарантированно будет успешной.)",
-    ["失踪者可能携带铜镜\n路过三个入口地点 被隐藏踪迹后\n被知识皇冠瓦解消散而失踪"] = "Пропавший мог иметь при себе бронзовое зеркало.\nПройдя через три входа и скрыв свои следы,\nон был распылён и развеян Венцом Знаний.",
-    ["Windows like this, \n aren't closed tightly, \n lying under the window sill, \n can easily hear..."] = "Окна такие, \n закрыт неплотно, \n лежит под подоконником, \n легко слышно...",
+    ["俱乐部\n会长"] = "Клуб\nПрезидент",
 }

@@ -135,7 +135,7 @@ return {
     ["Achievement - Key Cultivation"] = "Достижение – Выращивание ключей",
     ["I will take out two bullets at the same time; you won't be able to tell which is real and which is fake from their appearance."] = "Я вытащу две пули одновременно; вы не сможете отличить, что из них настоящее, а что подделка, по их внешнему виду.",
     ["My sword is placed here; God blesses it to be forever sharp."] = "Мой меч покоится здесь, и Бог благословил его быть вечно острым.",
-    ["Have I turned into a mouse\nbecause of the power of knowledge?"] = "Превратился ли я в мышь\nиз-за силы знаний?",
+    ["Have I turned into a mouse\nbecause of the power of knowledge?"] = "Превратился ли я в мышь \n из-за силы знаний?",
     ["我这次回廷根，是为我的毕业论文寻找一种因蒂斯钟表的图纸。"] = "На этот раз я вернулся в Тинген, чтобы найти чертежи часов Интис для своей дипломной работы.",
     ["战略服预留合成材料2"] = "Зарезервированный синтезированный материал 2 стратегического костюма",
     ["房间名需为中文，且不超过10字符。"] = "Название комнаты должно быть на китайском языке и не превышать 10 символов.",

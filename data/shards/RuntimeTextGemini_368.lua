@@ -20,7 +20,7 @@ return {
     ["GTA - Audrey Healing - Teacup"] = "GTA - Одри Хилинг - Чашка",
     ["Obtain 1 Extraordinary Material with a <无暗者> affix"] = "Получите 1 необычный материал с аффиксом <Unshadowed>.",
     ["QA冒烟任务2.0"] = "Контроль качества Дымовой квест 2.b",
-    ["id:000000 This test is a confidential test and does not represent the final quality of the game. Please do not stream, take screenshots, or record the screen.\n\n"] = "id:000000 Этот тест является конфиденциальным и не отражает окончательное качество игры. Пожалуйста, не транслируйте, не делайте скриншоты и не записывайте экран.\n\n",
+    ["id:000000 This test is a confidential test and does not represent the final quality of the game. Please do not stream, take screenshots, or record the screen.\n\n"] = "id:000000 Этот тест является конфиденциальным и не отражает окончательное качество игры. Пожалуйста, не транслируйте, не делайте скриншоты и не записывайте экран.",
     ["Hello, {{Mr.|Ms.}}, what are you looking for?"] = "Привет, {{Mr.|Ms.}}, что ты ищешь?",
     ["“孤儿帮”？"] = "«Банда сирот»?",
     ["“收尸人”了解很多不死生物的特点和弱点，能被无智慧的亡灵误认为同类而免遭袭击，并能直接看到部分恶灵。"] = "«Собиратель трупов» понимает многие характеристики и слабости нежити, безмозглая нежить может принять его за себе подобных, чтобы избежать нападения, и может напрямую видеть некоторых злых духов.",

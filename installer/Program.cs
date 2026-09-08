@@ -653,6 +653,9 @@ namespace LotmRussianPatcher
 // 4. Проверка и установка нативного хука в pakchunk0-Windows.pak
                     PatchPakLaunchHook(gamePath);
 
+                    // 5. Установка нормализованного шрифта Aleo_TitleNew.ttf
+                    InstallPatchedFont(gamePath);
+
                     Log("✔ УСТАНОВКА УСПЕШНО ЗАВЕРШЕНА!");
                 }
                 catch (UnauthorizedAccessException uex)
@@ -730,6 +733,7 @@ namespace LotmRussianPatcher
         {
             string gamePath = txtGamePath.Text.Trim();
             RestorePakLaunchHook(gamePath);
+            RestoreOriginalFont(gamePath);
             string fixesDir = Path.Combine(gamePath, "Saved", "Mods", "lua", "mods", "cpdd_runtime_fixes");
             string bak = Path.Combine(fixesDir, "Init.lua.bak_orig");
             string init = Path.Combine(fixesDir, "Init.lua");
@@ -929,6 +933,85 @@ private bool RestorePakLaunchHook(string gamePath)
             catch (Exception ex)
             {
                 Log("Ошибка восстановления блока pakchunk0-Windows.pak: " + ex.Message);
+            }
+            return false;
+        }
+
+        private bool InstallPatchedFont(string gamePath)
+        {
+            try
+            {
+                string fontDir = Path.Combine(gamePath, "Binaries", "Win64", "allin_data", "font");
+                string targetFont = Path.Combine(fontDir, "Aleo_TitleNew.ttf");
+                string backupFont = Path.Combine(fontDir, "Aleo_TitleNew.ttf.orig_bak");
+
+                // 1. Резервное копирование оригинального шрифта
+                if (File.Exists(targetFont) && !File.Exists(backupFont))
+                {
+                    EnsureWritable(backupFont);
+                    File.Copy(targetFont, backupFont, true);
+                    Log("Создана резервная копия оригинального шрифта: Aleo_TitleNew.ttf.orig_bak");
+                }
+
+                // 2. Поиск пропатченного шрифта из пакета мода
+                string patchedFont = null;
+                string[] candidates = new string[]
+                {
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "font", "Aleo_TitleNew.ttf"),
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "font", "Aleo_TitleNew.ttf"),
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Binaries", "Win64", "allin_data", "font", "Aleo_TitleNew.ttf"),
+                    Path.Combine(gamePath, "font", "Aleo_TitleNew.ttf"),
+                    Path.Combine(gamePath, "Binaries", "Win64", "allin_data", "font", "Aleo_TitleNew.ttf")
+                };
+                foreach (var p in candidates)
+                {
+                    if (File.Exists(p) && p != targetFont)
+                    {
+                        patchedFont = p;
+                        break;
+                    }
+                }
+
+                if (patchedFont != null)
+                {
+                    if (!Directory.Exists(fontDir)) Directory.CreateDirectory(fontDir);
+                    EnsureWritable(targetFont);
+                    File.Copy(patchedFont, targetFont, true);
+                    Log("✔ Нормализованный шрифт Aleo_TitleNew.ttf успешно установлен в allin_data\\font!");
+                    return true;
+                }
+                else
+                {
+                    Log("Внимание: Пропатченный шрифт Aleo_TitleNew.ttf не найден в пакете установщика.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("Ошибка установки шрифта: " + ex.Message);
+            }
+            return false;
+        }
+
+        private bool RestoreOriginalFont(string gamePath)
+        {
+            try
+            {
+                string fontDir = Path.Combine(gamePath, "Binaries", "Win64", "allin_data", "font");
+                string targetFont = Path.Combine(fontDir, "Aleo_TitleNew.ttf");
+                string backupFont = Path.Combine(fontDir, "Aleo_TitleNew.ttf.orig_bak");
+
+                if (File.Exists(backupFont))
+                {
+                    EnsureWritable(targetFont);
+                    File.Copy(backupFont, targetFont, true);
+                    File.Delete(backupFont);
+                    Log("Оригинальный шрифт Aleo_TitleNew.ttf успешно восстановлен из бэкапа!");
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("Ошибка восстановления оригинального шрифта: " + ex.Message);
             }
             return false;
         }

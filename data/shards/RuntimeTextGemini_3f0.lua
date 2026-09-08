@@ -279,5 +279,4 @@ return {
     ["鸟儿？"] = "Птица?",
     ["鼻尖"] = "Кончик носа",
     ["Gear Launcher"] = "Механизм запуска",
-    ["莫雷蒂旧居\n<LeonSubTitle size=\"10\">Moretti former Residence</>"] = "Бывшая резиденция Моретти\n<LeonSubTitle size=\"10\">Бывшая резиденция Моретти</>",
 }

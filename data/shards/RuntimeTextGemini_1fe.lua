@@ -15,7 +15,7 @@ return {
     ["<P_Heart>（占卜师说话总是很模糊啊。）</>"] = "<P_Heart> (Прорицатели всегда такие расплывчатые.) </>",
     ["<P_Heart> (Clearing throat) </> Preparing potions doesn't rely that much on talent. Before seeking help, try doing it yourself first."] = "<P_Heart> (Откашливается) </> Приготовление зелий не слишком зависит от таланта. Прежде чем обращаться за помощью, попробуйте сначала сделать это самостоятельно.",
     ["<P_Heart>(Looks like someone from Golden Autumn Town, what happened to him?)</> Who wants to eat you?"] = "<P_Heart>(Похож на кого-то из Города Золотой Осени, что с ним случилось?)</> Кто хочет тебя съесть?",
-    ["B-grade animation: \n Klein recalls the divinations of this period, a yellow crystal appears in his mind, and he suddenly has some insights."] = "B-grade animation: \n Klein recalls the Гаданиеs of this period, a yellow crystal appears in his mind, and he suddenly has some insights.",
+    ["B-grade animation: \n Klein recalls the divinations of this period, a yellow crystal appears in his mind, and he suddenly has some insights."] = "Grade B Animation:\nKlein recalled the Гадание from this period, a yellow crystal appeared in his mind, and he suddenly had some realizations.",
     ["[Tingen (Branch 1)(9994,767)]"] = "[Тинген (Филиал 1) (9994 767)]",
     ["[Awe]"] = "[Трепет]",
     ["{\"Defaults to false. If true, the 4 restrictions above are invalid, but the whitelist takes effect\"}"] = "{\"По умолч. false. Если true, 4 ограничения выше не действуют, но активен белый список\"}",

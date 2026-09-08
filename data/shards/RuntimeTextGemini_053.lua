@@ -103,7 +103,7 @@ return {
     ["大于等于"] = "Больше или равно",
     ["Hall Bowing Guard Three"] = "Зал кланяется, стражник третий",
     ["大地震荡"] = "Землетрясение",
-    ["The missing person may be carrying a bronze mirror.\nAfter passing through three entry points and having their tracks concealed,\nthey were dissolved and vanished by the Crown of Knowledge."] = "Пропавший человек, возможно, несет бронзовое зеркало.\nПройдя через три точки входа и заметив следы, \nони были растворены и исчезли Короной Знаний.",
+    ["The missing person may be carrying a bronze mirror.\nAfter passing through three entry points and having their tracks concealed,\nthey were dissolved and vanished by the Crown of Knowledge."] = "Пропавший мог иметь при себе бронзовое зеркало.\nПройдя через три входа и скрыв свои следы,\nон был распылён и развеян Венцом Знаний.",
     ["Ladies and gentlemen! Welcome to my circus. A great show is about to unfold tonight!"] = "Дамы и господа! Добро пожаловать в мой цирк. Сегодня вечером состоится грандиозное шоу!",
     ["Female Employee 2"] = "Сотрудница b",
     ["好像有一个……小女孩？"] = "Кажется, здесь есть... маленькая девочка?",

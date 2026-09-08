@@ -70,7 +70,7 @@ return {
     ["The club is currently confirming a merger."] = "В настоящее время клуб подтверждает слияние.",
     ["俱乐部建筑"] = "Здание клуба",
     ["Nighthawks Squad Captain"] = "Капитан отряда «Ночные ястребы»",
-    ["For a door like this, \n the lock core is never changed; \n once it's picked, \n it can be opened a second time."] = "Для такой двери \n сердцевина замка никогда не меняется; \n после выбора, \n можно открыть второй раз.",
+    ["For a door like this, \n the lock core is never changed; \n once it's picked, \n it can be opened a second time."] = "Для такой двери \n сердцевина замка никогда не меняется; \n один раз выбран, \n можно открыть второй раз.",
     ["Find the billiards room first, if anyone stops you..."] = "Сначала найди бильярдную, если тебя кто-нибудь остановит...",
     ["先拆马车，再杀人！"] = "Сначала разбери карету, потом убей!",
     ["6th Place in Kizilsu Kyrgyz Autonomous Prefecture"] = "6-е место в Кызылсуйской автономной области",

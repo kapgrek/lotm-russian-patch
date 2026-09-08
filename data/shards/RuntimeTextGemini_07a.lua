@@ -43,7 +43,7 @@ return {
     ["Main Story 1-3: Mistakenly Returning to Iron Cross Street"] = "Основная история 1-3: Ошибочное возвращение на Айрон-Кросс-стрит",
     ["A country watchmaker, working on watches for a lifetime, still can't make anything decent."] = "Деревенский часовщик, работающий над часами всю жизнь, так и не может сделать ничего приличного.",
     ["Two Steps"] = "Два шага",
-    ["Abnormalities have also appeared at May Manor. \n Some workers have gone missing. \n The manor's \"Viscountess\" and \"Butler\" \n are also members of the Moon Servant."] = "Аномалии также появились в Мэй-Мэноре. \n Некоторые рабочие пропали без вести. \n «Виконтесса» и «дворецкий» поместья \n также являются членами Лунного Слуги.",
+    ["Abnormalities have also appeared at May Manor. \n Some workers have gone missing. \n The manor's \"Viscountess\" and \"Butler\" \n are also members of the Moon Servant."] = "Аномалии также появились в Мэй-Мэноре. \n Некоторые рабочие пропали. \n «Виконтесса» и «Дворецкий» поместья \n также являются членами Лунного Слуги.",
     ["Connection Topic - Leonard 1: About the Church of Evernight"] = "Тема подключения - Леонард 1: О Церкви Вечной Ночи",
     ["仁慈的母亲给了我们改变世界的能力，如果我们不用，才是最大的浪费。"] = "Милосердная Мать дала нам возможность изменить мир; если мы не используем его, это величайшая трата.",
     ["仓库内的声音"] = "Голос на складе",

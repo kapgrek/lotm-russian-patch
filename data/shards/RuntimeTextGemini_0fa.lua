@@ -242,5 +242,4 @@ return {
     ["A distilled spirit specialty of northern Loen, its violent kick can dispel any biting cold wind."] = "Это дистиллированный спиртной напиток северного Лоена. Его сильный удар способен рассеять любой пронизывающий холодный ветер.",
     ["Iris: Collection"] = "Ирис: Коллекция",
     ["Drummer! I can't hear your drumbeats! Turn up the volume!"] = "Барабанщик! Я не слышу твоего барабанного боя! Увеличьте громкость!",
-    ["枝丫秃散\n重现坚韧"] = "Ветви голые. \n возвращает устойчивость.",
 }

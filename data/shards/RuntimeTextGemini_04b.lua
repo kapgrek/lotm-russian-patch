@@ -236,5 +236,4 @@ return {
     ["鱼贩老约翰"] = "Старый торговец рыбой Джон",
     ["Black Thorn Casebook 4 - Stage 4 Mystery 1 Notes Interaction Object"] = "Книга дел Black Thorn 4 — Объект взаимодействия \"Тайна 1 этапа 1\"",
     ["鼠标悬停选择技能位置"] = "Наведите указатель мыши, чтобы выбрать местоположение навыка",
-    ["<img id=\"Tips\" width=\"46\" height=\"46\"/><Title>Title</>\n<Quality_4>Body</><Quality_5>Body</><Quality_6>Body</><Quality_7>Body</>Body Body Body Body Body Body Body Body Body <Highlight>Highlight Highlight Highlight Highlight Highlight Highlight Highlight</>"] = "<img id=\"Tips\" width=\"46\" height=\"46\"/><Title>Название</>\n<Quality_4>Body</><Quality_5>Body</><Quality_6>Body</><Quality_7>Body</>Body Body Body Body Body Body Body <Highlight>Выделить Выделить Выделить Выделить Выделить Выделить Выделить </>",
 }

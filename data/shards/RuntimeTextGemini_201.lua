@@ -240,7 +240,4 @@ return {
     ["Bird flying in"] = "Птица прилетает",
     ["Black Thorn Event Book 4-Second Level-Filter Player Trigger in Spell Field Range"] = "Книга событий Black Thorn 4-секундный триггер игрока с фильтром по уровню в диапазоне поля заклинаний",
     ["Dragon Nest"] = "Драконье гнездо",
-    ["I took her hand and walked away,\nand she did not refuse."] = "Я взял ее за руку и пошел прочь,\n, и она не отказалась.",
-    ["嘻哈哈\n哈哈哈哈哈...\n哈哈哈哈哈哈哈...\n哈哈哈哈哈哈哈哈...！"] = "Ха-ха-ха \n Ха-ха-ха-ха... \n Ха-ха-ха-ха-ха... \n Ха-ха-ха-ха-ха-ха...!",
-    ["积分 9909\n击杀 123"] = "Очки 9909\nУбивает 123",
 }

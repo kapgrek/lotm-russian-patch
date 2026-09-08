@@ -250,5 +250,4 @@ return {
     ["Empty fish basket gatherable"] = "Пустая корзина для рыбы, которую можно собрать",
     ["Gold weeps in the flames, and the light pierces the heart of the eternal night."] = "Золото плачет в пламени, и свет пронзает сердце вечной ночи.",
     ["Reciting silently..."] = "Произносим молча...",
-    ["In the nightclub, Bonnie puts a necklace on the girl. \n She smiles gently and says the necklace is called \"Freedom\". \n The girl is completely unaware that the other end of \"Freedom\" \n has always been held in Bonnie's hand."] = "В ночном клубе Бонни надевает на девушку ожерелье. \n Она нежно улыбается и говорит, что ожерелье называется «Свобода». \n Девушка совершенно не подозревает, что другой конец «Свободы» \n всегда находился в руке Бонни.",
 }

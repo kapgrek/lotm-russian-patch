@@ -274,5 +274,4 @@ return {
     ["马西莫冲出餐厅，外面传来呕吐声。"] = "Массимо выбегает из ресторана, и снаружи доносится звук рвоты.",
     ["Black Market Merchant Spirit Body"] = "Духовное тело торговца черного рынка",
     ["Blackthorn reception"] = "Чёрный Чертополох прием",
-    ["香槟街\n<LeonSubTitle size=\"38\">Champagne Street</>"] = "Улица Шампанского\n<LeonSubTitle size=\"38\">Улица Шампанского</>",
 }

@@ -1,12 +1,41 @@
-build/
-mod_base/
-*.zip
-*.exe
-*.log
-*.tmp
-.vs/
-bin/
-obj/
-temp_en_2.6.0/
-source_en_2.6/
+# ==============================================================================
+# Lord of the Mysteries — Russian Localization Project
+# Architecture 2.0 (.gitignore)
+# ==============================================================================
 
+# Temporary files and system caches
+*.tmp
+*.bak
+*.bak_*
+*.orig_bak
+*.log
+*.cache
+*.suo
+*.user
+Thumbs.db
+[Dd]esktop.ini
+.DS_Store
+
+# IDE and Editor directories
+.vs/
+.idea/
+.vscode/
+
+# Build artifacts & distribution archives
+build/*.zip
+build/staging/
+tools/batch_pending.tsv
+
+# Compiled tool binaries (source code in tools/*.cs is tracked)
+tools/*.exe
+tools/*.pdb
+tools/*.obj
+
+# Installer intermediate outputs
+installer/*.exe
+installer/*.pdb
+
+# Whitelist release executables and standalone hooks
+!build/Lord-of-Mysteries-Russian-Patch.exe
+!/Lord-of-Mysteries-Russian-Patch.exe
+!installer/standalone/PakHook.exe

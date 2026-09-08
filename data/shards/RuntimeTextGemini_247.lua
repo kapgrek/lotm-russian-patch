@@ -243,4 +243,5 @@ return {
     ["Beyonders need to <Highlight>find these 4 Dancers and defeat them</>, then perform <Highlight>a dance</> at the original positions of the 4 Dancers to relay the dance."] = "Потусторонние необходимо <Highlight> найти этих 4 танцоров и победить их </>, а затем исполнить танец <Highlight>a</> на исходных позициях 4 танцоров, чтобы передать танец.",
     ["餐厅老板"] = "Владелец ресторана",
     ["Brass book special Teleport Trap buff"] = "Специальный бафф «Телепорт-ловушка» из латунной книги",
+    ["对了,你在护送过程中有没有发现什么异常?比如她提\n到过'玫瑰天堂'或者一个叫'邦尼'的名字?"] = "Кстати, ничего необычного во время сопровождения вы не заметили? Например, упомянула ли она «Розовый рай» или имя «Бонни»?",
 }

@@ -275,5 +275,4 @@ return {
     ["(CS in production, placeholder text) \n Endless gray fog surged, swallowing you. \n The silhouettes of thousands of historical gaps flashed before your eyes until one of them stopped in front of you..."] = "(CS в разработке, текст-заполнитель) \n Бесконечный серый туман поднялся, поглотив вас. \n Силуэты тысяч исторических пробелов мелькали перед вашими глазами, пока один из них не остановился перед вами...",
     ["(Temporary-Voiceover) Very good, we can proceed with further treatment"] = "(Временно, закадровый голос) Очень хорошо, можно продолжить лечение.",
     ["(Congratulations, Professor Miller, it seems you have found a better way.)"] = "(Поздравляю, профессор Миллер, кажется, вы нашли лучший способ.)",
-    ["崔佛\n酒桶上放了什么！"] = "Trevor\nЧто ты на ствол надел!",
 }

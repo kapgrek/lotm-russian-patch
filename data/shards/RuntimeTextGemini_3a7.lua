@@ -132,7 +132,7 @@ return {
     ["Skill Enhancement increased <Yellow>*d</>, Skill Block increased <Yellow>*d</>."] = "Улучшение навыков увеличено <Yellow>*d</>, Блокирование навыков увеличено <Yellow>*d</>.",
     ["Lamud Castle Order World completion reaches 50%%"] = "Завершенность мира Замка Ламуд достигла 50%%",
     ["Continuously heals allies within range, restoring *d Health to allies every 1.5 seconds, up to 7 times. You can move and cast other skills while this skill is active."] = "Непрерывно исцеляет союзников в области действия, восстанавливая соратникам *d ед. здоровья каждые 1,5 сек. (до 7 раз). Во время действия навыка можно передвигаться и применять другие способности.",
-    ["接\n下\n来"] = "Следующий\n",
+    ["接\n下\n来"] = "Далее\n",
     ["接取任务trigger"] = "Принять триггер квеста",
     ["控制抵抗监测"] = "Контроль сопротивления управления",
     ["提示设置"] = "Настройки подсказок",

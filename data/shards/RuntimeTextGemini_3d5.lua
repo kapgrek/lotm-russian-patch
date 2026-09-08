@@ -5,7 +5,7 @@ return {
     ["Madness"] = "Безумие",
     ["1407 Bottom Lane First Tower"] = "1407 Первая башня нижнего переулка",
     ["1408中路兵线"] = "1408 Волна миньонов на Средней полосе",
-    ["2倍"] = "2x",
+    ["2倍"] = "2х",
     ["2 Days"] = "2 дня",
     ["Kill all self-destructing monsters within 30 seconds, otherwise you will take self-destruct damage. Receive a reward after completion."] = "Убейте всех самоуничтожающихся монстров в течение 30 секунд, иначе вы получите урон от самоуничтожения. Получите награду после завершения.",
     ["3A引导镜头"] = "3А Камера наведения",

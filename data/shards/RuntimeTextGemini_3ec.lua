@@ -277,6 +277,4 @@ return {
     ["黑紫青年女"] = "Молодая женщина в черном и фиолетовом",
     ["Gear"] = "Механизм",
     ["(Eyes glancing to the front right from time to time, seemingly not in the mood to read)"] = "(Глаза время от времени поглядывают вперед вправо, видимо, нет настроения читать)",
-    ["Your \n per\nfor\nman\nce \nnext\n"] = "Твоё\nследующее\nвыступление",
-    ["West Avenue\n<LeonSubTitle size=\"38\">West Avenue</>"] = "Западный проспект\n<LeonSubTitle size=\"38\">Западный проспект</>",
 }

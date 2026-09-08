@@ -262,5 +262,4 @@ return {
     ["黑荆棘会计"] = "Бухгалтер Чёрный Чертополох",
     ["!!<P_Heart>(This magic pickaxe is truly sharp... Let's \"do it\".)</>"] = "!!<P_Heart>(Эта волшебная кирка действительно острая... Давайте «сделаем это».)</>",
     ["（这就是阿兹克先生！）"] = "(Это господин Азик!)",
-    ["Olsna Street\n<LeonSubTitle size=\"38\">Osna Street</>"] = "Улица Ольсна\n<LeonSubTitle size=\"38\">Улица Осна</>",
 }

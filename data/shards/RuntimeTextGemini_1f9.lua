@@ -275,6 +275,4 @@ return {
     ["Witch and Beast - Hospital and Scissors"] = "Ведьма и чудовище - Больница и ножницы",
     ["Myles"] = "Майлз",
     ["(How should I get Carmen down from the wall?)"] = "(Как мне спустить Кармен со стены?)",
-    ["学院大道\n<LeonSubTitle size=\"38\">Academy Avenue</>"] = "Колледж-авеню\n<LeonSubTitle size=\"38\">Академия-авеню</>",
-    ["莉莉和邦尼\n进行过一次会谈"] = "Лили и Бонни\n встретились",
 }

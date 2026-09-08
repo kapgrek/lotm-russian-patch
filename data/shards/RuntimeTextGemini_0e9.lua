@@ -220,7 +220,7 @@ return {
     ["Flower Demon Walker"] = "Цветочный демон-ходок",
     ["If you and a teammate with the Ensemble effect deal damage to the same target, deal additional damage."] = "Если вы и соратник под эффектом Ансамбля наносите урон одной и той же цели, наносится дополнительный урон.",
     ["莫莉娜"] = "Молина",
-    ["Although after marrying Melanie,\nI truly loved her very much..."] = "Хотя после женитьбы на Мелани \nI искренне ее очень любил...",
+    ["Although after marrying Melanie,\nI truly loved her very much..."] = "Хотя после женитьбы на Мелани \nI действительно очень ее любил...",
     ["装着莫雷蒂家最近的生活费，总额并不算多，省着点用吧。"] = "Содержит недавние расходы на проживание семьи Моретти, общая сумма невелика, используйте ее экономно.",
     ["解锁后<Highlight>30级</>可得"] = "Можно получить на уровне <Highlight>30</> после разблокировки.",
     ["Record the damage taken during the duration, and restore a certain percentage of Health based on the recorded damage when the effect ends."] = "Запишите урон, полученный за время действия, и восстановите определенный процент здоровья на основе записанного урона, когда эффект закончится.",

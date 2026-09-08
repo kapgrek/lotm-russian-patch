@@ -159,7 +159,7 @@ return {
     ["暗寂无垠"] = "Безграничная темная тишина",
     ["最多支持选中%s个目标进行分享，请重新选择"] = "Вы можете выбрать максимум целей %s для совместного использования; пожалуйста, выберите еще раз.",
     ["The Beyonder rating in this system is the sum of the Beyonder ratings provided by Sealed Artifact modifications and domain upgrades. The Beyonder rating increase from Sealed Artifact modifications mainly comes from the quality and level of the Beyonder aura. The domain level is calculated based on the accumulated total resonance of equipped Sealed Artifacts, and each level increase provides a one-time Beyonder rating growth."] = "Рейтинг Потусторонний в этой системе представляет собой сумму рейтингов Потусторонний, полученных за счет модификаций запечатанного артефакта и обновлений домена. Увеличение рейтинга Потустороннего от модификаций Запечатанного Артефакта в основном зависит от качества и уровня ауры Потустороннего. Уровень домена рассчитывается на основе накопленного общего резонанса экипированных Запечатанных Артефактов, и каждое повышение уровня обеспечивает единоразовый рост рейтинга Потустороннего.",
-    ["The tea in the cup\nis almost gone now"] = "Чай в чашке\n уже почти закончился",
+    ["The tea in the cup\nis almost gone now"] = "Чай в чашке \n уже почти закончился",
     ["Verification speed %.2f %s/s"] = "Скорость проверки %.2f %s/с",
     ["Melissa "] = "Мелисса",
     ["Melissa, can you tell me about your brother Benson?"] = "Мелисса, можешь рассказать мне о своем брате Бенсоне?",
@@ -255,5 +255,4 @@ return {
     ["麦田食坊达到6级解锁"] = "Разблокируется, когда ресторан Wheatfield Eatery достигает 6-го уровня.",
     ["龟壳-定位怪"] = "Панцирь черепахи — позиционирование монстра",
     ["Ke, Kerqin, let it go. <P_Heart>(Whispering)</P_Heart> If you keep making a scene, I doubt we'll even have this much left by tomorrow..."] = "Ке, Керкин, оставь это. <P_Heart>(шепотом)</P_Heart> Если ты продолжишь устраивать сцену, сомневаюсь, что к завтрашнему дню у нас останется хотя бы столько...",
-    ["Bard Acting\n⬇️"] = "Действующий бард\n⬇️",
 }

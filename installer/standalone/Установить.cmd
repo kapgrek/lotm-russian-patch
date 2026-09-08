@@ -115,6 +115,21 @@ if exist "%SCRIPT_DIR%Binaries" (
     xcopy /E /Y /I /Q "%SCRIPT_DIR%Binaries" "%GAME_DIR%\Binaries" >nul
 )
 
+:: 5.1 Резервное копирование и установка нормализованного шрифта Aleo_TitleNew.ttf
+set "FONT_DIR=%GAME_DIR%\Binaries\Win64\allin_data\font"
+if exist "%FONT_DIR%\Aleo_TitleNew.ttf" (
+    if not exist "%FONT_DIR%\Aleo_TitleNew.ttf.orig_bak" (
+        echo [*] Создание резервной копии оригинального шрифта Aleo_TitleNew.ttf...
+        copy /Y "%FONT_DIR%\Aleo_TitleNew.ttf" "%FONT_DIR%\Aleo_TitleNew.ttf.orig_bak" >nul
+    )
+)
+
+if exist "%SCRIPT_DIR%font\Aleo_TitleNew.ttf" (
+    echo     - Установка нормализованного шрифта Aleo_TitleNew.ttf...
+    if not exist "%FONT_DIR%" mkdir "%FONT_DIR%"
+    copy /Y "%SCRIPT_DIR%font\Aleo_TitleNew.ttf" "%FONT_DIR%\Aleo_TitleNew.ttf" >nul
+)
+
 :: 6. Настройка нативного загрузчика в pakchunk0-Windows.pak (Автономный запуск)
 if exist "%SCRIPT_DIR%PakHook.exe" (
     echo     - Настройка хука загрузчика в pakchunk0-Windows.pak...

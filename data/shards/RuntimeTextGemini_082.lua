@@ -211,5 +211,4 @@ return {
     ["The Brass Book will be available on September 7th; stay tuned."] = "The Brass Book появится в продаже 7 сентября; Следите за обновлениями.",
     ["Blackthorn Security Company? The place where Mom used to work..."] = "Охранная компания Чёрный Чертополох? Место, где раньше работала мама...",
     ["(Huh, why are they gone? It turns out they were just Spinach's pair.)"] = "(Ха, почему они ушли? Оказывается, это была всего лишь парочка Шпината.)",
-    ["但是，女神啊，您知道的……\n时间总是会磨平激情！"] = "Но, Богиня, ты знаешь... время всегда притупляет страсть!",
 }

@@ -258,5 +258,4 @@ return {
     ["Blackthorn - Arnold"] = "Чёрный Чертополох - Арнольд",
     ["黑荆棘事件3-洛克·金-黑水点名-随机取1名非T玩家"] = "Событие Black Thorn 3 — Король камней — Черный водяной знак — Случайным образом выберите 1 игрока, не являющегося игроком T",
     ["Defaults to false; when true, it also triggers the listener if no resource value is actually added due to resource overflow. Downward overflow caused by attempting to deduct when the resource is 0 does not trigger it"] = "По умолчанию — ложь; если значение равно true, оно также запускает прослушиватель, если значение ресурса фактически не добавляется из-за переполнения ресурса. Переполнение вниз, вызванное попыткой вычитания, когда ресурс равен 0, не вызывает его.",
-    ["再\n给\n你"] = "Дайте\nyou\nснова",
 }

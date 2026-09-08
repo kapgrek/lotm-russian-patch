@@ -95,7 +95,7 @@ return {
     ["Large Energy Ball Group 2"] = "Большой энергетический шар, группа b",
     ["Too many?"] = "Слишком много?",
     ["太阳誓约充能次数+2，且伤害提升80%，可同时存在多个，且重叠区域内，效果叠加。"] = "Заряды Solar Oath +2, а урон увеличен на 80%. Несколько эффектов могут существовать одновременно, а эффекты складываются в перекрывающихся областях.",
-    ["The missing person may have entered the \"Mirror Realm\".\nReciting the incantation can also allow entry—\n<Red size=\"32\">With the torrent of the era, knock open the Mirror Realm</>"] = "Пропавший человек, возможно, вошел в «Зеркальное царство».\nПроизнесение заклинания также может позволить войти — \n<Red size=\"32\">Потоком эпохи выбейте Зеркальное царство</>",
+    ["The missing person may have entered the \"Mirror Realm\".\nReciting the incantation can also allow entry—\n<Red size=\"32\">With the torrent of the era, knock open the Mirror Realm</>"] = "Пропавший человек, возможно, вошел в «Зеркальное царство».\nПроизнесение заклинания также может позволить войти — \n<Red size=\"32\">Потоком эпохи откройте Зеркальное царствоm</>",
     ["头顶标志触发CD（秒）"] = "Время восстановления срабатывания значка над головой (секунды)",
     ["Ma'am, would, would you like to see a newspaper?"] = "Мэм, не хотели бы вы посмотреть газету?",
     ["She will get better. She definitely will. \n Once we save enough money, I will take her to Dr. Horsen's clinic."] = "Она поправится. Она обязательно это сделает. \n Как только мы накопим достаточно денег, я отвезу ее в клинику доктора Хорсена.",
@@ -243,5 +243,4 @@ return {
     ["（不对 有人在注视我？打量我？监视我？）"] = "(Подождите, кто-нибудь наблюдает за мной? Присматривает за мной? Следит за мной?)",
     ["（深呼吸）只有喝下它，才能步入非凡世界，成为一个真正的非凡者。"] = "(Глубокий вдох) Только выпив его, я смогу шагнуть в Необыкновенный Мир и стать настоящим Потусторонним.",
     ["(Looking at the player) This {{gentleman|lady}}, are you also here to volunteer?"] = "(Смотрит на плеер) Этот {{gentleman|lady}}, ты тоже здесь добровольцем?",
-    ["莎莉丝特是\n默默无闻的梦想家"] = "Селеста — \n, безвестная мечтательница.",
 }

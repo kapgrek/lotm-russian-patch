@@ -253,5 +253,4 @@ return {
     ["(Let's go report this to Mentor Derrick.)"] = "(Давайте сообщим об этом наставнику Деррику.)",
     ["（无需装配）"] = "(Оборудование не требуется)",
     ["(Joyfully) I know, the work is tiring. But I will never withhold anyone's wages. As long as we work together, we will build a brighter future."] = "(Радостно) Я знаю, работа утомительна. Но я никогда не буду удерживать чью-либо зарплату. Пока мы работаем вместе, мы построим светлое будущее.",
-    ["    顺序\n必将失控"] = "    Sequence\nWill inevitably lead to loss of control",
 }

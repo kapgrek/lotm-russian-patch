@@ -1,7 +1,7 @@
 ﻿-- Generated Russian translation shard 09d/3ff.
 -- Dual-indexed (CN + EN keys) for instant zero-limit lookup.
 return {
-    ["    Sequence\nWill inevitably lead to loss of control"] = "Последовательность\nНеизбежно приведет к потере контроля.",
+    ["    Sequence\nWill inevitably lead to loss of control"] = "    Последовательность\nнеизбежно приведёт к потере контроля",
     ["Automatically replenish %d license(s) in %d hours"] = "Автоматически пополняет %d лицензий за %d часов",
     ["10天"] = "10 дней",
     ["5200028 Laivez's Home Open World"] = "5200028 Дом Лайвеса с открытым миром",
@@ -227,6 +227,4 @@ return {
     ["黑伍德男爵"] = "Барон Хейвуд",
     ["(Surprised) This is—"] = "(Удивленно) Это…",
     ["(Hero) Clown Research 2049 success buff added to clone"] = "(Герой) В клон добавлен положительный эффект успеха Клоун Research 2049.",
-    ["俱乐部\n会长"] = "Клуб\nПрезидент",
-    ["Recommended\nRecommended"] = "Рекомендуется\nРекомендуется",
 }

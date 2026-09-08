@@ -80,7 +80,7 @@ return {
     ["Large fan-shaped damage in front."] = "Урон в широком секторе перед собой.",
     ["The side effects are... <P_Heart>(Thinking seriously)</> Some people see things that are too interesting, so they don't want to wake up. But this shows it's effective, doesn't it?"] = "Побочные эффекты... <P_Heart>(Мыслить серьезно)</> Некоторые люди видят слишком интересные вещи, поэтому не хотят просыпаться. Но это показывает, что это эффективно, не так ли?",
     ["功能_炼金心得_超载状态01"] = "Function_Alchemy Insight_Состояние перегрузки 01",
-    ["占卜家扮演\n（找出正确的门）"] = "Seer Acting\n(Найди правильную дверь)",
+    ["占卜家扮演\n（找出正确的门）"] = "Seer Acting\n (Найдите правильную дверь)",
     ["即刻获得18金币，并且每回合额外获得1金币。"] = "Получите 18 золотых монет сразу и 1 дополнительную золотую монету за раунд.",
     ["The original story plot is continuously updating. Follow the official \"Lord of Mysteries Game\" WeChat account to get the latest update information first; bind your character to receive exclusive outfits!"] = "Оригинальный сюжет истории постоянно обновляется. Подпишитесь на официальную учетную запись WeChat «Повелитель Тайн Game», чтобы первыми получать самую свежую информацию об обновлениях; привяжите своего персонажа, чтобы получить эксклюзивные наряды!",
     ["发现了什么？"] = "Что вы нашли?",

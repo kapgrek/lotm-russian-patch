@@ -106,7 +106,7 @@ return {
     ["安提哥努斯家族笔记，曾由密修会持有，因为一次意外而遗失。"] = "Семейные заметки Антигона когда-то принадлежали семье Авраама, но были утеряны из-за несчастного случая.",
     ["安魂诗社引导trigger"] = "Руководство Общества поэзии Реквиема Триггер",
     ["尤金·"] = "Евгений",
-    ["Just like this,\nI decided to forget my marriage first..."] = "Вот так \nI решил сначала забыть о своем браке...",
+    ["Just like this,\nI decided to forget my marriage first..."] = "Вот так \nя решил сначала забыть о своем браке...",
     ["已达到最大数量。"] = "Достигнуто максимальное количество.",
     ["Alienated Hound - 2 Star"] = "Отчужденная гончая — 2 звезды",
     ["Guiding Ray Transparent Monster A"] = "Путеводный луч Прозрачный монстр А",
@@ -244,5 +244,4 @@ return {
     ["Defaults to true, meaning it can be blocked by Super Armor. If set to false, the gravity field can affect units with Super Armor."] = "По умолчанию установлено значение true, что означает, что его можно заблокировать Суперброней. Если установлено значение false, гравитационное поле может воздействовать на юнитов с суперброней.",
     ["The green wall, as tall as a person, is impenetrable, keeping whispers and floral scents neatly enclosed within."] = "Зеленая стена высотой с человека непроницаема, аккуратно удерживая внутри шепот и цветочные ароматы.",
     ["(Placeholder, need to add Klein's performance) \n Klein chants the honorific name:"] = "(Заполнитель, необходимо добавить выступление Клейн) \n Клейн выкрикивает почетное имя:",
-    ["Eternal \nEmperor"] = "Вечный \nИмператор",
 }

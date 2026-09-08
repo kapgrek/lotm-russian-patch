@@ -238,5 +238,4 @@ return {
     ["魔女雪伦"] = "Шэрон Ведьма",
     ["Demon Wolf-Corrosive Black Light-Tracking AOE Target Filter"] = "Демон-Волк-Коррозионный черный световой целевой фильтр AOE",
     ["Under dragon breath"] = "Под дыханием дракона",
-    ["这里应该就是茶会会场了。\n"] = "Это должно быть место для чаепития.",
 }

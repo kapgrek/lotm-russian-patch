@@ -278,4 +278,5 @@ return {
     ["(Opening Cutscene)"] = "(Вступительная кат-сцена)",
     ["(Best-selling books and campus plays? History seems to have become popular as well.)"] = "(Книги-бестселлеры и студенческие пьесы? Кажется, история тоже стала популярной.)",
     ["（糟了，快制止他们。）"] = "(О нет, останови их быстро.)",
+    ["Then, {{PlayerName}}, did you smell the faint scent of daisies back then?\n<P_Yellow> (Note: Different choices will lead the story to different endings.)</>"] = "Итак, {{PlayerName}}, почувствовал ли ты тогда тонкий аромат маргариток?\n<P_Yellow> (Примечание: разные выборы приведут к разным концовкам истории.)</>",
 }

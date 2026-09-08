@@ -236,5 +236,4 @@ return {
     ["The deer fell to the ground again. At the same time—\n the wound on your arm disappeared?!"] = "Олень снова упал на землю. В то же время — \n рана на твоей руке исчезла?!",
     ["黄自行车"] = "Желтый велосипед",
     ["Blackthorn Incident Book 4 - Level 4 - Scepter Cooldown Buff"] = "Книга происшествий в Блэкторне, 4 – уровень 4 – усиление перезарядки скипетра",
-    ["混乱与秩序的终极答案，\n就在其中"] = "Окончательный ответ Хаосу и Порядку, \n, находится внутри.",
 }

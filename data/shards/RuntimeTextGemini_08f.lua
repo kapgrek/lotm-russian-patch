@@ -240,5 +240,4 @@ return {
     ["高级宝箱出现"] = "Появляется расширенный сундук с сокровищами",
     ["Corrosive Black Light Small Circle Spell Field buff"] = "Усиление поля заклинаний Малого круга коррозионного черного света",
     ["There are many treasures in a dragon's lair. If we can successfully hunt a dragon, we can become heroes and big shots!"] = "В логове дракона много сокровищ. Если мы сможем успешно охотиться на дракона, мы сможем стать героями и важными шишками!",
-    ["你的伙伴前来助力\n恭喜你获得了一次额外的<Highlight>重掷</>机会"] = "Ваш партнер пришел на помощь\nПоздравляем, вы получили дополнительную возможность <Highlight>Reroll</>.",
 }

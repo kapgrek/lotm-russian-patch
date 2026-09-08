@@ -2,7 +2,7 @@
 -- Dual-indexed (CN + EN keys) for instant zero-limit lookup.
 return {
     ["\n她和他、他和她、<Hide stylename=\"Transparent\" id=\"#161\">她和她、他和他、</>\n缠绵悱恻的爱情故事，尽在廷根大剧院！\n\n\n<Note_Normal_HW>**的，谁把后面的字涂掉了，我就爱看这个！</>\n\n<Note_Normal_HW>算了吧，老兄，这附近还有小屁孩呢，而且你真有钱去买廷根大剧院的票？</>\n\n<Note_Normal_HW>说得好像附近的小屁孩有几个认识字一样！</>"] = "\nОна и он, он и она, <Hide stylename=\"Transparent\" id=\"#161\">она и она, он и он</>\nстрастные любовные истории, все в Большом театре Тинген!\n\n\n<Note_Normal_HW>** об этом, кто бы ни нацарапал слова сзади, я люблю это смотреть!</>\n\n<Note_Normal_HW>Забудьте это, приятель, рядом дети, и у тебя действительно есть деньги, чтобы купить билет в Большой театр Тинген?</>\n\n<Note_Normal_HW>Как будто кто-то из детей поблизости умеет читать!</>",
-    ["    Everyone will......\n Including me"] = "Все будут......\n В том числе и я.",
+    ["    Everyone will......\n Including me"] = "Все будут......\n Включая меня",
     ["\"Background story of the Warrior Skill, background story of the Warrior Skill, background story of the Warrior Skill.\""] = "«Предыстория Навыка Воина, предыстория Навыка Воина, предыстория Навыка Воина».",
     ["(Tone suddenly turns cold) The Ripper's nimble figure had just successfully evaded the patrolling police."] = "(Тон внезапно становится холодным) Проворная фигура Потрошителя только что успешно ускользнула от патрулирующей полиции.",
     ["08_伙伴升级"] = "08_Партнерское обновление",
@@ -253,6 +253,4 @@ return {
     ["Twilight Mark"] = "Сумеречный Марк",
     ["Black residue? Old Harry kept coughing until he was gone last year. You'd better see a doctor soon."] = "Черный осадок? Старый Гарри продолжал кашлять, пока не ушел в прошлом году. Вам лучше скорее обратиться к врачу.",
     ["黑荆棘事件簿4-第四关丧钟1交互物"] = "Журнал событий Black Thorn 4 — Этап 4. Похоронный звон 1. Объект взаимодействия.",
-    ["Gain <Highlight>4</> seconds of <img id=\"04\" width=\"36\" height=\"36\"/> DEF <Highlight>400</>, and increase the ATK of allied pieces within one tile by <Highlight>60</>.\n<img id=\"04\" width=\"36\" height=\"36\"/><Attribute>DEF</>: <Highlight>400/480/560</>\n<img id=\"03\" width=\"36\" height=\"36\"/><Attribute>ATK: 60=</> (<Highlight>20%</>/40%/60%) <Attribute>* Susie's current ATK</>"] = "Получите <Highlight>4</> секунд <img id=\"04\" width=\"36\" height=\"36\"/> DEF <Highlight>400</> и увеличьте АТК союзных фигур в пределах одной клетки на <Highlight>60</>.\n<img id=\"04\" width=\"36\" height=\"36\"/><Attribute>DEF</>: <Highlight>400/480/560</>\n<img id=\"03\" width=\"36\" height=\"36\"/><Attribute>ATK: 60=</> (<Highlight>20%</>/40%/60%) <Attribute>* Текущий ATK</> Сьюзи",
-    ["<Default_L>Number</>\n<Brown_L>999</>"] = "<Default_L>Номер</>\n<Brown_L>999</>",
 }

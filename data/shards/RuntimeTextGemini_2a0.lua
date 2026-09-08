@@ -27,7 +27,7 @@ return {
     ["[Honorary Great Slash] Activation Requirements"] = "[Почетный великий удар] Требования активации",
     ["【采集物】第二根线"] = "[Предмет коллекции] Вторая линия",
     ["【金秋湖-困难】-分身连线3"] = "[Золотое Осеннее озеро-Hard]-Соединение клонов b",
-    ["下水道系统已经初步建立，\n灭鼠行动也持续进行中。"] = "Первоначально была установлена ​​канализационная система,\n, и кампания по уничтожению крыс также продолжается.",
+    ["下水道系统已经初步建立，\n灭鼠行动也持续进行中。"] = "Первоначально была установлена ​​канализационная система, \n, и кампания по уничтожению крыс также продолжается.",
     ["No longer purchasing"] = "Больше не покупаю",
     ["The Fool that doesn't belong to this era; the mysterious ruler above the gray fog; the King of Yellow and Black who wields good luck. Praise the Fool!"] = "Шут, не принадлежащий этой эпохе; Таинственный правитель над серым туманом; Король Жёлтого и Чёрного, владыка удачи. Восславим Шута!",
     ["However, the abilities of Sequence 9 are limited, and it's mostly theoretical knowledge."] = "However, the abilities of Последовательность 9 are limited, and it's mostly theoretical knowledge.",

@@ -217,7 +217,7 @@ return {
     ["Glory Duel!"] = "Славная дуэль!",
     ["菜品选择数量不足"] = "Выбрано недостаточное количество блюд.",
     ["Effect_Rotten Tomato"] = "Эффект_Гнилой Помидор",
-    ["The victim escaped from\nthe depths of the alley."] = "Пострадавший сбежал из \n глубины переулка.",
+    ["The victim escaped from\nthe depths of the alley."] = "Пострадавший сбежал из \n в глубину переулка.",
     ["裸露的秩序之网能量线"] = "Открытые энергетические линии Паутины Порядка",
     ["West"] = "Запад",
     ["Is there a <h>small box</> in the corner?"] = "В углу есть маленькая коробочка <h></>?",

@@ -249,5 +249,4 @@ return {
     ["Blackthorn · Entrance carriage teleport"] = "Чёрный Чертополох · Телепорт входной кареты",
     ["The true duty of Blackthorn is to handle Extraordinary events in Tingen."] = "Истинная обязанность Блэкторна — справиться с чрезвычайными событиями в Тингене.",
     ["(Hero) Clown Clone mark buff for Clown"] = "(Герой) Клоун Усиление знака клона для Клоуна",
-    ["Give\nyou\nagain"] = "Дайте\nyou\nснова",
 }

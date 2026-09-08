@@ -247,5 +247,4 @@ return {
     ["Brass Book_5200139_Druid Hard_Monsoon Triple Strike"] = "Латунная книга_5200139_Druid Hard_Monsoon Triple Strikb",
     ["Diane"] = "Диана",
     ["Dragon"] = "Дракон",
-    ["Just like this,\nI decided to forget my marriage first..."] = "Вот так \nя решил сначала забыть о своем браке...",
 }

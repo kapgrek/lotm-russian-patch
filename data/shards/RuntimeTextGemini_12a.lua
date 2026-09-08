@@ -214,7 +214,7 @@ return {
     ["醉鬼"] = "Пьяный",
     ["采集物·推导1"] = "Коллекционирование · Вычет b",
     ["Rich, how could this be"] = "Рич, как такое могло быть?",
-    ["铁十字街右街\n<LeonSubTitle size=\"38\">Iron Cross Right Street</>"] = "Улица Железного Креста, правая \n<LeonSubTitle size=\"38\">Улица Железного Креста, правая </>",
+    ["铁十字街右街\n<LeonSubTitle size=\"38\">Iron Cross Right Street</>"] = "Железный Крест, правая улица\n<LeonSubTitle size=\"38\">Железный Крест, правая улица</>",
     ["阵营B水晶"] = "Кристалл фракции B",
     ["Solemn carvings, 'hasty' heart, seriously doing landscaping."] = "Торжественная резьба, «торопливое» сердце, серьезно занимающийся ландшафтным дизайном.",
     ["Beyonder Scheme Seven"] = "Потусторонняя схема семь",

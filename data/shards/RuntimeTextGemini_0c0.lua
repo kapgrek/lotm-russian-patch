@@ -268,5 +268,4 @@ return {
     ["Magic Crit Damage Reduction_Value"] = "Уменьшение магического критического урона_Значение",
     ["Listen silently"] = "Слушай молча",
     ["(4) 10 seconds before combat starts, additional 20% Defense;"] = "(4) За 10 секунд до начала боя дополнительно 20% защиты;",
-    ["<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Escort Carriage: 0/3 times\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Rui-Bibber: <Highlight>1</>/3 times\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Clown: <Highlight>1</>/3 times"] = "<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Эскортная карета: 0/3 раза\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Руи-Биббер: <Highlight>1</>/3 раза\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Клоун: <Highlight>1</>/3 раза",
 }

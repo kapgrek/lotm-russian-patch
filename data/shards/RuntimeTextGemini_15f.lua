@@ -204,7 +204,7 @@ return {
     ["Please enter content before sending."] = "Пожалуйста, введите содержание перед отправкой.",
     ["Mind Reading (Squad CD)"] = "Чтение мыслей (компакт-диск Squad)",
     ["豪厄尔"] = "Хауэлл",
-    ["豪尔斯街\n<LeonSubTitle size=\"38\">Howes Street</>"] = "Хоулс-стрит\n<LeonSubTitle size=\"38\">Хоус-стрит</>",
+    ["豪尔斯街\n<LeonSubTitle size=\"38\">Howes Street</>"] = "улица Хоуэс\n<LeonSubTitle size=\"38\">улица Хоуэс</>",
     ["Currency delisting failed, please try again."] = "Не удалось исключить валюту из списка. Повторите попытку.",
     ["费内波特面"] = "Лапша Фейсак",
     ["Gambling table"] = "Игровой стол",

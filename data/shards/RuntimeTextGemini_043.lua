@@ -260,5 +260,4 @@ return {
     ["Knight Design Club"] = "Клуб рыцарского дизайна",
     ["鸟儿蹭蹭"] = "Птица нюхается",
     ["(Here connects to sequence: Rozanne and Ando run to the entrance, the undead calls Rozanne, everyone appears to help, Leonard hypnotizes Ando)"] = "(Здесь происходит соединение: Розанна и Андо бегут к входу, нежить зовет Розанну, все приходят на помощь, Леонард гипнотизирует Андо)",
-    ["Moretti Former Residence\n<LeonSubTitle size=\"10\">Moretti former Residence</>"] = "Бывшая резиденция Моретти\n<LeonSubTitle size=\"10\">Бывшая резиденция Моретти</>",
 }

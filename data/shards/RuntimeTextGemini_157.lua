@@ -3,7 +3,7 @@
 return {
     ["\"Soldering Iron\""] = "«Паяльник»",
     ["%s级"] = "Уровень %s",
-    ["2x"] = "2x",
+    ["2x"] = "2х",
     ["5230115 Tingen Plane"] = "5230115 Измерение: Тинген",
     ["<Assistant_Title1>【Dead Leaf Butterfly】</>\n<Assistant_Title2>Description: </>Shop Direct-Purchase Outfit\n<Assistant_Title2>Usage: </>Purchase in the shop to obtain the Dead Leaf Butterfly outfit. You can click <Assistant_System>Appearance - Change Outfit</> to view and use it.\n<Assistant_Title2>Acquisition: </>Obtained via <Assistant_System>Shop</>"] = "<Assistant_Title1>【Бабочка из мертвого листа】</>\n<Assistant_Title2>Описание: </>Купите наряд для прямой покупки\n<Assistant_Title2>Использование: </>Купите в магазине, чтобы получить костюм бабочки из мертвого листа. Вы можете нажать <Assistant_System>Внешний вид — Изменить экипировку</>, чтобы просмотреть и использовать его.\n<Assistant_Title2>Приобретение: </>Получено через <Assistant_System>Shop</>.",
     ["<Assistant_Title1>【永暗蜡烛】</>\n<Assistant_Title2>描述：</>剧情奖励饰品\n<Assistant_Title2>使用：</>使用后获得永暗蜡烛，可点击<Assistant_System>外观-换装</>查看并使用。\n<Assistant_Title2>获取：</>通过阿兹克支线获取"] = "<Assistant_Title1>【Свеча вечной тьмы】</>\n<Assistant_Title2>Описание: </>Аксессуар для награды за сюжет \n<Assistant_Title2>Использование: </>После использования вы получите свечу вечной тьмы. Вы можете нажать «<Assistant_System>Внешний вид — Одеть</>», чтобы просмотреть и использовать его. \n<Assistant_Title2>Получить: </>Получается через побочный квест Азика.",

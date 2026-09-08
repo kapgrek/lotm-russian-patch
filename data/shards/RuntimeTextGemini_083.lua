@@ -265,5 +265,4 @@ return {
     ["黑荆棘事件3-洛克·金-扇形点名-优先点T"] = "Событие «Черный шип»: 3 камня, король, веерообразная метка, знак приоритета T",
     ["（临时-画外音）战胜祂 掌握你体内的污染"] = "(Временно, закадровый голос) Победи Его, победи внутреннюю порчу.",
     ["(II)\n　　Today is a sunny day, and the snow is blinding.\n　　George looks at his mountaineering log every once in a while, like an experienced mountaineer. The recording of supplies is left to him.\n　　Actually, this is his second time mountaineering with me. The last time I went with him was to the wild mountains near the old castle."] = "(II)\n　　Сегодня солнечный день, и снег ослепляет.\n　　Джордж время от времени смотрит на свой альпинистский журнал, как опытный альпинист. Запись поставок оставлена ​​на его усмотрение.\n　　На самом деле, это его второй альпинизм со мной. Последний раз я ездил с ним в дикие горы возле старого замка.",
-    ["希望保险公司能多给些钱\n用来抚养我的孩子……"] = "Я надеюсь, что страховая компания сможет дать больше денег\n, чтобы я мог воспитывать своих детей...",
 }

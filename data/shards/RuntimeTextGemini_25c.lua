@@ -172,7 +172,7 @@ return {
     ["Imprint equipment upgrade item. \nCan upgrade <Highlight>Warm Leather Boots</> to <Highlight>Level 62 orange quality</>. Consumes <Highlight>1</> Fragment of the Past when upgrading."] = "Отпечаток предмета улучшения оборудования. \nМожно обновить <Highlight>Теплые кожаные ботинки </> до <Highlight>оранжевого качества </> 62-го уровня. При обновлении потребляется <Highlight>1</> «Фрагмент прошлого».",
     ["Royal City North Gate"] = "Северные ворота Королевского города",
     ["Rose-red and Black Flame intertwine around the female figure. The sculptor deliberately left the fingertips unfinished—leaving the rest to the viewer."] = "Розово-красное и Черное пламя переплетаются вокруг женской фигуры. Скульптор намеренно оставил кончики пальцев незавершенными, а остальное предоставил зрителю.",
-    ["用灵视找到特殊的茶\n"] = "Используйте Spirit Vision, чтобы найти особый чай\n",
+    ["用灵视找到特殊的茶\n"] = "Используйте Spirit Vision, чтобы найти особый чай\n.",
     ["登录失败，请联系客服。"] = "Ошибка входа. Пожалуйста, свяжитесь со службой поддержки клиентов.",
     ["目标点位置"] = "Положение целевой точки",
     ["There really are foreigners."] = "Иностранцы действительно есть.",
@@ -227,5 +227,4 @@ return {
     ["阿诺德灵体"] = "Духовное тело Арнольда",
     ["随机装备 + 随机2费棋子"] = "Случайное снаряжение + случайный предмет стоимостью 2 шт.",
     ["隐称"] = "Скрытый заголовок",
-    ["id :1234567890\nPlayer Name Seven Chars 123****0000"] = "[Семь символов]",
 }

@@ -252,5 +252,4 @@ return {
     ["Wheatfield Food Workshop Level 14"] = "Мастерская по приготовлению пшеничных полей, уровень 14",
     ["齐齐哈尔"] = "Цицикар",
     ["(Roselle) The gentlemen on my diplomatic committee are all donkeys! \n (Klein) Whether it's an Apprentice, a Seer, or a Marauder, they are all much better"] = "(Розель) Все господа из моего дипломатического комитета — ослы! \n (Клейн) Будь то Ученик, Провидец или Мародер, все они намного лучше.",
-    ["铁十字街右街\n<LeonSubTitle size=\"38\">Iron Cross Right Street</>"] = "Железный Крест, правая улица\n<LeonSubTitle size=\"38\">Железный Крест, правая улица</>",
 }

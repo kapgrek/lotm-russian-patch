@@ -207,7 +207,7 @@ return {
     ["老板，您知道最近总有人自杀的事吗？"] = "Босс, вы знаете о недавних самоубийствах?",
     ["脸部特写"] = "Лицо крупным планом",
     ["Lily: {{ He | She }} saw it! {{ He | She }} saw the red thread! We can't let {{ him | her }} leave alive!"] = "Лили: {{ He | She }} это видел! {{ He | She }} увидел красную нить! Мы не можем позволить {{ him | her }} уйти живым!",
-    ["莎莉丝特是\n默默无闻的梦想家"] = "Селеста — \nan, безвестная мечтательница.",
+    ["莎莉丝特是\n默默无闻的梦想家"] = "Селеста — \n, безвестная мечтательница.",
     ["莫雷"] = "Мори",
     ["Gain 1 point of <HighLight> Spirituality </> (gain 2 points of <HighLight> Spirituality </> while in the <HighLight> Blazing Sun </> state). For *f seconds, gain buffdisc(*id); a second combo can be cast within 16 seconds of the first cast, removing <HyperLink stylename=\"M_Link\" u=\"3\"> Crowd Control </> effects from yourself. \n \n <FaintYellow> Spirituality </>: Hold up to 5 points. Obtain Spirituality to unlock and strengthen <HighLight> Punishment </> and <HighLight> Unshadowed Spear </>."] = "Получите 1 очко Духовности <HighLight> </> (получите 2 очка Духовности <HighLight> </>, находясь в состоянии <HighLight> Blazing Sun </>). В течение *f сек. получите buffdisc(*id); второе комбо можно применить в течение 16 сек. после первого, сняв с себя эффекты <HyperLink stylename=\"M_Link\" u=\"3\"> Crowd Control </>. \n \n <FaintYellow> Духовность </>: Удерживайте до 5 очков. Получите духовность, чтобы разблокировать и усилить <HighLight> «Наказание» </> и <HighLight> «Незатененное копье» </>.",
     ["Blue Line: Clockwise Carriage A9"] = "Синяя линия: каретка по часовой стрелке Ab",
@@ -249,5 +249,4 @@ return {
     ["Magician Performance Table"] = "Таблица эффективности фокусника",
     ["黑发学生男"] = "Студент с черными волосами",
     ["（一段待包装的对话）你可以在这里进行传送和查询团队成员首领进度。"] = "(Диалог будет упакован) Вы можете телепортироваться и проверить прогресс членов команды здесь.",
-    ["故事的开始总是源自巧合——\n一片静谧的城堡领地，正悄然等待着新的主人。"] = "История всегда начинается со совпадения — тихое замковое поместье \n молча ждет своего нового хозяина.",
 }

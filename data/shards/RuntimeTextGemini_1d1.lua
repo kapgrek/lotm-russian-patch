@@ -261,5 +261,4 @@ return {
     ["How does the Blackthorn Incident Book work?"] = "Как работает Книга происшествий Блэкторна?",
     ["(Whispering something...)"] = "(Шепчет что-то...)",
     ["(Supports forehead) Sigh..."] = "(Поддерживает лоб) Эх...",
-    ["Please follow me\nclosely."] = "Пожалуйста, следуй\nза мной неотступно.",
 }

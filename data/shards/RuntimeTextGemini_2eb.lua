@@ -141,7 +141,7 @@ return {
     ["我们很理解您的心情……"] = "Мы прекрасно понимаем, что вы чувствуете...",
     ["I mind my own? Who takes care of you when you cry in pain at night? To give you a hot compress for your knees, the kettle is almost on strike!"] = "Я возражаю против своего? Кто позаботится о тебе, когда ты плачешь от боли по ночам? Чтобы сделать вам горячий компресс для коленей, чайник почти бастует!",
     ["I think this snack will sell well..."] = "Думаю, эта закуска будет хорошо продаваться...",
-    ["I took her hand and walked away,\nand she did not refuse."] = "Я взял ее за руку и ушел,\nи она не отказалась.",
+    ["I took her hand and walked away,\nand she did not refuse."] = "Я взял ее за руку и пошел прочь,\n, и она не отказалась.",
     ["我来帮您查看一下……"] = "Позвольте мне помочь вам взглянуть...",
     ["我真是个不错的邮差。"] = "Я действительно хороший почтальон.",
     ["Obsession?"] = "Одержимость?",

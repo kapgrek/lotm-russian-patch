@@ -233,5 +233,4 @@ return {
     ["Phantom: Blow Kiss Delivery"] = "Призрак: Доставка воздушного поцелуя",
     ["黑影文字版2"] = "Текстовая доска «Черная тень 2»",
     ["(Feeling down) Roar..."] = "(Чувствуя себя подавленным) Рев...",
-    ["<img id=\"Tips\" Width=\"40\" Height=\"40\"/>护送马车： 0/3次\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>瑞二比伯：<Highlight>1</>/3次\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>小丑：<Highlight>1</>/3次"] = "<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Эскортная карета: 0/3 раза\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Руи-Биббер: <Highlight>1</>/3 раза\n<img id=\"Tips\" Width=\"40\" Height=\"40\"/>Клоун: <Highlight>1</>/3 раза",
 }

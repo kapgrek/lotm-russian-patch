@@ -90,7 +90,7 @@ return {
     ["圣光共鸣"] = "Резонанс Священного Света",
     ["Holy Light Purification Cooldown reduced by 10s."] = "Время восстановления «Очищения Света святости» уменьшено на 10 секунд.",
     ["Strange Detective"] = "Странный детектив",
-    ["Oh Goddess... I confess to You...\nI shouldn't be the only one\nwho has felt heart-fluttering for two women, right?"] = "О, Богиня... Я признаюсь Тебе... \nЯ не должен быть единственным \n, у которого трепетало сердце из-за двух женщин, верно?",
+    ["Oh Goddess... I confess to You...\nI shouldn't be the only one\nwho has felt heart-fluttering for two women, right?"] = "О, Богиня... Я признаюсь Тебе... \nЯ не должна быть единственной, \n, у которой трепетало сердце из-за двух женщин, верно?",
     ["O-okay, is it that formal?"] = "О-окей, это так официально?",
     ["Alright! Leave it to me!"] = "Хорошо! Оставьте это мне!",
     ["Viscountess accumulates energy to form a shield, needs to be broken as soon as possible"] = "Виконтесса накапливает энергию для формирования щита, который необходимо сломать как можно скорее.",

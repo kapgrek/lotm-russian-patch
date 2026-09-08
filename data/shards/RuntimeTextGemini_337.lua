@@ -105,7 +105,7 @@ return {
     ["失控的头目"] = "Лидер, вышедший из-под контроля",
     ["Soul-Contract Sundial ground representation 3"] = "Солнечные часы Soul-Contract, изображение земли b",
     ["Female University Student"] = "Студентка университета",
-    ["Enjoy\nyour freedom"] = "Наслаждайтесь\nсвоей свободой",
+    ["Enjoy\nyour freedom"] = "Наслаждайтесь \nсвоей свободой",
     ["If you happen to run into a safe-like creature made of piled-up white bones in the Spirit World, please be sure to give it a ride."] = "Если вам случится столкнуться с похожим на сейф существом, сделанным из груды белых костей в Мире Духов, обязательно прокатитесь на нем.",
     ["它诞生于知识诞生之前，因而无名；它记载着所有真知，因而无姓。"] = "Оно родилось раньше самого знания, поэтому оно безымянно; он записывает все истинные знания, поэтому у него нет фамилии.",
     ["Complete %d/3 challenge events"] = "Завершите испытания %d/3.",

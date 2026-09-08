@@ -255,5 +255,4 @@ return {
     ["The gates of Heywood Manor are open for you, the crystal chandelier reflects gorgeous light, and the figures on the dance floor are dancing gracefully..."] = "Ворота поместья Хейвуд открыты для вас, хрустальная люстра отражает великолепный свет, а фигуры на танцполе изящно танцуют...",
     ["黑狩巨蜥的血液"] = "Кровь черной охотящейся гигантской ящерицы",
     ["Black fog shrouded the factory, and the roar of beasts could be vaguely heard in the fog."] = "Черный туман окутал завод, и в нем смутно слышался рев зверей.",
-    ["我只传小八卦，\n大事情我哪敢听呀……"] = "Я распространяю только мелкие сплетни, \n, я бы не осмелился слушать о больших вещах...",
 }

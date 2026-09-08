@@ -21,7 +21,7 @@ return {
     ["<P_Heart> (Mr. Azik was actually able to bring me into the Underworld; his Beyonder level must be far beyond a Demigod.) </>"] = "<P_Heart> (Мистер Азик действительно смог привести меня в Подземный мир; его уровень Потустороннего, должно быть, намного выше полубога.) </>",
     ["<h>观察现场</>"] = "<h>Наблюдать за сценой</>",
     ["Alright, but they are all asleep today, another day, another day {{大哥哥|大姐姐}} I will bring you to meet them!"] = "Хорошо, но сегодня они все спят, еще один день, еще один день. {{big brother|big sister}} Я приведу тебя познакомить с ними!",
-    ["B级动画：\\n克莱恩回想着这段时间的占卜，脑中浮现出黄水晶，突然有一些感悟。"] = "Grade B Animation:\nKlein recalled the Гадание from this period, a yellow crystal appeared in his mind, and he suddenly had some realizations.",
+    ["B级动画：\\\n克莱恩回想着这段时间的占卜，脑中浮现出黄水晶，突然有一些感悟。"] = "Grade B Animation:\nKlein recalled the Гадание from this period, a yellow crystal appeared in his mind, and he suddenly had some realizations.",
     ["Obtain 1 Beyonder material with <Hand of God> trait"] = "Obtain 1 Потусторонний material with <Hand of God> trait",
     ["“我的脑袋快要爆炸了……仪式魔法、神秘学知识……”"] = "«Моя голова вот-вот взорвется... Ритуальная магия, оккультные знания...»",
     ["……我没有察觉到，我确实处理得不太妥当。"] = "...Я не заметил, я действительно не справился с этим должным образом.",

@@ -254,5 +254,4 @@ return {
     ["Black Thorn Incident Book 4-Level 4-Notebook Enhancement buff"] = "Книга происшествий с Черным Шипом, 4 уровня, усиление для 4 тетрадей",
     ["Blackthorn entrance - thinking about next steps"] = "Вход в Чёрный Чертополох – думаем о дальнейших шагах",
     ["Defaults to false"] = "По умолчанию ложь",
-    ["Then, {{PlayerName}}, did you smell the faint scent of daisies back then?\n<P_Yellow> (Note: Different choices will lead the story to different endings.)</>"] = "Тогда, {{PlayerName}}, ты тогда почувствовал слабый аромат ромашки?\n<P_Yellow> (Примечание: разные варианты приведут историю к разным концам.)</>",
 }

@@ -256,5 +256,4 @@ return {
     ["Magic Crit Damage Reduction"] = "Уменьшение магического критического урона",
     ["Demon Wolf-Filter Demon Wolf (for small wolf to send message)"] = "Demon Wolf-Filter Demon Wolf (для отправки сообщения маленькому волку)",
     ["（是西区济贫院！也许能在那里找到答案！）"] = "(Это богадельня Западного округа! Возможно, там я найду ответ!)",
-    ["The missing person may have entered the \"Mirror Realm\".\nReciting the incantation can also allow entry—\n<Red size=\"32\">With the torrent of the era, knock open the Mirror Realm</>"] = "Пропавший человек, возможно, вошел в «Зеркальное царство».\nПроизнесение заклинания также может позволить войти — \n<Red size=\"32\">Потоком эпохи откройте Зеркальное царствоm</>",
 }

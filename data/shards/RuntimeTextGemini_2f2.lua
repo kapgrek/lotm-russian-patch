@@ -217,7 +217,7 @@ return {
     ["Delicious food, I chew, I chew, I chew."] = "Вкусная еда, жую, жую, жую.",
     ["Yu Shi"] = "Ю Ши",
     ["Old William's Letter"] = "Письмо старого Уильяма",
-    ["And the decent clothes for me and my child\nwere all bought half a year ago..."] = "А приличную одежду мне и моему ребенку\n купили еще полгода назад...",
+    ["And the decent clothes for me and my child\nwere all bought half a year ago..."] = "А приличная одежда для меня и моего ребенка \n была куплена еще полгода назад...",
     ["苹果骑士狂暴"] = "Яблочный рыцарь Берсерк",
     ["The higher the pile of medicine bottles, the longer the life."] = "Чем выше куча бутылочек с лекарствами, тем дольше жизнь.",
     ["Celeste's House"] = "Дом Селесты",
@@ -265,5 +265,4 @@ return {
     ["Blackthorn Incident Book 4 - Level 4 - Death Knell weapon buff"] = "Книга происшествий в Блэкторне 4 — Уровень 4 — усиление оружия «Похоронный звон»",
     ["黛丝"] = "Дейзи",
     ["What a successful <h>[Railroad Tycoon]</h>"] = "Какой успешный <h>[Железнодорожный магнат]</h>",
-    ["女神啊……我向您忏悔……\n我应该不是唯一一个\n为两个女人心动的人吧？"] = "О, Богиня... Я признаюсь Тебе... \nЯ не должна быть единственной, \n, у которой трепетало сердце из-за двух женщин, верно?",
 }

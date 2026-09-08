@@ -262,5 +262,4 @@ return {
     ["Demon Wolf-Tail Whip Target selection (Farthest target within 40m)"] = "Выбор цели «Хвост демона-волка» (самая дальняя цель в пределах 40 м)",
     ["鲁恩风尚打卡点"] = "Фотозона в стиле Лоен",
     ["???: I suspect this notebook is an evil object with a certain amount of life and intelligence."] = "???: Я подозреваю, что этот блокнот — злой объект с определенным количеством жизни и интеллекта.",
-    ["用灵视找到特殊的茶\n"] = "Используйте Spirit Vision, чтобы найти особый чай\n.",
 }

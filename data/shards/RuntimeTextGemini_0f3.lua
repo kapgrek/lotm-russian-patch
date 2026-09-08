@@ -264,5 +264,4 @@ return {
     ["黛西·"] = "Дейзи",
     ["(CS in production, temporary text) \n The room is filled with mist, Selena's gaze becomes cold, her skin turns pale bit by bit, and sharp, white, bone-like nails grow rapidly on her ten fingers."] = "(CS в производстве, временный текст) \n Комната наполняется туманом, взгляд Селены становится холодным, ее кожа постепенно бледнеет, а на ее десяти пальцах быстро растут острые, белые, похожие на кости ногти.",
     ["(Hero) Clown Clone Spawn Change Material Super Armor Buff"] = "(Герой) Клоун Клон Порождение Изменение материала Усиление суперброни",
-    ["College Avenue\n<LeonSubTitle size=\"38\">Academy Avenue</>"] = "Колледж-авеню\n<LeonSubTitle size=\"38\">Академия-авеню</>",
 }

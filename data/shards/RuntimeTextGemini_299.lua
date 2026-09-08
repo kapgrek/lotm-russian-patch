@@ -256,5 +256,4 @@ return {
     ["Advanced Locked Treasure Chest Template"] = "Расширенный шаблон запертого сундука с сокровищами",
     ["黄铜书表演镜头1"] = "Выступление духовой книги, кадр b",
     ["黑荆棘克雷斯泰氛围"] = "Атмосфера Чёрный Чертополох Крест",
-    ["不知道最近有没有非凡案件要处理，回黑荆棘看看吧。\n"] = "I wonder if there are any Потусторонний cases to handle recently. Let's go back to Blackthorn and see.",
 }

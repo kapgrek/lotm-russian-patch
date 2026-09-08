@@ -268,5 +268,4 @@ return {
     ["Massimo leaves"] = "Массимо уходит",
     ["The bone has been set and treated with a special ointment. You can rest assured..."] = "Кость вправлена ​​и обработана специальной мазью. Вы можете быть уверены...",
     ["魔法板恶灵2"] = "Волшебная доска Злой Дух b",
-    ["可不会\n这么"] = "Это не будет так",
 }

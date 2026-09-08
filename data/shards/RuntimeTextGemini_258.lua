@@ -270,5 +270,4 @@ return {
     ["Magic Board Evil Spirit 2 has special summons on top"] = "В Magic Board Evil Spirit 2 сверху есть специальные призывы.",
     ["Magic Piercing_Percentage Bonus"] = "Магический пирсинг_Процентный бонус",
     ["Yellow line - Counter-clockwise - Square carriage A1"] = "Желтая линия – Против часовой стрелки – Квадратная каретка Ab",
-    ["I'll give you a chance,\ndo you want to leave this place?"] = "Я дам тебе шанс, \n, ты хочешь покинуть это место?",
 }

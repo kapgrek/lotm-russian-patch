@@ -261,5 +261,4 @@ return {
     ["魔法板黑影5"] = "Волшебная доска Тень b",
     ["黑屏加载，黑屏无淡入"] = "Черный экран загрузки, черный экран без затухания",
     ["黛西小姐，这本册子还有用处吗？"] = "Мисс Дейзи, эта брошюра еще полезна?",
-    ["Workers are the foundation of the times\n<LeonSubTitle size=\"18\">Workers are the foundation of the timesfoundation of the times</>"] = "Рабочие – основа времени\n<LeonSubTitle size=\"18\">Рабочие – основа времениоснова времени</>",
 }

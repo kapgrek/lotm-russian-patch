@@ -235,5 +235,4 @@ return {
     ["黛芙妮·"] = "Дафна",
     ["Gear Sealing Wax · Competition"] = "Герметизирующий сургуч для шестерен · Соревнования",
     ["Turtle Shell - Stealth Monster Unselectable"] = "Панцирь черепахи — невидимый монстр, невыбираемый",
-    ["Rose Paradise leader\nChief Bonnie"] = "Лидер Rose Paradise\nЧиф Бонни",
 }

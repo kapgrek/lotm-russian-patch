@@ -82,7 +82,7 @@ return {
     ["If the next stop <LightHighlight> is the [Winery] </>, the quantity of <HyperLink stylename=\"Underline\" u=\"trainTradeItem=30307\"> [Gold-Medal Royal Ham] </> currently held increases by <LightHighlight> 100% </>; otherwise, the selling price of goods is -40%."] = "Если следующей остановкой <LightHighlight> является [Винодельня] </>, количество <HyperLink stylename=\"Underline\" u=\"trainTradeItem=30307\"> [Королевская ветчина с золотой медалью] </>, имеющееся в настоящее время, увеличивается на <LightHighlight> 100% </>; в противном случае отпускная цена товара составляет -40%.",
     ["If the next stop <LightHighlight> is the [Winery] </>, obtain <LightHighlight> 40 </> units of <HyperLink stylename=\"Underline\" u=\"trainTradeItem=30303\"> [Flavored Cheese] </>."] = "Если следующей остановкой <LightHighlight> является [Винодельня] </>, получите <LightHighlight> 40 единиц </> <HyperLink stylename=\"Underline\" u=\"trainTradeItem=30303\"> [Ароматизированный сыр] </>.",
     ["If it weren't for my younger brother and sister, I would have lost a lot of motivation for life and work... <P_Heart>(Pauses)</> Forget it, let's not talk about this."] = "Если бы не мои младшие брат и сестра, я бы потерял большую мотивацию к жизни и работе... <P_Heart>(Пауза)</> Забудьте об этом, давайте не будем об этом.",
-    ["If this could be combined with other things, things should become clear...\\n<P_Yellow>(Obtained clue and added to inventory: Magical Item Order Letter)</>"] = "If this could be combined with other things, things should become clear...\\n<P_Yellow>(Obtained clue and added to inventory: Magical Item Order Letter)</>",
+    ["If this could be combined with other things, things should become clear...\\\n<P_Yellow>(Obtained clue and added to inventory: Magical Item Order Letter)</>"] = "Если объединить это с другими вещами, всё должно проясниться...\\\n<P_Yellow>(Получена зацепка и добавлена в сумку: Письмо с заказом магического предмета)</>",
     ["妆容方案"] = "Схема макияжа",
     ["寻找戒指·硬币"] = "Найти кольцо · монету",
     ["The turmoil caused by Sealed Artifact 3-888 continues to ferment. It seems we must speed up our actions..."] = "Суматоха, вызванная Запечатанным Артефактом 3-888, продолжает нарастать. Кажется, нам следует ускорить наши действия...",
@@ -228,6 +228,4 @@ return {
     ["Bowen"] = "Боуэн",
     ["麦琪"] = "Мэгги",
     ["Spade 7"] = "Лопата b",
-    ["枯萎凋零\n重现芬芳"] = "Withered and Dead\nаромат возвращается",
-    ["Although after marrying Melanie,\nI truly loved her very much..."] = "Хотя после женитьбы на Мелани \nI действительно очень ее любил...",
 }

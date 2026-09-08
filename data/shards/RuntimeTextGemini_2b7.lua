@@ -188,7 +188,7 @@ return {
     ["Fatal Reunion=Camera"] = "Роковое воссоединение=Камера",
     ["Captain Listener 3"] = "Капитан Слушатель b",
     ["英雄-狒狒-冲撞标记tag"] = "Герой — Павиан — Метка заряда",
-    ["Celeste is\nan obscure dreamer"] = "Селеста — \nan, безвестная мечтательница.",
+    ["Celeste is\nan obscure dreamer"] = "Селеста — \n, безвестная мечтательница.",
     ["Win 10 matches of Moment of Fate"] = "Выиграйте 10 матчей в «Моменте судьбы».",
     ["Obtained skill <Highlight>Push Food Cart</>"] = "Получен навык <Highlight>Толкать тележку с едой</>",
     ["获得护盾增幅_数值"] = "Усиление щита_Значение",

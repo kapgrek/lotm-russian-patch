@@ -254,6 +254,4 @@ return {
     ["Wheatfield Food Workshop Level 9"] = "Мастерская по приготовлению еды на пшеничном поле, уровень 9",
     ["(Grade A Animation Placeholder) Klein, there's no need for us to pretend with each other."] = "(Заполнитель для анимации класса А) Клейн, нам не нужно притворяться друг с другом.",
     ["(Wait... the lines Mr. Speer wrote...)"] = "(Подождите... строки, которые написал г-н Спир...)",
-    ["3号佐特兰\n射击俱乐部\n<LeonSubTitle size=\"10\">Zouteland Shooting Club</>"] = "№ 3 Стрелковый клуб Зутеленд\nСтрелковый клуб\n<LeonSubTitle size=\"10\">Стрелковый клуб Зутеленд</>",
-    ["我拉着她的手走开了，\n她也没有拒绝。"] = "Я взял ее за руку и пошел прочь,\n, и она не отказалась.",
 }

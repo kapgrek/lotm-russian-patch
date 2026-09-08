@@ -249,8 +249,7 @@ return {
     ["Storm Prayer Marker buff"] = "Усиление маркера молитвы шторма",
     ["首先，身体保持挺直，然后在空中伴随一个转体，使用背部着陆至草垛中。"] = "Сначала держите тело прямо, затем сделайте поворот в воздухе и приземлитесь на спину в стоге сена.",
     ["首先，躲开赌场的那帮猎狗，悄悄地伪装进去。"] = "Во-первых, избегайте гончих из казино и прокрадитесь туда переодетым.",
-    ["Blackthorn Security Company\n<LeonSubTitle size=\"22\">Blackthorn Security Company</>"] = "Охранная компания «Чёрный Чертополох»\n<LeonSubTitle size=\"22\">Охранная компания «Чёрный Чертополох»</>",
+    ["Blackthorn Security Company\n<LeonSubTitle size=\"22\">Blackthorn Security Company</>"] = "Охранная компания Чёрный Чертополох\n<LeonSubTitle size=\"22\">Охранная компания Чёрный Чертополох</>",
     ["Default is False, meaning that when a single Skill instance hits a target multiple times, each hit (regardless of how many targets are hit) triggers an Event once; filling in True means that within a single Skill instance, this Event is only triggered once."] = "По умолчанию установлено значение False, что означает, что когда один экземпляр Навыка поражает цель несколько раз, каждое попадание (независимо от того, сколько целей поражено) запускает Событие один раз; Заполнение значения True означает, что в пределах одного экземпляра навыка это событие запускается только один раз.",
     ["（禁疗）"] = "(Исцеление запрещено)",
-    ["红月亮街\n<LeonSubTitle size=\"38\">Red Moonlight Street</>"] = "Улица Красной Луны\n<LeonSubTitle size=\"38\">Улица Красной Луны</>",
 }

@@ -52,6 +52,14 @@ if exist "%FIXES_DIR%\RussianLocalization.lua" (
     powershell -NoProfile -Command "(Get-Content '%FIXES_DIR%\RussianLocalization.lua') -replace 'Russian.Enabled = true', 'Russian.Enabled = false' -replace 'Enabled = true', 'Enabled = false' | Set-Content '%FIXES_DIR%\RussianLocalization.lua' -Encoding UTF8" 2>nul
 )
 
+:: 2.1 Восстановление оригинального шрифта Aleo_TitleNew.ttf
+set "FONT_DIR=%GAME_DIR%\Binaries\Win64\allin_data\font"
+if exist "%FONT_DIR%\Aleo_TitleNew.ttf.orig_bak" (
+    echo [*] Восстановление оригинального шрифта Aleo_TitleNew.ttf...
+    copy /Y "%FONT_DIR%\Aleo_TitleNew.ttf.orig_bak" "%FONT_DIR%\Aleo_TitleNew.ttf" >nul
+    del /F /Q "%FONT_DIR%\Aleo_TitleNew.ttf.orig_bak" >nul
+)
+
 :: 3. Восстановление оригинального блока pakchunk0-Windows.pak
 if exist "%SCRIPT_DIR%PakHook.exe" (
     echo [*] Восстановление оригинального блока pakchunk0-Windows.pak...

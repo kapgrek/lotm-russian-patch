@@ -210,7 +210,7 @@ return {
     ["花束A激活状态"] = "Букет цветов Активированное состояние",
     ["苗栗县"] = "Уезд Мяоли",
     ["获得匕首。"] = "Получил кинжал.",
-    ["获得持续<Highlight>4</>秒的<img id=\"04\" width=\"36\" height=\"36\"/>防御值<Highlight>400</>,并且对一格以内的我方棋子增加<Highlight>60</>点攻击\n<img id=\"04\" width=\"36\" height=\"36\"/><Attribute>防御值</>：<Highlight>400/480/560</>\n<img id=\"03\" width=\"36\" height=\"36\"/><Attribute>攻击值：60=</>（<Highlight>20%</>/40%/60%）<Attribute>*苏茜当前攻击值</>"] = "Получите <Highlight>4</> секунд <img id=\"04\" width=\"36\" height=\"36\"/> DEF <Highlight>400</> и увеличьте АТК союзных фигур в пределах одной клетки на <Highlight>60</>.\n<img id=\"04\" width=\"36\" height=\"36\"/><Attribute>DEF</>: <Highlight>400/480/560</>\n<img id=\"03\" width=\"36\" height=\"36\"/><Attribute>ATK: 60=</> (<Highlight>20%</>/40%/60%) <Attribute>* Текущая Сьюзи АТКЗЗТАГ20ЗЗ",
+    ["获得持续<Highlight>4</>秒的<img id=\"04\" width=\"36\" height=\"36\"/>防御值<Highlight>400</>,并且对一格以内的我方棋子增加<Highlight>60</>点攻击\n<img id=\"04\" width=\"36\" height=\"36\"/><Attribute>防御值</>：<Highlight>400/480/560</>\n<img id=\"03\" width=\"36\" height=\"36\"/><Attribute>攻击值：60=</>（<Highlight>20%</>/40%/60%）<Attribute>*苏茜当前攻击值</>"] = "Получите <Highlight>4</> секунд <img id=\"04\" width=\"36\" height=\"36\"/> DEF <Highlight>400</> и увеличьте АТК союзных фигур в пределах одной клетки на <Highlight>60</>.\n<img id=\"04\" width=\"36\" height=\"36\"/><Attribute>DEF</>: <Highlight>400/480/560</>\n<img id=\"03\" width=\"36\" height=\"36\"/><Attribute>ATK: 60=</> (<Highlight>20%</>/40%/60%) <Attribute>* Текущий ATK</> Сьюзи",
     ["蕾娜塔·"] = "Рената",
     ["Illusory Coordinate"] = "Иллюзорная координата",
     ["How pitiful the gentleman with his head burnt off is; perhaps you could take a new one."] = "Как жалок господин с отожженной головой; возможно, вы могли бы взять новый.",
@@ -252,5 +252,4 @@ return {
     ["Black Thorn Event 3_5200205_Wraith_Ray Filter"] = "Событие Black Thorn 3_5200205_Wraith_Ray Filter",
     ["黑荆棘事件簿4-关卡2-火焰条带"] = "Книга происшествий в Блэкторне. 4. Уровень 2. Пламенная полоса.",
     ["（哥哥班森还在出差，梅丽莎与这件事无关，应该不会受影响。）"] = "(Мой брат Бенсон все еще в командировке, и Мелисса не имеет к этому никакого отношения; ее это не должно затронуть.)",
-    ["女神啊，请原谅我的\n自以为是……"] = "О Богиня, пожалуйста, прости мою \n самоуверенность...",
 }

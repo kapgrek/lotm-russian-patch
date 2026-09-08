@@ -227,5 +227,4 @@ return {
     ["黄铜书挑战ID"] = "Идентификатор испытания «Латунная книга»",
     ["黑色怨灵的完整灵性"] = "Полная духовность Черного Призрака",
     ["黑荆棘报销商店"] = "Компенсационный магазин Чёрный Чертополох",
-    ["<Fashion1>Style:</> Lakeside Style\n<Fashion1>Name:</><Fashion2>Dead Leaf Butterfly</>\n<Fashion1>Craft:</> Dark Pattern Spider Silk Georgette Gown\n<Fashion1>Description:</> A simple one or two-sentence introduction about the clothing"] = "<Fashion1>Стиль:</> Стиль на берегу озера\n<Fashion1>Название:</><Fashion2>Бабочка из мертвых листьев</>\n<Fashion1>Craft:</> Платье из жоржета с темным узором из шелка и паука\n<Fashion1>Описание:</> Простое введение в одно или два предложения об одежде.",
 }

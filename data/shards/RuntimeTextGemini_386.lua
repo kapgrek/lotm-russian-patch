@@ -251,7 +251,7 @@ return {
     ["A chance to choose?"] = "Шанс выбрать?",
     ["General - Roleplay Skill - Get off work"] = "Общее — Навыки ролевой игры — Отвлечься от работы",
     ["道具·厄水巨龟"] = "Предмет: Водяная гигантская черепаха несчастья",
-    ["Then, {{PlayerName}}, did you smell the faint scent of daisies back then?\\n<P_Yellow> (Note: Different choices will lead the story to different endings.)</>"] = "Then, {{PlayerName}}, did you smell the faint scent of daisies back then?\\n<P_Yellow> (Note: Different choices will lead the story to different endings.)</>",
+    ["Then, {{PlayerName}}, did you smell the faint scent of daisies back then?\\\n<P_Yellow> (Note: Different choices will lead the story to different endings.)</>"] = "Итак, {{PlayerName}}, почувствовал ли ты тогда тонкий аромат маргариток?\\\n<P_Yellow> (Примечание: разные выборы приведут к разным концовкам истории.)</>",
     ["那枚护身符的微弱灵性也许只够维持你的存在，却不能让没有非凡力量的普通人察觉你。"] = "Слабой духовности этого амулета может быть достаточно только для поддержания вашего существования, но он не может позволить обычным людям без Потусторонних сил воспринимать вас.",
     ["Those two gentlemen over there... seem to be debating quite intensely?"] = "Эти два джентльмена... кажется, очень интенсивно спорят?",
     ["For Bonnie combat"] = "Для боя Бонни",
@@ -268,5 +268,4 @@ return {
     ["风暴祷言标记buff"] = "Усиление маркера молитвы шторма",
     ["Yellow Crystal Pendulum"] = "Желтый хрустальный маятник",
     ["工匠"] = "Ремесленник",
-    ["在诊所随便看看\n<h>几封未寄的信</>"] = "Осмотрите клинику.\n<h>Несколько неотправленных писем</>",
 }

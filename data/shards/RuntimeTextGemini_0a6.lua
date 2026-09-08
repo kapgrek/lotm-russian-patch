@@ -241,5 +241,4 @@ return {
     ["魔女受治"] = "Ведьминское исцеление получено",
     ["Demon Wolf - Spirit Body Binding - Drag"] = "Демон-Волк — Связывание духовного тела — Перетаскивание",
     ["Blackthorn Incident Book 4 - Level 2 - Aiming Performance"] = "Книга происшествий в Блэкторне. Книга 4. Уровень 2. Прицеливание",
-    ["Master Astrology, Card divination, pendulum spirit vision, and similar divination abilities.\nMaster Astrology, Card divination, pendulum spirit vision, and similar divination abilities."] = "Мастер астрологии, карточное гадание, духовное видение маятника и аналогичные способности гадания.\nМастер астрологии, карточное гадание, духовное видение маятника и аналогичные способности гадания.",
 }

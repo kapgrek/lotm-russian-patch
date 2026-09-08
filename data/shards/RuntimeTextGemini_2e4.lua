@@ -270,5 +270,4 @@ return {
     ["麦迪娜"] = "Медина",
     ["(Muttering) The loofahs aren't selling, {{this kind sir|this kind madam}}, can you help me? Please."] = "(Бормочет) Люфы не продаются, {{this kind sir|this kind madam}}, ты можешь мне помочь? Пожалуйста.",
     ["Go to the quiet alley behind the perfume shop and look for the contact, <h>Lise Evans</h>"] = "Идите в тихий переулок за парфюмерным магазином и найдите контакт, <h>Лиз Эванс</>.",
-    ["推荐\n推荐"] = "Рекомендуется\nРекомендуется",
 }

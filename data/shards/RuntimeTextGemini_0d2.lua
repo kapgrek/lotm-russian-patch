@@ -222,5 +222,4 @@ return {
     ["Black Emperor Combat Area"] = "Зона боевых действий Черного Императора",
     ["(The Red Moon, could it be... the Primordial Moon...)"] = "(Красная Луна, может быть... Изначальная Луна...)",
     ["（这里是流浪汉住的地方吗……）"] = "(Здесь живут бездомные...)",
-    ["Chief of the Council Security Force\nGolden Wolf Charlie"] = "Начальник Сил безопасности Совета\nGolden Wolf Charlib",
 }

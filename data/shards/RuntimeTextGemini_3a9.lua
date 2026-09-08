@@ -2,7 +2,7 @@
 -- Dual-indexed (CN + EN keys) for instant zero-limit lookup.
 return {
     ["%s下载完成"] = "Загрузка %s завершена",
-    ["2.4x"] = "2.4x",
+    ["2.4x"] = "2.4х",
     ["5-2单次攻击盒治疗"] = "5-2 Исцеление ящика для одиночной атаки",
     ["5230056 Tingen Plane"] = "5230056 Измерение: Тинген",
     ["<Assistant_Title1>【The Soil Knows the Answer】</>\n<Assistant_Title2>Quest Type: </><Assistant_Property2>Anecdotes of the Era</>\n<Assistant_Title2>Quest Description: </>Every farewell is another kind of reunion.\n<Assistant_Title2>How to Accept: </>After your Acting level reaches <Assistant_Red>Level 63</>, head to {Location:[金秋湖(271,214)]|17110;11416;112;2;5200002;0} to trigger the quest.\n<Assistant_Title2>Quest Rewards</>: Cognitive Experience, invoices, Adventure Medals, World Adventure Treasure progress"] = "<Assistant_Title1>【Почва знает ответ】</>\n<Assistant_Title2>Тип квеста: </><Assistant_Property2>Анекдоты эпохи</>\n<Assistant_Title2>Описание квеста: </>Каждое прощание — это еще один вид воссоединения.\n<Assistant_Title2>Как принять: </>После того, как ваш актерский уровень достигнет <Assistant_Red>LLevel 8e</>, отправляйтесь в {Location:[Golden Autumn Lake(271,214)]|17110;11416;112;2;5200002;0}, чтобы активировать квест.\n<Assistant_Title2>Награды за квесты</>: познавательный опыт, счета, медали приключений, прогресс сокровищ мира",
@@ -230,5 +230,4 @@ return {
     ["Touch of Dark Ember"] = "Прикосновение темного угля",
     ["Dragon Might"] = "Драконье величие",
     ["(Hero) Turntable Suit BUFF Joker"] = "(Герой) Костюм проигрывателя BUFF Joker",
-    ["Celeste is\na faithless lover"] = "Селеста — \n — неверная любовница.",
 }

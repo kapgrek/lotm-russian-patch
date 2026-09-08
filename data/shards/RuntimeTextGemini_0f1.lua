@@ -246,5 +246,4 @@ return {
     ["Witch and Beast - Return to Reality"] = "Ведьма и чудовище - Возвращение в реальность",
     ["魔狼-黯蚀黑光-跟踪AOE目标筛选"] = "Демон-Волк-Коррозионный черный световой целевой фильтр AOE",
     ["Twilight Mask"] = "Маска Сумерек",
-    ["玩家名字七个字\n<LeonSubTitle size=\"18\">Workers are the foundation of the timesfoundation of the times</>"] = "Имя игрока семь персонажей\n<LeonSubTitle size=\"18\">Рабочие — основа времениоснова времени</>",
 }

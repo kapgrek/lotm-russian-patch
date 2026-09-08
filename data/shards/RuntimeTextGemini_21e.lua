@@ -251,5 +251,4 @@ return {
     ["Blackthorn Casebook 4 - Level 1 - Beyonder ability seal"] = "Книга дел Блэкторна 4 — Уровень 1 — Печать способности Потусторонний",
     ["Default sort"] = "Сортировка по умолчанию",
     ["Did Daisy fake her death?"] = "Дейзи инсценировала свою смерть?",
-    ["黑荆棘安保公司\n<LeonSubTitle size=\"22\">Blackthorn Security Company</>"] = "Охранная компания Чёрный Чертополох\n<LeonSubTitle size=\"22\">Охранная компания Чёрный Чертополох</>",
 }

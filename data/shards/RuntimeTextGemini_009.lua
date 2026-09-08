@@ -229,5 +229,4 @@ return {
     ["黑盒"] = "Черный ящик",
     ["黑荆棘俱乐部"] = "Чёрный Чертополох Клуб",
     ["Miss Daisy's house is on the <P_Yellow>west side of the flower field</>."] = "Дом мисс Дейзи находится на <P_Yellow>, западной стороне цветочного поля </>.",
-    ["King of Hearts          Queen of Clubs\nQueen of Clubs          Jack of Spades\n Jack of Spades          King of Hearts"] = "Король червей Дама треф\nДама треф Валет пик\n Валет пик Король червей",
 }

@@ -71,7 +71,7 @@ return {
     ["Max out partners."] = "Максимизируйте партнеров.",
     ["Midnight appointment"] = "Встреча в полночь",
     ["午夜太阳-触发器"] = "Полуночное солнце - триггер",
-    ["South District Avenue\n<LeonSubTitle size=\"38\">South Borough Avenue</>"] = "Южный Дистрикт-Авеню\n<LeonSubTitle size=\"38\">Южный Боро-Авеню</>",
+    ["South District Avenue\n<LeonSubTitle size=\"38\">South Borough Avenue</>"] = "Южный район авеню\n<LeonSubTitle size=\"38\">Южный районный авеню</>",
     ["Divination Result: Bright, Dim, Bright."] = "Результат гадания: Яркий, Тусклый, Яркий.",
     ["So that's it. The candle won't be consumed if it's not lit, so they chant \"indestructible body\"."] = "Вот и все. Свеча не сгорит, если ее не зажечь, поэтому поют «неразрушимое тело».",
     ["又是刚才的家伙！"] = "Это снова тот парень, который был раньше!",

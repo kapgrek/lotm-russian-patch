@@ -224,7 +224,7 @@ return {
     ["Delivery person entry route"] = "Маршрут входа курьера",
     ["Select monster to summon"] = "Выберите монстра для вызова",
     ["Select the features to display (<Highlight>%s</>/%s)"] = "Выберите объекты для отображения (<Highlight>%s</>/%s)",
-    ["Then, {{PlayerName}}, did you smell the fragrance of the daisies at that time? \n<P_Yellow> (Note: Different choices will lead the story to different endings.) </>"] = "Тогда, {{PlayerName}}, ты почувствовал в это время аромат ромашки? \n<P_Yellow> (Примечание: разные варианты приведут историю к разным концовкам.) </>",
+    ["Then, {{PlayerName}}, did you smell the fragrance of the daisies at that time? \n<P_Yellow> (Note: Different choices will lead the story to different endings.) </>"] = "Итак, {{PlayerName}}, почувствовал ли ты тогда тонкий аромат маргариток?\n<P_Yellow> (Примечание: разные выборы приведут к разным концовкам истории.)</>",
     ["Then move away."] = "Затем отойдите.",
     ["那当然是因为……哦，那些乡下人的事我怎么会知道呢？我只关心能换多少便士，阁下。"] = "Это потому что... ох, откуда мне знать об этих деревенских делах? Меня волнует только то, сколько пенсов я смогу получить, милорд.",
     ["采集指定TemplateID的采集物  对象播放指定对白内容  延迟执行  对象播放指定对白内容  玩家发送任务道具  "] = "Соберите указанный элемент TemplateID. Объект воспроизводит указанное содержимое диалога. Отложенное исполнение. Объект воспроизводит указанное содержимое диалога. Игрок отправляет квестовый предмет.",

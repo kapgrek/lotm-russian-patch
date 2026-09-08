@@ -253,5 +253,4 @@ return {
     ["Default 0; the larger the value, the higher the priority; negative numbers can be filled. When multiple skills are mapped to the same slot, the high-priority one is displayed, and the low-priority one is not. If priorities are the same, display is managed by a stack rule where the newcomer takes precedence."] = "По умолчанию 0; чем больше значение, тем выше приоритет; отрицательные числа могут быть заполнены. Когда несколько навыков сопоставлены с одним и тем же слотом, отображается высокоприоритетный, а низкоприоритетный — нет. Если приоритеты одинаковы, отображение управляется правилом стека, где новый элемент имеет приоритет.",
     ["(Whose challenge letter is this? I should go look for it near the Hound Bar.)"] = "(Чье это письмо с вызовом? Мне нужно поискать его возле бара «Hound Bar».)",
     ["(已达成等级上限)"] = "(Макс. ур.)",
-    ["Seer Acting\n(Find the correct Door)"] = "Seer Acting\n (Найдите правильную дверь)",
 }

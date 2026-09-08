@@ -121,7 +121,7 @@ return {
     ["Yodora is likely around Sequence 9, but there is a risk of loss of control. We must be especially careful with that flute."] = "Йодора, скорее всего, находится в районе девятой последовательности, но есть риск потери контроля. Нам следует быть особенно осторожными с этой флейтой.",
     ["居民--克里斯蒂娜"] = "Резидент -- Кристина",
     ["Display Stand: Prayer"] = "Стенд: Молитва",
-    ["工人是时代的基础\n<LeonSubTitle size=\"18\">Workers are the foundation of the timesfoundation of the times</>"] = "Рабочие — основа времени\n<LeonSubTitle size=\"18\">Рабочие — основа времениоснова времени</>",
+    ["工人是时代的基础\n<LeonSubTitle size=\"18\">Workers are the foundation of the timesfoundation of the times</>"] = "Рабочие – основа времени\n<LeonSubTitle size=\"18\">Рабочие – основа времениоснова времени</>",
     ["工厂的工人们最近在抱怨些什么……"] = "На что в последнее время жалуются заводчане...",
     ["左2"] = "Слева b",
     ["Daily generation limit reached."] = "Достигнут лимит ежедневной генерации.",
@@ -265,5 +265,4 @@ return {
     ["黑面草面包"] = "Черный хлеб",
     ["龙息之下"] = "Под дыханием дракона",
     ["（Whispering. It is indeed） Believe me, your memory has always been excellent!"] = "(Шепотом. Это действительно так） Поверьте, у вас всегда была отличная память!",
-    ["I have failed to fulfill\nmy duties as a mother..."] = "Я не выполнила\nсвои материнские обязанности...",
 }

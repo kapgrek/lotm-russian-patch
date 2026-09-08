@@ -245,4 +245,5 @@ return {
     ["魔药材料·舞王狒哥"] = "Материал зелья: Танцующий король-брат павиана.",
     ["鱼的盘子"] = "Рыбная тарелка",
     ["Blackthorn Event 3_5200205_Gunman_Filter Two Random Enemies"] = "Чёрный Чертополох Event 3_5200205_Gunman_Filter Два случайных врага",
+    ["I wonder if this \"it\" is still here today...\n<P_Yellow> (Obtained clue and added to inventory: Diary Fragment)</>"] = "Интересно, осталось ли это «оно» здесь и сегодня...\n<P_Yellow> (Получена зацепка и добавлена в сумку: Фрагмент дневника)</>",
 }

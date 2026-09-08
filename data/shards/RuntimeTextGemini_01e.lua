@@ -70,7 +70,7 @@ return {
     ["使用后获得<Highlight>秘藏学者上装</>"] = "Используйте, чтобы получить <Highlight>Secret Scholar Top</>.",
     ["Messenger Close-up"] = "Посланник крупным планом",
     ["Hypnosis and Mind Reading"] = "Гипноз и чтение мыслей",
-    ["Windows like this, \n aren't closed tightly, \n lying under the window sill, \n can easily hear..."] = "Окна такие, \n закрыты неплотно, \n лежит под подоконником, \n легко слышно...",
+    ["Windows like this, \n aren't closed tightly, \n lying under the window sill, \n can easily hear..."] = "Окна такие, \n закрыт неплотно, \n лежит под подоконником, \n легко слышно...",
     ["Fullscreen Windowed"] = "Полноэкранный оконный режим",
     ["全部评论"] = "Все комментарии",
     ["再好好想想，我到底是怎么穿越的。"] = "Подумайте еще раз хорошенько, как именно я переселился?",

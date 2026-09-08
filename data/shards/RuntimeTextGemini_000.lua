@@ -273,5 +273,4 @@ return {
     ["McCann"] = "Макканн",
     ["Default entry point"] = "Точка входа по умолчанию",
     ["(Whispering) She's so capable and well-liked. What if one day she thinks I'm too useless and leaves me?"] = "(Шепотом) Она такая способная и любимая. Что, если однажды она подумает, что я слишком бесполезен, и бросит меня?",
-    ["I wonder if this \"it\" is still here today...\n<P_Yellow> (Obtained clue and added to inventory: Diary Fragment)</>"] = "Интересно, здесь ли это «оно» сегодня...\n<P_Yellow> (Подсказка получена и добавлена ​​в инвентарь: Фрагмент дневника)</>",
 }

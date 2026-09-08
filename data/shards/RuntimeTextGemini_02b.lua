@@ -276,5 +276,4 @@ return {
     ["(Hesitates) Although it was very imposing, it was truly terrible to listen to."] = "(колеблется) Хотя это было очень впечатляюще, слушать это было действительно ужасно.",
     ["（表现气口）"] = "(Имитируем воздухозаборник)",
     ["{Mr.{ Ms.|}}, it's you. The return of the goods you purchased was successful, and the payment has been retrieved."] = "{{мистер|мисс}}, это вы. Возврат купленного вами товара прошел успешно, и оплата получена.",
-    ["好好\n看清楚"] = "Смотри\nвнимательно",
 }

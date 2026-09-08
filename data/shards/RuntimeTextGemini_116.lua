@@ -262,6 +262,4 @@ return {
     ["Unlocked when Wheatfield Eatery reaches Level 3"] = "Разблокируется, когда ресторан Wheatfield Eatery достигает 3-го уровня.",
     ["(A dialogue to be packaged) Brave adventurer, do you want an extra skill?"] = "(Диалог нужно упаковать) Отважный искатель приключений, тебе нужен дополнительный навык?",
     ["（声音没有变化，似乎不是这个方向。）"] = "(Голос не изменился; похоже, он не в этом направлении.)",
-    ["    Sequence\nWill inevitably lead to loss of control"] = "    Sequence\nWill inevitably lead to loss of control",
-    ["那一天，我突然听说……\n我父亲的真实身份！"] = "В тот день я внезапно услышал... \nправду о личности моего отца!",
 }

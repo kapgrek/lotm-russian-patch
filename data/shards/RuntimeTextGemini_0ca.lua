@@ -240,7 +240,7 @@ return {
     ["赶快收拾现场！"] = "Поторопитесь и очистите место происшествия!",
     ["跟随对象"] = "Следовать за объектом",
     ["跟随灵鼠，解开民居客厅的地板秘术"] = "Следуйте за призрачной мышью, чтобы открыть мистику на полу жилой гостиной.",
-    ["Stepping into the shadow around that unknown corner, <P_Yellow>where</> did this poor prey go? <P_Yellow>When</> will the story reach its end?\\nAnd <P_Yellow>who</> will arrive?"] = "Stepping into the shadow around that unknown corner, <P_Yellow>where</> did this poor prey go? <P_Yellow>When</> will the story reach its end?\\nAnd <P_Yellow>who</> will arrive?",
+    ["Stepping into the shadow around that unknown corner, <P_Yellow>where</> did this poor prey go? <P_Yellow>When</> will the story reach its end?\\\nAnd <P_Yellow>who</> will arrive?"] = "Шагнув в тень за тем неведомым поворотом, <P_Yellow>куда</> же направилась эта бедная добыча? <P_Yellow>Когда</> эта история подойдёт к концу?\\\nИ <P_Yellow>кто</> же появится?",
     ["Body grows smaller"] = "Тело становится меньше",
     ["Transition State Name"] = "Название переходного состояния",
     ["还有%s秒后才能发起就位确认"] = "Вы можете инициировать подтверждение готовности через %s секунд.",
@@ -257,5 +257,4 @@ return {
     ["黎黎"] = "Лили",
     ["鼻翼"] = "Ала носа",
     ["(Coming from outside the door) Officer, how is the teacher?"] = "(Выходя из-за двери) Офицер, как учитель?",
-    ["下水道系统已经初步建立，\n灭鼠行动也持续进行中。"] = "Первоначально была установлена ​​канализационная система, \n, и кампания по уничтожению крыс также продолжается.",
 }

@@ -190,7 +190,7 @@ return {
     ["Nailed Window"] = "Прибитое окно",
     ["Western"] = "Западный",
     ["Removes <HyperLink stylename=\"M_Link\" u=\"3\">control effects</> from yourself, <HyperLink stylename=\"M_Link\" u=\"16\">restores a fixed amount of </> your lost Health equal to *f**, deals *d physical damage to surrounding enemies, and grants <HyperLink stylename=\"M_Link\" u=\"11\">Super Armor</> for *f seconds, a <HighLight>20%</> movement speed boost for 3 seconds, and <HighLight>Illusion Breaking</> for *f seconds. \n \n<FaintYellow>Illusion Breaking</>\nbuffdisc(*id)."] = "Снимает с себя эффекты контроля <HyperLink stylename=\"M_Link\" u=\"3\"></>, <HyperLink stylename=\"M_Link\" u=\"16\"> восстанавливает фиксированное количество </> вашего потерянного здоровья, равное *f**, наносит *d физ. урона окружающим врагам и дает <HyperLink stylename=\"M_Link\" u=\"11\">Суперброню</> на *f сек., <HighLight>20%</> повышение скорости движения на 3 сек. и <HighLight>Иллюзия Разрыв </> на *f сек.. \n \n<FaintYellow>Разрушение иллюзий</>\nbuffdisc(*id).",
-    ["Chief of the Council Security Force\nGolden Wolf Charlie"] = "Начальник Сил безопасности Совета\nЗолотой Волк Чарли",
+    ["Chief of the Council Security Force\nGolden Wolf Charlie"] = "Начальник Сил безопасности Совета\nGolden Wolf Charlib",
     ["Add friend from Mystery Circle"] = "Добавить друга из Mystery Circlb",
     ["Ask the <h>dancing villagers</>"] = "Спросите танцующих жителей деревни <h></>",
     ["Who knows, maybe it's some Steam Revolution anniversary... By the way, are you here to see Captain Frye?"] = "Кто знает, может быть, это годовщина Steam Revolution... Кстати, вы пришли увидеть капитана Фрая?",

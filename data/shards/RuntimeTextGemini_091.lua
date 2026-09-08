@@ -232,5 +232,4 @@ return {
     ["Potion Formula (Sequence 4)"] = "Формула зелья (последовательность 4)",
     ["(A mysterious existence has applied a minor miracle to this check; this check will definitely result in a critical success.)"] = "(Таинственное существо применило к этой проверке небольшое чудо; эта проверка определенно приведет к критическому успеху.)",
     ["(This is truly the best viewing spot.)"] = "(Это действительно лучшее место для просмотра.)",
-    ["<Default_L>Remaining Time</>\n<Brown_L>00</> hours <Brown_L>00</> minutes"] = "<Default_L>Оставшееся время</>\n<Brown_L>00</> часов <Brown_L>00</> минут",
 }

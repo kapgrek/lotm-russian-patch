@@ -272,6 +272,4 @@ return {
     ["Blackboard value determines layers"] = "Значение Blackboard определяет слои",
     ["Blackthorn Reimbursement Shop"] = "Компенсационный магазин Чёрный Чертополох",
     ["(Should I persist in recording even while enduring extreme pain? Logically, I should persuade her to stop investigating and confiscate the records.)"] = "(Должен ли я продолжать запись, даже испытывая сильную боль? Логично, что я должен убедить ее прекратить расследование и конфисковать записи.)",
-    ["切换露米意识\n靠近记忆碎片"] = "Переключите сознание Люмиана\nПодойдите к фрагменту воспоминаний.",
-    ["Enjoy\nyour freedom"] = "Наслаждайтесь \nсвоей свободой",
 }

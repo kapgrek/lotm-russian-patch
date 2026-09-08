@@ -226,6 +226,4 @@ return {
     ["魔女检定"] = "Тест на ведьм",
     ["黑夜教士--乔恩"] = "Церковь Ночного Жреца — Джон",
     ["Blackthorn Incident Book 2_Sun Holy Emblem"] = "Книга происшествий в Блэкторне 2_Sun Holy Emblem",
-    ["Daffodil Street\n<LeonSubTitle size=\"38\">Daffodil Street</>"] = "улица Нарциссов\n<LeonSubTitle size=\"38\">улица Нарциссов</>",
-    ["Just like this,\nI decided to break up their marriage..."] = "Вот так \nI решили расторгнуть свой брак...",
 }

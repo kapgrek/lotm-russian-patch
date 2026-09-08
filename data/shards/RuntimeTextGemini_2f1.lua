@@ -242,5 +242,4 @@ return {
     ["A twisted ring connected end-to-end, the beginning of an endless cycle."] = "Скрученное кольцо, соединенное конец в конец, начало бесконечного цикла.",
     ["Magic? It's not impossible... Does she have a fixed workplace?"] = "Магия? Это не невозможно... У нее есть постоянное место работы?",
     ["Fish Catch 5"] = "Улов рыбы b",
-    ["After applying settings, the plane will switch. \n Confirm settings?"] = "После применения настроек самолет переключится. \n Подтвердить настройки?",
 }

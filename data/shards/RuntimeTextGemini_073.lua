@@ -252,5 +252,4 @@ return {
     ["魔药锅"] = "Горшок с зельем",
     ["Black Emperor target point effect"] = "Эффект целевой точки Черного Императора",
     ["(No wonder Mr. Star said that Frye is a trustworthy captain.)"] = "(Неудивительно, что мистер Стар сказал, что Фрай — заслуживающий доверия капитан.)",
-    ["Next\n"] = "Далее\n",
 }

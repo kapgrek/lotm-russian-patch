@@ -112,7 +112,7 @@ return {
     ["对方已不再是欢愉魔女~"] = "Другая сторона больше не Ведьма удовольствий~",
     ["Find the <h>miracle mailbox</>"] = "Найдите чудо-почтовый ящик <h></>.",
     ["将死亡骑士牵引至此，将其存在收编为绝对秩序的一环。"] = "Перетащите сюда Рыцаря Смерти, чтобы включить его существование в качестве звена в абсолютном порядке.",
-    ["Workers are the foundation of the times\n<LeonSubTitle size=\"18\">Workers are the foundation of the timesfoundation of the times</>"] = "Рабочие — основа времени\n<LeonSubTitle size=\"18\">Рабочие — основа времениоснова времени</>",
+    ["Workers are the foundation of the times\n<LeonSubTitle size=\"18\">Workers are the foundation of the timesfoundation of the times</>"] = "Рабочие – основа времени\n<LeonSubTitle size=\"18\">Рабочие – основа времениоснова времени</>",
     ["Factory Dance"] = "Фабричный танец",
     ["Recruitment information has been posted in the Family group chat. Do you want to go to the interface corresponding to <Highlight> current quest </>?"] = "Информация о наборе размещена в групповом чате «Семья». Хотите перейти к интерфейсу, соответствующему текущему квесту <Highlight> </>?",
     ["Process monsters that need to be cleared on Platform 1"] = "Технологические монстры, которых необходимо очистить на Платформе b",

@@ -2,7 +2,7 @@
 -- Developed for LOM Mod Loader
 local Russian = {
     Enabled = true,
-    Version = "1.1.0",
+    Version = "2.0.0",
 }
 
 -- Названия вкладок главного меню и навигации (компактные для предотвращения переполнения сетки)
@@ -359,6 +359,9 @@ Russian.skillTags = {
 }
 
 Russian.englishToRussian = {
+    ["Beacon of Destiny"] = "Маяк судьбы",
+    ["Bacon of Destiny"] = "Маяк судьбы",
+    ["\"Justice\" and \"The Hanged Man\" begin writing down the words from memory..."] = "«Справедливость» и «Повешенный» начали записывать по памяти слова...",
     ["Level cap reached"] = "Макс. ур.",
     ["(Level cap reached)"] = "(Макс. ур.)",
     ["Character ID: %s"] = "ID: %s",
@@ -1004,6 +1007,8 @@ end
 
 -- Китайский -> Русский (точные переопределения интерфейса и текста)
 Russian.chineseToRussian = {
+    ["命运道标"] = "Маяк судьбы",
+    ["“正义”和“倒吊人”开始默写记忆中的文字……"] = "«Справедливость» и «Повешенный» начали записывать по памяти слова...",
     ["途径转换"] = "Смена пути",
     ["神之途径"] = "Путь Бога",
     ["魔药配方"] = "Рецепты",

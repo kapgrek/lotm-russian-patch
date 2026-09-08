@@ -254,7 +254,7 @@ return {
     ["那边那个人是……"] = "Тот человек там...",
     ["邦尼：我花了二十年，从本杰明变成邦尼，最后还是输给了，一个外人。"] = "Бонни: Я провела двадцать лет, переходя от Бенджамина к Бонни, и в конце концов все равно проиграла аутсайдеру.",
     ["Golden Wolf Believer has entered a weakened state; take this opportunity to <Dungeon_Highlight> launch an attack </>!"] = "Верующий в Золотого Волка вошел в ослабленное состояние; воспользуйтесь этой возможностью, чтобы <Dungeon_Highlight> начал атаку </>!",
-    ["Iron Cross Right Street\n<LeonSubTitle size=\"38\">Iron Cross Right Street</>"] = "Улица Железного Креста, правая \n<LeonSubTitle size=\"38\">Улица Железного Креста, правая </>",
+    ["Iron Cross Right Street\n<LeonSubTitle size=\"38\">Iron Cross Right Street</>"] = "Железный Крест, правая улица\n<LeonSubTitle size=\"38\">Железный Крест, правая улица</>",
     ["铁十字街弗兰奇公寓氛围"] = "Атмосфера квартиры Фрэнки на Айрон-Кросс-стрит",
     ["Iron Factory Speedster"] = "Железный завод Спидстер",
     ["银白细剑子弹A"] = "Серебряная рапира-пуля A",

@@ -284,5 +284,4 @@ return {
     ["The Witch and the Beast - Boxing and Banknotes"] = "Ведьма и чудовище - Бокс и банкноты",
     ["How do I clear the Blackthorn 6-player dungeon?"] = "Как мне пройти подземелье Чёрный Чертополох для 6 игроков?",
     ["(Temporary text)"] = "(Временный текст)",
-    ["4 Daffodil Street\n<LeonSubTitle size=\"8\">4 Daffodil Street</>"] = "4 улица Нарциссов\n<LeonSubTitle size=\"8\">4 улица Нарциссов</>",
 }

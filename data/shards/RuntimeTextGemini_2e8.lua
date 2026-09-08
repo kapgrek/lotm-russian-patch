@@ -213,5 +213,4 @@ return {
     ["黑夜漫漫，万物以短暂而存在。夜幕无边，万物以渺小而安宁。"] = "Ночь длинна, и все вещи преходящи. Ночь беспредельна, и все вещи мирны в своей незначительности.",
     ["默认皮肤"] = "Скин по умолчанию",
     ["Qiqihar"] = "Цицикар",
-    ["Abnormalities have also appeared at May Manor. \n Some workers have gone missing. \n The manor's \"Viscountess\" and \"Butler\" \n are also members of the Moon Servant."] = "Аномалии также появились в Мэй-Мэноре. \n Некоторые рабочие пропали. \n «Виконтесса» и «Дворецкий» поместья \n также являются членами Лунного Слуги.",
 }

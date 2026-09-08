@@ -36,7 +36,8 @@ class BuildPerfectRussianShards
     static string CleanForLua(string s)
     {
         if (string.IsNullOrEmpty(s)) return "";
-        string r = s.Replace("\r\n", "\\n").Replace("\n", "\\n").Replace("\r", "");
+        string r = s.Replace("\\\r\n", "\\\\\\n").Replace("\\\n", "\\\\\\n");
+        r = r.Replace("\r\n", "\\n").Replace("\n", "\\n").Replace("\r", "");
         if (r.Contains("\\\"") && (r.Contains("guildTaskHelp") || r.Contains("Clickable")))
         {
             return r.Replace("\\\"", "\\\\\\\"");
@@ -49,13 +50,21 @@ class BuildPerfectRussianShards
     static void Main()
     {
         Console.OutputEncoding = Encoding.UTF8;
-        string ruPath = @"d:\gameDev\translate lotm\RuntimeTextRussian.lua";
-        string geminiPath = @"d:\gameDev\translate lotm\source_en\RuntimeTextGemini.lua";
-        string outDir = @"d:\gameDev\translate lotm\data\shards";
-        string modBaseDir = @"d:\gameDev\translate lotm\mod_base\Saved\Mods\lua\mods\cpdd_runtime_fixes";
+        string currentDir = Directory.GetCurrentDirectory();
+        string projectRoot = @"d:\gameDev\NewBild";
+        if (File.Exists(Path.Combine(currentDir, "RuntimeTextRussian.lua")))
+            projectRoot = currentDir;
+        else if (File.Exists(Path.Combine(currentDir, "..", "RuntimeTextRussian.lua")))
+            projectRoot = Path.GetFullPath(Path.Combine(currentDir, ".."));
+
+        string ruPath = Path.Combine(projectRoot, "RuntimeTextRussian.lua");
+        string geminiPath = Path.Combine(projectRoot, "source_en", "RuntimeTextGemini.lua");
+        string outDir = Path.Combine(projectRoot, "data", "shards");
+        string modBaseDir = Path.Combine(projectRoot, "mod_base", "Saved", "Mods", "lua", "mods", "cpdd_runtime_fixes");
 
         if (!Directory.Exists(outDir)) Directory.CreateDirectory(outDir);
-        if (!Directory.Exists(modBaseDir)) Directory.CreateDirectory(modBaseDir);
+        bool hasModBase = Directory.Exists(Path.Combine(projectRoot, "mod_base"));
+        if (hasModBase && !Directory.Exists(modBaseDir)) Directory.CreateDirectory(modBaseDir);
 
         Console.WriteLine("=== STEP 1: Loading Russian Dictionary ===");
         var ruDict = new Dictionary<string, string>(StringComparer.Ordinal);
@@ -177,10 +186,13 @@ class BuildPerfectRussianShards
 
             string text = sb.ToString();
             string outPath = Path.Combine(outDir, "RuntimeTextGemini_" + prefix + ".lua");
-            string modBasePath = Path.Combine(modBaseDir, "RuntimeTextGemini_" + prefix + ".lua");
-
             File.WriteAllText(outPath, text, Encoding.UTF8);
-            File.WriteAllText(modBasePath, text, Encoding.UTF8);
+
+            if (hasModBase)
+            {
+                string modBasePath = Path.Combine(modBaseDir, "RuntimeTextGemini_" + prefix + ".lua");
+                File.WriteAllText(modBasePath, text, Encoding.UTF8);
+            }
         }
 
         Console.WriteLine(string.Format("Successfully generated 1024 shards with {0} total entries!", totalEntriesWritten));

@@ -21,7 +21,7 @@ return {
     ["Please wait a moment! You are the {{Sir|Madam}} from Blackthorn Security Company, right? Can you do me a small favor?"] = "Пожалуйста, подождите немного! Вы {{Sir|Madam}} из компании Чёрный Чертополох Security, верно? Можешь оказать мне небольшую услугу?",
     ["Tab Selection Test Configuration - Camera Priority"] = "Конфигурация теста выбора вкладки — приоритет камеры",
     ["[表情34]"] = "[Эмодзи 34]",
-    ["id :1234567890\n玩家名字七个字 123****0000"] = "id :1234567890\nИмя игрока семь символов 123****1abb",
+    ["id :1234567890\n玩家名字七个字 123****0000"] = "[Семь символов]",
     ["{{PlayerName}}，来这里……"] = "{{PlayerName}}, иди сюда...",
     ["\"When entering forbidden grounds where weapons are prohibited, you may store your greatsword in this stone coffin.\"\n\n\"The Greatsword of Chaos can only be retrieved using the power of Order; the Greatsword of Order can only be retrieved using the power of Chaos.\""] = "\"При входе на запретные территории, где запрещено оружие, вы можете хранить свой большой меч в этом каменном гробу.\"\n\n\"Большой меч Хаоса можно получить только с помощью силы Порядка; Большой меч Порядка можно получить только с помощью силы Хаоса.\"",
     ["……我明白了！"] = "…Я понимаю!",

@@ -3,7 +3,7 @@
 return {
     ["         Are you sure you want to permanently delete this character?\n(After deletion, the nickname will be released 30 days after the server launch.)"] = "Вы уверены, что хотите навсегда удалить этого персонажа?\n(После удаления никнейм будет освобожден через 30 дней после запуска сервера.)",
     ["%d days"] = "%d дней",
-    ["%d:%d"] = "%d:%d",
+    ["%d:%d"] = "%d ч. %d мин.",
     ["+4法力恢复 受击恢复1法力"] = "+4 Восстановление маны, восстанавливает 1 ману при ударе",
     ["1. Mark targets;\n 2. Arena segmentation;\n 3. Attack 3 times in sequence"] = "1. Отметить цели;\n 2. Сегментация арены;\n 3. Атаковать 3 раза подряд.",
     ["June 28, 1349"] = "28 июня 1349 г.",
@@ -275,5 +275,4 @@ return {
     ["(Klein vs. Selena)"] = "(Клейн против Селены)",
     ["(Deep breath) Only by drinking it can I step into the Extraordinary World and become a true Beyonder."] = "(Глубокий вдох) Только выпив его, я смогу шагнуть в Необыкновенный Мир и стать настоящим Потусторонним.",
     ["(Standing up) I promised to teach you occult knowledge."] = "(Вставая) Я обещал научить тебя оккультным знаниям.",
-    ["Spectator Acting\n(Psychological Suggestion)"] = "Зрительская игра \n (Психологическое внушение)",
 }

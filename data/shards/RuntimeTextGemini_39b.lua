@@ -254,7 +254,4 @@ return {
     ["Huang Tao"] = "Хуан Тао",
     ["Grace of the Brass Book"] = "Благодать медной книги",
     ["鼠标悬停选择技能目标"] = "Наведите указатель мыши, чтобы выбрать цель навыка",
-    ["Golden Indus Avenue\n<LeonSubTitle size=\"38\">Golden Indus Avenue</>"] = "Авеню Золотого Инда\n<LeonSubTitle size=\"38\">Авеню Золотого Инда</>",
-    ["Oh Goddess, please forgive my\nself-righteousness..."] = "О Богиня, пожалуйста, прости мою \n самоуверенность...",
-    ["观众扮演\n（心理暗示）"] = "Зрительская игра \n (Психологическое внушение)",
 }

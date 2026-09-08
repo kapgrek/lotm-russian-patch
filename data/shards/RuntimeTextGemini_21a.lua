@@ -191,7 +191,7 @@ return {
     ["第二赛季-第二轮"] = "Сезон 2 – Раунд b",
     ["Wait time. Player plays single-sentence black screen subtitles. Player plays emotional music (audible only to self). Player plays 2D sound effect (audible only to self)."] = "Время ожидания. Плеер воспроизводит субтитры с черным экраном, состоящие из одного предложения. Плеер воспроизводит эмоциональную музыку (слышна только самому себе). Плеер воспроизводит 2D-звуковой эффект (слышен только самому себе).",
     ["累计消耗10000金镑"] = "Накопленный расход 10 000 фунтов.",
-    ["I'll give you a chance,\ndo you want to leave this place?"] = "Я дам тебе шанс, \n ты хочешь покинуть это место?",
+    ["I'll give you a chance,\ndo you want to leave this place?"] = "Я дам тебе шанс, \n, ты хочешь покинуть это место?",
     ["Quill animation placeholder"] = "Заполнитель анимации Quill",
     ["Vintage car racing"] = "Гонки на старинных автомобилях",
     ["Old Victor... Miss Fors..."] = "Старый Виктор... Мисс Форс...",
@@ -258,5 +258,4 @@ return {
     ["Fish - Parry Test - Mark buff"] = "Рыба - Тест на парирование - Пометка баффа",
     ["黄昏面具"] = "Маска Сумерек",
     ["Church of the Night"] = "Церковь Ночи",
-    ["黑荆棘\n安保公司"] = "Чёрный Чертополох\nОхранная компания",
 }

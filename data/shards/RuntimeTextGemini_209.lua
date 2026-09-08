@@ -231,7 +231,7 @@ return {
     ["How is your memorization of the \"Roselle Poetry Collection\" coming along? After all, a Midnight Poet needs to use different styles of poetry to exert different influences on the surrounding living beings."] = "Как продвигается ваше заучивание «Сборника стихов Розеллы»? Ведь Полуночному Поэту необходимо использовать разные стили поэзии, чтобы оказывать различное влияние на окружающих живых существ.",
     ["This unit cannot be possessed"] = "Данным устройством нельзя владеть",
     ["Who would hate a fireplace?"] = "Кто будет ненавидеть камин?",
-    ["Howls Street\n<LeonSubTitle size=\"38\">Howes Street</>"] = "Хоулс-стрит\n<LeonSubTitle size=\"38\">Хоус-стрит</>",
+    ["Howls Street\n<LeonSubTitle size=\"38\">Howes Street</>"] = "улица Хоуэс\n<LeonSubTitle size=\"38\">улица Хоуэс</>",
     ["Howls Street... is there a quite famous Divination Club there?"] = "Хаулс-стрит... есть ли там довольно известный клуб гаданий?",
     ["Belle"] = "Белль",
     ["贝蒂！贝蒂！终于等到你了，请原谅我吧！"] = "Бетти! Бетти! Я наконец дождалась тебя, пожалуйста, прости меня!",

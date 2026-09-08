@@ -252,6 +252,4 @@ return {
     ["Turtle Attendant"] = "Черепаха-слуга",
     ["(Tell the captain it will be sunny)"] = "(Скажите капитану, что будет солнечно)",
     ["(Yes, Elizabeth is an occult enthusiast, she should be able to help.)"] = "(Да, Элизабет — энтузиаст оккультизма, она сможет помочь.)",
-    ["So many words...\nI can't take it anymore..."] = "Столько слов...\nЯ больше не могу...",
-    ["<Default_L>编号</>\n<Brown_L>999</>"] = "<Default_L>Номер</>\n<Brown_L>999</>",
 }

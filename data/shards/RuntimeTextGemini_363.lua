@@ -132,7 +132,7 @@ return {
     ["我租它能干什么呢？"] = "Что я могу сделать, если возьму его в аренду?",
     ["我遇到一位海盗打扮的女士，是她告诉我的……"] = "Я встретил женщину, одетую пираткой; она была той, кто сказал мне...",
     ["战斗区_子爵夫人"] = "Боевая зона_Виконтесса",
-    ["所有玩家获得一个<FaintYellow>战神buff</>\n每<FaintYellow>X</>秒扣除<FaintYellow>5%</>生命值，持续<FaintYellow>X</>秒\n每<FaintYellow>X</>秒扣除<FaintYellow>5%</>生命值，持续<FaintYellow>X</>秒"] = "Все игроки получают усиление <FaintYellow>God of Combat</>\nПотерять <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительностью <FaintYellow>X</> секунд\nПотерять <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.",
+    ["所有玩家获得一个<FaintYellow>战神buff</>\n每<FaintYellow>X</>秒扣除<FaintYellow>5%</>生命值，持续<FaintYellow>X</>秒\n每<FaintYellow>X</>秒扣除<FaintYellow>5%</>生命值，持续<FaintYellow>X</>秒"] = "Все игроки получают усиление <FaintYellow>Бог Битвы</>.\nПотеря <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.\nПотеря <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.",
     ["All equipment strengthened to level 1"] = "Все оборудование усилено до 1 уровня.",
     ["扑克4"] = "Покер b",
     ["扮演功能已解锁，现在可以参与扮演玩法。"] = "Актерская функция разблокирована; теперь вы можете участвовать в действующем игровом процессе.",
@@ -244,5 +244,4 @@ return {
     ["Brass Book Performance Shot 2"] = "Выступление духовой книги, кадр b",
     ["黑焰诅咒"] = "Проклятие черного пламени",
     ["黛西小姐家就在<P_Yellow>花田的西侧</>，请随我来。"] = "Дом мисс Дейзи находится на западной стороне <P_Yellow> от цветочного поля </>, пожалуйста, следуйте за мной.",
-    ["South District Avenue\n<LeonSubTitle size=\"38\">South Borough Avenue</>"] = "Южный район авеню\n<LeonSubTitle size=\"38\">Южный районный авеню</>",
 }

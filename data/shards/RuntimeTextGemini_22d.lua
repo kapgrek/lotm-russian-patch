@@ -240,7 +240,7 @@ return {
     ["Poetry is the most wonderful thing..."] = "Поэзия – это самое прекрасное, что есть...",
     ["Please arrange positions for all members"] = "Пожалуйста, организуйте позиции для всех участников",
     ["Please select a report reason first."] = "Сначала выберите причину жалобы.",
-    ["Please follow me\nclosely."] = "Пожалуйста, следите за мной\nвнимательно.",
+    ["Please follow me\nclosely."] = "Пожалуйста, следуй\nза мной неотступно.",
     ["Please play the game civilly. If you engage in any violations, you will be muted..."] = "Пожалуйста, играйте в игру вежливо. Если вы допустите какие-либо нарушения, вас отключат...",
     ["Puzzle 01 White"] = "Пазл 01 Белый",
     ["贾维斯"] = "Джарвис",

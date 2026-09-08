@@ -278,5 +278,4 @@ return {
     ["Carriage Station - Golden Autumn Lake"] = "Вагонная станция - Озеро Золотая Осень",
     ["高挑的"] = "высокий",
     ["The Taste of the Witch is truly wonderful!"] = "«Вкус ведьмы» поистине чудесен!",
-    ["Please show me\nto your heart's content."] = "Пожалуйста, покажите мне \n, сколько душе угодно.",
 }

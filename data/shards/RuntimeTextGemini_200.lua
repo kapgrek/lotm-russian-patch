@@ -239,5 +239,4 @@ return {
     ["Faced with a messy conference room, the Sea Spirit insists that it was influenced by mysterious forces, and it is absolutely, definitely not because it hates meetings."] = "Столкнувшись с грязным конференц-залом, Морской Дух утверждает, что на него повлияли таинственные силы, и это абсолютно точно не потому, что он ненавидит собрания.",
     ["By the way, what I traded for was a formula for a 'Trickmaster'. If you're willing to help me, I'll tell you the formula."] = "Между прочим, я обменял на формулу «Мастера трюков». Если вы готовы мне помочь, я расскажу вам формулу.",
     ["Magic Defense_Percentage Bonus"] = "Магическая защита_Процентный бонус",
-    ["He kept complaining about Melanie incessantly,\nwhat a terrible man."] = "Он постоянно жаловался на Мелани: \n, какой ужасный человек.",
 }

@@ -166,7 +166,7 @@ return {
     ["检查鼻息"] = "Проверьте дыхание",
     ["Process effect dissolve value linearly per second."] = "Значение процесса растворения эффекта линейно в секунду.",
     ["Billy ➡️ Thomas Trigger"] = "Билли ➡️ Томас Триггер",
-    ["水仙花街2号\n莫雷蒂家"] = "Улица Нарцисс, 2\nРезиденция Моретти",
+    ["水仙花街2号\n莫雷蒂家"] = "2 улица Нарциссов\nMoretti Residence",
     ["Filthy Spear 2"] = "Грязное копье b",
     ["Magic circle one Red Moon card"] = "Магический круг одна карта Красной Луны",
     ["Lake of Chaos and Order - Slot Before Chaos Door - Insertion Complete, Sword Pulled Out - Path Opened"] = "Озеро хаоса и порядка — слот перед дверью хаоса — вставка завершена, меч вытащен — путь открыт",

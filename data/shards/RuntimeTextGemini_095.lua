@@ -257,5 +257,4 @@ return {
     ["Black Emperor arrow 3"] = "Стрела Черного Императора b",
     ["Default Action"] = "Действие по умолчанию",
     ["Hello, {Mr.{ Ms.|}}! Would you like to buy a ticket?"] = "Здравствуйте, {{мистер|мисс}}! Хотите купить билет?",
-    ["Switch Lumian's consciousness\nApproach the memory fragment"] = "Переключите сознание Люмиана\nПодойдите к фрагменту воспоминаний.",
 }

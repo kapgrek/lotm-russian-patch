@@ -247,5 +247,4 @@ return {
     ["Sin of Gold"] = "Грех золота",
     ["Black and White Portrait"] = "Черно-белый портрет",
     ["（敲门声）咚咚咚——"] = "(Стук) Тук, тук, тук…",
-    ["B级动画：\n克莱恩回想着这段时间的占卜，脑中浮现出黄水晶，突然有一些感悟。"] = "Grade B Animation:\nKlein recalled the Гадание from this period, a yellow crystal appeared in his mind, and he suddenly had some realizations.",
 }

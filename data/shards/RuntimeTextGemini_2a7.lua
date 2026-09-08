@@ -191,7 +191,7 @@ return {
     ["歌莉娅"] = "Голиаф",
     ["每月来一次，我都快成你们这儿的常客了。"] = "Приходя сюда раз в месяц, я почти стал вашим постоянным клиентом.",
     ["Leonard Atmosphere"] = "Леонард Атмосфера",
-    ["4 Daffodil Street\n<LeonSubTitle size=\"8\">4 Daffodil Street</>"] = "Улица Нарциссов, 4\n<LeonSubTitle size=\"8\">4 Улица Нарциссов</>",
+    ["4 Daffodil Street\n<LeonSubTitle size=\"8\">4 Daffodil Street</>"] = "4 улица Нарциссов\n<LeonSubTitle size=\"8\">4 улица Нарциссов</>",
     ["Cup without Coffee"] = "Чашка без кофе",
     ["漳州"] = "Чжанчжоу",
     ["火车贸易: 进入下一站失败 (ERRCODE=%d)"] = "Train Trade: не удалось войти на следующую станцию ​​(ERRCODE=%d)",

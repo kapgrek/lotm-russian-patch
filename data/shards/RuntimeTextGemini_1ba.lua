@@ -243,5 +243,4 @@ return {
     ["魔法破防_数值"] = "Магическое пробитие брони_Значение",
     ["黑镰裁决"] = "Суд Черной Косы",
     ["(It seems I don't need to worry about him too much.)"] = "(Кажется, мне не нужно слишком сильно о нем беспокоиться.)",
-    ["Kalapon has a creed: consumables don't need names.\nGunshots are never a judgment, just the whistle for the slaughterhouse to start working.\nThis is an assembly line, and the next corpse is already on the conveyor belt."] = "У Калапона есть кредо: расходным материалам не нужны названия.\nВыстрелы никогда не являются приговором, а просто свистком о начале работы скотобойни.\nЭто сборочная линия, и следующий труп уже на конвейере.",
 }

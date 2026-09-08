@@ -282,4 +282,5 @@ return {
     ["魔像消散"] = "Голем Рассеяние",
     ["Black screen subtitles end."] = "Субтитры на черном экране заканчиваются.",
     ["鼓掌舞"] = "Хлопающий танец",
+    ["Stepping into the shadow around that unknown corner, <P_Yellow>where</> did this poor prey go? <P_Yellow>When</> will the story reach its end?\nAnd <P_Yellow>who</> will arrive?"] = "Шагнув в тень за тем неведомым поворотом, <P_Yellow>куда</> же направилась эта бедная добыча? <P_Yellow>Когда</> эта история подойдёт к концу?\nИ <P_Yellow>кто</> же появится?",
 }

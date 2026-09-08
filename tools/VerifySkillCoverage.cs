@@ -6,13 +6,19 @@ using System.Text.RegularExpressions;
 
 class VerifySkillCoverage
 {
-    static void Main()
+    static int Main(string[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
-        string geminiPath = @"d:\gameDev\translate lotm\source_en\RuntimeTextGemini.lua";
-        string ruPath = @"d:\gameDev\translate lotm\RuntimeTextRussian.lua";
-        string dataRuPath = @"d:\gameDev\translate lotm\data\RuntimeTextRussian.lua";
-        string gameRuPath = @"D:\Games\GMZZLauncher\Game\C7\Saved\Mods\lua\mods\cpdd_runtime_fixes\RuntimeTextRussian.lua";
+        string projectRoot = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".."));
+        if (!Directory.Exists(Path.Combine(projectRoot, "source_en")))
+        {
+            projectRoot = @"D:\gameDev\NewBild";
+        }
+
+        string geminiPath = Path.Combine(projectRoot, "source_en", "RuntimeTextGemini.lua");
+        string ruPath = Path.Combine(projectRoot, "RuntimeTextRussian.lua");
+        string dataRuPath = Path.Combine(projectRoot, "data", "RuntimeTextRussian.lua");
+        string shardsDir = Path.Combine(projectRoot, "data", "shards");
 
         Console.WriteLine("==========================================================");
         Console.WriteLine("     Валидация покрытия боевых навыков и формул игры     ");
@@ -21,13 +27,12 @@ class VerifySkillCoverage
         if (!File.Exists(ruPath))
         {
             Console.WriteLine("[ОШИБКА] Файл не найден: " + ruPath);
-            Environment.Exit(1);
+            return 1;
         }
 
         var existingRu = new HashSet<string>(StringComparer.Ordinal);
         int totalRuEntries = 0;
 
-        string shardsDir = @"d:\gameDev\translate lotm\data\shards";
         if (Directory.Exists(shardsDir) && Directory.GetFiles(shardsDir, "RuntimeTextGemini_*.lua").Length > 0)
         {
             var shardFiles = Directory.GetFiles(shardsDir, "RuntimeTextGemini_*.lua");
@@ -149,10 +154,6 @@ class VerifySkillCoverage
         int shardCount = Directory.Exists(shardsDir) ? Directory.GetFiles(shardsDir, "RuntimeTextGemini_*.lua").Length : 0;
         Console.WriteLine(string.Format("  - Русских шардов в data/shards/: {0}/1024 {1}", shardCount, shardCount == 1024 ? "✅ ПОЛНЫЙ НАБОР" : "❌ НЕПОЛНЫЙ"));
 
-        string modBaseShardsDir = @"d:\gameDev\translate lotm\mod_base\Saved\Mods\lua\mods\cpdd_runtime_fixes";
-        int modBaseShardCount = Directory.Exists(modBaseShardsDir) ? Directory.GetFiles(modBaseShardsDir, "RuntimeTextGemini_*.lua").Length : 0;
-        Console.WriteLine(string.Format("  - Русских шардов в mod_base/: {0}/1024 {1}", modBaseShardCount, modBaseShardCount == 1024 ? "✅ ПОЛНЫЙ НАБОР" : "❌ НЕПОЛНЫЙ"));
-
         if (File.Exists(dataRuPath))
         {
             long dataSize = new FileInfo(dataRuPath).Length;
@@ -162,12 +163,12 @@ class VerifySkillCoverage
         if (missingFormulas == 0 && mindFireDetailed && mindFirePassive && shardCount == 1024)
         {
             Console.WriteLine("\n🎉 ВСЕ ТЕСТЫ ПРОЙДЕНЫ! Покрытие детальных навыков 100%! Шардовая архитектура полностью готова!");
-            Environment.Exit(0);
+            return 0;
         }
         else
         {
             Console.WriteLine("\n⚠️ ВНИМАНИЕ: Требуется завершить перевод или синхронизацию!");
-            Environment.Exit(missingFormulas > 0 ? 1 : 0);
+            return missingFormulas > 0 ? 1 : 0;
         }
     }
 }

@@ -254,6 +254,4 @@ return {
     ["Officer Mike"] = "Офицер Майк",
     ["Black Shadow text board 2"] = "Текстовая доска «Черная тень 2»",
     ["(In the face of fate, everyone is powerless. But I want to bring them a smile, even if only for a moment...)"] = "(Перед судьбой все бессильны. Но я хочу подарить им улыбку, хотя бы на мгновение...)",
-    ["先收起来吧，再看看其他地方探索一下。\n<P_Yellow>（已放入背包：《机械屋解谜手册》）</>"] = "Отложите пока это и исследуйте другие места. \n<P_Yellow>(Добавлен в рюкзак: «Руководство по головоломке «Механический дом»)»</>",
-    ["id:000000 This test is a confidential test and does not represent the final quality of the game. Please do not stream, take screenshots, or record the screen.\n\n"] = "id:000000 Этот тест является конфиденциальным и не отражает окончательное качество игры. Пожалуйста, не транслируйте, не делайте скриншоты и не записывайте экран.",
 }

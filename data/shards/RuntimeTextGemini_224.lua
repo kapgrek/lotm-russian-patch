@@ -253,5 +253,4 @@ return {
     ["Point item produced by the Brass Book Challenge · Competition."] = "Очковый предмет, созданный в рамках конкурса Brass Book Challenge · Соревнование.",
     ["黑河"] = "Хэйхэ",
     ["Dragon Scale"] = "Чешуя Дракона",
-    ["顺序\n必将失控"] = "Последовательность\nнеизбежно приведёт к потере контроля",
 }

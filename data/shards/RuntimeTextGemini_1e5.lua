@@ -76,7 +76,7 @@ return {
     ["The rest... might require another cup of coffee."] = "Остальное... может потребоваться еще чашка кофе.",
     ["剪线"] = "Резка проволоки",
     ["Dungeon 93"] = "Подземелье 93",
-    ["南区大道\n<LeonSubTitle size=\"38\">South Borough Avenue</>"] = "Южный Дистрикт-Авеню\n<LeonSubTitle size=\"38\">Южный Боро-Авеню</>",
+    ["南区大道\n<LeonSubTitle size=\"38\">South Borough Avenue</>"] = "Южный район авеню\n<LeonSubTitle size=\"38\">Южный районный авеню</>",
     ["Placeholder Text Placeholder Placeholder Text Placeholder"] = "[Заглушка]",
     ["卡了"] = "Отставание.",
     ["Danger!"] = "Опасность!",

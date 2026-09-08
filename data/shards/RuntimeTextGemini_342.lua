@@ -6,7 +6,7 @@ return {
     ["%s's group chat limit reached; invitation failed."] = "Достигнут лимит группового чата %s; приглашение не удалось.",
     ["1. Summon clones; the main body and clones simultaneously release Ley Line Resonance"] = "1. Призвать двойников; оригинал и двойники одновременно применяют «Резонанс силовых линий»",
     ["120秒的CD"] = "120-секундный компакт-диск",
-    ["2.4倍"] = "2.4x",
+    ["2.4倍"] = "2.4х",
     ["5200163 Secret Realm 3/6 Instance"] = "5200163 Экземпляр Секретного Царства 3/6",
     ["5200243 Silent Cemetery Dungeon"] = "5200243 Подземелье тихого кладбища",
     ["68战令升128战令"] = "Улучшите боевой пропуск с 68 до 128.",
@@ -251,5 +251,4 @@ return {
     ["Recite the direction silently and wait for the pendulum to rotate"] = "Произнесите молча направление и подождите, пока маятник повернется.",
     ["Is Daisy's death due to the locked divination room?"] = "Смерть Дейзи произошла из-за запертой комнаты для гаданий?",
     ["(If discovered, the acting will fail! Phew, must not see the expert.)"] = "(Если обнаружат, игра провалится! Уф, нельзя обращаться к эксперту.)",
-    ["再也没有回来\n……"] = "Никогда не возвращался \n...",
 }

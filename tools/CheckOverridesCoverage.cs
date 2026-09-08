@@ -5,12 +5,32 @@ using System.Collections.Generic;
 
 class CheckOverridesCoverage
 {
-    static void Main()
+    static int Main(string[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
-        string initPath = @"d:\gameDev\translate lotm\data\Init.lua";
-        string ruLocPath = @"d:\gameDev\translate lotm\RussianLocalization.lua";
-        string ruPath = @"d:\gameDev\translate lotm\RuntimeTextRussian.lua";
+        string projectRoot = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".."));
+        if (!Directory.Exists(Path.Combine(projectRoot, "data")))
+        {
+            projectRoot = @"D:\gameDev\NewBild";
+        }
+
+        string initPath = Path.Combine(projectRoot, "data", "Init.lua");
+        string ruLocPath = Path.Combine(projectRoot, "RussianLocalization.lua");
+
+        if (!File.Exists(initPath))
+        {
+            Console.WriteLine("[ОШИБКА] Файл не найден: " + initPath);
+            return 1;
+        }
+        if (!File.Exists(ruLocPath))
+        {
+            Console.WriteLine("[ОШИБКА] Файл не найден: " + ruLocPath);
+            return 1;
+        }
+
+        Console.WriteLine("==========================================================");
+        Console.WriteLine("   Валидация покрытия системных оверрайдов и констант   ");
+        Console.WriteLine("==========================================================");
 
         // Read stringConstOverrides from Init.lua
         var initStringConsts = new Dictionary<string, string>();
@@ -69,7 +89,7 @@ class CheckOverridesCoverage
                 missingConsts++;
             }
         }
-        Console.WriteLine("Total missing stringConstOverrides: " + missingConsts);
+        Console.WriteLine(string.Format("Пропущено stringConstOverrides: {0}", missingConsts));
 
         int missingExact = 0;
         foreach (var k in initExactOverrides.Keys)
@@ -83,6 +103,17 @@ class CheckOverridesCoverage
                 }
             }
         }
-        Console.WriteLine("Total missing visibleTextExactOverrides: " + missingExact);
+        Console.WriteLine(string.Format("Пропущено visibleTextExactOverrides: {0}", missingExact));
+
+        if (missingConsts == 0 && missingExact == 0)
+        {
+            Console.WriteLine("\n🎉 ВСЕ ТЕСТЫ ПРОЙДЕНЫ! Покрытие оверрайдов 100% (0 missing)!");
+            return 0;
+        }
+        else
+        {
+            Console.WriteLine(string.Format("\n⚠️ ВНИМАНИЕ: Найдено непокрытых оверрайдов: {0}", missingConsts + missingExact));
+            return 1;
+        }
     }
 }

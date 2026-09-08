@@ -284,5 +284,4 @@ return {
     ["鼓风机左"] = "Вентилятор левый",
     ["#VeteranBBQ #10DaysWoundedCompanyALifetimeOfMilitarySentiment #RetiredVeteran #VeteranChannel #TouchingAToyGunVeteranReturnsHome #LoneHeroWhenArrivingCamelBellsWhenLeaving #SpicyFemaleSoldier #DarkSkinnedAthlete#"] = "#ШашлыкВетеранов #10ДнейРотыРаненых #ВетеранВЗапасе #ВозвращениеДомой #ОдинокийГерой",
     ["(Angry) Meow!"] = "(Злится) Мяу!",
-    ["嗝，\n肚子饱了，赶紧逃命！"] = "Бёрп, мой желудок полон, пора бежать, спасая свою жизнь!",
 }

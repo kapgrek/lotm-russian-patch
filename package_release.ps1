@@ -1,5 +1,5 @@
 param (
-    [string]$Version = "v1.36.0"
+    [string]$Version = "v2.0.0"
 )
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -37,6 +37,14 @@ if (Test-Path "$projectRoot\data\LaunchInstance.native-bridge.padded.oodle") {
 if (Test-Path "$projectRoot\data\shards") {
     Write-Host "Copying Russian translation shards (1,024 shards)..." -ForegroundColor Green
     Copy-Item "$projectRoot\data\shards\RuntimeTextGemini_*.lua" "$staging\Saved\Mods\lua\mods\cpdd_runtime_fixes\" -Force
+}
+
+if (Test-Path "$projectRoot\data\font\Aleo_TitleNew.ttf") {
+    Write-Host "Copying normalized font (Aleo_TitleNew.ttf)..." -ForegroundColor Green
+    New-Item -ItemType Directory -Path "$staging\font" -Force | Out-Null
+    Copy-Item "$projectRoot\data\font\Aleo_TitleNew.ttf" "$staging\font\Aleo_TitleNew.ttf" -Force
+    New-Item -ItemType Directory -Path "$staging\Binaries\Win64\allin_data\font" -Force | Out-Null
+    Copy-Item "$projectRoot\data\font\Aleo_TitleNew.ttf" "$staging\Binaries\Win64\allin_data\font\Aleo_TitleNew.ttf" -Force
 }
 
 if (Test-Path "$projectRoot\tools\PakHook.cs") {

@@ -28,7 +28,7 @@ return {
     ["How about... we do as Rebecca said and go to Backlund to take a look."] = "How about... we do as Rebecca said and go to Бэкланд to take a look.",
     ["No rush. Try a few more times to stabilize yourself before checking other places."] = "Никакой спешки. Попробуйте еще несколько раз, чтобы стабилизировать себя, прежде чем проверять другие места.",
     ["不用担心，我也算是黑荆棘的老朋友。"] = "Не волнуйтесь, я еще и старый друг Блэкторна.",
-    ["不知道这个“它”，如今还在不在这里……\\n<P_Yellow>（获得了线索并放入背包：日记残片）</>"] = "I wonder if this \"it\" is still here today...\\n<P_Yellow> (Obtained clue and added to inventory: Diary Fragment)</>",
+    ["不知道这个“它”，如今还在不在这里……\\\n<P_Yellow>（获得了线索并放入背包：日记残片）</>"] = "Интересно, осталось ли это «оно» здесь и сегодня...\\\n<P_Yellow> (Получена зацепка и добавлена в сумку: Фрагмент дневника)</>",
     ["不错，精彩的比赛，有做拳击手的潜力。"] = "Неплохо, замечательный матч, у тебя есть потенциал стать боксёром.",
     ["不靠谱的……"] = "Ненадежный...",
     ["与罗塞尔对话"] = "Поговорите с Розеллой",

@@ -65,7 +65,7 @@ return {
     ["Aura duration increased from 6 seconds to 7 seconds."] = "Длительность ауры увеличена с 6 до 7 секунд.",
     ["The key should be the God Rabbit with silver fur, which is said to be in the nearby forest."] = "Ключом должен быть Кролик-Бог с серебристым мехом, который, как говорят, находится в ближайшем лесу.",
     ["Internal Information - Follow the Student"] = "Внутренняя информация - Следуйте за студентом",
-    ["Never returned\n..."] = "Никогда не возвращался\n...",
+    ["Never returned\n..."] = "Никогда не возвращался \n...",
     ["Rewards for challenging Ancestor Armor again; you can obtain corresponding Equipment, Beyonder material, and marionette fragment rewards."] = "Награды за повторный вызов Брони предков; вы можете получить соответствующее оборудование, материалы Потусторонний и фрагменты марионеток.",
     ["Defeat the Dragon Hunter Gang"] = "Победить банду охотников на драконов.",
     ["Head to the Hunter's Battlefield"] = "Отправляйтесь на поле битвы охотников.",

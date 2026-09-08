@@ -125,7 +125,7 @@ return {
     ["You're the one..."] = "Ты тот...",
     ["就是，我怎么能随随便便就答应。但是……"] = "Действительно, как я мог так легко согласиться? Но...",
     ["已达到最大可指派雇员数"] = "Достигнуто максимальное количество назначаемых сотрудников.",
-    ["Depose  \nExile \nMurder "] = "Свергнуть \nИзгнание \nУбийство",
+    ["Depose  \nExile \nMurder "] = "Сместить \nИзгнание \nУбийство",
     ["Structure Defense Expertise"] = "Экспертиза структурной защиты",
     ["开启变身"] = "Включить трансформацию",
     ["At the start of battle, reduce the Defense of all enemies by <HighLight>15%</> for <HighLight>15</> seconds; each round, randomly obtain <HighLight>1</> <HighLight>1</>-star piece from enemy pieces killed in the previous battle."] = "В начале боя уменьшите защиту всех врагов на <HighLight>15%</> на <HighLight>15</> секунд; каждый раунд случайным образом получайте фигуру звезды <HighLight>1</> <HighLight>1</> из фигур противника, убитых в предыдущей битве.",
@@ -283,5 +283,4 @@ return {
     ["(Using Dowsing Rod Navigation, I should be able to find where Linda is.)"] = "(Используя навигацию с помощью лозоходной стержня, я смогу определить, где находится Линда.)",
     ["（递过洪流）"] = "(Передаёт Торрент)",
     ["Войдите в необыкновенный мир"] = "Войти",
-    ["What color,\nexactly, are my eyes?"] = "Какого цвета, \n, мои глаза?",
 }

@@ -242,5 +242,4 @@ return {
     ["首先，从我们的国家因蒂斯开始……"] = "Во-первых, давайте начнем с нашей страны, Интиса...",
     ["The Carriage's initial Health is reduced. During combat, Repair items will constantly drop on the field. Using Repair items on the Carriage can restore its Health."] = "Начальное здоровье повозки уменьшено. Во время боя на поле постоянно будут выпадать предметы для ремонта. Использование предметов ремонта на повозке может восстановить ее здоровье.",
     ["高级方案<Highlight>%s</>未锁定，改装后将会刷新，是否继续？"] = "Расширенная схема <Highlight>%s</> разблокирована. После внесения изменений он будет обновлен. Продолжать?",
-    ["所有玩家获得一个<FaintYellow>战神buff</>\n每<FaintYellow>X</>秒扣除<FaintYellow>5%</>生命值，持续<FaintYellow>X</>秒\n每<FaintYellow>X</>秒扣除<FaintYellow>5%</>生命值，持续<FaintYellow>X</>秒"] = "Все игроки получают усиление <FaintYellow>Бог Битвы</>.\nПотеря <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.\nПотеря <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.",
 }

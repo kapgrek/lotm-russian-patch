@@ -31,7 +31,7 @@ return {
     ["【测试】一键养成标准活跃"] = "[Тест] Активен стандарт разработки в один клик",
     ["[Final Hunt] - Dragon - Projection - Basic Attack"] = "[Последняя охота] — Дракон — Проекция — Базовая атака",
     ["[Auto-Chess] - Anthea - Abandoned Fear"] = "[Авто-шахматы] - Антея - Заброшенный страх",
-    ["One \n time \n machine \n opportunity"] = "Один раз \n \n машина \n возможность",
+    ["One \n time \n machine \n opportunity"] = "Один раз \n Машина \n Возможность \n",
     ["Good afternoon! Miss \"Justice,\" Miss \"Magician,\" Mr. \"The Star,\" why are you all here?"] = "Good afternoon! Miss \"Justice,\" Miss \"Фокусник,\" Mr. \"The Star,\" why are you all here?",
     ["不……不！知识为什么……抛弃我……"] = "Нет... нет! Почему знание... покидает меня...",
     ["不受伤害可不可选中"] = "Урон не получен, его нельзя выбрать в качестве цели.",

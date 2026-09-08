@@ -3,7 +3,7 @@
 return {
     ["\n \n \n \n <InvHighlight> </> Dream Catcher Net <Mark id=\"#159\">—a fishing net that has become spiritualized through contact with Beyonder material, is an effective way to </> hunt Dream Catchers. \n ... \n The first discoverer was a sailor who woke up from a nightmare to find that his fishing net had caught the <Hide stylename=\"Transparent\" id=\"#161\"> heart </> of a Dream Catcher..."] = "\n \n \n \n <InvHighlight> </> Сеть ловца снов <Mark id=\"#159\"> — рыболовная сеть, одухотворенная благодаря контакту с материалом Потустороннего, является эффективным способом </> охоты на Ловцов снов. \n ... \n Первым первооткрывателем был моряк, который проснулся от кошмара и обнаружил, что его рыболовная сеть поймала <Hide stylename=\"Transparent\" id=\"#161\"> сердце </> Ловца снов...",
     ["%s used the command skill <PVPHighlight> City-Breaking Horn </>."] = "%s использовал командный навык <PVPHighlight> Рог разрушения города </>.",
-    ["%s第%s%s"] = "%s %s %s",
+    ["%s第%s%s"] = "%s №%s %s",
     ["(Solo) Clown Clone self-buff to monitor own death and link to main body"] = "(Соло) Клоун-клон, усиливающий себя для отслеживания собственной смерти и связи с основным телом.",
     ["230/个"] = "230/шт.",
     ["25分钟"] = "25 минут",
@@ -15,7 +15,7 @@ return {
     ["<P_Heart> (This is too bizarre, I need to see what exactly happened to you...) </>"] = "<P_Heart> (Это слишком странно, мне нужно посмотреть, что именно с тобой произошло...) </>",
     ["<P_Heart> (A faint glow under the glove?) </>"] = "<P_Heart> (Слабое свечение под перчаткой?) </>",
     ["<h>Book</>"] = "<h>Книга</>",
-    ["<img id=\"Tips\" width=\"46\" height=\"46\"/><Title>Title</>\n<Quality_4>Body</><Quality_5>Body</><Quality_6>Body</><Quality_7>Body</>Body Body Body Body Body Body Body Body Body <Highlight>Highlight Highlight Highlight Highlight Highlight Highlight Highlight</>"] = "<img id=\"Tips\" width=\"46\" height=\"46\"/><Title>Title</>\n<Quality_4>Body</><Quality_5>Body</><Quality_6>Body</><Quality_7>Body</>Тело Тело Тело Тело Тело Тело Тело Тело <Highlight>Выделить Выделить Выделить Выделить Выделить Выделить Выделить Выделить </>",
+    ["<img id=\"Tips\" width=\"46\" height=\"46\"/><Title>Title</>\n<Quality_4>Body</><Quality_5>Body</><Quality_6>Body</><Quality_7>Body</>Body Body Body Body Body Body Body Body Body <Highlight>Highlight Highlight Highlight Highlight Highlight Highlight Highlight</>"] = "<img id=\"Tips\" width=\"46\" height=\"46\"/><Title>Название</>\n<Quality_4>Body</><Quality_5>Body</><Quality_6>Body</><Quality_7>Body</>Body Body Body Body Body Body Body <Highlight>Выделить Выделить Выделить Выделить Выделить Выделить Выделить </>",
     ["Actor4近景"] = "Актер4 Крупным планом",
     ["Boss战_先祖骑士_就绪"] = "Битва с боссом_Рыцарь-предок_Готов",
     ["C2-Half-body"] = "C2-Половина тела",

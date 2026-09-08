@@ -241,5 +241,4 @@ return {
     ["风暴在上，保佑我平安回到妻子们的身边。"] = "Пусть Буря будет выше, благослови меня, чтобы я благополучно вернулся к своим женам.",
     ["Black Iron"] = "Черное железо",
     ["<HyperLink stylename=\"Chat_Task\" u=\"guildTaskHelp=%s,%d,%s,%s,%s,%s\">点击帮助</>"] = "<HyperLink stylename=\"Chat_Task\" u=\"guildTaskHelp=%s,%d,%s,%s,%s,%s\"> Нажмите для помощи </>",
-    ["The sewer system has been initially established,\nand the rat extermination campaign is also in Continuous progress."] = "Первоначально была установлена ​​канализационная система, \n, и кампания по уничтожению крыс также продолжается.",
 }

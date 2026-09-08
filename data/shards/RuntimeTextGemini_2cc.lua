@@ -21,7 +21,7 @@ return {
     ["<P_Heart> (Softly) </> I want to sit there and herd real sheep. White ones, walking slowly on the grass, heads down eating, occasionally looking up to \"baa\"."] = "<P_Heart> (мягко) </> Я хочу сидеть здесь и пасти настоящих овец. Белые медленно ходят по траве, едят, опустив головы, время от времени глядя вверх на «баа».",
     ["SkillID: %s, the InterruptMode of the Continuous task in the end state is not NOT_INTERRUPT; this task will only execute for one frame"] = "SkillID: %s, режим прерывания непрерывной задачи в конечном состоянии не равен NOT_INTERRUPT; 8e6adaf1f9ae06bcb9663531e5521abbэта задача будет выполняться только в течение одного кадра",
     ["cutscene暂代"] = "заполнитель кат-сцены",
-    ["id:000000 本次测试为保密测试，不代表游戏最终品质。请勿直播、截图、录屏。\n\n"] = "id:000000 Этот тест является конфиденциальным и не отражает окончательное качество игры. Пожалуйста, не транслируйте, не делайте скриншоты и не записывайте экран.\n\n",
+    ["id:000000 本次测试为保密测试，不代表游戏最终品质。请勿直播、截图、录屏。\n\n"] = "id:000000 Этот тест является конфиденциальным и не отражает окончательное качество игры. Пожалуйста, не транслируйте, не делайте скриншоты и не записывайте экран.",
     ["wait step"] = "шаг ожидания",
     ["{ \"Can be omitted\" }"] = "{ \"Можно пропустить\" }",
     ["{{哥们|姐们}}, when you have live rats on hand, remember to come find me!"] = "{{Buddy|Pal}}, не забудь прийти ко мне, когда у тебя появятся живые крысы!",
@@ -246,5 +246,4 @@ return {
     ["Ruby - Offstage"] = "Руби - за кулисами",
     ["Approach the church to check the situation"] = "Подойдите к церкви, чтобы проверить ситуацию.",
     ["(Walking to the workbench) Zoe, there's a letter from the academy. Your project has occupied the research room for too long; it needs to be cleared for a new project."] = "(подходя к верстаку) Зоя, там письмо из академии. Ваш проект слишком долго занимал исследовательскую комнату; его необходимо очистить для нового проекта.",
-    ["用梦境……装下……\n它们……"] = "Используйте сны... чтобы сдержать...\nих...",
 }

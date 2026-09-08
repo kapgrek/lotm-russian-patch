@@ -2,7 +2,7 @@
 -- Dual-indexed (CN + EN keys) for instant zero-limit lookup.
 return {
     ["Opens after %H hours %M minutes"] = "Откроется через %H часов %M минут",
-    ["%s %s %s"] = "%s %s %s",
+    ["%s %s %s"] = "%s №%s %s",
     ["10 seconds?"] = "10 секунд?",
     ["<Assistant_Title1>Gift of the Instigator</>\n<Assistant_Title2>Achievement Category: </>Cultivation-Sealed Artifact\n<Assistant_Title2>Unlock Condition: </>Obtain 1 Beyonder material with the <教唆者> affix"] = "<Assistant_Title1>Дар зачинщика</>\n<Assistant_Title2>Категория достижения: </>Культивирование-Запечатанный артефакт\n<Assistant_Title2>Условие разблокировки: </>Получить 1 материал Потусторонний с аффиксом <Instigator>",
     ["<Assistant_Title1>Marionettist · II</>\n<Assistant_Title2>Achievement Category: </>Growth - Development\n<Assistant_Title2>Unlock Condition: </>Own 10 Orange marionettes"] = "<Assistant_Title1>Марионеттист · II</>\n<Assistant_Title2>Категория достижений: </>Рост - Развитие\n<Assistant_Title2>Условие разблокировки: </>Владеть 10 оранжевыми марионетками",

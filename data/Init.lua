@@ -1,6 +1,6 @@
 local Loader = assert(LOMModLoader, "LOMModLoader is required")
 
-local VERSION = "0.9.71"
+local VERSION = "2.0.0"
 local CIRCUIT_BREAKER_TIPS_ID = 6427242
 local CIRCUIT_BREAKER_TEXT = "If the server is too crowded, it will enter a circuit-breaker state, temporarily preventing new accounts that have not created a character on the current server from queuing. Please choose another server that is not under a circuit-breaker to experience the game."
 
@@ -99,251 +99,237 @@ local aggregateOverrides = {
     -- Equipment reform paints these season-lock messages into a narrow banner.
     -- Override the already-English StringDB rows themselves so the explicit
     -- line break survives even when no Chinese runtime-map lookup occurs.
-    [413898750559745] = "Affix inheritance is available.\nRemolding unlocks in %s days.",
-    [413898750560769] = "Affix inheritance is available.\nRemolding is currently unavailable.",
+    [413898750559745] = "Доступно наследование свойств.\nПерековка откроется через %s дн.",
+    [413898750560769] = "Доступно наследование свойств.\nПерековка сейчас недоступна.",
     -- Player Details exposes two distinct mechanics that the old catalog
     -- translated identically. The standalone ShieldBreak property is Armor
     -- Break; the lower DefReduce group and its children are Defense Break.
-    [255431368783360] = "Armor Break",
-    [141494476346368] = "Defense Break",
-    [255431368777472] = "Physical Defense Break",
-    [255431368780800] = "Magic Defense Break",
-    -- Launch 1.1 Esc-menu compact labels. These are the confirmed four-row
-    -- values from esc_menu_hotfix_v2 and must win over the external StringDB.
-    [74905303409152] = "Explore",
-    [466331174441472] = "Archive",
-    [501378376016640] = "Style",
-    [514572247120128] = "Puppets",
-    [527972545072640] = "Story",
-    [625210604657664] = "Contacts",
-    [712484608544768] = "Easy Wins",
-    [774126247610880] = "Gear",
-    [774126784481024] = "Artifacts",
-    [866415967995648] = "Warfront",
-    [866622663296512] = "Dark City",
-    [884214580905472] = "Advance",
-    [933074128867328] = "Arts",
-    [989630258218752] = "Talents",
-    [1020416583796224] = "Skip",
-    [1020416583796480] = "Review",
-    [936784443737600] = "Beyonder Rating",
-    [936990870604032] = "Reward Preview",
-    [1271036247030528] = "Claimed",
-    [620129389936640] = "Use",
-    [1073124154021632] = "Auto-Dismantle Settings",
-    [1073124154089984] = "In Use",
-    [1073124154205952] = "My Builds",
-    [1073124154228480] = "Auto-Dismantle Confirmation",
-    [1073124154229760] = "Official Recommended Build",
-    [1271036247052800] = "Recommended Builds",
-    [1068726107902976] = "Codex",
-    [1271036247021824] = "Click blank area to close",
-    [1240251532142337] = [=[1. <Highlight>Family Application:</> Any Beyonder who has not joined a family can publish a personal application to find a suitable family. The application is automatically withdrawn <Highlight>3 days</> after publication or after successfully joining a family.
-2. <Highlight>Recruitment Response:</> Beyonders who have not joined a family may start a recruitment response or join one started by another Beyonder. The initiator becomes the <Highlight>Family Chief</> by default.
-3. <Highlight>Create Family:</> During the recruitment-response phase, a family can be created once at least <Highlight>3 people</> have responded. During creation, the Chief can adjust the family name and member positions.
-4. <Highlight>Join Family:</> When a family has fewer than <Highlight>14 members</>, the Chief can recruit. Other Beyonders may apply and join directly after the Chief approves their application.]=],
-    [1271036247235584] = "Equipment Builds",
-    [312331095508480] = "Comments",
-    [1068726108208384] = "%d0%% Price",
+    [255431368783360] = "Пробитие брони",
+    [141494476346368] = "Снижение защиты",
+    [255431368777472] = "Снижение физ. защиты",
+    [255431368780800] = "Снижение маг. защиты",
+    -- Launch 1.1 Esc-menu compact labels. Pre-baked in Russian for zero-latency display.
+    [74905303409152] = "Поход",
+    [466331174441472] = "Архив",
+    [501378376016640] = "Стиль",
+    [514572247120128] = "Куклы",
+    [527972545072640] = "Сюжет",
+    [625210604657664] = "Связи",
+    [712484608544768] = "Слава",
+    [774126247610880] = "Эквип",
+    [774126784481024] = "Артефакты",
+    [866415967995648] = "Арена",
+    [866622663296512] = "Тьма",
+    [884214580905472] = "Путь",
+    [933074128867328] = "Навыки",
+    [989630258218752] = "Древо",
+    [1020416583796224] = "Пропустить",
+    [1020416583796480] = "Повтор",
+    [936784443737600] = "Рейтинг Потустороннего",
+    [936990870604032] = "Награды",
+    [1271036247030528] = "Получено",
+    [620129389936640] = "Использовать",
+    [1073124154021632] = "Настройки авто-распыления",
+    [1073124154089984] = "Используется",
+    [1073124154205952] = "Мои сборки",
+    [1073124154228480] = "Подтверждение авто-распыления",
+    [1073124154229760] = "Рекомендованная сборка",
+    [1271036247052800] = "Рекомендованные сборки",
+    [1068726107902976] = "Кодекс",
+    [1271036247021824] = "Нажмите на пустое место, чтобы закрыть",
+    [1240251532142337] = [=[1. <Highlight>Заявка в семью:</> Любой Потусторонний, не состоящий в семье, может подать личную заявку для поиска подходящей семьи. Заявка автоматически отзывается через <Highlight>3 дня</> после публикации или после успешного вступления в семью.
+2. <Highlight>Отклик на набор:</> Потусторонние, не состоящие в семье, могут начать набор или присоединиться к набору другого игрока. Инициатор по умолчанию становится <Highlight>Главой семьи</>.
+3. <Highlight>Создание семьи:</> На этапе набора семья может быть создана, как только откликнутся минимум <Highlight>3 человека</>. Во время создания Глава может изменить название семьи и должности участников.
+4. <Highlight>Вступление в семью:</> Если в семье менее <Highlight>14 участников</>, Глава может проводить набор. Другие игроки могут подать заявку и вступить сразу после одобрения Главой.]=],
+    [1271036247235584] = "Сборка",
+    [312331095508480] = "Комментарии",
+    [1068726108208384] = "Скидка %d0%%",
     -- Manor upgrade UI splits these records on commas. Preserve the data
     -- contract instead of using the prose-style colon from the old patch.
-    [677369761236481] = "New Feature Unlocked,Visit Friends' Castles",
-    [677369761236737] = "New Feature Unlocked,Workshop",
+    [677369761236481] = "Новая функция разблокирована,Посетить замки друзей",
+    [677369761236737] = "Новая функция разблокирована,Мастерская",
     -- Launch 1.2 EquipmentUniqueData rows 6801-6803. These values are cached
     -- while the data module loads, so translate the authoritative StringDB IDs
     -- in addition to repairing ItemTipsEquipSpecial:SetData below.
-    [409365949475072] = "<CostRed>{1,2,(Brand inactive)}</>Skill Enhancement increased by <Mark>30</>.\nDoes not take effect while the <Mark>Echo of Spirit and Knowledge</> set is active.",
-    [409365949475328] = "<CostRed>{1,2,(Brand inactive)}</>After using a Cleanse Skill, gain <Mark>50</> Skill Block for <Mark>10</> seconds. Can trigger at most once every <Mark>30</> seconds.\nDoes not take effect while the <Mark>Echo of Spirit and Knowledge</> set is active.",
-    [409365949475584] = "<CostRed>{1,2,(Brand inactive)}</>Armor Break increased by <Mark>80</>. When taking damage, there is a chance to gain <Mark>60</> Defense for <Mark>5</> seconds. Can trigger at most once every <Mark>10</> seconds.\nDoes not take effect while the <Mark>Echo of Spirit and Knowledge</> set is active.",
-    [211107843337216] = "The sealing chains of the \"Door\" domain coil around your heart to ward off fatal damage. A single hit cannot reduce your HP by more than 25% of Max HP.",
-    [211107843655936] = [=[When a class combat skill enters cooldown, the cooldown is immediately refunded. If it is a charged skill, all charge counts are refunded. Each individual skill can trigger this refund at most once. {CheckStar(Type="sealed",ID=2085021)=1?The refunded skill deals <Yellow>*f**</> less damage and healing.}{CheckStar(Type="sealed",ID=2085021)=3?The refunded skill additionally gains <Yellow>*f**</> damage and healing.}]=],
-    [211107844315392] = "Miss Justice witnessed your fall and watched you rise again. A will that has been seen will not be easily extinguished. Damage taken is reduced by 30%, and damage dealt is increased by 40%.",
-    [286012073289984] = "\"The pure-white one sleeping within the crimson cocoon, the divine child who governs rebirth and corruption, the final possibility at the end of days.\"",
-    [286012610526208] = "\"Woof, woof!\"",
-    [1240251532052225] = "Mr. Fool has grafted onto you a destiny from the future, allowing you to wield the power of higher Sequences. As your strength grows, the variety and power of the skills you learn will continue to increase. Skills are divided into three categories: Combat Skills, Special Skills, and Acting Skills. You can equip up to four Combat Skills or Acting Skills at the same time. Special Skills do not need to be equipped and include Basic Attack, Crowd-Control Break, and Finisher Skills.",
+    [409365949475072] = "<CostRed>{1,2,(Клеймо неактивно)}</>Усиление навыков увеличено на <Mark>30</>.\nНе действует при активном комплекте <Mark>Эхо Духа и Знаний</>.",
+    [409365949475328] = "<CostRed>{1,2,(Клеймо неактивно)}</>После применения навыка Очищения получаете <Mark>50</> блока навыков на <Mark>10</> сек. Срабатывает не чаще одного раза в <Mark>30</> сек.\nНе действует при активном комплекте <Mark>Эхо Духа и Знаний</>.",
+    [409365949475584] = "<CostRed>{1,2,(Клеймо неактивно)}</>Пробитие брони увеличено на <Mark>80</>. При получении урона есть шанс получить <Mark>60</> защиты на <Mark>5</> сек. Срабатывает не чаще одного раза в <Mark>10</> сек.\nНе действует при активном комплекте <Mark>Эхо Духа и Знаний</>.",
+    [211107843337216] = "Цепи запечатывания пути «Двери» обвивают ваше сердце, защищая от смертельного урона. Одиночный удар не может отнять более 25% от макс. HP.",
+    [211107843655936] = [=[Когда классовый боевой навык уходит на перезарядку, время восстановления немедленно сбрасывается. Если навык был заряжаемым, восстанавливаются все заряды. Каждый навык может активировать этот сброс не более одного раза. {CheckStar(Type="sealed",ID=2085021)=1?Сброшенный навык наносит на <Yellow>*f**</> меньше урона и исцеления.}{CheckStar(Type="sealed",ID=2085021)=3?Сброшенный навык дополнительно получает <Yellow>*f**</> к урону и исцелению.}]=],
+    [211107844315392] = "Мисс Справедливость стала свидетелем вашего падения и увидела ваше возрождение. Волю, которую узрели, не так просто сломить. Получаемый урон снижен на 30%, а наносимый урон увеличен на 40%.",
+    [286012073289984] = "«Чисто-белое существо, спящее в багровом коконе, божественное дитя, правящее перерождением и скверной, последняя надежда в конце времён.»",
+    [286012610526208] = "«Гав-гав!»",
+    [1240251532052225] = "Мистер Шут привил вам судьбу из будущего, позволив владеть силой высших Последовательностей. По мере роста вашей силы разнообразие и мощь изучаемых навыков будут продолжать расти. Навыки делятся на три категории: Боевые навыки, Особые навыки и Навыки действия. Вы можете экипировать до четырёх Боевых навыков или Навыков действия одновременно. Особые навыки не требуют экипировки и включают Базовую атаку, Снятие контроля и Добивающие навыки.",
 }
 
 local splitOverrides = {
     buffappear = {
-        [1253512780450048] = "Fear",
+        [1253512780450048] = "Страх",
     },
     buffdata = {
-        [1253512780450048] = "Fear",
+        [1253512780450048] = "Страх",
     },
     debug = {
-        [1169950433818880] = "Enter the Dream",
+        [1169950433818880] = "Войти в Сон",
     },
     monsterskill = {
-        [1271036247082752] = "Projection",
+        [1271036247082752] = "Проекция",
     },
     skill = {
-        [1240389776443904] = "Purifying Slash",
+        [1240389776443904] = "Очищающий удар",
     },
     skill1 = {
-        [1240389776521984] = "Star Strike",
+        [1240389776521984] = "Звёздный удар",
     },
     skill2 = {
-        [611398258279936] = "Beacon of History",
+        [611398258279936] = "Маяк истории",
     },
     skill3 = {
-        [998771022409216] = "Nebula Slash",
+        [998771022409216] = "Удар туманности",
     },
     spellfield = {
-        [1068726107518720] = "Tip",
+        [1068726107518720] = "Подсказка",
     },
 }
 
 local stringConstOverrides = {
-    BAG_AUTO_AUTO_RESOLVE_TITLE = "Auto-Dismantle Confirmation",
-    BAG_AUTO_DECOMPOSE_TITLE = "Auto-Dismantle Settings",
-    COMMENT_PANEL_TITLE = "Comments",
-    DIALOGUE_SKIP = "Skip",
-    EQUIPMENT_PLAN_APPLY_CURRENT_PLAN = "Apply Build",
-    FASHION_APPEARANCE = "Appearance",
-    FASHION_DYE_MY_PLAN = "My Builds",
-    GUILD_CARGO_HUB_REWARD_COMPLETE = "Claimed",
-    GVG_HONOR_CLAIMED_TEXT = "Claimed",
-    ITEM_GOT = "Claimed",
-    MONTH_CARD_MAIN_PAGE_TODAY_RECEIVED_LABEL = "(Claimed Today)",
-    FAMILY_INVITE_SHARE_TEAM = "Party Channel",
-    FAMILY_INVITE_SHARE_WORLD = "World Channel",
-    FAMILY_MEMBER_COUNT_FMT = "Current Family Members: %s/14",
-    FAMILY_MEMBER_FMT = "Family Members (%d/%d)",
-    ONE_CLICK_IN_USE = "In Use",
-    ONE_CLICK_RECOMMEND_PLAN = "Official Recommended Build",
-    ONE_CLICK_SHARE_RECOMMEND_PLAN = "Recommended Builds",
-    ONE_CLICK_TITLE = "One-Click Assist",
-    ONE_CLICK_USE = "Use",
-    TRAINTRADE_ITEM_DISCOUNT_CHINESE = "%d0%% Price",
-    MAP_PVP_LAST_HUNT_DRAGON_BOSS_BELONG_FORMAT = "<Green>%s</> Team Affiliation",
-    MAP_PVP_LAST_HUNT_DRAGON_BOSS_NAME = "Dragon Projection",
-    MAP_PVP_LAST_HUNT_DRAGON_BOSS_NOT_BELONG_FORMAT = "<Red>%s</> Team Affiliation",
-    PVP_LAST_HUNT_ACTIVE_TIME_FORMAT = "Activating %M:%S",
-    PVP_LAST_HUNT_ACTIVITY_NOT_OPEN_TEXT = "Use <Highlight>Seed of Sighs</> to activate Power of Sighs, start the Sighs Quest, and complete it to receive rich rewards.",
-    PVP_LAST_HUNT_ACTIVITY_OPEN_FORMAT = "Starts in %H hours %M minutes",
-    PVP_LAST_HUNT_ACTIVITY_OPEN_TEXT = "Event Start Time",
-    PVP_LAST_HUNT_ACTIVITY_REWARD_PREVIEW_FORMAT = "Quest Rewards",
-    PVP_LAST_HUNT_BOSS_BUTTON_DESC = "Go",
-    PVP_LAST_HUNT_BOSS_CONTENT_DESC = "Royal City Dragon Description Placeholder",
-    PVP_LAST_HUNT_BOSS_DETAIL_CONDITION_TITLE = "Refresh Status",
-    PVP_LAST_HUNT_BOSS_DETAIL_CONTENT = "Defeat elite monsters to earn abundant rewards",
-    PVP_LAST_HUNT_BOSS_DETAIL_NOT_SPAWNED = "Target has not appeared yet",
-    PVP_LAST_HUNT_BOSS_DETAIL_SPAWNED = "Target has appeared",
-    PVP_LAST_HUNT_BOSS_DETAIL_TITLE = "Hunt Target",
-    PVP_LAST_HUNT_BOSS_DRAGON_FORMAT = "Dragon appears in %M:%S",
-    PVP_LAST_HUNT_BOSS_SECOND_TITLE = "Defeat the Royal City Dragon",
-    PVP_LAST_HUNT_BOSS_TAG_NAME = "Royal City Guardian",
-    PVP_LAST_HUNT_BOSS_TITLE = "Slay the Dragon",
-    PVP_LAST_HUNT_CAMP_SUBMIT_FORMAT = "%s Submission Point",
-    PVP_LAST_HUNT_CHAT_BUTTON_TEXT = "Go",
-    PVP_LAST_HUNT_CHAT_TITLE = "Horn",
-    PVP_LAST_HUNT_CROSS_SERVER_SCORE_TITLE = "Military Merit",
-    PVP_LAST_HUNT_DETAIL_MY_DATA_TAB = "My Data",
-    PVP_LAST_HUNT_DETAIL_RANK_TAB = "Ranking",
-    PVP_LAST_HUNT_FIGHT_ASSISTANT_FORMAT = "%s was defeated by %s at %s. Support needed!",
-    PVP_LAST_HUNT_FIGHT_KILL_RESULT_FORMAT = "%s successfully hunted %s at %s!",
-    PVP_LAST_HUNT_GUILD_ACTIVITY_DESC_TIPS = "Final Hunt Dragon Raid <Highlight>[Team Auction]</>: %d/%d (this Friday) at 19:10",
-    PVP_LAST_HUNT_GUILD_NAME_FORMAT = "<Enemy_Name>%s</> Club",
-    PVP_LAST_HUNT_HIGHER_DETAIL_CONTENT = "Advanced quest area containing many out-of-control monsters",
-    PVP_LAST_HUNT_HIGHER_DETAIL_NOT_OPENED_TITLE = "Currently Closed",
-    PVP_LAST_HUNT_HIGHER_DETAIL_OPENED_TIME = "Open daily: 19:00-21:00\nAdditional hours: Saturday and Sunday, 14:00-16:00",
-    PVP_LAST_HUNT_HIGHER_DETAIL_TITLE_NAME = "Advanced · Tide",
+    BAG_AUTO_AUTO_RESOLVE_TITLE = "Подтверждение авто-распыления",
+    BAG_AUTO_DECOMPOSE_TITLE = "Настройки авто-распыления",
+    COMMENT_PANEL_TITLE = "Комментарии",
+    DIALOGUE_SKIP = "Пропустить",
+    EQUIPMENT_PLAN_APPLY_CURRENT_PLAN = "Применить сборку",
+    FASHION_APPEARANCE = "Внешний вид",
+    FASHION_DYE_MY_PLAN = "Мои стили",
+    GUILD_CARGO_HUB_REWARD_COMPLETE = "Получено",
+    GVG_HONOR_CLAIMED_TEXT = "Получено",
+    ITEM_GOT = "Получено",
+    MONTH_CARD_MAIN_PAGE_TODAY_RECEIVED_LABEL = "(Получено сегодня)",
+    FAMILY_INVITE_SHARE_TEAM = "Канал группы",
+    FAMILY_INVITE_SHARE_WORLD = "Мировой канал",
+    FAMILY_MEMBER_COUNT_FMT = "Члены семьи: %s/14",
+    FAMILY_MEMBER_FMT = "Члены семьи (%d/%d)",
+    ONE_CLICK_IN_USE = "Используется",
+    ONE_CLICK_RECOMMEND_PLAN = "Рекомендованная сборка",
+    ONE_CLICK_SHARE_RECOMMEND_PLAN = "Рекомендованные сборки",
+    ONE_CLICK_TITLE = "Помощник",
+    ONE_CLICK_USE = "Использовать",
+    TRAINTRADE_ITEM_DISCOUNT_CHINESE = "Скидка %d0%%",
+    MAP_PVP_LAST_HUNT_DRAGON_BOSS_BELONG_FORMAT = "Принадлежность команде: <Green>%s</>",
+    MAP_PVP_LAST_HUNT_DRAGON_BOSS_NAME = "Проекция Дракона",
+    MAP_PVP_LAST_HUNT_DRAGON_BOSS_NOT_BELONG_FORMAT = "Принадлежность команде: <Red>%s</>",
+    PVP_LAST_HUNT_ACTIVE_TIME_FORMAT = "Активация через %M:%S",
+    PVP_LAST_HUNT_ACTIVITY_NOT_OPEN_TEXT = "Используйте <Highlight>Семя Вздохов</>, чтобы пробудить Силу Вздохов, начать задание и получить ценные награды.",
+    PVP_LAST_HUNT_ACTIVITY_OPEN_FORMAT = "Начало через %H ч. %M мин.",
+    PVP_LAST_HUNT_ACTIVITY_OPEN_TEXT = "Время начала события",
+    PVP_LAST_HUNT_ACTIVITY_REWARD_PREVIEW_FORMAT = "Награды за задание",
+    PVP_LAST_HUNT_BOSS_BUTTON_DESC = "Перейти",
+    PVP_LAST_HUNT_BOSS_CONTENT_DESC = "Описание Дракона Королевского Города",
+    PVP_LAST_HUNT_BOSS_DETAIL_CONDITION_TITLE = "Статус возрождения",
+    PVP_LAST_HUNT_BOSS_DETAIL_CONTENT = "Побеждайте элитных монстров ради ценных наград",
+    PVP_LAST_HUNT_BOSS_DETAIL_NOT_SPAWNED = "Цель еще не появилась",
+    PVP_LAST_HUNT_BOSS_DETAIL_SPAWNED = "Цель появилась на поле боя",
+    PVP_LAST_HUNT_BOSS_DETAIL_TITLE = "Цель охоты",
+    PVP_LAST_HUNT_BOSS_DRAGON_FORMAT = "Дракон появится через %M:%S",
+    PVP_LAST_HUNT_BOSS_SECOND_TITLE = "Сразить Дракона Королевского Города",
+    PVP_LAST_HUNT_BOSS_TAG_NAME = "Страж Королевского Города",
+    PVP_LAST_HUNT_BOSS_TITLE = "Убийство Дракона",
+    PVP_LAST_HUNT_CAMP_SUBMIT_FORMAT = "Точка сдачи: %s",
+    PVP_LAST_HUNT_CHAT_BUTTON_TEXT = "Перейти",
+    PVP_LAST_HUNT_CHAT_TITLE = "Горн",
+    PVP_LAST_HUNT_CROSS_SERVER_SCORE_TITLE = "Боевые заслуги",
+    PVP_LAST_HUNT_DETAIL_MY_DATA_TAB = "Мои данные",
+    PVP_LAST_HUNT_DETAIL_RANK_TAB = "Рейтинг",
+    PVP_LAST_HUNT_FIGHT_ASSISTANT_FORMAT = "%s потерпел поражение от %s в локации %s. Требуется поддержка!",
+    PVP_LAST_HUNT_FIGHT_KILL_RESULT_FORMAT = "%s успешно одолел %s в %s!",
+    PVP_LAST_HUNT_GUILD_ACTIVITY_DESC_TIPS = "Финальный рейд на Дракона <Highlight>[Аукцион команды]</>: %d/%d (в эту пятницу) в 19:10",
+    PVP_LAST_HUNT_GUILD_NAME_FORMAT = "Клуб <Enemy_Name>%s</>",
+    PVP_LAST_HUNT_HIGHER_DETAIL_CONTENT = "Зона повышенной сложности с множеством вышедших из-под контроля монстров",
+    PVP_LAST_HUNT_HIGHER_DETAIL_NOT_OPENED_TITLE = "В данный момент закрыто",
+    PVP_LAST_HUNT_HIGHER_DETAIL_OPENED_TIME = "Открыто ежедневно: 19:00-21:00\nДополнительно: суббота и воскресенье, 14:00-16:00",
+    PVP_LAST_HUNT_HIGHER_DETAIL_TITLE_NAME = "Продвинутый уровень · Прилив",
     PVP_LAST_HUNT_HUD_PROGRESS_CURRENCY_FORMAT = "<Highlight>%s</>/%s",
     PVP_LAST_HUNT_HUD_PROGRESS_FORMAT = "<Highlight>%d</>/%d",
-    PVP_LAST_HUNT_ITEM_CAN_NOT_USE = "Insufficient Quantity",
-    PVP_LAST_HUNT_LACK_USE_ITEM_PROP_COUNT_FORMAT = "Attempts Remaining: %s",
-    PVP_LAST_HUNT_MAIN_PROGRESS_TITLE = "Reward Preview",
-    PVP_LAST_HUNT_MAP_DETAIL_DESC = "Faction-area teleport entrance",
-    PVP_LAST_HUNT_MAP_ITEM_NAME = "Seed of Sighs · Monster Tide Area",
-    PVP_LAST_HUNT_MEMBER_COUNT_FORMAT = "(Party Members: %d/%d)",
-    PVP_LAST_HUNT_MONSTER_CANCEL_BUTTON_NAME = "Cancel",
-    PVP_LAST_HUNT_MONSTER_DROP_REWARD_TEXT = "Chance to drop from defeated <HyperLink stylename=\"Clickable\" u=\"\">minor monsters</>",
-    PVP_LAST_HUNT_MONSTER_DROP_REWARD_UNDERLINE_TEXT = "Chance to drop from defeated <HyperLink stylename=\"Underline\" u=\"\">minor monsters</>",
-    PVP_LAST_HUNT_MONSTER_RECOMMEND_GROUP = "Group Recommended",
-    PVP_LAST_HUNT_MONSTER_RECOMMEND_TEAM = "Party Recommended",
-    PVP_LAST_HUNT_MONSTER_SUMMON_BUTTON_NAME = "Go to Summon",
-    PVP_LAST_HUNT_MONSTER_SUMMON_LEFT_COUNT_FORMAT = "Summons remaining this week: %d",
-    PVP_LAST_HUNT_NOT_OPENED_BUTTON_TEXT = "Available when the event begins",
-    PVP_LAST_HUNT_RANK_TAB_GUILD_NAME = "Club",
-    PVP_LAST_HUNT_RANK_TAB_PERSONAL_NAME = "Personal",
-    PVP_LAST_HUNT_RESURGENCE_TIPS = "Select a respawn point, then click Go",
-    PVP_LAST_HUNT_RESURGENCE_TITLE = "Select Respawn Point",
-    PVP_LAST_HUNT_REVIVE_BUTTON_NAME = "Go to Respawn",
-    PVP_LAST_HUNT_REWARD_PREVIEW_TITLE = "Quest Reward Preview",
-    PVP_LAST_HUNT_SCORE_TITLE = "Rank Points",
-    PVP_LAST_HUNT_SEND_BUTTON_TITLE = "Send Horn",
-    PVP_LAST_HUNT_SEND_CHAT_DEFAULT_TEXT = "Brothers, come help me",
-    PVP_LAST_HUNT_SEND_DEFAULT_TIP_TEXT = "Summon up to %d players",
-    PVP_LAST_HUNT_SEND_PANEL_TIPS = "Summon up to 14 players",
-    PVP_LAST_HUNT_SEND_PANEL_TITLE = "Send Horn",
-    PVP_LAST_HUNT_SETTLE_MENT_ASSIST_NUM_TITLE = "Assists",
-    PVP_LAST_HUNT_SETTLE_MENT_CANCEL = "Cancel",
-    PVP_LAST_HUNT_SETTLE_MENT_KILL_NUM_TITLE = "Kills",
-    PVP_LAST_HUNT_SETTLE_MENT_LEAVE = "Teleport Away",
-    PVP_LAST_HUNT_SETTLE_MENT_PROGRESS_NUM_TITLE = "Hunt Settlement",
-    PVP_LAST_HUNT_SETTLE_MENT_SCORE_NUM_TITLE = "Rank Points",
-    PVP_LAST_HUNT_SETTLE_MENT_TITLE = "Hunt Settlement",
-    PVP_LAST_HUNT_SUBMIT_CONTENT = "Submit Scarlet Relic materials in exchange for Hunt Vouchers",
-    PVP_LAST_HUNT_SUBMIT_REFRESH_DESC = "The Hunting Butler changes position on the map every 30 minutes. More Butlers appear when combat is intense.",
-    PVP_LAST_HUNT_SUBMIT_REFRESH_TITLE = "Refresh Rules",
-    PVP_LAST_HUNT_SUBMIT_TITLE = "Hunting Butler",
-    PVP_LAST_HUNT_SUMMON_AUTHOER_FORMAT = "(Summoned by: %s)",
-    PVP_LAST_HUNT_SUMMON_MONSTER_GET_NUM = "Attempts Obtained",
-    PVP_LAST_HUNT_SUMMON_MONSTER_LACK_NUM = "No attempts remain this week. Earn Hunt Vouchers to obtain more.",
-    PVP_LAST_HUNT_TASK_BUFF_NAME = "Power of Sighs",
-    PVP_LAST_HUNT_TASK_COMMIT_TEXT = "Go to Submit",
-    PVP_LAST_HUNT_TASK_FINISH_TITLE_TEXT = "Ended",
-    PVP_LAST_HUNT_TASK_FRAGMENT_NAME = "Prey Fragment",
-    PVP_LAST_HUNT_TASK_NOT_ACTIVE_CONTENT_TEXT = "Use a Seed of Sighs, defeat monsters or plunder players to obtain Prey Fragments, then submit them to the Earl of Order for rewards.",
-    PVP_LAST_HUNT_TASK_NOT_ACTIVE_FINISH_TEXT = "The quest has ended. Find the Earl of Order to submit your fragments for rewards.",
-    PVP_LAST_HUNT_TASK_NOT_ACTIVE_TEXT = "Inactive",
-    PVP_LAST_HUNT_TASK_PROGRESS_TEXT = "Hunt Progress",
-    PVP_LAST_HUNT_TASK_PROP_TEXT = "Seed of Sighs",
-    PVP_LAST_HUNT_TASK_QUICK_TEAM = "Quick Party",
-    PVP_LAST_HUNT_TASK_TITLE_NAME = "Final Hunt",
-    PVP_LAST_HUNT_TITLE_DETAIL_NAME = "Details",
-    PVP_LAST_HUNT_TITLE_FOLD_NAME = "Collapse",
-    PVP_LAST_HUNT_USE_ITEM_NOT_ACTIVITY_OPEN_FORMAT = "Cannot be used outside event hours. Event time: <highlight>%s-%s</>",
-    PVP_LAST_HUNT_USE_ITEM_PROP_DESC = "Using Seed of Sighs...",
-    PVP_LAST_HUNT_USE_TASK_TEXT_NAME = "Go to Accept Quest",
-    RED_PACKET_ALREADY_RECEIVED = "Claimed",
-    SECRET_PARTNER_BTN_ALREADY_CHANGE_ACTOR_NAME = "Shifting",
-    SECRET_PARTNER_BTN_CHANGE_ACTOR_NAME = "Shift",
-    SECRET_PARTNER_CANCEL_CHANGE_ACTOR = "Cancel Shift",
-    SECRET_PARTNER_CHANGE_ACTOR_TITLE = "Shift Target",
-    SECRET_PARTNER_SKILL_TEXT = "Marionette Skill",
-    SECRET_PARTNER_STAR_UP_TEXT_FORMAT = "Sequence %d",
-    SKILL_PRESET_TAB_1 = "Recommended Builds",
-    TASK_TRACE_DISTANCE = "m",
-    TRINITY_ALL_TREASURE_HAVE_CLAIMED = "All Rewards Claimed",
-    TEAM_INVITE_SECRET_PARTNER_TITLE = "Illusion Application",
-    UIAPPEARANCE_USE = "Use",
-    UIAPPEARANCE_USING = "In Use",
+    PVP_LAST_HUNT_ITEM_CAN_NOT_USE = "Недостаточное количество",
+    PVP_LAST_HUNT_LACK_USE_ITEM_PROP_COUNT_FORMAT = "Осталось попыток: %s",
+    PVP_LAST_HUNT_MAIN_PROGRESS_TITLE = "Предпросмотр наград",
+    PVP_LAST_HUNT_MAP_DETAIL_DESC = "Вход в телепорт зоны фракции",
+    PVP_LAST_HUNT_MAP_ITEM_NAME = "Семя Вздохов · Зона Прилива Монстров",
+    PVP_LAST_HUNT_MEMBER_COUNT_FORMAT = "(Члены группы: %d/%d)",
+    PVP_LAST_HUNT_MONSTER_CANCEL_BUTTON_NAME = "Отмена",
+    PVP_LAST_HUNT_MONSTER_DROP_REWARD_TEXT = "Шанс выпадения с побеждённых <HyperLink stylename=\"Clickable\" u=\"\">младших монстров</>",
+    PVP_LAST_HUNT_MONSTER_DROP_REWARD_UNDERLINE_TEXT = "Шанс выпадения с побеждённых <HyperLink stylename=\"Underline\" u=\"\">младших монстров</>",
+    PVP_LAST_HUNT_MONSTER_RECOMMEND_GROUP = "Реком. отряд",
+    PVP_LAST_HUNT_MONSTER_RECOMMEND_TEAM = "Реком. группа",
+    PVP_LAST_HUNT_MONSTER_SUMMON_BUTTON_NAME = "Призвать",
+    PVP_LAST_HUNT_MONSTER_SUMMON_LEFT_COUNT_FORMAT = "Осталось призывов на этой неделе: %d",
+    PVP_LAST_HUNT_NOT_OPENED_BUTTON_TEXT = "Доступно во время события",
+    PVP_LAST_HUNT_RANK_TAB_GUILD_NAME = "Клуб",
+    PVP_LAST_HUNT_RANK_TAB_PERSONAL_NAME = "Личный",
+    PVP_LAST_HUNT_RESURGENCE_TIPS = "Выберите точку возрождения и нажмите «В бой»",
+    PVP_LAST_HUNT_RESURGENCE_TITLE = "Выбор точки возрождения",
+    PVP_LAST_HUNT_REVIVE_BUTTON_NAME = "Возродиться",
+    PVP_LAST_HUNT_REWARD_PREVIEW_TITLE = "Награды задания",
+    PVP_LAST_HUNT_SCORE_TITLE = "Очки ранга",
+    PVP_LAST_HUNT_SEND_BUTTON_TITLE = "Сигнал",
+    PVP_LAST_HUNT_SEND_CHAT_DEFAULT_TEXT = "Братья, на помощь!",
+    PVP_LAST_HUNT_SEND_DEFAULT_TIP_TEXT = "Призыв до %d игроков",
+    PVP_LAST_HUNT_SEND_PANEL_TIPS = "Призыв до 14 игроков",
+    PVP_LAST_HUNT_SEND_PANEL_TITLE = "Сигнал горна",
+    PVP_LAST_HUNT_SETTLE_MENT_ASSIST_NUM_TITLE = "Помощь",
+    PVP_LAST_HUNT_SETTLE_MENT_CANCEL = "Отмена",
+    PVP_LAST_HUNT_SETTLE_MENT_KILL_NUM_TITLE = "Убийства",
+    PVP_LAST_HUNT_SETTLE_MENT_LEAVE = "Покинуть",
+    PVP_LAST_HUNT_SETTLE_MENT_PROGRESS_NUM_TITLE = "Итоги охоты",
+    PVP_LAST_HUNT_SETTLE_MENT_SCORE_NUM_TITLE = "Очки ранга",
+    PVP_LAST_HUNT_SETTLE_MENT_TITLE = "Итоги охоты",
+    PVP_LAST_HUNT_SUBMIT_CONTENT = "Сдайте материалы Алых реликвий в обмен на Ваучеры охоты",
+    PVP_LAST_HUNT_SUBMIT_REFRESH_DESC = "Дворецкий охоты меняет позицию каждые 30 минут. При ожесточённом бое появляется больше дворецких.",
+    PVP_LAST_HUNT_SUBMIT_REFRESH_TITLE = "Правила обновления",
+    PVP_LAST_HUNT_SUBMIT_TITLE = "Дворецкий охоты",
+    PVP_LAST_HUNT_SUMMON_AUTHOER_FORMAT = "(Призвал: %s)",
+    PVP_LAST_HUNT_SUMMON_MONSTER_GET_NUM = "Получено попыток",
+    PVP_LAST_HUNT_SUMMON_MONSTER_LACK_NUM = "На этой неделе не осталось попыток. Зарабатывайте ваучеры охоты для получения.",
+    PVP_LAST_HUNT_TASK_BUFF_NAME = "Сила вздохов",
+    PVP_LAST_HUNT_TASK_COMMIT_TEXT = "Сдать",
+    PVP_LAST_HUNT_TASK_FINISH_TITLE_TEXT = "Завершено",
+    PVP_LAST_HUNT_TASK_FRAGMENT_NAME = "Фрагмент добычи",
+    PVP_LAST_HUNT_TASK_NOT_ACTIVE_CONTENT_TEXT = "Используйте Семя вздохов, побеждайте монстров или грабьте игроков для получения фрагментов добычи, затем сдайте Графу Порядка.",
+    PVP_LAST_HUNT_TASK_NOT_ACTIVE_FINISH_TEXT = "Задание завершено. Найдите Графа Порядка, чтобы сдать фрагменты за награду.",
+    PVP_LAST_HUNT_TASK_NOT_ACTIVE_TEXT = "Неактивно",
+    PVP_LAST_HUNT_TASK_PROGRESS_TEXT = "Прогресс охоты",
+    PVP_LAST_HUNT_TASK_PROP_TEXT = "Семя вздохов",
+    PVP_LAST_HUNT_TASK_QUICK_TEAM = "Быстрая группа",
+    PVP_LAST_HUNT_TASK_TITLE_NAME = "Финальная охота",
+    PVP_LAST_HUNT_TITLE_DETAIL_NAME = "Подробнее",
+    PVP_LAST_HUNT_TITLE_FOLD_NAME = "Свернуть",
+    PVP_LAST_HUNT_USE_ITEM_NOT_ACTIVITY_OPEN_FORMAT = "Нельзя использовать вне события. Время: <highlight>%s-%s</>",
+    PVP_LAST_HUNT_USE_ITEM_PROP_DESC = "Использование Семени вздохов...",
+    PVP_LAST_HUNT_USE_TASK_TEXT_NAME = "Принять задание",
+    RED_PACKET_ALREADY_RECEIVED = "Получено",
+    SECRET_PARTNER_BTN_ALREADY_CHANGE_ACTOR_NAME = "Смена",
+    SECRET_PARTNER_BTN_CHANGE_ACTOR_NAME = "Сменить",
+    SECRET_PARTNER_CANCEL_CHANGE_ACTOR = "Отмена смены",
+    SECRET_PARTNER_CHANGE_ACTOR_TITLE = "Сменить цель",
+    SECRET_PARTNER_SKILL_TEXT = "Навык марионетки",
+    SECRET_PARTNER_STAR_UP_TEXT_FORMAT = "Последовательность %d",
+    SKILL_PRESET_TAB_1 = "Рекомендуемые сборки",
+    TASK_TRACE_DISTANCE = "м",
+    TRINITY_ALL_TREASURE_HAVE_CLAIMED = "Все награды получены",
+    TEAM_INVITE_SECRET_PARTNER_TITLE = "Призыв марионетки",
+    UIAPPEARANCE_USE = "Использовать",
+    UIAPPEARANCE_USING = "Используется",
 }
 
 -- This quest validates the literal Chinese chat input server-side. Keep only
 -- the password Chinese so the surrounding quest instructions remain English.
 local QUEST_CHAT_PASSWORD_EN = "The storm is stronger than spirits"
 local QUEST_CHAT_PASSWORD_ZH = "风暴比烈酒更烈"
-local ENTER_WORLD_LABEL_LONG = "Enter the Extraordinary World"
-local ENTER_WORLD_LABEL_SHORT = "Войти"
-local ENTER_WORLD_LABELS = {
-    ["Enter the Extraordinary World"] = true,
-    ["进入非凡世界"] = true,
-    ["Enter World"] = true,
-    ["Войдите в необыкновенный мир"] = true,
-    ["Войти в необыкновенный мир"] = true,
-    ["Войти в потусторонний мир"] = true,
-    ["войти в потусторонний мир"] = true,
-    ["Войти в мир"] = true,
-}
-
-local runtimeFixes = {}
+local ENTER_WORLD_LABEL_LONG = "Войти в Потусторонний мир"
+local ENTER_WORLD_LABEL_SHORT = "Войти в мир"
 
 local function shortenEnterWorldLabel(value)
-    if ENTER_WORLD_LABELS[value] or value == ENTER_WORLD_LABEL_LONG then
-        local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
-        return isRussian and "Войти" or "Enter World"
+    if value == ENTER_WORLD_LABEL_LONG then
+        return ENTER_WORLD_LABEL_SHORT
     end
     return value
 end
@@ -362,74 +348,10 @@ end
 -- aggregate entry for 米 (which legitimately means "Rice" in chat/filter
 -- data) is not changed globally.
 local visibleTextExactOverrides = {
-    -- Вкладки журнала квестов (TaskPanel)
-    ["Main Quest"] = "Сюжет",
-    ["Main quest"] = "Сюжет",
-    ["main quest"] = "Сюжет",
-    ["Основное задание"] = "Сюжет",
-    ["Основной квест"] = "Сюжет",
-    ["Основное"] = "Сюжет",
-    ["主线"] = "Сюжет",
-    ["主线任务"] = "Сюжет",
-
-    ["Original Work"] = "Новелла",
-    ["Original work"] = "Новелла",
-    ["original work"] = "Новелла",
-    ["Original Work Quest"] = "Новелла",
-    ["Оригинальная работа"] = "Новелла",
-    ["Оригинальный квест"] = "Новелла",
-    ["Оригинальный рабочий квест"] = "Новелла",
-    ["Оригинал"] = "Новелла",
-    ["Канон"] = "Новелла",
-    ["原著"] = "Новелла",
-    ["原著任务"] = "Новелла",
-
-    ["Side Quest"] = "Побочные",
-    ["Side quest"] = "Побочные",
-    ["side quest"] = "Побочные",
-    ["Побочное задание"] = "Побочные",
-    ["Побочный квест"] = "Побочные",
-    ["Побочные"] = "Побочные",
-    ["Побочное"] = "Побочные",
-    ["支线"] = "Побочные",
-    ["支线任务"] = "Побочные",
-
-    ["System"] = "Система",
-    ["system"] = "Система",
-    ["System Quest"] = "Система",
-    ["Системное задание"] = "Система",
-    ["Системный квест"] = "Система",
-    ["Система"] = "Система",
-    ["系统"] = "Система",
-    ["系统任务"] = "Система",
-
-    ["Era"] = "Эра",
-    ["era"] = "Эра",
-    ["Era Quest"] = "Эра",
-    ["Era Quests"] = "Эра",
-    ["Задание эры"] = "Эра",
-    ["Квест эры"] = "Эра",
-    ["Задания эпохи"] = "Эра",
-    ["Эра"] = "Эра",
-    ["时代"] = "Эра",
-    ["时代任务"] = "Эра",
-
-    ["All"] = "Все",
-    ["all"] = "Все",
-    ["All Quests"] = "Все",
-    ["All Tasks"] = "Все",
-    ["Все задания"] = "Все",
-    ["Все квесты"] = "Все",
-    ["Все"] = "Все",
-    ["全部"] = "Все",
-    ["全部任务"] = "Все",
-
-    ["Daily Quest"] = "Ежедневные",
-    ["Weekly Quest"] = "Еженедельные",
-    ["Ежедневное задание"] = "Ежедневные",
-    ["Еженедельное задание"] = "Еженедельные",
-    ["Странствие"] = "Странствия",
-    ["Странствия"] = "Странствия",
+    ["命运道标"] = "Bacon of Destiny",
+    ["Beacon of Destiny"] = "Bacon of Destiny",
+    ["“正义”和“倒吊人”开始默写记忆中的文字……"] =
+        "\"Justice\" and \"The Hanged Man\" begin writing down the words from memory...",
     ["两位先生离开了，不知何时才能看到这充满风采的照片……"] =
         "The two gentlemen have left. Who knows when I'll get to see this splendid photograph...",
     ["机动"] = "Mobility",
@@ -787,15 +709,10 @@ visibleTextExactOverrides.__translateBrassBookBounty = function(value)
     local plain = value:gsub("（", "("):gsub("）", ")"):gsub("　", " "):gsub(" ", " ")
     local current, target = plain:match("^获取城市暗面玩法悬赏值%s*([%d,]+)/([%d,]+)。%s*%(黄铜书挑战开启后计数%)%s*$")
     if current == nil then return value end
-    local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
-    if isRussian then
-        return "Заработайте " .. current .. "/" .. target
-            .. " очков наград в Городе Теней. (Засчитывается после начала испытания Жёлтой Книги.)"
-    else
-        return "Earn " .. current .. "/" .. target
-            .. " bounty points in City of Shadows. (Counted after the Brass Book Challenge begins.)"
-    end
+    return "Earn " .. current .. "/" .. target
+        .. " bounty points in City of Shadows. (Counted after the Brass Book Challenge begins.)"
 end
+
 
 local visibleTextReplacements = {
     {
@@ -880,16 +797,16 @@ local marionetteSkillLocalization = {
 }
 
 local marionetteEnglishNames = {
-    [87303350] = "Пришествие\nрассвета",
-    [87303360] = "Клеймо\nарбитража",
-    [87303370] = "Взор\nтайновидца",
-    [87303380] = "Защита\nутр. света",
-    [87303390] = "Клятва\nрыцаря",
-    [87303400] = "Одержимость\nдухом бабочки",
-    [87303410] = "Нисходящая\nтень",
-    [87303420] = "Эхо погреб.\nзвона",
-    [87303430] = "Серия когтей\nвожака",
-    [87303440] = "Защита\nбура",
+    [87303350] = "Dawn Arrival",
+    [87303360] = "Arbitration Brand",
+    [87303370] = "Mystery Pry Gaze",
+    [87303380] = "Morning Light Protection",
+    [87303390] = "Knight's Oath",
+    [87303400] = "Butterfly Spirit Possession",
+    [87303410] = "Descending Shadow",
+    [87303420] = "Death Knell Echo",
+    [87303430] = "Alpha Wolf Claw Combo",
+    [87303440] = "Drill Protection",
 }
 
 local marionetteSkillIdByIconNumber = {
@@ -906,40 +823,40 @@ local marionetteSkillIdByIconNumber = {
 }
 
 local shortMenuLabels = {
-    Fashion = "Style",
-    Pastime = "Explore",
-    Dungeon = "Dungeon",
-    PVP = "Arena",
-    Equip = "Gear",
-    Skill = "Skills",
-    Talent = "Talent",
-    Promotion = "Pathway",
-    Sealed = "Relics",
-    SecretPartner = "Puppets",
-    Fellow = "Allies",
+    Fashion = "Стиль",
+    Pastime = "Поход",
+    Dungeon = "Данжи",
+    PVP = "Арена",
+    Equip = "Эквип",
+    Skill = "Навыки",
+    Talent = "Древо",
+    Promotion = "Путь",
+    Sealed = "Артефакты",
+    SecretPartner = "Куклы",
+    Fellow = "Союз",
     Paotuan = "TRPG",
-    Guild = "Club",
-    Home = "Castle",
-    Task = "Quests",
-    Family = "Family",
-    Qingyuan = "Bonds",
-    Achievement = "Awards",
-    Strategy = "Guide",
-    VideoCreation = "Creator",
-    Friend = "Friends",
-    ShadowCity = "DarkCity",
-    Character = "Profile",
-    HomePage = "Home",
-    Bag = "Bag",
-    Notice = "News",
-    Email = "Mail",
-    Rank = "Ranking",
-    Detach = "Unequip",
-    Setting = "Settings",
-    QuitGame = "Exit",
+    Guild = "Клуб",
+    Home = "Замок",
+    Task = "Квесты",
+    Family = "Семья",
+    Qingyuan = "Связи",
+    Achievement = "Слава",
+    Strategy = "Гайды",
+    VideoCreation = "Медиа",
+    Friend = "Друзья",
+    ShadowCity = "Тьма",
+    Character = "Герой",
+    HomePage = "Главная",
+    Bag = "Сумка",
+    Notice = "Инфо",
+    Email = "Почта",
+    Rank = "Топ",
+    Detach = "Снять",
+    Setting = "Опции",
+    QuitGame = "Выход",
 }
 
--- runtimeFixes declared above
+local runtimeFixes = {}
 
 do
     local okRussian, RussianMod = pcall(require, "mods.cpdd_runtime_fixes.RussianLocalization")
@@ -960,40 +877,12 @@ do
         if RussianMod.shortMenuLabels then
             for k, v in pairs(RussianMod.shortMenuLabels) do shortMenuLabels[k] = v end
         end
-        if RussianMod.shortEquipLabels then
-            runtimeFixes.shortEquipLabels = runtimeFixes.shortEquipLabels or {}
-            for k, v in pairs(RussianMod.shortEquipLabels) do runtimeFixes.shortEquipLabels[k] = v end
-        end
         if RussianMod.marionetteEnglishNames then
             for k, v in pairs(RussianMod.marionetteEnglishNames) do marionetteEnglishNames[k] = v end
-        end
-        if RussianMod.twoLineSkillNames then
-            runtimeFixes.twoLineSkillNames = runtimeFixes.twoLineSkillNames or {}
-            for k, v in pairs(RussianMod.twoLineSkillNames) do
-                runtimeFixes.twoLineSkillNames[k] = v
-                visibleTextExactOverrides[k] = v
-            end
-        end
-        if RussianMod.skillTwoLineNames then
-            runtimeFixes.skillTwoLineNames = runtimeFixes.skillTwoLineNames or {}
-            for k, v in pairs(RussianMod.skillTwoLineNames) do
-                runtimeFixes.skillTwoLineNames[k] = v
-                visibleTextExactOverrides[k] = v
-            end
         end
         if RussianMod.visibleTextReplacements then
             for _, rep in ipairs(RussianMod.visibleTextReplacements) do
                 table.insert(visibleTextReplacements, 1, rep)
-            end
-        end
-    end
-
-    local okEng, EnglishMod = pcall(require, "mods.cpdd_runtime_fixes.EnglishToRussian")
-    if okEng and type(EnglishMod) == "table" and type(EnglishMod.exact) == "table" then
-        runtimeFixes.EnglishMod = EnglishMod
-        for k, v in pairs(EnglishMod.exact) do
-            if visibleTextExactOverrides[k] == nil then
-                visibleTextExactOverrides[k] = v
             end
         end
     end
@@ -1091,331 +980,6 @@ function runtimeFixes.normalizeDefenseBreakTerminology(value)
     value = value:gsub("Magic Armor Break", "Magic Defense Break")
     return value
 end
-
-runtimeFixes.stringCharLength = function(value)
-    if type(value) ~= "string" then return 0 end
-    local ok, len = pcall(function() return utf8 and utf8.len and utf8.len(value) end)
-    if ok and len ~= nil then return len end
-    local _, count = value:gsub("[^\128-\191]", "")
-    return count
-end
-
-runtimeFixes.detectFontCategory = function() return "text" end
-
-runtimeFixes.formatSkillNameToTwoLines = function(name, widget)
-    if type(name) ~= "string" or name == "" then
-        return name
-    end
-
-    local result = nil
-
-    -- 1. Сначала проверить точное совпадение в словаре Russian.skillTwoLineNames[name]. Если найдено — вернуть.
-    local dict = (runtimeFixes.RussianMod and runtimeFixes.RussianMod.skillTwoLineNames)
-        or runtimeFixes.skillTwoLineNames
-        or (runtimeFixes.RussianMod and runtimeFixes.RussianMod.twoLineSkillNames)
-        or runtimeFixes.twoLineSkillNames
-    if dict and dict[name] then
-        result = dict[name]
-    end
-
-    -- 2. Если в строке уже есть \n — вернуть без изменений.
-    if not result and name:find("\n", 1, true) then
-        result = name
-    end
-
-    -- 3. Если есть двоеточие (: или ：), делить по нему: Запись:\nСновидение.
-    if not result then
-        local colonPos = name:find(":", 1, true)
-        local colonLen = 1
-        if not colonPos then
-            colonPos = name:find("：", 1, true)
-            if colonPos then
-                colonLen = #"："
-            end
-        end
-        if colonPos and colonPos > 0 and colonPos < #name then
-            local part1 = name:sub(1, colonPos - 1 + colonLen)
-            local part2 = name:sub(colonPos + colonLen)
-            part2 = part2:gsub("^%s+", "")
-            if part2 ~= "" then
-                result = part1 .. "\n" .. part2
-            end
-        end
-    end
-
-    -- 4. Если длина > 8 символов и есть пробел — делить по пробелу, наиболее близкому к середине строки (math.abs(pos - len/2)).
-    if not result then
-        local chars = {}
-        for uchar in name:gmatch("[%z\1-\127\194-\244][\128-\191]*") do
-            table.insert(chars, uchar)
-        end
-        local charCount = #chars
-        if charCount > 8 then
-            local bestIdx = nil
-            local bestDist = 999999
-            local mid = charCount / 2
-            for i, ch in ipairs(chars) do
-                if ch == " " then
-                    local dist = math.abs(i - mid)
-                    if dist < bestDist then
-                        bestDist = dist
-                        bestIdx = i
-                    end
-                end
-            end
-            if bestIdx then
-                local p1 = table.concat(chars, "", 1, bestIdx - 1)
-                local p2 = table.concat(chars, "", bestIdx + 1)
-                result = p1 .. "\n" .. p2
-            end
-        end
-    end
-
-    if not result then
-        result = name
-    end
-
-    -- 5. Если строка слишком длинная (> 16 символов) — принудительно выставлять размер шрифта 11 pt.
-    local finalLen = runtimeFixes.stringCharLength and runtimeFixes.stringCharLength(result) or #result
-    if widget ~= nil and finalLen > 16 then
-        pcall(function()
-            if runtimeFixes.adjustWidgetLetterSpacing then
-                runtimeFixes.adjustWidgetLetterSpacing(widget, 11)
-            end
-        end)
-    end
-
-    return result
-end
-
-runtimeFixes.adjustWidgetLetterSpacing = function(widget, targetSize)
-    if widget == nil then return end
-    pcall(function()
-        if widget.SetLetterSpacing ~= nil then
-            widget:SetLetterSpacing(0)
-        end
-    end)
-    pcall(function()
-        local wName = ""
-        pcall(function() wName = tostring(widget:GetName()) end)
-        local wText = ""
-        pcall(function()
-            if widget.GetText ~= nil then
-                local t = widget:GetText()
-                local s = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
-                if s ~= "" then wText = s end
-            end
-            if wText == "" and widget.Text ~= nil then
-                local t = widget.Text
-                local s = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
-                if s ~= "" then wText = s end
-            end
-            if wText == "" and widget.GetPlainText ~= nil then
-                local t = widget:GetPlainText()
-                local s = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
-                if s ~= "" then wText = s end
-            end
-            if wText == "" and widget.Content ~= nil then
-                local t = widget.Content
-                local s = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
-                if s ~= "" then wText = s end
-            end
-            if wText == "" and widget.GetContent ~= nil then
-                local t = widget:GetContent()
-                local s = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
-                if s ~= "" then wText = s end
-            end
-        end)
-
-        local font = nil
-        pcall(function()
-            if widget.GetFont ~= nil then
-                font = widget:GetFont()
-            elseif widget.Font ~= nil then
-                font = widget.Font
-            end
-        end)
-        if font == nil and widget.DefaultTextStyleOverride ~= nil and widget.DefaultTextStyleOverride.Font ~= nil then
-            font = widget.DefaultTextStyleOverride.Font
-        end
-
-        local hasCyrillic = wText:find("[\208\209]") ~= nil
-        local hasLatin = wText:find("[A-Za-z]") ~= nil
-
-        -- Intelligent letter spacing:
-        -- Titles and UI widgets with CJK-step Cyrillic (Aleo, HYQiHei, ~1000 width) need -170 (1000 - 170 = 830).
-        -- Multi-line RichText paragraphs (SourceHanSans / descriptions, dialogue) need -50.
-        -- Latin/English or empty text at initialization receives 0.
-        local letterSpacing = 0
-        if hasCyrillic then
-            local isRichParagraph = wName:find("Desc") or wName:find("Content") or wName:find("Detail") or wName:find("Talk")
-            if isRichParagraph and (widget.DefaultTextStyleOverride ~= nil or wText:find("\n") or #wText > 60) then
-                letterSpacing = -50
-            else
-                letterSpacing = -170
-            end
-        else
-            letterSpacing = 0
-        end
-
-        -- Check for narrow slots, cards, or cells (Equip, Slot, Item, List, Node, Cell, Card, Skill, Partner, Puppet)
-        local isNarrowSlot = wName:find("Equip") or wName:find("Slot") or wName:find("Item")
-            or wName:find("List") or wName:find("Node") or wName:find("Cell") or wName:find("Card")
-            or wName:find("Skill") or wName:find("Partner") or wName:find("Puppet")
-        local isTab = wName:find("Tab") ~= nil or wName:find("Category") ~= nil or wName:find("TaskType") ~= nil
-        if not isNarrowSlot or not isTab then
-            pcall(function()
-                local parent = widget.GetParent and widget:GetParent()
-                if parent ~= nil then
-                    local pName = tostring(parent:GetName())
-                    if not isNarrowSlot and (pName:find("Equip") or pName:find("Slot") or pName:find("Item")
-                        or pName:find("List") or pName:find("Node") or pName:find("Cell") or pName:find("Card")
-                        or pName:find("Skill") or pName:find("Partner") or pName:find("Puppet")) then
-                        isNarrowSlot = true
-                    end
-                    if not isTab and (pName:find("Tab") or pName:find("Category") or pName:find("TaskType") or pName:find("Task")) then
-                        isTab = true
-                    end
-                end
-            end)
-        end
-
-        -- Dynamic two-line formatting for skills (Puppets, Sequence, Skill slots)
-        if wText ~= "" and (isNarrowSlot or wName:find("Skill") or wName:find("Partner") or wName:find("Puppet") or wName:find("Node")) then
-            local twoLine = nil
-            if runtimeFixes.formatSkillNameToTwoLines then
-                twoLine = runtimeFixes.formatSkillNameToTwoLines(wText, widget)
-            elseif runtimeFixes.twoLineSkillNames then
-                twoLine = runtimeFixes.twoLineSkillNames[wText]
-            end
-            if twoLine and twoLine ~= wText then
-                pcall(function()
-                    if widget.SetText ~= nil then widget:SetText(twoLine) end
-                    widget.Text = twoLine
-                    wText = twoLine
-                end)
-            end
-        end
-
-        -- Substitute compact label for narrow equipment slots if configured
-        if isNarrowSlot and wText ~= "" and runtimeFixes.shortEquipLabels then
-            local compact = runtimeFixes.shortEquipLabels[wText]
-            if compact and compact ~= wText then
-                pcall(function()
-                    if widget.SetText ~= nil then widget:SetText(compact) end
-                    widget.Text = compact
-                    wText = compact
-                end)
-            end
-        end
-
-        if targetSize == nil then
-            local fullCharLen = runtimeFixes.stringCharLength(wText)
-            local isSkillComp = isNarrowSlot or wName:find("Skill") or wName:find("Puppet") or wName:find("Partner") or wName:find("Talent")
-            if isSkillComp and fullCharLen > 16 then
-                targetSize = 11
-            elseif isTab then
-                if fullCharLen > 6 then
-                    targetSize = 11
-                else
-                    targetSize = 12
-                end
-            else
-                local isButtonLike = isNarrowSlot or wName:find("Btn") or wName:find("Button")
-                    or wName:find("Title") or wName:find("Sequence")
-                    or wName:find("Transfer") or wName:find("Dec") or wName:find("Node")
-                    or wName:find("Choice") or wName:find("Option")
-                if not isButtonLike then
-                    pcall(function()
-                        local parent = widget.GetParent and widget:GetParent()
-                        if parent ~= nil then
-                            local pName = tostring(parent:GetName())
-                            if pName:find("Btn") or pName:find("Button") or pName:find("Item") then
-                                isButtonLike = true
-                            end
-                        end
-                    end)
-                end
-                if isButtonLike then
-                    local firstLine = wText:match("^[^\r\n]+") or wText
-                    local charLen = runtimeFixes.stringCharLength(firstLine)
-                    if isNarrowSlot then
-                        if wText:find("\n") then
-                            if charLen > 10 then
-                                targetSize = 10
-                            else
-                                targetSize = 11
-                            end
-                        else
-                            if charLen > 14 then
-                                targetSize = 11
-                            elseif charLen > 8 then
-                                targetSize = 12
-                            elseif charLen > 6 then
-                                targetSize = 13
-                            end
-                        end
-                    else
-                        if charLen >= 14 then
-                            targetSize = 12
-                        elseif charLen >= 10 then
-                            targetSize = 13
-                        elseif charLen >= 7 then
-                            targetSize = 14
-                        end
-                    end
-                end
-            end
-        end
-
-        -- Mandatory UMG letter spacing reset before setting font properties
-        pcall(function()
-            if widget.SetLetterSpacing ~= nil then
-                widget:SetLetterSpacing(0)
-            end
-        end)
-
-        if font ~= nil then
-            font.LetterSpacing = letterSpacing
-            if targetSize ~= nil and font.Size ~= nil and font.Size > targetSize then
-                font.Size = targetSize
-            end
-            if widget.SetFont ~= nil then
-                widget:SetFont(font)
-            else
-                widget.Font = font
-            end
-        end
-
-        pcall(function()
-            if widget.DefaultTextStyleOverride ~= nil then
-                local style = widget.DefaultTextStyleOverride
-                if style.Font ~= nil then
-                    style.Font.LetterSpacing = letterSpacing
-                    if targetSize ~= nil and style.Font.Size ~= nil and style.Font.Size > targetSize then
-                        style.Font.Size = targetSize
-                    end
-                    if widget.SetDefaultTextStyleOverride ~= nil then
-                        widget:SetDefaultTextStyleOverride(style)
-                    else
-                        widget.DefaultTextStyleOverride = style
-                    end
-                end
-            end
-        end)
-
-        pcall(function()
-            if widget.SynchronizeProperties ~= nil then
-                widget:SynchronizeProperties()
-            end
-            if widget.InvalidateLayoutAndVolatility ~= nil then
-                widget:InvalidateLayoutAndVolatility()
-            end
-        end)
-    end)
-end
-
-
 Loader.Telemetry = Loader.Telemetry or {}
 Loader.Telemetry.Runtime = runtimeMetrics
 
@@ -1853,9 +1417,68 @@ local hasCjk
 -- Keeping the callable in production lets the targeted repair remain free of
 -- development-only branches and private logging state.
 runtimeMetrics.CaptureDataAssignment = function() return false end
-runtimeMetrics.CaptureTranslationAssignment = function(...) return runtimeMetrics.CaptureDataAssignment(...) end
-
 local visibleTextCache = {}
+
+-- Zero-Latency Warmup: Pre-populate visibleTextCache with shortMenuLabels, shortEquipLabels, and UI constants
+do
+    local RussianMod = runtimeFixes.RussianMod
+    local menuLabels = (RussianMod and RussianMod.shortMenuLabels) or shortMenuLabels
+    for k, v in pairs(menuLabels) do
+        visibleTextCache[k] = v
+        visibleTextCache[v] = v
+    end
+
+    local enMenuAliases = {
+        Style = "Стиль", Explore = "Поход", Dungeon = "Данжи", Arena = "Арена",
+        Gear = "Эквип", Skills = "Навыки", Talent = "Древо", Pathway = "Путь",
+        Relics = "Артефакты", Puppets = "Куклы", Allies = "Союз", TRPG = "TRPG",
+        Club = "Клуб", Castle = "Замок", Quests = "Квесты", Family = "Семья",
+        Bonds = "Связи", Awards = "Слава", Guide = "Гайды", Creator = "Медиа",
+        Friends = "Друзья", DarkCity = "Тьма", Profile = "Герой", Home = "Главная",
+        Bag = "Сумка", News = "Инфо", Mail = "Почта", Ranking = "Топ",
+        Unequip = "Снять", Settings = "Опции", Exit = "Выход",
+        Archive = "Архив", Story = "Сюжет", Contacts = "Связи", Advance = "Путь",
+        Arts = "Навыки", Talents = "Древо", Warfront = "Арена",
+        ["In Use"] = "Используется",
+        ["Claimed"] = "Получено",
+        ["Use"] = "Использовать",
+        ["Skip"] = "Пропустить",
+        ["Review"] = "Повтор",
+        ["Apply Build"] = "Применить сборку",
+        ["Recommended Build"] = "Рек. сборка",
+        ["Recommended Builds"] = "Рек. сборки",
+        ["My Builds"] = "Мои сборки",
+        ["Equipment Builds"] = "Сборка",
+        ["Equipment Build"] = "Сборка",
+        ["Auto-Dismantle Settings"] = "Настройки авто-распыления",
+        ["Auto-Dismantle Confirmation"] = "Подтверждение авто-распыления",
+        ["Click blank area to close"] = "Нажмите на пустое место, чтобы закрыть",
+    }
+    for k, v in pairs(enMenuAliases) do
+        visibleTextCache[k] = v
+        visibleTextCache[v] = v
+    end
+
+    if RussianMod and RussianMod.shortEquipLabels then
+        for k, v in pairs(RussianMod.shortEquipLabels) do
+            visibleTextCache[k] = v
+            visibleTextCache[v] = v
+        end
+    end
+
+    for k, v in pairs(stringConstOverrides) do
+        if type(v) == "string" then
+            visibleTextCache[k] = v
+            visibleTextCache[v] = v
+        end
+    end
+
+    for _, v in pairs(aggregateOverrides) do
+        if type(v) == "string" then
+            visibleTextCache[v] = v
+        end
+    end
+end
 
 local function walkWidgetDescendants(owner, visited, visitor)
     if owner == nil or visited[owner] then
@@ -2008,14 +1631,6 @@ local function translateVisibleText(value)
         if ru ~= nil then
             visibleTextCache[value] = ru
             return ru
-        end
-    end
-    local EnglishMod = runtimeFixes.EnglishMod
-    if EnglishMod and EnglishMod.translate then
-        local ruEng = EnglishMod.translate(value)
-        if ruEng ~= nil then
-            visibleTextCache[value] = ruEng
-            return ruEng
         end
     end
     local normalizedLargeNumber = runtimeFixes.normalizeLocalizedLargeNumbers(value)
@@ -2289,11 +1904,7 @@ local function translateTextWidget(widget, discoveryContext)
     local getText = nil
     local methodOk = pcall(function() getText = widget.GetText end)
     if not methodOk or type(getText) ~= "function" then
-        local propOk, propVal = pcall(function() return widget.Text end)
-        if not propOk or propVal == nil then
-            return 0
-        end
-        getText = function(w) return w.Text end
+        return 0
     end
     local ok, current = pcall(getText, widget)
     if not ok or current == nil then
@@ -2307,46 +1918,10 @@ local function translateTextWidget(widget, discoveryContext)
     end)
     local translated = repairLiveString and repairLiveString("WidgetText", widgetName, widgetName, currentText)
         or translateVisibleText(currentText)
-
-    local isSkillWidget = false
-    if widgetName:find("Skill") then
-        isSkillWidget = true
-    else
-        pcall(function()
-            local parent = widget.GetParent and widget:GetParent()
-            local depth = 0
-            while parent ~= nil and depth < 6 do
-                local pName = tostring(parent:GetName())
-                if pName:find("Skill") or pName:find("Puppet") or pName:find("Partner")
-                    or pName:find("Talent") or pName:find("Sequence") or pName:find("Promotion") then
-                    isSkillWidget = true
-                    break
-                end
-                parent = parent.GetParent and parent:GetParent()
-                depth = depth + 1
-            end
-        end)
-    end
-    if not isSkillWidget and type(discoveryContext) == "string" then
-        if discoveryContext:find("Skill") or discoveryContext:find("Puppet") or discoveryContext:find("Partner")
-            or discoveryContext:find("Talent") or discoveryContext:find("Sequence") then
-            isSkillWidget = true
-        end
-    end
-
-    if isSkillWidget and runtimeFixes and runtimeFixes.formatSkillNameToTwoLines then
-        local formatted = runtimeFixes.formatSkillNameToTwoLines(translated, widget)
-        if formatted and formatted ~= "" then
-            translated = formatted
-        end
-    end
-
     local repairedCount = 0
     if translated ~= currentText then
         local changed = pcall(function()
-            if widget.SetText ~= nil then
-                widget:SetText(translated)
-            end
+            widget:SetText(translated)
         end)
         -- KGTextBlock can repaint its serialized Text property after a
         -- Blueprint state change. Keep the property and Slate value aligned.
@@ -2359,36 +1934,13 @@ local function translateTextWidget(widget, discoveryContext)
             end
         end)
         pcall(function()
-            if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                local targetSize = nil
-                local charLen = runtimeFixes.stringCharLength and runtimeFixes.stringCharLength(translated) or #translated
-                if isSkillWidget and charLen > 16 then
-                    targetSize = 11
-                end
-                runtimeFixes.adjustWidgetLetterSpacing(widget, targetSize)
-            end
-        end)
-        pcall(function()
             if widget.InvalidateLayoutAndVolatility ~= nil then
                 widget:InvalidateLayoutAndVolatility()
             end
         end)
         repairedCount = changed and 1 or 0
-    else
-        if currentText and (currentText:find("[\208\209]") ~= nil or currentText:find("[A-Za-z]") ~= nil) then
-            pcall(function()
-                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                    local targetSize = nil
-                    local charLen = runtimeFixes.stringCharLength and runtimeFixes.stringCharLength(currentText) or #currentText
-                    if isSkillWidget and charLen > 16 then
-                        targetSize = 11
-                    end
-                    runtimeFixes.adjustWidgetLetterSpacing(widget, targetSize)
-                end
-            end)
-        end
     end
-    return repairedCount
+        return repairedCount
 end
 
 -- The reference translation runtime generates a global list of text-like
@@ -2400,9 +1952,6 @@ local criticalWidgetProbeNames = {
     "Text_Use", "Text_Used", "TextUsing", "Text_State", "Text_Status",
     "Text_Apply", "Text_Equip", "RichText_Use", "Button_Text",
     "Text_Name", "Text_Title", "Text_Content", "Text_Tips", "Text_BtnName",
-    "Text_Notice", "Text_Confirm", "Text_Cancel", "Text_Desc", "Text_Message",
-    "Text_LoadingTitle", "Text_LoadingTips", "Text_Loading",
-    "Text_NPCName", "Text_NPCSubName", "Text_Speaker", "RichText_Content",
 }
 local generatedWidgetProbeNames = nil
 local generatedWidgetProbeUnavailable = false
@@ -2519,17 +2068,6 @@ runtimeFixes.VisibleWidgetNames = {
     "Text_Recommend", "Text_Extra", "Text_BeStrong", "Text_Reset",
     "Text_Equip", "Text_Tips", "Text_BtnName", "Text_Plan",
     "Text_Content", "TextUsing", "TB_Word",
-    "Text_Notice", "Text_Confirm", "Text_Cancel", "Text_Desc", "Text_Message",
-    "Text_Prompt", "Text_Detail", "Text_SubTitle", "Text_Button", "Text_Btn",
-    "Text_Sure", "Text_Ok", "Text_Close", "Text_Dialog",
-    "Text_LoadingTitle", "Text_LoadingTips", "Text_Loading",
-    "Text_NPCName", "Text_NPCSubName", "Text_Speaker", "Text_RoleName",
-    "RichText_Content", "RichText_Tips", "RichText_Desc", "RichText_Message",
-    -- Scheme nodes, Arcane Offering & Equip Strengthen / Enhance widgets
-    "Text_NodeName", "Text_NodeDesc", "Text_StrengthenLevel", "Text_EnhanceLevel",
-    "Text_AttrName", "Text_AttrVal", "Text_AttrTips", "Text_Cost", "Text_Consume",
-    "Text_Requirement", "Text_OfferingTitle", "Text_OfferingDesc",
-    "Text_Award", "Text_Reward", "Text_RewardTitle", "Text_Score", "Text_Progress",
 }
 
 local function translateViewTextWidgets(view, userWidget, discoveryContext, component, sharedVisited)
@@ -2744,6 +2282,11 @@ local function directLookup(index, tag)
     return data and data[index] or nil
 end
 
+-- Zero-Latency DirectTables Warmup
+do
+    pcall(getDirectTable, nil)
+end
+
 hasCjk = function(value)
     return type(value) == "string" and value:find("[\228-\233][\128-\191][\128-\191]") ~= nil
 end
@@ -2898,13 +2441,6 @@ repairLiveString = function(tableName, rowKey, fieldPath, value)
         local ru = RussianMod.lookupRussianText(value)
         if ru ~= nil then
             return ru
-        end
-    end
-    local EnglishMod = runtimeFixes.EnglishMod
-    if EnglishMod and EnglishMod.translate then
-        local ruEng = EnglishMod.translate(value)
-        if ruEng ~= nil then
-            return ruEng
         end
     end
     local enterWorldShortened = shortenEnterWorldLabel(value)
@@ -3408,11 +2944,6 @@ end
 local function repairMarionetteSkillRow(row, skillId)
     local keys, isBaseRow, mappedSkillId = getMarionetteSkillLocalization(skillId, row)
     if type(row) ~= "table" or not keys then
-        if type(row) == "table" and row.Name and runtimeFixes and runtimeFixes.formatSkillNameToTwoLines then
-            pcall(function()
-                row.Name = runtimeFixes.formatSkillNameToTwoLines(row.Name)
-            end)
-        end
         return row
     end
 
@@ -3428,11 +2959,6 @@ local function repairMarionetteSkillRow(row, skillId)
         fillLocalizedField(row, "BriefDescription", keys[2], "skill3", true)
         fillLocalizedField(row, "SkillDisc", keys[3], "skill3", true)
         fillLocalizedField(row, "Tag", keys[4], nil, true)
-    end
-    if row.Name and runtimeFixes and runtimeFixes.formatSkillNameToTwoLines then
-        pcall(function()
-            row.Name = runtimeFixes.formatSkillNameToTwoLines(row.Name)
-        end)
     end
     return row
 end
@@ -3650,13 +3176,6 @@ local function wrapGeneratedRowHelper(helperName, original)
 
         if helperName == "GetSkillDataNewRow" then
             row = repairMarionetteSkillRow(row, rowKey)
-            if row ~= nil and runtimeFixes and runtimeFixes.formatSkillNameToTwoLines then
-                pcall(function()
-                    if row.Name then
-                        row.Name = runtimeFixes.formatSkillNameToTwoLines(row.Name)
-                    end
-                end)
-            end
         elseif helperName == "GetBuffDataNewRow" and rowKey == 82071030 and type(row) == "table" then
             fillLocalizedField(row, "BuffName", 211107038233344, "buffdata")
             fillLocalizedField(row, "BuffName1", 211107038233344, "buffappear")
@@ -3971,32 +3490,30 @@ local function needsTallEnglishSceneText(value)
         return false
     end
     local plain = value:gsub("<.->", "")
-    local hasAlphabet = plain:find("[A-Za-z]") ~= nil or plain:find("[\208\209]") ~= nil
-    local charLen = runtimeFixes.stringCharLength(plain)
-    return hasAlphabet and (charLen > SCENE_TEXT_PRIMARY_ROW_MAX or plain:find("[\r\n]") ~= nil)
+    return plain:find("[A-Za-z]") ~= nil
+        and (#plain > SCENE_TEXT_PRIMARY_ROW_MAX or plain:find("[\r\n]") ~= nil)
 end
 
 local function isPlainAsciiSceneTitle(value)
-    if type(value) ~= "string" or value == "" then
-        return false
-    end
-    local charLen = runtimeFixes.stringCharLength(value)
-    if charLen > SCENE_TEXT_TITLE_MAX then
+    if type(value) ~= "string" or value == "" or #value > SCENE_TEXT_TITLE_MAX then
         return false
     end
     if value:find("[\r\n]") or value:find("<", 1, true) or value:find(">", 1, true) then
         return false
     end
-    if value:find("[\228-\239]") ~= nil then
-        return false
+    for index = 1, #value do
+        local byte = value:byte(index)
+        if byte < 32 or byte > 126 then
+            return false
+        end
     end
-    return value:find("[A-Za-z0-9]") ~= nil or value:find("[\208\209]") ~= nil
+    return true
 end
 
 local function reflowEnglishSceneTitle(displayText, leonSubTitle)
     if not isPlainAsciiSceneTitle(displayText)
         or (leonSubTitle ~= nil and leonSubTitle ~= "")
-        or runtimeFixes.stringCharLength(displayText) <= SCENE_TEXT_PRIMARY_ROW_MAX then
+        or #displayText <= SCENE_TEXT_PRIMARY_ROW_MAX then
         return displayText, leonSubTitle
     end
 
@@ -4013,10 +3530,8 @@ local function reflowEnglishSceneTitle(displayText, leonSubTitle)
     for index = 1, #words - 1 do
         local primary = table.concat(words, " ", 1, index)
         local continuation = table.concat(words, " ", index + 1)
-        local pLen = runtimeFixes.stringCharLength(primary)
-        local cLen = runtimeFixes.stringCharLength(continuation)
-        local overflow = math.max(0, pLen - SCENE_TEXT_PRIMARY_ROW_MAX)
-        local score = overflow * 100 + math.abs(pLen - cLen)
+        local overflow = math.max(0, #primary - SCENE_TEXT_PRIMARY_ROW_MAX)
+        local score = overflow * 100 + math.abs(#primary - #continuation)
         if bestScore == nil or score < bestScore then
             bestIndex = index
             bestScore = score
@@ -4036,15 +3551,11 @@ local function longestPlainAsciiSceneLine(value)
         return nil
     end
     local longest
-    local longestLen = 0
     for line in value:gmatch("[^\r\n]+") do
         local plain = line:gsub("<.->", "")
-        if isPlainAsciiSceneTitle(plain) then
-            local charLen = runtimeFixes.stringCharLength(plain)
-            if longest == nil or charLen > longestLen then
-                longest = plain
-                longestLen = charLen
-            end
+        if isPlainAsciiSceneTitle(plain)
+            and (longest == nil or #plain > #longest) then
+            longest = plain
         end
     end
     return longest
@@ -4154,16 +3665,15 @@ local function fitEnglishSceneTextFont(self)
         return false
     end
     local targetSize = baseSize
-    local lineLen = runtimeFixes.stringCharLength(longestLine)
-    if lineLen > SCENE_TEXT_PRIMARY_ROW_MAX then
+    if #longestLine > SCENE_TEXT_PRIMARY_ROW_MAX then
         targetSize = math.min(targetSize, SCENE_TEXT_MAX_ENGLISH_FONT_SIZE)
-        if lineLen > SCENE_TEXT_MAIN_LINE_CHAR_BUDGET then
+        if #longestLine > SCENE_TEXT_MAIN_LINE_CHAR_BUDGET then
             targetSize = math.min(
                 targetSize,
                 math.max(
                     SCENE_TEXT_MIN_FONT_SIZE,
                     math.floor(
-                        baseSize * SCENE_TEXT_MAIN_LINE_CHAR_BUDGET / lineLen + 0.5
+                        baseSize * SCENE_TEXT_MAIN_LINE_CHAR_BUDGET / #longestLine + 0.5
                     )
                 )
             )
@@ -4783,20 +4293,6 @@ Loader.AfterLoad("Gameplay.LogicSystem.SkillCustomizer.DescFormulaHelper", funct
         )
         return translated
     end
-
-    local originalGenerateDesc = helper.GenerateDesc
-    if type(originalGenerateDesc) == "function" then
-        helper.GenerateDesc = function(...)
-            local original = originalGenerateDesc(...)
-            if type(original) ~= "string" then
-                return original
-            end
-            return repairLiveString(
-                "DescFormulaHelper", select(1, ...),
-                "GenerateDesc.return", original
-            )
-        end
-    end
     helper.__cpddGeneratedTipsRepair = VERSION
     report("installed shared generated equipment-tip translation")
     return value
@@ -4809,44 +4305,17 @@ local function installSkillDescriptionRepair(value, environment)
     end
 
     local wrapped = 0
-    local targetMethods = {
-        "GenerateSkillDesc",
+    for _, methodName in ipairs({
         "GenerateSkillDescNoRichText",
         "GenerateSkillBriefDesc",
         "GenerateSkillDecoText",
-        "GenerateSkillDetailDesc",
-        "GenerateSkillNextDesc",
-        "GetSkillDesc",
-        "GetSkillBriefDesc",
-        "GetSkillDetailDesc",
-        "GenerateNextLevelDesc",
-        "GetNextLevelDesc",
-    }
-    local seen = {}
-    for _, methodName in ipairs(targetMethods) do
-        seen[methodName] = true
+    }) do
         local original = skillSystem[methodName]
         if type(original) == "function" then
             skillSystem[methodName] = function(self, ...)
                 local results = { original(self, ...) }
                 if type(results[1]) == "string" then
                     results[1] = repairLiveString("SkillCustomSystem", select(1, ...), methodName, results[1])
-                end
-                return unpack(results)
-            end
-            wrapped = wrapped + 1
-        end
-    end
-
-    for k, v in pairs(skillSystem) do
-        if not seen[k] and type(k) == "string" and type(v) == "function" and (
-            k:find("SkillDesc") or k:find("SkillBrief") or k:find("SkillDeco") or k:find("SkillDetail") or k:find("Desc")
-        ) then
-            local original = v
-            skillSystem[k] = function(self, ...)
-                local results = { original(self, ...) }
-                if type(results[1]) == "string" then
-                    results[1] = repairLiveString("SkillCustomSystem", select(1, ...), k, results[1])
                 end
                 return unpack(results)
             end
@@ -5243,9 +4712,6 @@ local function revealDialogueRows(self)
                 if widget.SetAutoWrapText ~= nil then
                     widget:SetAutoWrapText(false)
                 end
-                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                    runtimeFixes.adjustWidgetLetterSpacing(widget)
-                end
                 changed = true
             end
         end)
@@ -5342,10 +4808,6 @@ local function bindDialogueRows(self)
         widgets[index] = getNamedWidget(talkWidget, widgetName)
         if widgets[index] == nil then
             missing[#missing + 1] = widgetName
-        else
-            if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                runtimeFixes.adjustWidgetLetterSpacing(widgets[index])
-            end
         end
     end
 
@@ -5432,23 +4894,6 @@ local function installDialogueTalkRepair(value, environment)
         revealDialogueRows(self)
         scheduleRepairBurst(self, revealDialogueRows, 0.50)
         scheduleRepairAfter(self, 0.55, reportDialogueThirdRowState)
-        pcall(function()
-            local talkWidget = self and (self.userWidget or self.widget)
-            for _, name in ipairs({
-                "RTB_TalkContent_Back_lua", "RTB_TalkContent_lua",
-                "RTB_TalkContent2_Back_lua", "RTB_TalkContent2_lua",
-                "RTB_TalkContent3_Back_lua", "RTB_TalkContent3_lua",
-                "Text_NPCName", "Text_NPCSubName", "Text_Name", "Text_Speaker", "Text_Title",
-            }) do
-                local w = getNamedWidget(talkWidget, name) or getNamedWidget(self and self.view, name)
-                if w ~= nil then
-                    translateTextWidget(w)
-                    if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                        runtimeFixes.adjustWidgetLetterSpacing(w)
-                    end
-                end
-            end
-        end)
         if self.__cpddDialogueVisibleTextRepaired ~= VERSION then
             translateViewTextWidgets(self and self.view, self and self.userWidget)
             self.__cpddDialogueVisibleTextRepaired = VERSION
@@ -5471,26 +4916,21 @@ local function setLayeredDialogueLabel(owner, text)
         owner:SetText(text)
     end)
     changed = changed or ok
-    pcall(function()
-        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-            runtimeFixes.adjustWidgetLetterSpacing(owner)
-        end
-    end)
 
     for _, fieldName in ipairs({ "Text_lua", "Text2_lua" }) do
         local fieldOk = pcall(function()
             local widget = owner[fieldName]
             if widget ~= nil then
                 widget:SetText(text)
-                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                    runtimeFixes.adjustWidgetLetterSpacing(widget)
-                end
                 changed = true
             end
         end)
         changed = changed or fieldOk
     end
 
+    -- These Blueprint components can contain additional nested labels. Run
+    -- the normal bootstrap text pass as well so no other Chinese caption is
+    -- left behind when the component refreshes.
     translateViewTextWidgets(nil, owner)
     return changed
 end
@@ -5520,11 +4960,6 @@ runtimeFixes.setNamedWidgetText = function(owner, widgetName, text)
     pcall(function()
         if widget.SynchronizeProperties ~= nil then
             widget:SynchronizeProperties()
-        end
-    end)
-    pcall(function()
-        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-            runtimeFixes.adjustWidgetLetterSpacing(widget)
         end
     end)
     pcall(function()
@@ -5763,28 +5198,7 @@ runtimeFixes.repairSequencePromotionChangeLayout = function(self)
     return runtimeFixes.fitSequencePromotionChangeText(widget)
 end
 
-runtimeFixes.repairSequencePromotionRoot = function(self)
-    local root = self and (self.view or self.userWidget or self.widget)
-    if root ~= nil then
-        pcall(function()
-            local visited = setmetatable({}, { __mode = "k" })
-            walkWidgetDescendants(root, visited, function(candidate)
-                pcall(function()
-                    if candidate ~= nil and (candidate.GetText ~= nil or candidate.Text ~= nil) then
-                        translateTextWidget(candidate)
-                        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                            runtimeFixes.adjustWidgetLetterSpacing(candidate)
-                        end
-                    end
-                end)
-            end)
-        end)
-    end
-    return true
-end
-
 runtimeFixes.repairSequencePromotionPanelButtons = function(self)
-    runtimeFixes.repairSequencePromotionRoot(self)
     local button = self and self.WBP_ConditionBtnCom
     local widget = getNamedWidget(button and button.view, "Text_Name")
         or getNamedWidget(button and (button.userWidget or button.widget), "Text_Name")
@@ -5804,17 +5218,13 @@ runtimeFixes.repairSequencePromotionPanelButtons = function(self)
         return false
     end
     local changed = pcall(function()
-        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-            runtimeFixes.adjustWidgetLetterSpacing(widget, 14)
-        else
-            local currentSize = tonumber(font.Size) or 18
-            font.Size = math.min(currentSize, 14)
-            widget.Font = font
-            if widget.SetFont ~= nil then widget:SetFont(font) end
-            if widget.SynchronizeProperties ~= nil then widget:SynchronizeProperties() end
-            if widget.InvalidateLayoutAndVolatility ~= nil then
-                widget:InvalidateLayoutAndVolatility()
-            end
+        local currentSize = tonumber(font.Size) or 18
+        font.Size = math.min(currentSize, 18)
+        widget.Font = font
+        if widget.SetFont ~= nil then widget:SetFont(font) end
+        if widget.SynchronizeProperties ~= nil then widget:SynchronizeProperties() end
+        if widget.InvalidateLayoutAndVolatility ~= nil then
+            widget:InvalidateLayoutAndVolatility()
         end
     end)
     return changed
@@ -5941,19 +5351,18 @@ runtimeFixes.repairSkillCommonLabels = function(self)
 
     -- These two footer labels belong to the parent panel, not to the
     -- Skill_BeStrong_Btn component.
-    runtimeFixes.setNamedWidgetText(view, "Text_WoodenPost", "Манекен")
+    runtimeFixes.setNamedWidgetText(view, "Text_WoodenPost", "Training Dummy")
     local oneClickPage = nil
     pcall(function()
         oneClickPage = view.WBP_Skill_OneClick_Page
     end)
-    runtimeFixes.setNamedWidgetText(oneClickPage, "Text_Content", "Помощник")
+    runtimeFixes.setNamedWidgetText(oneClickPage, "Text_Content", "One-Click Assist")
 
     -- BP_SetType on the embedded header can refresh all three captions after
     -- its Lua component returns. Repair the nested UserWidget from the parent
     -- as the final owner as well as through the component hook.
     runtimeFixes.repairEmbeddedSkillHeaderLabels(self)
     runtimeFixes.repairSkillHeaderLabels(self and self.WBP_Skill_BeStrong_BtnCom)
-    translateViewTextWidgets(view, self.userWidget or self.widget)
 end
 
 runtimeFixes.repairTalentLabels = function(self)
@@ -6571,23 +5980,15 @@ local function repairDialoguePanelLabels(self)
         return
     end
 
-    local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
-    local reviewText = isRussian and "История" or "Review"
-    local skipText = isRussian and "Пропустить" or "Skip"
-
-    setLayeredDialogueLabel(view.WBP_NPCReviewBtn, reviewText)
+    setLayeredDialogueLabel(view.WBP_NPCReviewBtn, "Review")
 
     local skipOwner = view.WBP_Skip
     if skipOwner ~= nil then
         local ok, nested = pcall(function()
             return skipOwner.WBP_NPCBtnText_lua
         end)
-        setLayeredDialogueLabel(ok and nested or skipOwner, skipText)
+        setLayeredDialogueLabel(ok and nested or skipOwner, "Skip")
     end
-
-    pcall(function()
-        translateViewTextWidgets(view, self and (self.userWidget or self.widget))
-    end)
 end
 
 local function repairDialogueSkipLabels(self)
@@ -6595,9 +5996,7 @@ local function repairDialogueSkipLabels(self)
     if type(view) ~= "table" then
         return
     end
-    local isRussian = not (runtimeFixes and runtimeFixes.RussianMod and runtimeFixes.RussianMod.Enabled == false)
-    local skipText = isRussian and "Пропустить" or "Skip"
-    setLayeredDialogueLabel(view.WBP_NPCBtnText_lua, skipText)
+    setLayeredDialogueLabel(view.WBP_NPCBtnText_lua, "Skip")
 end
 
 local function installDialogueControlRepair(value, environment, symbolName, methodNames, repair, source)
@@ -7138,32 +6537,6 @@ local taskBoardWidgetNames = {
     "RichText_Hint01",
     "RichText_Hint02",
     "RichText_Path",
-    -- Верхний баннер наград (TaskBoardPanel upper reward banner)
-    "Text_Reward",
-    "Text_RewardTitle",
-    "Text_RewardTips",
-    "Text_RewardDesc",
-    "Text_Award",
-    "Text_AwardTitle",
-    "Text_Title",
-    "Text_Banner",
-    "Text_BannerTitle",
-    "Text_Score",
-    "Text_Progress",
-    "Text_Points",
-    "Text_Point",
-    "Text_DailyReward",
-    "Text_TotalReward",
-    "Text_StageReward",
-    "Text_Chest",
-    "Text_Box",
-    "Text_Get",
-    "Text_Status",
-    "RichText_Reward",
-    "RichText_Desc",
-    "RichText_Tips",
-    "Text_Count",
-    "Text_Num",
 }
 
 local taskInfoRepairReports = setmetatable({}, { __mode = "k" })
@@ -7273,26 +6646,6 @@ local function repairTaskBoardLabelsNow(self)
                 visitedWidgets[widget] = true
                 foundCount = foundCount + 1
                 repaired = repaired + translateTextWidget(widget)
-                if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                    runtimeFixes.adjustWidgetLetterSpacing(widget)
-                end
-            end
-        end
-        for _, bannerContainerName in ipairs({
-            "WBP_TaskBoard_Reward", "RewardBanner", "TopBanner",
-            "Canvas_Reward", "Canvas_Top", "HB_Reward", "VB_Reward"
-        }) do
-            local banner = getNamedWidget(view, bannerContainerName) or getNamedWidget(root, bannerContainerName)
-            if banner ~= nil then
-                walkWidgetDescendants(banner, visitedWidgets, function(bw)
-                    if bw ~= nil and (bw.GetText ~= nil or bw.Text ~= nil) then
-                        foundCount = foundCount + 1
-                        repaired = repaired + translateTextWidget(bw)
-                        if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                            runtimeFixes.adjustWidgetLetterSpacing(bw)
-                        end
-                    end
-                end)
             end
         end
         if type(children) == "table" then
@@ -7385,6 +6738,37 @@ local viewRepairSpecs = {
 }
 
 local exactWidgetRepairSpecs = {
+    -- Brass Tome writes freshly formatted descriptions directly on each refresh.
+    {
+        "Gameplay.LogicSystem.BrassTome.BrassTomeTask_Item",
+        "BrassTomeTask_Item",
+        { "OnRefresh" },
+        function(self)
+            translateTextWidget(getNamedWidget(self and self.view, "Text_Content"))
+        end,
+        true,
+    },
+    -- Server names arrive with login data, including recycled list rows.
+    {
+        "Gameplay.LogicSystem.Login.LoginServerItem",
+        "LoginServerItem",
+        { "OnRefresh" },
+        function(self)
+            local view = self and self.view
+            translateTextWidget(getNamedWidget(view, "Server_Name_Text"))
+            translateTextWidget(getNamedWidget(view, "Server_Name_Text1"))
+        end,
+        true,
+    },
+    {
+        "Gameplay.LogicSystem.Login.LoginPanel",
+        "LoginPanel",
+        { "setServerInfoUI" },
+        function(self)
+            translateTextWidget(getNamedWidget(self and self.view, "Text_ServerName"))
+        end,
+        true,
+    },
     {
         "Gameplay.LogicSystem.NPC.Dialogue.DialogueScreenTextComp",
         "DialogueScreenTextComp",
@@ -7529,13 +6913,6 @@ local exactWidgetRepairSpecs = {
         "GuildInside_Announce_Preview_Item",
         { "OnRefresh" },
         runtimeFixes.repairGuildEventPreviewLayout,
-        true,
-    },
-    {
-        "Gameplay.LogicSystem.SequencePromotion.SequencePromotion_Panel.SequencePromotion_Panel",
-        "SequencePromotion_Panel",
-        { "InitUIView", "OnRefresh", "Refresh" },
-        runtimeFixes.repairSequencePromotionRoot,
         true,
     },
     {
@@ -8181,35 +7558,6 @@ Loader.AfterLoad("Gameplay.LogicSystem.NPC.Dialogue.Dialogue_NPCBtnSkip", functi
 end, 1000000, "cpdd.runtime-fix.dialogue-skip-controls")
 
 do
-    for _, loadingModule in ipairs({
-        "Gameplay.LogicSystem.Loading.CommonLoadingSpinner_Panel",
-        "Gameplay.LogicSystem.Loading.CreateRoleLoadingPanel",
-        "Gameplay.LogicSystem.Loading.ReconnectLoading_Panel",
-    }) do
-        Loader.AfterLoad(loadingModule, function(value, environment)
-            local shortName = loadingModule:match("%.([^%.]+)$") or loadingModule
-            local class = getSymbol(value, environment, shortName) or value
-            if type(class) == "table" then
-                for _, methodName in ipairs({ "InitUIView", "OnRefresh", "OnOpen", "OnShow", "Refresh" }) do
-                    local original = class[methodName]
-                    if type(original) == "function" and not class["__cpddLoadingRepair_" .. methodName] then
-                        class["__cpddLoadingRepair_" .. methodName] = true
-                        class[methodName] = function(self, ...)
-                            local results = { original(self, ...) }
-                            pcall(function()
-                                translateViewTextWidgets(self and self.view, self and (self.userWidget or self.widget))
-                            end)
-                            return unpack(results)
-                        end
-                    end
-                end
-            end
-            return value
-        end, 1000000, "cpdd.runtime-fix.loading-" .. loadingModule)
-    end
-end
-
-do
 local function installShortMenuLabels(value, environment)
     local class = getSymbol(value, environment, "MenuBtn_Item")
     if type(class) ~= "table" or type(class.OnRefresh) ~= "function" then
@@ -8222,27 +7570,19 @@ local function installShortMenuLabels(value, environment)
     local originalRefresh = class.OnRefresh
     class.OnRefresh = function(self, params)
         local results = { originalRefresh(self, params) }
-        pcall(function()
-            local menuId = self.MenuID
-            local menuData = menuId and Game and Game.TableData and Game.TableData.GetMenuDataRow(menuId)
-            local label = menuData and shortMenuLabels[menuData.ButtonEnum]
-            if label and self.view then
-                -- KGTextBlock can repaint its serialized long translation after
-                -- OnRefresh. Persist the compact value in both the widget property
-                -- and the live Slate text so later menu refreshes cannot restore it.
-                if runtimeFixes and runtimeFixes.setNamedWidgetText then
-                    runtimeFixes.setNamedWidgetText(self.view, "Text_Name", label)
-                end
-                local textWidget = getNamedWidget(self.view, "Text_Name")
-                if textWidget and runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                    runtimeFixes.adjustWidgetLetterSpacing(textWidget, 13)
-                end
-            end
-        end)
+        local menuId = self.MenuID
+        local menuData = menuId and Game and Game.TableData and Game.TableData.GetMenuDataRow(menuId)
+        local label = menuData and shortMenuLabels[menuData.ButtonEnum]
+        if label and self.view then
+            -- KGTextBlock can repaint its serialized long translation after
+            -- OnRefresh. Persist the compact value in both the widget property
+            -- and the live Slate text so later menu refreshes cannot restore it.
+            runtimeFixes.setNamedWidgetText(self.view, "Text_Name", label)
+        end
         return unpack(results)
     end
     class.__cpddShortMenuLabels = true
-    report("installed compact Russian menu labels")
+    report("installed compact English menu labels")
     return true
 end
 
@@ -8270,18 +7610,6 @@ local dynamicPanelRescanUids = {
     Shops_Panel = true,
     Sequence_Panel = true,
     TrainTrade_Hud_Panel = true,
-    -- Panels requiring dynamic rescan for scheme nodes, buttons, and headers
-    ArcaneOffering = true,
-    ArcaneOffering_Panel = true,
-    Guild_ArcaneOffering_Panel = true,
-    GuildArcaneOffering_Panel = true,
-    EquipStrengthen = true,
-    EquipStrengthen_Panel = true,
-    EquipmentStrengthen_Panel = true,
-    EquipEnhance = true,
-    EquipEnhance_Panel = true,
-    EquipmentEnhance_Panel = true,
-    TaskBoardPanel = true,
 }
 
 local extendedPanelRepairDelays = {
@@ -8291,17 +7619,6 @@ local extendedPanelRepairDelays = {
     Sealed_Fuse_Select_Panel = { 0.25, 0.75, 1.50 },
     Sequence_Panel = { 0.50, 1.50, 3.00, 6.00, 10.00, 20.00 },
     Shops_Panel = { 0.25, 0.50, 1.00, 2.00 },
-    ArcaneOffering = { 0.15, 0.50, 1.20 },
-    ArcaneOffering_Panel = { 0.15, 0.50, 1.20 },
-    Guild_ArcaneOffering_Panel = { 0.15, 0.50, 1.20 },
-    GuildArcaneOffering_Panel = { 0.15, 0.50, 1.20 },
-    EquipStrengthen = { 0.15, 0.50, 1.20 },
-    EquipStrengthen_Panel = { 0.15, 0.50, 1.20 },
-    EquipmentStrengthen_Panel = { 0.15, 0.50, 1.20 },
-    EquipEnhance = { 0.15, 0.50, 1.20 },
-    EquipEnhance_Panel = { 0.15, 0.50, 1.20 },
-    EquipmentEnhance_Panel = { 0.15, 0.50, 1.20 },
-    TaskBoardPanel = { 0.15, 0.50, 1.20 },
 }
 
 -- Current-session telemetry showed that these panels translated useful text
@@ -8312,7 +7629,7 @@ runtimeFixes.SinglePassPanelUids = {
     GuildInside_Panel = true,
     Menu_Panel = true,
     Sealed_Equip_Panel = true,
-    SequencePromotion_Panel = false,
+    SequencePromotion_Panel = true,
 }
 
 -- These high-frequency panels have dedicated data/view hooks above. A generic
@@ -8384,24 +7701,6 @@ function panelTextRepair:Repair(component, reason)
                 rootWidget
             )
         end
-        local uidStr = tostring(componentUid or "")
-        if uidStr:find("ArcaneOffering") or uidStr:find("EquipStrengthen") or uidStr:find("EquipEnhance")
-            or uidStr:find("EquipmentStrengthen") or uidStr:find("EquipmentEnhance") then
-            pcall(function()
-                local targetOwner = rootWidget or current.view
-                if targetOwner ~= nil then
-                    local panelVisited = setmetatable({}, { __mode = "k" })
-                    walkWidgetDescendants(targetOwner, panelVisited, function(candidate)
-                        if candidate ~= nil and (candidate.GetText ~= nil or candidate.Text ~= nil or candidate.DefaultTextStyleOverride ~= nil) then
-                            translateTextWidget(candidate, discoveryContext)
-                            if runtimeFixes and runtimeFixes.adjustWidgetLetterSpacing then
-                                runtimeFixes.adjustWidgetLetterSpacing(candidate)
-                            end
-                        end
-                    end)
-                end
-            end)
-        end
 
         -- Child UIComponents and cached subviews own independent UWidgetTrees.
         -- Walking them is the important coverage difference from the old panel
@@ -8467,9 +7766,6 @@ function panelTextRepair:ProcessOnce(component, reason)
     end
     local uid = component.uid or component.UID or component.__cname
     if tostring(uid) == "TaskBoardPanel" then
-        if runtimeFixes and runtimeFixes.repairTaskBoardLabels then
-            runtimeFixes.repairTaskBoardLabels(component)
-        end
         runtimeMetrics.TargetedPanelSkips = runtimeMetrics.TargetedPanelSkips + 1
         return 0
     end

@@ -28,7 +28,7 @@ return {
     ["<P_Heart> (Shocked) </> This... is this Monterey?!"] = "<P_Heart> (в шоке) </> Это... это Монтерей?!",
     ["<P_Yellow>Being gazed at, too shy to hide anywhere</>"] = "<P_Yellow>На меня пристально смотрят, я слишком застенчив, чтобы куда-то спрятаться</>",
     ["<h>挖开</>泥土"] = "<h> Перекопайте </> почву",
-    ["<img id=\"Tips\" width=\"46\" height=\"46\"/><Title>标题</>\n<Quality_4>正文</><Quality_5>正文</><Quality_6>正文</><Quality_7>正文</>正文正文正文正文正文正文正文正文正文<Highlight>高亮高亮高亮高亮高亮高亮高亮</>"] = "<img id=\"Tips\" width=\"46\" height=\"46\"/><Title>Title</>\n<Quality_4>Body</><Quality_5>Body</><Quality_6>Body</><Quality_7>Body</>Тело Тело Тело Тело Тело Тело Тело Тело <Highlight>Выделить Выделить Выделить Выделить Выделить Выделить Выделить Выделить </>",
+    ["<img id=\"Tips\" width=\"46\" height=\"46\"/><Title>标题</>\n<Quality_4>正文</><Quality_5>正文</><Quality_6>正文</><Quality_7>正文</>正文正文正文正文正文正文正文正文正文<Highlight>高亮高亮高亮高亮高亮高亮高亮</>"] = "<img id=\"Tips\" width=\"46\" height=\"46\"/><Title>Название</>\n<Quality_4>Body</><Quality_5>Body</><Quality_6>Body</><Quality_7>Body</>Body Body Body Body Body Body Body <Highlight>Выделить Выделить Выделить Выделить Выделить Выделить Выделить </>",
     ["GTA-Mechanical Creation-Mechanism Phase Camera Modification"] = "GTA-Mechanical Creation-Модификация фазовой камеры механизма",
     ["NPC_空气1"] = "NPC_Воздух 1",
     ["Rapper Exit Effect"] = "Эффект выхода рэпера",
@@ -270,5 +270,4 @@ return {
     ["魔药成品"] = "Готовое зелье",
     ["Peace in the Night"] = "Мир в ночи",
     ["（召唤归属--%s）"] = "(Владелец призыва — %s)",
-    ["He and Catherine\nsat together having afternoon tea."] = "Он и Кэтрин\n сидели вместе и пили послеобеденный чай.",
 }

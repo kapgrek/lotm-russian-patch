@@ -245,7 +245,7 @@ return {
     ["Dance Shadow Crystal"] = "Танцевальный теневой кристалл",
     ["Golden-colored currency, with the portrait of the serious and rigid George III with a crown and a mustache engraved on the front; it is the highest-level currency in the Loen Kingdom's monetary system."] = "Валюта золотистого цвета, с выгравированным на лицевой стороне портретом серьезного и строгого Георга III с короной и усами; это валюта высшего уровня в денежной системе Королевства Лоен.",
     ["艾弗瑞"] = "Альфред",
-    ["莎莉丝特是\n畏惧春天的胆小鬼"] = "Селеста — \n трусиха, которая боится весны.",
+    ["莎莉丝特是\n畏惧春天的胆小鬼"] = "Селеста — \n трусиха, которая боится весны",
     ["Obtain the Object of Phenomenon on the statue in Tingen Central Plaza."] = "Получите Объект Феномена на статуе на Центральной площади Тингена.",
     ["获得*f**减伤"] = "Получите *f** Снижение урона.",
     ["获得以下道具。"] = "Получите следующие предметы.",

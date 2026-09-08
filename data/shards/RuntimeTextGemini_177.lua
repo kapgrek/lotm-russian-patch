@@ -282,5 +282,4 @@ return {
     ["黄水晶房"] = "Желтый Кристальный номер",
     ["黄线-逆时针-广场马车A2"] = "Желтая линия-против часовой стрелки-квадратная каретка Ab",
     ["There are so many legends about dragons. This one is about Dragon Hunting City..."] = "О драконах ходит много легенд. Это о Городе Охоты на Драконов...",
-    ["Basic text description 999\nBasic text description, such as Damage Increased, Beyonder base damage increased, etc. Basic text description, such as Damage Increased, Beyonder base damage increased, etc. Basic text description, such as Damage Increased, Beyonder base dam"] = "Базовое текстовое описание 999\nБазовое текстовое описание, такое как увеличение урона, увеличение базового урона Потусторонний и т. д. Базовое текстовое описание, например увеличение урона, увеличение базового урона Потусторонний и т. д. Базовое текстовое описание, например увеличение урона, базовая плотина Потусторонний.",
 }

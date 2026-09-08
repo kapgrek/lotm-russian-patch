@@ -98,7 +98,7 @@ return {
     ["Someone who deals with corpses every day, still afraid of this?"] = "Тот, кто каждый день имеет дело с трупами, все еще боится этого?",
     ["太快了"] = "Слишком быстро",
     ["So hot, so hot. It should be fine in a while, right?"] = "Так жарко, так жарко. Через какое-то время все должно быть хорошо, верно?",
-    ["So hungry...\nIf I don't eat something soon, I feel like I'm going to faint."] = "Так голоден...\nЕсли я не съем что-нибудь в ближайшее время, мне кажется, что я упаду в обморок.",
+    ["So hungry...\nIf I don't eat something soon, I feel like I'm going to faint."] = "Такой голодный...\nЕсли я не съем что-нибудь в ближайшее время, мне кажется, что я упаду в обморок.",
     ["好，我帮你。有什么线索吗？<P_Heart>（让他这样半截身子露在外面，吓到别人总不是个办法。）</>"] = "Хорошо, я помогу тебе. Есть какие-нибудь подсказки? <P_Heart>(Оставить его с открытой половиной тела наверняка кого-то напугает.)</>",
     ["如何从零成为通灵者"] = "Как стать духовным медиумом с нуля",
     ["If the next stop <LightHighlight> is not the [Trading Firm] </>, obtain <LightHighlight> 25 </> units of <HyperLink stylename=\"Underline\" u=\"trainTradeItem=30507\"> [Fine Oil Painting] </>."] = "Если следующая остановка <LightHighlight> не является [Торговая фирма] </>, получите <LightHighlight> 25 единиц </> <HyperLink stylename=\"Underline\" u=\"trainTradeItem=30507\"> [Тонкая масляная живопись] </>.",
@@ -177,7 +177,7 @@ return {
     ["Click here to switch to the <Orange>Outfit</> tab."] = "Нажмите здесь, чтобы переключиться на вкладку <Orange>Outfit</>.",
     ["Blazing Sun Sand - Ornament"] = "Пылающий солнечный песок — украшение",
     ["玩家交互物椅子"] = "Интерактивное кресло игрока",
-    ["玩家名字七个字\n<LeonSubTitle size=\"18\">Workers are the foundation of the timesfoundation of the times</>"] = "Имя игрока семь персонажей\n<LeonSubTitle size=\"18\">Рабочие – основа времениоснова времени</>",
+    ["玩家名字七个字\n<LeonSubTitle size=\"18\">Workers are the foundation of the timesfoundation of the times</>"] = "Имя игрока семь персонажей\n<LeonSubTitle size=\"18\">Рабочие — основа времениоснова времени</>",
     ["The remaining matches used by Jenny."] = "Остальные спички использовала Дженни.",
     ["Benson entrance waypoint"] = "Путевая точка входа в Бенсон",
     ["理智掉了怎么办"] = "Что делать, если рассудок падает",
@@ -254,4 +254,5 @@ return {
     ["Black Emperor Arrow 2"] = "Черная императорская стрела b",
     ["（告知结果）"] = "(Сообщите результат)",
     ["（皱眉）先去墓地广场看看。"] = "(Нахмурившись) Давайте сначала пойдём на кладбищенскую площадь, посмотрим.",
+    ["Sequence\nWill inevitably lead to loss of control"] = "Последовательность\nнеизбежно приведёт к потере контроля",
 }

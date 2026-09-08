@@ -197,7 +197,7 @@ return {
     ["Memory flashback: Two beers and a pudding clinking together."] = "Воспоминание: два пива и пудинг звенят вместе.",
     ["Display stand action not yet unlocked."] = "Действие демонстрационного стенда еще не разблокировано.",
     ["Come to think of it, from the moment you joined the team, you two were very close, and you mentioned Dunn so often that I couldn't help but want to..."] = "Если подумать, с того момента, как вы присоединились к команде, вы были очень близки, и вы так часто упоминали Данна, что я не мог не захотеть...",
-    ["请好好地\n跟着我"] = "Пожалуйста, следите за мной\nвнимательно.",
+    ["请好好地\n跟着我"] = "Пожалуйста, следуй\nза мной неотступно.",
     ["请输入赠言"] = "Пожалуйста, введите сообщение",
     ["Beans 3"] = "Фасоль b",
     ["赠礼锁"] = "Подарочный замок",

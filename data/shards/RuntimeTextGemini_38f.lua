@@ -163,7 +163,7 @@ return {
     ["查看手稿"] = "Проверьте рукопись",
     ["Tag Tag"] = "Тег Тег",
     ["正在翻阅……"] = "Прочитав...",
-    ["The deceased escaped\nthrough this door"] = "Покойный сбежал\nчерез эту дверь",
+    ["The deceased escaped\nthrough this door"] = "Покойный сбежал\n через эту дверь",
     ["沃尔科特"] = "Уолкотт",
     ["It's okay, the Evernight Goddess will forgive you."] = "Ничего, Богиня Вечной Ночи простит тебя.",
     ["法兰特"] = "Фаррант",

@@ -255,5 +255,4 @@ return {
     ["预计"] = "Оцененный",
     ["Blackthorn is a formal mercenary squad. You often go out to take some unofficial quests. Hmm, you can earn some extra money and help people solve difficulties; it's a win-win."] = "Чёрный Чертополох — формальный отряд наёмников. Вы часто выходите выполнять неофициальные квесты. Хм, ты можешь подзаработать и помочь людям решить трудности; это беспроигрышный вариант.",
     ["If that is truly the reason, {Mr.{ Ms.|}}, could I ask you to help look after this old gentleman?"] = "Если это действительно причина, {{мистер|мисс}}, могу ли я попросить вас помочь присмотреть за этим старым джентльменом?",
-    ["坐起来很舒适。\n伟大的发明，不错的马桶！"] = "Сидеть удобно. Прекрасное изобретение, хороший унитаз!",
 }

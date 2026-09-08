@@ -69,7 +69,7 @@ return {
     ["Seer - Acting Skill - Performance Ends"] = "Провидец - Актерское мастерство - Конец спектакля",
     ["占卜过去、占卜现在、占卜未来，我们占卜命运，我们敬畏命运。"] = "Угадывание прошлого, угадывание настоящего, угадывание будущего; мы предсказываем судьбу и почитаем судьбу.",
     ["Stuck? That's perfect, I have plenty of time, I can watch slowly."] = "Застрявший? Это прекрасно, у меня много времени, я могу смотреть медленно.",
-    ["Kalapon has a creed: consumables don't need names.\nGunshots are never a judgment, just the whistle for the slaughterhouse to start working.\nThis is an assembly line, and the next corpse is already on the conveyor belt."] = "У Калапона есть кредо: расходным материалам не нужны названия.\nВыстрелы никогда не являются приговором, а лишь свистком о начале работы скотобойни.\nЭто сборочная линия, и следующий труп уже на конвейере.",
+    ["Kalapon has a creed: consumables don't need names.\nGunshots are never a judgment, just the whistle for the slaughterhouse to start working.\nThis is an assembly line, and the next corpse is already on the conveyor belt."] = "У Калапона есть кредо: расходным материалам не нужны названия.\nВыстрелы никогда не являются приговором, а просто свистком о начале работы скотобойни.\nЭто сборочная линия, и следующий труп уже на конвейере.",
     ["Luna Advancing"] = "Луна продвигается",
     ["历史哲人"] = "Исторический философ",
     ["Participate in the dungeon <Highlight>Tree of Abundance (Normal)</>. After defeating <Highlight>Sylvia</>, there is a chance to obtain the following appearances."] = "Примите участие в подземелье <Highlight>TДрево изобилия (Обычное)</>. После победы над <Highlight>Sylvia</> есть шанс получить следующие виды.",

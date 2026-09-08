@@ -20,7 +20,7 @@ return {
     ["<P_Yellow>小丑</>：可惜等不及了呢~"] = "<P_Yellow>Клоун</>: Жаль, что я не смог больше ждать~",
     ["<格斗家>"] = "<Боец>",
     ["A defensive<Highlight> mutated material</> with the entry <Highlight><无暗者></>: \"Increased Willpower.\""] = "Защитный <Highlight> изменил материал </> с записью <Highlight><Бестеневой></>: «Увеличенная сила воли».",
-    ["B级动画：\n克莱恩回想着这段时间的占卜，脑中浮现出黄水晶，突然有一些感悟。"] = "B-grade animation: \n Klein recalls the Гаданиеs of this period, a yellow crystal appears in his mind, and he suddenly has some insights.",
+    ["B级动画：\n克莱恩回想着这段时间的占卜，脑中浮现出黄水晶，突然有一些感悟。"] = "Grade B Animation:\nKlein recalled the Гадание from this period, a yellow crystal appeared in his mind, and he suddenly had some realizations.",
     ["Detective {{Sir|Madam}}, I am not in a position to say much about the specific circumstances of the case; please discuss it with the Madam."] = "Детектив {{Sir|Madam}}, я не могу много говорить о конкретных обстоятельствах дела; пожалуйста, обсудите это с мадам.",
     ["Mesh name"] = "Имя сетки",
     ["PCG loop car 2"] = "PCG петля вагон b",

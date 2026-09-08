@@ -141,7 +141,7 @@ return {
     ["Check if the target is the instigator"] = "Проверьте, является ли цель зачинщиком",
     ["欢迎来到占卜俱乐部！"] = "Добро пожаловать в Клуб Гадания!",
     ["歌颂者-男"] = "Бард-Мужчина",
-    ["The deceased had suffered\na fatal gunshot wound before death"] = "Перед смертью погибший получил \n смертельное огнестрельное ранение.",
+    ["The deceased had suffered\na fatal gunshot wound before death"] = "Перед смертью погибший получил смертельное огнестрельное ранение \n.",
     ["That's right! It records the mysterious runes created by Emperor Roselle, which contain mysterious power!"] = "Это верно! В нем записаны таинственные руны, созданные императором Розеллой, которые содержат в себе таинственную силу!",
     ["Note: This is different from the other field Delay (the attack starts only after the delay following the action start)."] = "Примечание. Это поле отличается от другого поля «Задержка» (атака начинается только после задержки, следующей за началом действия).",
     ["济贫院可是有名额限制的，想来的话，先报名，你前边还有200多位。"] = "В богадельне есть квота. Если вы хотите прийти, сначала запишитесь. Перед вами более 200 человек.",

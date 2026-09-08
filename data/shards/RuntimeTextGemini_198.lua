@@ -263,5 +263,4 @@ return {
     ["Feed 4 air wall test 3"] = "Подача 4, испытание воздушной стены b",
     ["高岭之花"] = "Высокогорный цветок",
     ["A doorway crafted from high-grade marble, with additional carved decorations around the door frame based on the original design."] = "Дверной проем выполнен из высококачественного мрамора, с дополнительным резным декором вокруг дверной коробки по оригинальному дизайну.",
-    ["More\nRewards"] = "Подробнее\nНаграды",
 }

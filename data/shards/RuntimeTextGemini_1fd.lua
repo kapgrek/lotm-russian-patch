@@ -12,7 +12,7 @@ return {
     ["<h> Click to track </>"] = "<h> Нажмите, чтобы отслеживать </>",
     ["Point C Trigger"] = "Триггер точки C",
     ["[ManorSender:ReqBuyBuildingItem] 工坊只能单次购买一个, itemID: %s"] = "[ManorSender:ReqBuyBuildingItem] Одновременно для мастерской можно приобрести только один предмет, идентификатор предмета: %s.",
-    ["id :1234567890\nPlayer Name Seven Chars 123****0000"] = "id :1234567890\nИмя игрока семь символов 123****1abb",
+    ["id :1234567890\nPlayer Name Seven Chars 123****0000"] = "[Семь символов]",
     ["ring2 correction incoming trigger"] = "входящий триггер коррекции Ring2",
     ["“可怕的家伙，离我远一点！”"] = "«Ужасный парень, держись от меня подальше!»",
     ["Recently, <Highlight> bizarre cases have occurred frequently </> in Tingen. \n A citizen claimed that red mushrooms grew on their head. The vines in a wealthy man's conservatory grew wildly, strangling him on his gold-inlaid toilet... \n The police remind citizens that strange rumors are mostly hallucinations. If you encounter such events, please call the police immediately or go to the nearest church for help."] = "Recently, <Highlight> bizarre cases have occurred frequently </> in Тинген. \n A citizen claimed that red mushrooms grew on their head. The vines in a wealthy man's conservatory grew wildly, strangling him on his gold-inlaid toilet... \n The police remind citizens that strange rumors are mostly hallucinations. If you encounter such events, please call the police immediately or go to the nearest church for help.",

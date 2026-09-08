@@ -59,7 +59,7 @@ return {
     ["前往指定坐标交互并进入位面  玩家播放主线任务开始展示界面  "] = "Перейдите к указанной координате, чтобы взаимодействовать и войти в самолет; игрок играет в интерфейс отображения начала основного квеста.",
     ["Half an hour later..."] = "Полчаса спустя...",
     ["The great flood broke the levee in the south, and slingshots fly everywhere in the north."] = "Великое наводнение прорвало дамбу на юге, а на севере повсюду летают рогатки.",
-    ["Seer Acting\n(Find the correct Door)"] = "Seer Acting\n(Найди правильную дверь)",
+    ["Seer Acting\n(Find the correct Door)"] = "Seer Acting\n (Найдите правильную дверь)",
     ["Participate in the dungeon <Highlight>Tree of Abundance (Normal)</>. There is a chance to obtain the following appearances."] = "Примите участие в подземелье <Highlight>TДрево изобилия (Обычное)</>. Есть шанс получить следующие проявления.",
     ["双人·求婚"] = "Дуэт: Предложить",
     ["Canceling the auction will not refund the pounds you bid. Are you sure you want to cancel?"] = "Отмена аукциона не приведет к возврату заплаченной вами суммы в фунтах. Вы уверены, что хотите отменить?",

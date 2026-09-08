@@ -219,7 +219,7 @@ return {
     ["获得*d护盾"] = "Получите щит *d",
     ["Philip never argues with anyone. Why is he reacting so strongly today just because Wilson cursed at a Feynapotter woman?"] = "Филип никогда ни с кем не спорит. Почему он сегодня так резко реагирует только потому, что Уилсон обругал женщину Фейнапоттера?",
     ["A guard of the Church of the God of Steam and Machinery, who followed his master in rebelling against the church and hid in the darkness."] = "Страж церкви Бога пара и машин, который последовал за своим хозяином в восстании против церкви и скрылся во тьме.",
-    ["虽然和梅兰妮结婚之后，\n我真的非常爱她……"] = "Хотя после женитьбы на Мелани \nI искренне ее очень любил...",
+    ["虽然和梅兰妮结婚之后，\n我真的非常爱她……"] = "Хотя после женитьбы на Мелани \nI действительно очень ее любил...",
     ["Suitcase 2"] = "Чемодан b",
     ["The patterns on the robe are medals of glory and an undying obsession with battle."] = "Узоры на мантии — это медали славы и бессмертной одержимости битвой.",
     ["装饰花纹"] = "Декоративный узор",
@@ -273,5 +273,4 @@ return {
     ["（可选）和<h>班森</>聊聊"] = "(Необязательно) Пообщайтесь с <h>Бенсон</>.",
     ["(Surprised) Ms. \"Justice\"?"] = "(Удивленно) Мисс «Справедливость»?",
     ["(This man seems to have a clue but is unwilling to say it directly. Let me observe with Spirit Vision...)"] = "(Кажется, этот человек имеет представление, но не желает говорить об этом напрямую. Позвольте мне наблюдать с помощью Духовного Видения...)",
-    ["序列之路遵循\n妄图跨越者"] = "Путь Последовательности следует за \n теми, кто пытается превзойти",
 }

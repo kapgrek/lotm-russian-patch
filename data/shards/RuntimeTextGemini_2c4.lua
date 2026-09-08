@@ -143,7 +143,7 @@ return {
     ["杰德先生，请你去检查一下大门。"] = "Мистер Джейд, пожалуйста, проверьте главные ворота.",
     ["Melissa - 3 Star"] = "Мелисса - 3 звезды",
     ["武器橙75"] = "Оранжевое оружие bb",
-    ["The time of death was\nwhen the second knock sounded"] = "Время смерти \n, когда раздался второй стук.",
+    ["The time of death was\nwhen the second knock sounded"] = "Время смерти было \n, когда прозвучал второй стук.",
     ["Mana Part +2 Mana Recovery"] = "Часть маны +2 к восстановлению маны",
     ["Wave 3_Elite"] = "Волна 3_Элита",
     ["注意"] = "Внимание",
@@ -226,6 +226,4 @@ return {
     ["魅影·飞吻投递"] = "Призрак: Доставка воздушного поцелуя",
     ["鱼篓模型"] = "Модель рыбной корзины",
     ["Dark Devour"] = "Темное пожирание",
-    ["以诡秘之主的名义\n                      我们再次宣誓"] = "In the name of the Повелитель Тайн\n                      We swear again",
-    ["Besik Street\n<LeonSubTitle size=\"38\">Besik Street</>"] = "Улица Бесика\n<LeonSubTitle size=\"38\">Улица Бесика</>",
 }

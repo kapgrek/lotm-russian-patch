@@ -232,5 +232,4 @@ return {
     ["黑荆棘门口马车夫"] = "Кучер у подъезда Блэкторна",
     ["齿轮火漆·冒险"] = "Сургучная печать шестерни · Приключение",
     ["(Smiling) Rather than a chivalrous thief, your tone is more like a philosopher, kind soul."] = "(Улыбается) Ваш тон больше похож не на рыцарского вора, а на философа, добрую душу.",
-    ["奥尔斯纳街\n<LeonSubTitle size=\"38\">Osna Street</>"] = "Улица Ольсна\n<LeonSubTitle size=\"38\">Улица Осна</>",
 }

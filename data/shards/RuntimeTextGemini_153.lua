@@ -250,5 +250,4 @@ return {
     ["黑荆棘·阿诺德"] = "Чёрный Чертополох - Арнольд",
     ["Defaults to no swap."] = "По умолчанию нет обмена.",
     ["(That feeling of being watched hasn't disappeared. Can Beyonders really run faster than a carriage?)"] = "(Ощущение, что за вами наблюдают, не исчезло. Могут ли Потусторонние действительно бежать быстрее кареты?)",
-    ["Player name seven characters\n<LeonSubTitle size=\"18\">Workers are the foundation of the timesfoundation of the times</>"] = "Имя игрока семь персонажей\n<LeonSubTitle size=\"18\">Рабочие — основа времениоснова времени</>",
 }

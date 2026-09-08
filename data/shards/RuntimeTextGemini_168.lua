@@ -16,7 +16,7 @@ return {
     ["<Assistant_Title1>命运的深刻交织</>\n<Assistant_Title2>成就分类：</>休闲-趣味\n<Assistant_Title2>解锁条件：</>与任意一位人脉好感达到7级"] = "<Assistant_Title1>Deep Intertwining of Fate</>\n<Assistant_Title2>Категория достижений: </>LДосуг - развлечение\n<Assistant_Title2>Условие разблокировки: </>Достичь уровня благосклонности 7 при любом контакте",
     ["<ClubStar>Club</> Star"] = "<ClubStar>Club</> Звезда",
     ["<DecH>工艺：</>铂金镶嵌・海水珠\n自海上打捞的古老饰品。无论是精美的海珠和自然的纹理，似乎都在讲述“精灵”所在的那个古老而神秘的年代……"] = "<DecH> Ремесло: </> Платиновая вставка · Морской жемчуг \n Древние аксессуары, спасенные из моря. И изысканный морской жемчуг, и природные текстуры, кажется, рассказывают о той древней и загадочной эпохе, когда существовали «Эльфы»...",
-    ["<Fashion1>Style:</> Lakeside Style\n<Fashion1>Name:</><Fashion2>Dead Leaf Butterfly</>\n<Fashion1>Craft:</> Dark Pattern Spider Silk Georgette Gown\n<Fashion1>Description:</> A simple one or two-sentence introduction about the clothing"] = "<Fashion1>Стиль:</> Lakeside Style\n<Fashion1>Название:</><Fashion2>Бабочка из мертвых листьев</>\n<Fashion1>Ремесло:</> Шелковый жоржет паука с темным узором Платье\n<Fashion1>Описание:</> Простое введение в одно или два предложения об одежде.",
+    ["<Fashion1>Style:</> Lakeside Style\n<Fashion1>Name:</><Fashion2>Dead Leaf Butterfly</>\n<Fashion1>Craft:</> Dark Pattern Spider Silk Georgette Gown\n<Fashion1>Description:</> A simple one or two-sentence introduction about the clothing"] = "<Fashion1>Стиль:</> Стиль на берегу озера\n<Fashion1>Название:</><Fashion2>Бабочка из мертвых листьев</>\n<Fashion1>Craft:</> Платье из жоржета с темным узором из шелка и паука\n<Fashion1>Описание:</> Простое введение в одно или два предложения об одежде.",
     ["<Highlight> Craft: </> Crystal Gauze Crepe · Luminous Dotted · Floral Puffy Skirt \n Flowers and radiance invite you to join a feast that never ends."] = "<Highlight> Поделка: </> Хрустальный марлевый креп · Светящийся горошек · Пышная юбка с цветочным принтом \n Цветы и сияние приглашают вас присоединиться к празднику, который никогда не заканчивается.",
     ["<P_Heart>（……艾德的气场颜色的确显示他身患重疾啊……难道连他自己都不知道自己已经病危？）</>"] = "<P_Heart>(...Цвет ауры Эда действительно показывает, что он страдает серьезным заболеванием... может ли быть так, что даже он не знает, что он тяжело болен?)</>",
     ["<P_Heart> (The atmosphere has become so heavy...) </>"] = "<P_Heart> (Атмосфера стала такой тяжелой...) </>",
@@ -243,6 +243,4 @@ return {
     ["黛娜·"] = "Дина",
     ["(The script falls into a deathly silence, then speaks mechanically)"] = "(Сценарий погружается в гробовую тишину, затем говорит машинально)",
     ["Respected {Mr.{ Ms.|}}, you can take a long-distance carriage to Tingen Lake here!"] = "Уважаемый {{мистер|мисс}}, здесь вы можете сесть в междугородний экипаж до озера Тинген!",
-    ["知识皇冠的能力可以将具体事物瓦解为知识洪流\n而它的失踪地点很可能就在廷根"] = "Способность Короны Знаний может превращать конкретные объекты в Поток Знаний, \n, и место его исчезновения весьма вероятно в Тингене.",
-    ["黑手套首领\n胖子·卡拉彭"] = "Лидер «Черной перчатки»\nФатти Калапонг",
 }

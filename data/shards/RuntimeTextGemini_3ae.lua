@@ -240,5 +240,4 @@ return {
     ["(In the blink of an eye, so many years have passed. I miss it so much...)"] = "(В мгновение ока прошло столько лет. Мне так этого не хватает...)",
     ["（格挡）"] = "(Блокировать)",
     ["(Laughs) A sparrow wanting to become a phoenix? Stop reading those stale fairy tales."] = "(Смеется) Воробей, желающий стать фениксом? Хватит читать эти устаревшие сказки.",
-    ["Lily and Bonnie\nhad a meeting"] = "Лили и Бонни\n встретились",
 }

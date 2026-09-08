@@ -208,7 +208,7 @@ return {
     ["The face sleeping between the petals is the reflection of a soul."] = "Лицо, спящее между лепестками, – отражение души.",
     ["Hero - Drill - Lightning Beacon - Charge level display"] = "Герой - Дрель - Световой маяк - Отображение уровня заряда",
     ["Lydia—"] = "Лидия—",
-    ["Celeste is\na coward who fears spring"] = "Селеста — \n трусиха, которая боится весны.",
+    ["Celeste is\na coward who fears spring"] = "Селеста — \n трусиха, которая боится весны",
     ["Linus"] = "Линус",
     ["Gain Damage Reduction and Attack Speed."] = "Получите Снижение урона и скорость атаки.",
     ["萨斯利尔常驻buff"] = "Постоянное усиление Сасрира",
@@ -262,6 +262,4 @@ return {
     ["龟甲鳞秘"] = "Секрет черепашьего панциря",
     ["(Pointing to the side) This entire area is the same kind. Every year people come to pick them. Every year people die."] = "(Указывая в сторону) Вся эта территория такая же. Каждый год люди приходят их собирать. Каждый год люди умирают.",
     ["(After being possessed by spirit body threads) Hello..."] = "(После одержимости нитями духовного тела) Привет...",
-    ["Who can save me...\nSave me..."] = "Кто может спасти меня...\nСпасите меня...",
-    ["有10个黑影在9点飘到5个人的家里，\n6点3分2秒才四散开来"] = "10 черных теней вторглись в дома 5 человек в 9 часов,\n и не рассеялись до 6:03:02.",
 }

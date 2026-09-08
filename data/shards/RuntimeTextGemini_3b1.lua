@@ -244,5 +244,4 @@ return {
     ["A tall wooden frame with compartments for scrolls and books; the carved capitals reveal aristocratic preferences."] = "Высокая деревянная рама с отделениями для свитков и книг; резные капители свидетельствуют об аристократических предпочтениях.",
     ["(Their attitude toward death is so bizarre.)"] = "(Их отношение к смерти очень странное.)",
     ["(Inform that it will be sunny)"] = "(Сообщите, что будет солнечно)",
-    ["Black Glove leader\nFatty Kalapong"] = "Лидер «Черной перчатки»\nФатти Калапонг",
 }

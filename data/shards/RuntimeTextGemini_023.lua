@@ -211,5 +211,4 @@ return {
     ["Witch and Beast - Restroom and Ring"] = "Ведьма и Чудовище – Туалет и Кольцо",
     ["Black hair, deep blue eyes, a porcelain denture on the left side of his mouth, and a sapphire ring on his right hand."] = "Черные волосы, темно-синие глаза, фарфоровый протез на левой стороне рта и сапфировое кольцо на правой руке.",
     ["(Nods) He actually thought he had already stepped into high society."] = "(Кивает) Он действительно думал, что уже вошел в высшее общество.",
-    ["The tea in the cup\nis almost gone now"] = "Чай в чашке \n уже почти закончился",
 }

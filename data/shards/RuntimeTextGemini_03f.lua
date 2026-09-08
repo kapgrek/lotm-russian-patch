@@ -164,7 +164,7 @@ return {
     ["There's nothing more for now. You could try trading with other Beyonders."] = "Больше пока ничего нет. Вы можете попробовать торговать с другими Потусторонними.",
     ["有队员不在线。"] = "Член группы не в сети.",
     ["Pillow mesh (bottom)"] = "Подушка-сетка (дно)",
-    ["The branches are bare\nresilience returns"] = "Ветви голые\nвозврат устойчивости",
+    ["The branches are bare\nresilience returns"] = "Ветви голые. \n возвращает устойчивость.",
     ["柱子·透明"] = "Столб · Прозрачный",
     ["歌颂者逐日一段（有目标）"] = "Бард Охотник за Солнцем, уровень 1 (с целью)",
     ["Just Villain-3"] = "Просто злодей-3",

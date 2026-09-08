@@ -268,5 +268,4 @@ return {
     ["High-Mountain Flower"] = "Высокогорный цветок",
     ["Nasal tip"] = "Кончик носа",
     ["(It seems he cannot wake up for the time being; there might be a puzzle of knowledge around here.)"] = "(Похоже, он пока не может проснуться; здесь может быть загадка знаний.)",
-    ["Stepping into the shadow around that unknown corner, <P_Yellow>where</> did this poor prey go? <P_Yellow>When</> will the story reach its end?\nAnd <P_Yellow>who</> will arrive?"] = "Зайдя в тень за неизвестным углом, <P_Yellow>, куда </> пошла эта бедная добыча? <P_Yellow>Когда </> история подойдет к концу?\nИ <P_Yellow>Кто </> прибудет?",
 }

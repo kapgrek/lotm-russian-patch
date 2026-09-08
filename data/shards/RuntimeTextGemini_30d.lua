@@ -162,7 +162,7 @@ return {
     ["次日礼包"] = "Подарочный набор на второй день",
     ["残害？不不不……我只是把他们送入神明的怀抱。你们应该感谢我才对啊，哈哈哈！"] = "Жестокость? Нет-нет... Я просто отправляю их в объятия богов. Вы должны быть благодарны мне, ха-ха-ха!",
     ["Every <Highlight>20 progress</> grants 1 Growth Resource Chest. Opening it randomly grants one piece of <Highlight>62 Gear Level</> orange or gold quality equipment, as well as a Contract of Trade that can be exchanged at the <Highlight>Trading Bazaar</> for <Highlight>Tradable Gear Level</> items, <Highlight>Tradable</> Orange Beyonder Equipment Chests, Gray Fog Dust Boxes, Gray Fog Crystal Boxes, Gold Thread, Beyonder material, medicine, food, etc."] = "Каждый прогресс <Highlight>20</> дает 1 сундук ресурсов роста. Открыв его случайным образом, вы получите одну часть снаряжения <Highlight>62 уровня снаряжения </> оранжевого или золотого качества, а также торговый контракт, который можно обменять на торговой ярмарке <Highlight>Trading</> на предметы <Highlight>Tторгуемого уровня снаряжения</>, <Highlight>Tradable</> сундуки с снаряжением оранжевого Потусторонний, ящики с пылью серого тумана, ящики с серыми кристаллами тумана, золотую нить, материал Потусторонний, лекарства, еда и т. д.",
-    ["The data in every row has been crossed out; most likely, the money and goods have long since changed hands. \n<P_Yellow>(Obtained a clue and placed it in the Inventory: Old Sales Record)</>"] = "Данные в каждой строке зачеркнуты; скорее всего, деньги и товар уже давно перешли из рук в руки. \n<P_Yellow> (получил подсказку и поместил ее в инвентарь: старая запись о продажах) </>",
+    ["The data in every row has been crossed out; most likely, the money and goods have long since changed hands. \n<P_Yellow>(Obtained a clue and placed it in the Inventory: Old Sales Record)</>"] = "Каждая строка данных была перечеркнута; кажется, оплата и товары были оплачены давно.\n<P_Yellow>(Подсказка получена и добавлена ​​в рюкзак: Старая запись о продажах)</>",
     ["污染的"] = "Испорченный",
     ["Filthy Spear has been revived! Break it in time!"] = "Грязное Копье возрождено! Разбейте его вовремя!",
     ["沙利亚特"] = "Сариат",
@@ -243,5 +243,4 @@ return {
     ["风波平息后，我们回廷根到处打听，<P_Heart>（叹气）</>可他就像蒸发了一样……"] = "После того, как буря утихла, мы вернулись в Тинген, чтобы поспрашивать повсюду, <P_Heart> (вздыхает) </>, но он был словно испарился...",
     ["餐厅谨慎工人2"] = "Осторожный работник ресторана b",
     ["(Looking up) Haha, I've caught you too! I'm going to hide you away!"] = "(Глядя вверх) Хаха, я тебя тоже поймал! Я собираюсь спрятать тебя!",
-    ["请尽情地\n向我展现"] = "Пожалуйста, покажите мне \n, сколько душе угодно.",
 }

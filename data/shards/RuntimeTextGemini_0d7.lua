@@ -245,5 +245,4 @@ return {
     ["delicious"] = "вкусный",
     ["Rapport Value"] = "Значение раппорта",
     ["(A beautiful melody drifts through the air...)"] = "(В воздухе плывет красивая мелодия...)",
-    ["Wash your hands and face often,\nand don't litter!"] = "Чаще мойте руки и лицо,\n и не мусорите!",
 }

@@ -219,7 +219,7 @@ return {
     ["邦尼的残影消散，等待下一次浮现。"] = "Остаточное изображение Бонни рассеивается, ожидая следующего появления.",
     ["重新附身“培根”"] = "Повторно завладеть «Беконом»",
     ["重置设置"] = "Сбросить настройки",
-    ["Golden Wolf waved his hand, and thousands of people in the audience stood up at once. \n The puppet strings were already tightened around their throats. \n Those who stood up were no longer human. \n \"If you want safety, hand your consciousness over to me, \n this is a win-win deal.\""] = "Золотой Волк махнул рукой, и тысячи людей в зале одновременно встали. \n Кукольные ниточки уже были натянуты на их горлах. \n Те, кто встал, уже не были людьми. \n «Если хочешь безопасности, передай мне свое сознание, \n, это беспроигрышная сделка».",
+    ["Golden Wolf waved his hand, and thousands of people in the audience stood up at once. \n The puppet strings were already tightened around their throats. \n Those who stood up were no longer human. \n \"If you want safety, hand your consciousness over to me, \n this is a win-win deal.\""] = "Золотой Волк махнул рукой, и тысячи людей в зале одновременно встали. \n Кукольные ниточки уже были натянуты на их горлах. \n Те, кто встал, уже не были людьми. \n «Если тебе нужна безопасность, передай мне свое сознание, \n, это беспроигрышная сделка».",
     ["队友四"] = "Товарищ по команде b",
     ["Azik Close-up"] = "Азик крупным планом",
     ["Aya "] = "Ая",

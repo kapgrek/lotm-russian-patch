@@ -261,5 +261,4 @@ return {
     ["魔术卡牌"] = "Волшебная карта",
     ["Brass Book Teleport Trap Filter Marionette"] = "Латунная книга Телепорт-ловушка-фильтр-марионетка",
     ["(Pete is gone... need to organize the items he left behind.)"] = "(Пит ушел... нужно разобраться с вещами, которые он оставил.)",
-    ["轻易地\n放过你了"] = "Легко\nотпустит тебя",
 }

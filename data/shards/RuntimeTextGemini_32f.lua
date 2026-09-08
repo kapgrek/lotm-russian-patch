@@ -256,5 +256,4 @@ return {
     ["Antler Impact"] = "Влияние рога",
     ["黑镜"] = "Черное зеркало",
     ["默认接受"] = "Принять по умолчанию",
-    ["All players receive a <FaintYellow>God of Combat buff</>\nLose <FaintYellow>5%</> Health every <FaintYellow>X</> seconds, lasting for <FaintYellow>X</> seconds\nLose <FaintYellow>5%</> Health every <FaintYellow>X</> seconds, lasting for <FaintYellow>X</> seconds"] = "Все игроки получают усиление <FaintYellow>Бог Битвы</>.\nПотеря <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.\nПотеря <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.",
 }

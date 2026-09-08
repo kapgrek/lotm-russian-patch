@@ -248,5 +248,4 @@ return {
     ["Accumulate 5 stacks of Golden Might to deal bulletdisc(*id) damage to a single target."] = "Накопив 5 уровней Золотого могущества, наносит bulletdisc(*id) ед. урона одиночной цели.",
     ["Dark Sacrifice"] = "Темная жертва",
     ["Black Emperor Flag 5"] = "Флаг Черного Императора b",
-    ["I don't know what happened that day, but she seemed exceptionally beautiful...\nIt was as if she were waiting for me..."] = "Не знаю, что произошло в тот день, но она казалась необыкновенно красивой... \n Она как будто ждала меня...",
 }

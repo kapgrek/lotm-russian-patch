@@ -163,7 +163,7 @@ return {
     ["Command"] = "Команда",
     ["挡路5"] = "Блокировка b",
     ["捡起"] = "Подобрать",
-    ["Master Astrology, Card divination, pendulum spirit vision, and similar divination abilities.\nMaster Astrology, Card divination, pendulum spirit vision, and similar divination abilities."] = "Мастер астрологии, карточное гадание, духовное видение маятника и подобные способности гадания. \nМастерская астрология, карточное гадание, духовное видение маятника и подобные способности гадания.",
+    ["Master Astrology, Card divination, pendulum spirit vision, and similar divination abilities.\nMaster Astrology, Card divination, pendulum spirit vision, and similar divination abilities."] = "Мастер астрологии, карточное гадание, духовное видение маятника и аналогичные способности гадания.\nМастер астрологии, карточное гадание, духовное видение маятника и аналогичные способности гадания.",
     ["Put it back..."] = "Положи обратно...",
     ["Help! I just finished organizing the receipts in order!"] = "Помощь! Я только что закончила расставлять квитанции по порядку!",
     ["教团属性怎么加"] = "Как добавить атрибуты заказа",
@@ -262,4 +262,5 @@ return {
     ["魔法穿刺_百分比加成"] = "Магический пирсинг_Процентный бонус",
     ["黄色结实耐骑，齿轮传动特别顺畅，经得起工厂区那些石板路颠簸。蒸汽与机械之神教会的工匠亲自监制，质量最有保证！"] = "Желтый, прочный и удобный в управлении, коробка передач особенно плавна и выдерживает неровности каменных дорог в заводском районе. Качество гарантировано под контролем мастеров церкви Бога пара и машин!",
     ["(Viciously) Leave immediately, or you will be buried here forever."] = "(Злобно) Уходите немедленно, или вы будете похоронены здесь навсегда.",
+    ["If this could be combined with other things, things should become clear...\n<P_Yellow>(Obtained clue and added to inventory: Magical Item Order Letter)</>"] = "Если объединить это с другими вещами, всё должно проясниться...\n<P_Yellow>(Получена зацепка и добавлена в сумку: Письмо с заказом магического предмета)</>",
 }

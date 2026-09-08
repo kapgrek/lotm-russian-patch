@@ -232,5 +232,4 @@ return {
     ["鼓风机右"] = "Вентилятор правый",
     ["(The voice has gotten a bit louder; it seems I'm heading in the right direction.)"] = "(Голос стал немного громче; кажется, я иду в правильном направлении.)",
     ["(After lighting one lamp, there is still another...)"] = "(После зажжения одной лампы появляется еще одна...)",
-    ["Dear Niel:\nI still want to..."] = "Дорогой Ниэль: \n, я все еще хочу...",
 }

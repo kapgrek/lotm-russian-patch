@@ -127,7 +127,7 @@ return {
     ["接取任务溶解"] = "Раствориться после принятия квеста",
     ["搜索好友..."] = "Найти друга...",
     ["Quantity: %s"] = "Количество: %s",
-    ["Basic text description 999\nBasic text description, such as Damage Increased, Beyonder base damage increased, etc. Basic text description, such as Damage Increased, Beyonder base damage increased, etc. Basic text description, such as Damage Increased, Beyonder base dam"] = "Базовое текстовое описание 999\nБазовое текстовое описание, например «Увеличение урона», «Увеличение базового урона Потусторонний» и т. д. Базовое текстовое описание, например «Увеличение урона», «Увеличение базового урона Потусторонний» и т. д. Базовое текстовое описание, например «Увеличение урона», «Базовая плотина Потусторонний»",
+    ["Basic text description 999\nBasic text description, such as Damage Increased, Beyonder base damage increased, etc. Basic text description, such as Damage Increased, Beyonder base damage increased, etc. Basic text description, such as Damage Increased, Beyonder base dam"] = "Базовое текстовое описание 999\nБазовое текстовое описание, такое как увеличение урона, увеличение базового урона Потусторонний и т. д. Базовое текстовое описание, например увеличение урона, увеличение базового урона Потусторонний и т. д. Базовое текстовое описание, например увеличение урона, базовая плотина Потусторонний.",
     ["By the glory of the Schneider family, for the Goddess, I must defeat you!"] = "Во славу семьи Шнайдер, во имя Богини, я должен победить тебя!",
     ["明白，今晚交给我，你早些回去休息。"] = "Понял, оставь сегодня вечером мне. Ты идешь домой и рано отдыхаешь.",
     ["是的！我们马上就要在女神的注视下步入婚姻了！"] = "Да! Мы собираемся вступить в брак под пристальным взглядом Богини!",
@@ -227,5 +227,4 @@ return {
     ["Potion Material Chest"] = "Сундук с материалами для зелий",
     ["Black Thorn Event 3-Rock King-Tracking Mark-Randomly Take 1 Non-T Player"] = "Событие Black Thorn 3-Rock King-Mark Tracking Mark-случайно возьмите 1 игрока, не являющегося игроком T",
     ["（看向玩家） 这位{{先生|女士}}，你也是来做义工的吗？"] = "(Смотрит на плеер) Этот {{gentleman|lady}}, ты тоже здесь добровольцем?",
-    ["莎莉丝特是\n言而无信的恋人"] = "Селеста — \n — неверная любовница.",
 }

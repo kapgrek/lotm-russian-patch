@@ -127,7 +127,7 @@ return {
     ["I don't seem to be able to feel my hands... save me!"] = "Кажется, я не чувствую своих рук... спасите меня!",
     ["我第一次见他说那么多话……后来，他被炮弹炸毁了右手，再也没法拿笔了。"] = "Я впервые слышал, чтобы он так много говорил... Позже снарядом ему оторвало правую руку, и он больше никогда не мог держать ручку.",
     ["The battle is at a stalemate, Beyonder pathway suppression attributes further increased!"] = "Битва зашла в тупик, атрибуты подавления пути Потустороннего еще больше усилились!",
-    ["All players receive a <FaintYellow>God of Combat buff</>\nLose <FaintYellow>5%</> Health every <FaintYellow>X</> seconds, lasting for <FaintYellow>X</> seconds\nLose <FaintYellow>5%</> Health every <FaintYellow>X</> seconds, lasting for <FaintYellow>X</> seconds"] = "Все игроки получают усиление <FaintYellow>God of Combat</>\nПотерять <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительностью <FaintYellow>X</> секунд\nПотерять <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.",
+    ["All players receive a <FaintYellow>God of Combat buff</>\nLose <FaintYellow>5%</> Health every <FaintYellow>X</> seconds, lasting for <FaintYellow>X</> seconds\nLose <FaintYellow>5%</> Health every <FaintYellow>X</> seconds, lasting for <FaintYellow>X</> seconds"] = "Все игроки получают усиление <FaintYellow>Бог Битвы</>.\nПотеря <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.\nПотеря <FaintYellow>5%</> здоровья каждые <FaintYellow>X</> секунд, длительность <FaintYellow>X</> секунд.",
     ["打印水管连通状态"] = "Распечатать состояние подключения водопровода",
     ["The King of Yellow and Black who holds good luck..."] = "Король желтого и черного, приносящий удачу...",
     ["Ladi"] = "Лади",
@@ -241,5 +241,4 @@ return {
     ["The spirit of a knight cannot be tarnished!"] = "Дух рыцаря не запятнать!",
     ["魅影余香"] = "Призрачный аромат",
     ["Black and White Flash Post-Effect"] = "Пост-эффект черно-белой вспышки",
-    ["Baby, Mommy and Daddy are going to the factory.\nWait for us to come back with Lumi, don't be afraid."] = "Малыш, мама и папа собираются на фабрику.\nПодожди, пока мы вернемся с Люми, не бойся.",
 }

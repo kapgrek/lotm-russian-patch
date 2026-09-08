@@ -295,5 +295,4 @@ return {
     ["Mouse Hover Skill Target Selection Instructions"] = "Инструкции по выбору цели навыка «Наведение мыши»",
     ["(Contemplating) This crisis also involves knowledge and Emperor Roselle, so I think I can guess the identity of that lady."] = "(Размышляя) Этот кризис также затрагивает знания и императора Розеллу, так что я думаю, что могу догадаться, кто эта женщина.",
     ["(Damn it! I was almost killed because of him, why should I still care about him?)"] = "(Черт побери! Меня чуть не убили из-за него, почему я должен до сих пор заботиться о нем?)",
-    ["谁来救救我……\n救救我……"] = "Кто может спасти меня...\nСпасите меня...",
 }

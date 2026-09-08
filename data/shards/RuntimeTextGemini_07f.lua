@@ -179,7 +179,7 @@ return {
     ["物质激励"] = "Материальное стимулирование",
     ["Now I need... the compilation of scriptures and oracles of the orthodox churches of the Fifth Epoch."] = "Теперь мне нужен... сборник писаний и прорицаний православных церквей Пятой Эпохи.",
     ["生效期限: %d站"] = "Дата истечения срока действия: Станция %d",
-    ["Use Spirit Vision to find the special tea\n"] = "Используйте Spirit Vision, чтобы найти особый чай\n",
+    ["Use Spirit Vision to find the special tea\n"] = "Используйте Spirit Vision, чтобы найти особый чай\n.",
     ["Utility Pole 10"] = "Вспомогательный столб bb",
     ["破盾还需%s金币"] = "Для разрушения щита требуются золотые монеты %s.",
     ["Rare Spirit Line"] = "Редкая линия духа",

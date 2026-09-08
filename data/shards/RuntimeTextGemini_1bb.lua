@@ -183,7 +183,7 @@ return {
     ["灼烧层数"] = "Запись стеков",
     ["热情"] = "восторженный",
     ["Tower Climbing"] = "Восхождение на башню",
-    ["Love is always accompanied by pain,\nwho would you rather see get hurt?"] = "Любовь всегда сопровождается болью,\nкого бы ты хотел, чтобы ему причинили боль?",
+    ["Love is always accompanied by pain,\nwho would you rather see get hurt?"] = "Любовь всегда сопровождается болью, \n, кого бы вы предпочли, чтобы ему причинили боль?",
     ["Pastor, please forgive me, it's not that my respect for the Goddess is... uh... it's just... if I donate ten pounds less, will the Goddess reduce Her gaze upon me?"] = "Пастор, пожалуйста, простите меня, дело не в том, что я уважаю Богиню... э-э... просто... если я пожертвую на десять фунтов меньше, Богиня перестанет смотреть на меня?",
     ["Effect_magic circle"] = "Эффект_магический круг",
     ["Obtained from special events"] = "Получено в ходе особых событий",
