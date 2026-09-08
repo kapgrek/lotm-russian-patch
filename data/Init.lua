@@ -7574,15 +7574,34 @@ local function installShortMenuLabels(value, environment)
         local menuData = menuId and Game and Game.TableData and Game.TableData.GetMenuDataRow(menuId)
         local label = menuData and shortMenuLabels[menuData.ButtonEnum]
         if label and self.view then
-            -- KGTextBlock can repaint its serialized long translation after
-            -- OnRefresh. Persist the compact value in both the widget property
-            -- and the live Slate text so later menu refreshes cannot restore it.
             runtimeFixes.setNamedWidgetText(self.view, "Text_Name", label)
+            pcall(function()
+                local textWidget = getNamedWidget(self.view, "Text_Name")
+                if textWidget then
+                    local font = textWidget.GetFont and textWidget:GetFont() or textWidget.Font
+                    if font then
+                        font.LetterSpacing = -150
+                        local byteLen = #label
+                        if byteLen > 14 then
+                            font.Size = 11
+                        elseif byteLen > 10 then
+                            font.Size = 12
+                        else
+                            font.Size = 13
+                        end
+                        if textWidget.SetFont then
+                            textWidget:SetFont(font)
+                        else
+                            textWidget.Font = font
+                        end
+                    end
+                end
+            end)
         end
         return unpack(results)
     end
     class.__cpddShortMenuLabels = true
-    report("installed compact English menu labels")
+    report("installed compact Russian menu labels")
     return true
 end
 
