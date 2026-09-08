@@ -161,7 +161,7 @@ return {
     ["A gaze that pierces the heart, leaving secrets with nowhere to hide."] = "Взгляд, пронзающий сердце, оставляющий тайны, которые некуда спрятать.",
     ["测试日志性能"] = "Тестирование производительности журнала",
     ["Matches... sob..."] = "Спички... рыдание...",
-    ["Matchstick Listening 2"] = "Прослушивание спичек b",
+    ["Matchstick Listening 2"] = "Прослушивание спичек 2",
     ["照顾·二"] = "Уход · Два",
     ["Hound Performance Decoration Butler"] = "Дворецкий по оформлению выступлений Hounb",
     ["Pork"] = "Свинина",

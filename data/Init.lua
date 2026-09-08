@@ -1,6 +1,6 @@
 local Loader = assert(LOMModLoader, "LOMModLoader is required")
 
-local VERSION = "2.0.1"
+local VERSION = "2.0.2"
 local CIRCUIT_BREAKER_TIPS_ID = 6427242
 local CIRCUIT_BREAKER_TEXT = "If the server is too crowded, it will enter a circuit-breaker state, temporarily preventing new accounts that have not created a character on the current server from queuing. Please choose another server that is not under a circuit-breaker to experience the game."
 
@@ -1896,49 +1896,6 @@ local function translateVisibleText(value)
     return result
 end
 
-runtimeFixes.applyTargetedButtonSpacing = function(widget, targetSize)
-    if widget == nil then return end
-    pcall(function()
-        local wText = ""
-        if widget.GetText ~= nil then
-            local t = widget:GetText()
-            wText = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
-        end
-        if wText == "" and widget.Text ~= nil then
-            local t = widget.Text
-            wText = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
-        end
-        if wText == "" and widget.GetPlainText ~= nil then
-            local t = widget:GetPlainText()
-            wText = type(t) == "string" and t or (t ~= nil and tostring(t) or "")
-        end
-        if wText ~= "" and wText:find("[\208\209]") then
-            local font = widget.GetFont and widget:GetFont() or widget.Font
-            if font == nil and widget.DefaultTextStyleOverride ~= nil and widget.DefaultTextStyleOverride.Font ~= nil then
-                font = widget.DefaultTextStyleOverride.Font
-            end
-            if font then
-                font.LetterSpacing = -150
-                if targetSize ~= nil then
-                    local currentSize = tonumber(font.Size) or 18
-                    font.Size = math.min(currentSize, targetSize)
-                end
-                if widget.SetFont then
-                    widget:SetFont(font)
-                else
-                    widget.Font = font
-                end
-                if widget.SynchronizeProperties ~= nil then
-                    widget:SynchronizeProperties()
-                end
-                if widget.InvalidateLayoutAndVolatility ~= nil then
-                    widget:InvalidateLayoutAndVolatility()
-                end
-            end
-        end
-    end)
-end
-
 local function translateTextWidget(widget, discoveryContext)
     if widget == nil then
         return 0
@@ -1982,41 +1939,6 @@ local function translateTextWidget(widget, discoveryContext)
             end
         end)
         repairedCount = changed and 1 or 0
-    end
-
-    local activeText = (translated ~= currentText and translated) or currentText
-    if activeText and activeText:find("[\208\209]") then
-        local isTargeted = false
-        if widgetName:find("Btn") or widgetName:find("Button") or widgetName:find("Tab")
-            or widgetName:find("Title") or widgetName:find("Server") or widgetName:find("Skip")
-            or widgetName:find("Review") or widgetName:find("Tag") or widgetName:find("Word")
-            or widgetName:find("Category")
-        then
-            isTargeted = true
-        else
-            pcall(function()
-                local parent = widget.GetParent and widget:GetParent()
-                if parent ~= nil then
-                    local pName = tostring(parent:GetName())
-                    if pName:find("Btn") or pName:find("Button") or pName:find("Tab")
-                        or pName:find("Title") or pName:find("Server") or pName:find("Skip")
-                        or pName:find("Review") or pName:find("Category")
-                    then
-                        isTargeted = true
-                    end
-                end
-            end)
-        end
-        if isTargeted then
-            local targetSize = nil
-            local charLen = #activeText
-            if (widgetName:find("Tab") or widgetName:find("Category") or widgetName:find("Tag")) and charLen > 14 then
-                targetSize = 11
-            elseif (widgetName:find("Tab") or widgetName:find("Category") or widgetName:find("Tag")) and charLen > 10 then
-                targetSize = 12
-            end
-            runtimeFixes.applyTargetedButtonSpacing(widget, targetSize)
-        end
     end
 
     return repairedCount
@@ -2796,16 +2718,20 @@ local function repairLiveValue(tableName, rowKey, fieldPath, value, depth, seen,
             maxDepth
         )
         if repaired ~= child then
-            if output == value then
-                output = {}
-                for _, originalEntry in ipairs(entries) do
-                    output[originalEntry[1]] = originalEntry[2]
-                end
-                if valueType == "table" then
+            if valueType == "userdata" then
+                pcall(function()
+                    value[field] = repaired
+                end)
+            else
+                if output == value then
+                    output = {}
+                    for _, originalEntry in ipairs(entries) do
+                        output[originalEntry[1]] = originalEntry[2]
+                    end
                     setmetatable(output, getmetatable(value))
                 end
+                output[field] = repaired
             end
-            output[field] = repaired
         end
     end
     return output
@@ -3222,7 +3148,6 @@ local generatedRowRepairAllowlist = {
     "GetSealedInfoDataRow",
     "GetMythicGlobalDataRow",
     "GetXtraMatNameRuleDataRow",
-    "GetDungeonRewardDataRow",
     "GetNpcInfoDataRow",
     "GetNickNameLibDataRow",
     "GetCommonInteractorActionDataRow",
@@ -5012,18 +4937,6 @@ local function setLayeredDialogueLabel(owner, text)
     -- left behind when the component refreshes.
     translateViewTextWidgets(nil, owner)
 
-    if runtimeFixes and runtimeFixes.applyTargetedButtonSpacing then
-        runtimeFixes.applyTargetedButtonSpacing(owner)
-        for _, fieldName in ipairs({ "Text_lua", "Text2_lua" }) do
-            pcall(function()
-                local widget = owner[fieldName]
-                if widget ~= nil then
-                    runtimeFixes.applyTargetedButtonSpacing(widget)
-                end
-            end)
-        end
-    end
-
     return changed
 end
 
@@ -5049,17 +4962,6 @@ runtimeFixes.setNamedWidgetText = function(owner, widgetName, text)
         widget.Text = text
     end)
     changed = changed or propertyOk
-
-    if type(text) == "string" and text:find("[\208\209]") then
-        if widgetName:find("Name") or widgetName:find("Title") or widgetName:find("Tag")
-            or widgetName:find("Word") or widgetName:find("Btn") or widgetName:find("Button")
-            or widgetName:find("Tab") or widgetName:find("Server")
-        then
-            if runtimeFixes and runtimeFixes.applyTargetedButtonSpacing then
-                runtimeFixes.applyTargetedButtonSpacing(widget)
-            end
-        end
-    end
 
     pcall(function()
         if widget.SynchronizeProperties ~= nil then
@@ -5323,8 +5225,7 @@ runtimeFixes.repairSequencePromotionPanelButtons = function(self)
     end
     local changed = pcall(function()
         local currentSize = tonumber(font.Size) or 18
-        font.Size = math.min(currentSize, 14)
-        font.LetterSpacing = -150
+        font.Size = math.min(currentSize, 18)
         widget.Font = font
         if widget.SetFont ~= nil then widget:SetFont(font) end
         if widget.SynchronizeProperties ~= nil then widget:SynchronizeProperties() end
@@ -6086,9 +5987,6 @@ local function repairDialoguePanelLabels(self)
     end
 
     setLayeredDialogueLabel(view.WBP_NPCReviewBtn, "Review")
-    if runtimeFixes and runtimeFixes.applyTargetedButtonSpacing then
-        runtimeFixes.applyTargetedButtonSpacing(view.WBP_NPCReviewBtn)
-    end
 
     local skipOwner = view.WBP_Skip
     if skipOwner ~= nil then
@@ -6097,9 +5995,6 @@ local function repairDialoguePanelLabels(self)
         end)
         local target = ok and nested or skipOwner
         setLayeredDialogueLabel(target, "Skip")
-        if runtimeFixes and runtimeFixes.applyTargetedButtonSpacing then
-            runtimeFixes.applyTargetedButtonSpacing(target)
-        end
     end
 end
 
@@ -6109,9 +6004,6 @@ local function repairDialogueSkipLabels(self)
         return
     end
     setLayeredDialogueLabel(view.WBP_NPCBtnText_lua, "Skip")
-    if runtimeFixes and runtimeFixes.applyTargetedButtonSpacing then
-        runtimeFixes.applyTargetedButtonSpacing(view.WBP_NPCBtnText_lua)
-    end
 end
 
 local function installDialogueControlRepair(value, environment, symbolName, methodNames, repair, source)
@@ -6870,27 +6762,17 @@ local exactWidgetRepairSpecs = {
         { "OnRefresh" },
         function(self)
             local view = self and self.view
-            local w1 = getNamedWidget(view, "Server_Name_Text")
-            local w2 = getNamedWidget(view, "Server_Name_Text1")
-            translateTextWidget(w1)
-            translateTextWidget(w2)
-            if runtimeFixes and runtimeFixes.applyTargetedButtonSpacing then
-                runtimeFixes.applyTargetedButtonSpacing(w1)
-                runtimeFixes.applyTargetedButtonSpacing(w2)
-            end
+            translateTextWidget(getNamedWidget(view, "Server_Name_Text"))
+            translateTextWidget(getNamedWidget(view, "Server_Name_Text1"))
         end,
         true,
     },
     {
         "Gameplay.LogicSystem.Login.LoginPanel",
         "LoginPanel",
-        { "setServerInfoUI", "InitUIView", "OnRefresh" },
+        { "setServerInfoUI" },
         function(self)
-            local w = getNamedWidget(self and self.view, "Text_ServerName")
-            translateTextWidget(w)
-            if runtimeFixes and runtimeFixes.applyTargetedButtonSpacing then
-                runtimeFixes.applyTargetedButtonSpacing(w)
-            end
+            translateTextWidget(getNamedWidget(self and self.view, "Text_ServerName"))
         end,
         true,
     },
@@ -7699,39 +7581,10 @@ local function installShortMenuLabels(value, environment)
         local menuData = menuId and Game and Game.TableData and Game.TableData.GetMenuDataRow(menuId)
         local label = menuData and shortMenuLabels[menuData.ButtonEnum]
         if label and self.view then
+            -- KGTextBlock can repaint its serialized long translation after
+            -- OnRefresh. Persist the compact value in both the widget property
+            -- and the live Slate text so later menu refreshes cannot restore it.
             runtimeFixes.setNamedWidgetText(self.view, "Text_Name", label)
-            local textWidget = getNamedWidget(self.view, "Text_Name")
-                or getNamedWidget(self and (self.userWidget or self.widget), "Text_Name")
-            if textWidget then
-                pcall(function()
-                    local font = textWidget.GetFont and textWidget:GetFont() or textWidget.Font
-                    if font == nil and textWidget.DefaultTextStyleOverride ~= nil and textWidget.DefaultTextStyleOverride.Font ~= nil then
-                        font = textWidget.DefaultTextStyleOverride.Font
-                    end
-                    if font then
-                        font.LetterSpacing = -150
-                        local byteLen = #label
-                        if byteLen > 14 then -- Для длинных фраз ("Артефакты" = 18 байт)
-                            font.Size = 11
-                        elseif byteLen > 10 then -- Для средних фраз ("Навыки", "Данжи" = 12 байт)
-                            font.Size = 12
-                        else -- Для коротких фраз ("Стиль", "Тьма" = 8-10 байт)
-                            font.Size = 13
-                        end
-                        if textWidget.SetFont then
-                            textWidget:SetFont(font)
-                        else
-                            textWidget.Font = font
-                        end
-                        if textWidget.SynchronizeProperties ~= nil then
-                            textWidget:SynchronizeProperties()
-                        end
-                        if textWidget.InvalidateLayoutAndVolatility ~= nil then
-                            textWidget:InvalidateLayoutAndVolatility()
-                        end
-                    end
-                end)
-            end
         end
         return unpack(results)
     end

@@ -164,7 +164,7 @@ return {
     ["Xue Jingyu"] = "Сюэ Цзинъюй",
     ["Hypocritical husband"] = "Лицемерный муж",
     ["Ma-Manager Cecelia! I can't keep measuring, she doesn't even blink!"] = "Ма-менеджер Сесилия! Я не могу продолжать измерения, она даже не моргает!",
-    ["Southwest 6"] = "Юго-Запад b",
+    ["Southwest 6"] = "Юго-Запад 6",
     ["Want to rent an apartment? Believe it or not, I have to say, this is the most cost-effective place to rent in Tingen."] = "Хотите снять квартиру? Хотите верьте, хотите нет, но я должен сказать, что это самое экономичное место для аренды в Тингене.",
     ["覆裙裙片"] = "Верхняя юбка",
     ["Observe Sanity"] = "Соблюдайте здравомыслие",

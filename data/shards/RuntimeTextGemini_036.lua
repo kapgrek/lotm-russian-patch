@@ -162,7 +162,7 @@ return {
     ["Grasp of Death."] = "Хватка смерти.",
     ["每周六15：00刷新"] = "Обновление каждую субботу в 15:00.",
     ["It's much better than you racking your brains and not being able to come up with a new poem! I'm talking seriously!"] = "Это гораздо лучше, чем ломать голову и не придумать нового стихотворения! Я говорю серьёзно!",
-    ["Atmosphere flag 2"] = "Флаг атмосферы b",
+    ["Atmosphere flag 2"] = "Флаг атмосферы 2",
     ["汪汪汪汪汪！汪！"] = "Гав-гав-гав-гав-гав! Гав!",
     ["Haven't been there"] = "не был там",
     ["泡泡"] = "Пузырь",

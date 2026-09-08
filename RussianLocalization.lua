@@ -2,7 +2,7 @@
 -- Developed for LOM Mod Loader
 local Russian = {
     Enabled = true,
-    Version = "2.0.1",
+    Version = "2.0.2",
 }
 
 -- Названия вкладок главного меню и навигации (компактные для предотвращения переполнения сетки)
